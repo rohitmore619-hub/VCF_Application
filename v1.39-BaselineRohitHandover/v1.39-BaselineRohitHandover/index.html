@@ -878,15 +878,15 @@ html body #v102ExecutiveDecisionView .v119DecisionRail .v117SummaryPanel .v115Se
   <section class="card v082PreflightCard">
     <div class="cardHeader"><h3>Assessment files</h3><span id="v082NewGateStatus" class="pill neutral">Waiting for files</span></div>
     <div class="cardBody">
-      <div class="notice"><b>Required (v1.40):</b> select the Canonical Model (CN v0.3 JSON) and the assessment KB workbooks. The app validates CN structure (12 areas, stable Functionality IDs) and detects VCF KBs and comparator KBs from the loaded KB set before Assessment Basics.</div>
+      <div class="notice"><b>Required (v1.40):</b> select the Canonical Model workbook (CN <code>.xlsx</code>) and the assessment KB workbooks. The app validates CN structure (12 areas, stable Functionality IDs) and detects VCF KBs and comparator KBs from the loaded KB set before Assessment Basics.</div>
       <div class="v082UploadGrid v140UploadGridCnKb">
         <div class="v082UploadBox v140CnBox">
-          <h4>1. Canonical Model (CN v0.3)</h4>
-          <p>Upload the approved CN JSON (for example <code>CN_v0.3_Canonical_Capability_Model.json</code>). This locks the workshop syllabus and Functionality IDs.</p>
+          <h4>1. Canonical Model (CN Excel)</h4>
+          <p>Upload the approved CN workbook (for example <code>CN_v0.3_Canonical_Capability_Model.xlsx</code>). This locks the workshop syllabus and Functionality IDs.</p>
           <div class="btnRow">
             <button type="button" class="btn magenta" onclick="v082Click('v140NewCnFile')">Select CN File</button>
           </div>
-          <input id="v140NewCnFile" type="file" accept="application/json,.json" class="hidden" onchange="handleV140CnInput('new',this.files)">
+          <input id="v140NewCnFile" type="file" accept=".xlsx,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" class="hidden" onchange="handleV140CnInput('new',this.files)">
           <div id="v140NewCnStatus" class="v082UploadStatus">No CN file selected.</div>
         </div>
         <div class="v082UploadBox v084FolderBox">
@@ -919,7 +919,7 @@ html body #v102ExecutiveDecisionView .v119DecisionRail .v117SummaryPanel .v115Se
   <section class="card v082PreflightCard">
     <div class="cardHeader"><h3>Resume file and assessment files</h3><span id="v082ResumeGateStatus" class="pill neutral">Waiting for files</span></div>
     <div class="cardBody">
-      <div class="notice"><b>Required (v1.40):</b> select the saved AssessmentProfile, the Canonical Model (CN v0.3 JSON), and the current assessment KB files. If the resume file contains a previously selected customer VCF deployment version, it will be rebound to the matching VCF KB when available.</div>
+      <div class="notice"><b>Required (v1.40):</b> select the saved AssessmentProfile, the Canonical Model workbook (CN <code>.xlsx</code>), and the current assessment KB files. If the resume file contains a previously selected customer VCF deployment version, it will be rebound to the matching VCF KB when available.</div>
       <div class="v082UploadGrid v140UploadGridResumeCn">
         <div class="v082UploadBox v084ResumeBox">
           <h4>1. Resume AssessmentProfile File</h4>
@@ -929,10 +929,10 @@ html body #v102ExecutiveDecisionView .v119DecisionRail .v117SummaryPanel .v115Se
           <div id="v082ResumeFileStatus" class="v082UploadStatus">No resume file selected.</div>
         </div>
         <div class="v082UploadBox v140CnBox">
-          <h4>2. Canonical Model (CN v0.3)</h4>
-          <p>Upload the approved CN JSON used for this workshop (Functionality ID syllabus).</p>
+          <h4>2. Canonical Model (CN Excel)</h4>
+          <p>Upload the approved CN workbook used for this workshop (Functionality ID syllabus).</p>
           <button type="button" class="btn magenta" onclick="v082Click('v140ResumeCnFile')">Select CN File</button>
-          <input id="v140ResumeCnFile" type="file" accept="application/json,.json" class="hidden" onchange="handleV140CnInput('resume',this.files)">
+          <input id="v140ResumeCnFile" type="file" accept=".xlsx,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" class="hidden" onchange="handleV140CnInput('resume',this.files)">
           <div id="v140ResumeCnStatus" class="v082UploadStatus">No CN file selected.</div>
         </div>
         <div class="v082UploadBox v084FolderBox">
@@ -10351,31 +10351,221 @@ html body #v102ExecutiveDecisionView .v119ModuleScrollFrame .v117RecommendationC
     try{window.APP_VERSION=V;}catch(e){}
   }
 
-  function readJsonFile(file){
-    return new Promise(function(resolve,reject){
-      var rd=new FileReader();
-      rd.onload=function(){
-        try{
-          var raw=String(rd.result||'').replace(/^\uFEFF/,'').trim();
-          resolve(JSON.parse(raw));
-        }catch(e){reject(new Error('CN file is not valid JSON.'));}
-      };
-      rd.onerror=function(){reject(new Error('The selected CN file could not be read.'));};
-      rd.readAsText(file);
+  function cellStr(v){return v==null?'':String(v).trim();}
+  function normKey(k){return String(k||'').toLowerCase().replace(/[^a-z0-9]/g,'');}
+
+  function sheetRows(wb, name){
+    if(!wb || !wb.Sheets || !wb.Sheets[name]) return [];
+    var rows=XLSX.utils.sheet_to_json(wb.Sheets[name],{defval:null,raw:false});
+    return Array.isArray(rows)?rows:[];
+  }
+
+  function sheetMatrix(wb, name){
+    if(!wb || !wb.Sheets || !wb.Sheets[name]) return [];
+    return XLSX.utils.sheet_to_json(wb.Sheets[name],{header:1,defval:null,raw:false})||[];
+  }
+
+  function findHeaderRow(matrix, requiredHints){
+    for(var r=0;r<Math.min(matrix.length,15);r++){
+      var row=matrix[r]||[];
+      var keys=row.map(normKey);
+      var hit=0;
+      requiredHints.forEach(function(h){ if(keys.indexOf(normKey(h))>=0) hit++; });
+      if(hit>=Math.min(2, requiredHints.length)) return r;
+    }
+    return -1;
+  }
+
+  function rowsFromHeader(matrix, headerRowIdx){
+    if(headerRowIdx<0) return [];
+    var headers=(matrix[headerRowIdx]||[]).map(function(h,i){return h==null?('col'+i):String(h).trim();});
+    var out=[];
+    for(var r=headerRowIdx+1;r<matrix.length;r++){
+      var raw=matrix[r]||[];
+      if(raw.every(function(v){return v==null||String(v).trim()==='';})) continue;
+      var obj={};
+      headers.forEach(function(h,i){obj[h]=raw[i];});
+      out.push(obj);
+    }
+    return out;
+  }
+
+  function pick(row, names){
+    if(!row) return '';
+    var map={};
+    Object.keys(row).forEach(function(k){map[normKey(k)]=row[k];});
+    for(var i=0;i<names.length;i++){
+      var v=map[normKey(names[i])];
+      if(v!=null && String(v).trim()!=='') return cellStr(v);
+    }
+    return '';
+  }
+
+  function metadataFromSheet(wb){
+    var meta={};
+    var matrix=sheetMatrix(wb,'Metadata');
+    if(!matrix.length) matrix=sheetMatrix(wb,'00_Metadata');
+    matrix.forEach(function(row){
+      var f=cellStr(row[0]); var v=cellStr(row[1]);
+      if(f) meta[f]=v;
+      // also support Field/Value object rows from sheet_to_json style if present
     });
+    sheetRows(wb,'Metadata').forEach(function(row){
+      var f=pick(row,['Field','field']);
+      var v=pick(row,['Value','value']);
+      if(f) meta[f]=v;
+    });
+    return meta;
+  }
+
+  function parseCnWorkbook(wb, fileName){
+    var warnings=[];
+    var names=wb.SheetNames||[];
+    var hasV03=names.indexOf('Products')>=0 && (names.indexOf('Functionalities')>=0 || names.indexOf('FunctionalityIndex')>=0);
+    var hasV01=names.indexOf('01_Products')>=0;
+
+    var productRows=[], featureRows=[], funcRows=[];
+    var cnVersion='', cnStatus='draft';
+
+    if(hasV03){
+      productRows=sheetRows(wb,'Products');
+      featureRows=sheetRows(wb,'Features');
+      funcRows=sheetRows(wb,'Functionalities');
+      if(!funcRows.length) funcRows=sheetRows(wb,'FunctionalityIndex');
+      var meta=metadataFromSheet(wb);
+      cnVersion=meta.cnVersion||meta.Model_Version||meta.ModelVersion||'v0.3';
+      cnStatus=meta.cnStatus||meta.Status||'draft_candidate';
+    }else if(hasV01){
+      var pMatrix=sheetMatrix(wb,'01_Products');
+      var fMatrix=sheetMatrix(wb,'02_Features');
+      var gMatrix=sheetMatrix(wb,'03_Functionalities');
+      productRows=rowsFromHeader(pMatrix, findHeaderRow(pMatrix,['Product_ID','Product_Name']));
+      featureRows=rowsFromHeader(fMatrix, findHeaderRow(fMatrix,['Feature_ID','Product_ID']));
+      funcRows=rowsFromHeader(gMatrix, findHeaderRow(gMatrix,['Functionality_ID','Feature_ID']));
+      var meta2=metadataFromSheet(wb);
+      cnVersion=meta2.Model_Version||meta2.ModelVersion||meta2.cnVersion||'CN v0.1';
+      cnStatus=meta2.Status||'Draft';
+      warnings.push('Detected CN v0.1 workbook schema.');
+    }else{
+      throw new Error('Unrecognized CN workbook. Expected Products/Features/Functionalities (v0.3) or 01_Products/02_Features/03_Functionalities (v0.1).');
+    }
+
+    var products=[];
+    var productById={};
+    productRows.forEach(function(row, idx){
+      var id=pick(row,['productId','Product_ID','ProductId']);
+      var name=pick(row,['productName','Product_Name','ProductName','name']);
+      if(!id && !name) return;
+      if(!id) id='PC-'+(idx+1);
+      if(!name) name=id;
+      var p={
+        productId:id,
+        name:name,
+        domainName:pick(row,['domainName','DomainName','Domain'])||'',
+        capabilityName:pick(row,['capabilityName','CapabilityName','Capability'])||'',
+        sortOrder:Number(pick(row,['sortOrder','Sort_Order'])|| (idx+1)),
+        features:[]
+      };
+      products.push(p);
+      productById[id]=p;
+    });
+
+    var featureById={};
+    featureRows.forEach(function(row, idx){
+      var fid=pick(row,['featureId','Feature_ID','FeatureId']);
+      var pid=pick(row,['productId','Product_ID','ProductId']);
+      var fname=pick(row,['featureName','Feature_Name','FeatureName','name']);
+      if(!fid) return;
+      var parent=productById[pid]||products[0];
+      if(!parent) return;
+      var feature={
+        featureId:fid,
+        name:fname||fid,
+        description:pick(row,['description','Feature_Description','FeatureDescription'])||'',
+        capabilityName:pick(row,['capabilityName','CapabilityName'])||parent.capabilityName||'',
+        domainName:pick(row,['domainName','DomainName'])||parent.domainName||'',
+        functionalities:[]
+      };
+      parent.features.push(feature);
+      featureById[fid]=feature;
+    });
+
+    funcRows.forEach(function(row){
+      var gid=pick(row,['functionalityId','Functionality_ID','FunctionalityId']);
+      var fid=pick(row,['featureId','Feature_ID','FeatureId']);
+      var gname=pick(row,['functionalityName','Functionality_Name','FunctionalityName','name']);
+      if(!gid) return;
+      var feature=featureById[fid];
+      if(!feature){
+        // create orphan feature bucket under matching product if possible
+        var pid=pick(row,['productId','Product_ID','ProductId']);
+        var parent=productById[pid]||products[0];
+        if(!parent) return;
+        feature=featureById[fid||gid];
+        if(!feature){
+          feature={featureId:fid||('AUTO-'+gid), name:pick(row,['featureName','Feature_Name'])||('Feature for '+gid), description:'', capabilityName:parent.capabilityName||'', domainName:parent.domainName||'', functionalities:[]};
+          parent.features.push(feature);
+          featureById[feature.featureId]=feature;
+        }
+      }
+      feature.functionalities.push({
+        functionalityId:gid,
+        name:gname||gid,
+        description:pick(row,['description','Functionality_Description'])||'',
+        defaultRequirementImportance:pick(row,['defaultRequirementImportance','Default_Criticality'])||'Unknown',
+        evidenceRequiredForParityClaim:true,
+        notes:pick(row,['ReviewerNotes','Notes'])||''
+      });
+    });
+
+    // If features were empty but functionalities carry product/feature refs, products still exist.
+    var model={
+      cnVersion:cnVersion,
+      cnStatus:cnStatus,
+      cnTitle:'VCF-AFA Canonical Capability Model',
+      sourceFileName:fileName||'',
+      sourceFormat:'xlsx',
+      metadata:{scoringKey:'functionalityId', sourceWorkbookSheets:names.slice()},
+      products:products,
+      parseWarnings:warnings
+    };
+    return model;
+  }
+
+  async function readCnFile(file){
+    var name=file.name||'';
+    if(/\.xlsx$/i.test(name)){
+      if(typeof XLSX==='undefined') throw new Error('SheetJS library is not loaded. Cannot read CN Excel workbook.');
+      var wb=XLSX.read(await file.arrayBuffer(),{type:'array'});
+      return parseCnWorkbook(wb, name);
+    }
+    if(/\.json$/i.test(name)){
+      var text=await new Promise(function(resolve,reject){
+        var rd=new FileReader();
+        rd.onload=function(){resolve(String(rd.result||'').replace(/^\uFEFF/,'').trim());};
+        rd.onerror=function(){reject(new Error('The selected CN file could not be read.'));};
+        rd.readAsText(file);
+      });
+      var obj=JSON.parse(text);
+      obj.sourceFormat=obj.sourceFormat||'json';
+      return obj;
+    }
+    throw new Error('CN file must be an Excel .xlsx workbook (recommended) or .json.');
   }
 
   function validateCnModel(obj){
     var errors=[];
     var warnings=[];
-    if(!obj || typeof obj!=='object'){errors.push('CN root must be a JSON object.');return {ok:false,errors:errors,warnings:warnings,summary:null};}
-    if(!obj.cnVersion){errors.push('Missing cnVersion.');}
-    if(!Array.isArray(obj.products) || !obj.products.length){errors.push('CN products array is missing or empty.');return {ok:false,errors:errors,warnings:warnings,summary:null};}
+    if(!obj || typeof obj!=='object'){errors.push('CN root must be an object.');return {ok:false,errors:errors,warnings:warnings,summary:null};}
+    if(Array.isArray(obj.parseWarnings)) warnings=warnings.concat(obj.parseWarnings);
+    if(!obj.cnVersion){warnings.push('Missing cnVersion / Model_Version; continuing with detected workbook content.');}
+    if(!Array.isArray(obj.products) || !obj.products.length){errors.push('CN products list is missing or empty.');return {ok:false,errors:errors,warnings:warnings,summary:null};}
     if(obj.products.length!==12){errors.push('Expected exactly 12 top-level products/components, found '+obj.products.length+'.');}
     var names=obj.products.map(function(p){return String((p&&p.name)||'');});
-    EXPECTED_PRODUCTS.forEach(function(expected,i){
-      if(names[i]!==expected){errors.push('Product #'+(i+1)+' name mismatch. Expected "'+expected+'".');}
-    });
+    var exactMatch=EXPECTED_PRODUCTS.every(function(expected,i){return names[i]===expected;});
+    if(!exactMatch){
+      warnings.push('Product names differ from the handover 12-area CN v0.3 list. Accepted as an alternate CN taxonomy for this upload.');
+    }
     var featureIds={};
     var functionalityIds={};
     var featureCount=0;
@@ -10396,9 +10586,13 @@ html body #v102ExecutiveDecisionView .v119ModuleScrollFrame .v117RecommendationC
         });
       });
     });
-    if(featureCount<60 || featureCount>120){warnings.push('Feature count '+featureCount+' is outside the preferred ~80 workshop band.');}
-    if(functionalityCount<180 || functionalityCount>320){warnings.push('Functionality count '+functionalityCount+' is outside the preferred ~240 workshop band.');}
-    var scoringKey=((obj.metadata||{}).scoringKey)||'';
+    if(featureCount===0 || functionalityCount===0){
+      errors.push('CN workbook has no Features/Functionalities populated (found '+featureCount+' features / '+functionalityCount+' functionalities). Use a populated CN Excel such as CN_v0.3_Canonical_Capability_Model.xlsx.');
+    }else{
+      if(featureCount<60 || featureCount>120){warnings.push('Feature count '+featureCount+' is outside the preferred ~80 workshop band.');}
+      if(functionalityCount<180 || functionalityCount>320){warnings.push('Functionality count '+functionalityCount+' is outside the preferred ~240 workshop band.');}
+    }
+    var scoringKey=((obj.metadata||{}).scoringKey)||'functionalityId';
     if(scoringKey && scoringKey!=='functionalityId'){warnings.push('metadata.scoringKey is "'+scoringKey+'"; expected functionalityId.');}
     var ok=errors.length===0;
     return {
@@ -10411,7 +10605,8 @@ html body #v102ExecutiveDecisionView .v119ModuleScrollFrame .v117RecommendationC
         products:obj.products.length,
         features:featureCount,
         functionalities:functionalityCount,
-        scoringKey:scoringKey||'functionalityId'
+        scoringKey:scoringKey||'functionalityId',
+        sourceFormat:obj.sourceFormat||''
       }
     };
   }
@@ -10425,6 +10620,7 @@ html body #v102ExecutiveDecisionView .v119ModuleScrollFrame .v117RecommendationC
       cnVersion:summary.cnVersion,
       cnStatus:summary.cnStatus,
       cnFileName:fileName||'',
+      cnSourceFormat:summary.sourceFormat||'',
       cnProductCount:summary.products,
       cnFeatureCount:summary.features,
       cnFunctionalityCount:summary.functionalities,
@@ -10438,7 +10634,7 @@ html body #v102ExecutiveDecisionView .v119ModuleScrollFrame .v117RecommendationC
     var messages=[];
     var ok=false;
     if(mode==='new'){
-      if(!validCn(m)) messages.push('Upload a valid CN v0.3 Canonical Model JSON file.');
+      if(!validCn(m)) messages.push('Upload a valid Canonical Model Excel workbook (.xlsx).');
       if(!validKbLoaded(m)) messages.push('Select assessment files containing at least one VCF KB and at least one comparator KB.');
       ok=validCn(m)&&validKbLoaded(m);
       if(ok){
@@ -10450,7 +10646,7 @@ html body #v102ExecutiveDecisionView .v119ModuleScrollFrame .v117RecommendationC
     }else{
       var resumeOk=!!m.resumeObj;
       if(!resumeOk) messages.push('Upload a valid AssessmentProfile resume JSON file.');
-      if(!validCn(m)) messages.push('Upload a valid CN v0.3 Canonical Model JSON file.');
+      if(!validCn(m)) messages.push('Upload a valid Canonical Model Excel workbook (.xlsx).');
       if(!validKbLoaded(m)) messages.push('Select assessment files containing at least one VCF KB and at least one comparator KB.');
       ok=resumeOk&&validCn(m)&&validKbLoaded(m);
       if(ok){
@@ -10476,14 +10672,14 @@ html body #v102ExecutiveDecisionView .v119ModuleScrollFrame .v117RecommendationC
       updateGate(mode);
       return;
     }
-    if(!/\.json$/i.test(f.name||'')){
-      setStatus(statusId,'bad','CN file must be a .json Canonical Model export.');
+    if(!/\.(xlsx|json)$/i.test(f.name||'')){
+      setStatus(statusId,'bad','CN file must be an Excel .xlsx workbook (recommended).');
       updateGate(mode);
       return;
     }
     setStatus(statusId,'warn','Validating '+esc(f.name)+'...');
     try{
-      var obj=await readJsonFile(f);
+      var obj=await readCnFile(f);
       var result=validateCnModel(obj);
       if(!result.ok){
         m.cnError=result.errors.join('; ');
