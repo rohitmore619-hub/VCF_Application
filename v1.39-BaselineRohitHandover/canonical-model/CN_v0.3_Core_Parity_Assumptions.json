@@ -1,0 +1,123 @@
+{
+  "status": "ASSUMED-DRAFT",
+  "filledOn": "2026-08-10",
+  "warning": "ASSUMED-DRAFT 2026-08-10 \u2014 not evidence-backed; replace with real KB evidence before advisory use.",
+  "profileByProduct": {
+    "VCF-01": [
+      "Partial Parity",
+      "Partial Parity",
+      "Partial Parity",
+      "Partial Parity",
+      "Partial Parity"
+    ],
+    "VCF-02": [
+      "No Parity",
+      "Partial Parity",
+      "No Parity",
+      "No Parity",
+      "No Parity"
+    ],
+    "VCF-03": [
+      "Full Parity",
+      "Full Parity",
+      "Partial Parity",
+      "Full Parity",
+      "Full Parity"
+    ],
+    "VCF-04": [
+      "Partial Parity",
+      "Partial Parity",
+      "Partial Parity",
+      "Partial Parity",
+      "Partial Parity"
+    ],
+    "VCF-05": [
+      "Partial Parity",
+      "Partial Parity",
+      "Partial Parity",
+      "Partial Parity",
+      "No Parity"
+    ],
+    "VCF-06": [
+      "Partial Parity",
+      "Partial Parity",
+      "Partial Parity",
+      "Partial Parity",
+      "No Parity"
+    ],
+    "VCF-07": [
+      "Partial Parity",
+      "Partial Parity",
+      "Partial Parity",
+      "Partial Parity",
+      "Partial Parity"
+    ],
+    "VCF-08": [
+      "Partial Parity",
+      "Partial Parity",
+      "Partial Parity",
+      "Partial Parity",
+      "Partial Parity"
+    ],
+    "VCF-09": [
+      "Partial Parity",
+      "Partial Parity",
+      "Full Parity",
+      "Partial Parity",
+      "Partial Parity"
+    ],
+    "VCF-10": [
+      "Partial Parity",
+      "Partial Parity",
+      "Partial Parity",
+      "Partial Parity",
+      "No Parity"
+    ],
+    "VCF-11": [
+      "Partial Parity",
+      "Partial Parity",
+      "Partial Parity",
+      "Partial Parity",
+      "Partial Parity"
+    ],
+    "VCF-12": [
+      "Partial Parity",
+      "Partial Parity",
+      "Partial Parity",
+      "Unknown",
+      "Unknown"
+    ]
+  },
+  "countsByComparator": {
+    "VCF": {
+      "Full Parity": 252
+    },
+    "NCP_AHV": {
+      "Partial Parity": 147,
+      "No Parity": 91,
+      "Full Parity": 14
+    },
+    "AzureLocal": {
+      "Partial Parity": 161,
+      "No Parity": 77,
+      "Full Parity": 14
+    },
+    "OpenShiftVirtualization": {
+      "Partial Parity": 147,
+      "No Parity": 91,
+      "Full Parity": 14
+    },
+    "OpenStackKVM": {
+      "Partial Parity": 133,
+      "No Parity": 84,
+      "Full Parity": 14,
+      "Unknown": 21
+    },
+    "ProxmoxVE": {
+      "Partial Parity": 91,
+      "No Parity": 126,
+      "Full Parity": 14,
+      "Unknown": 21
+    }
+  }
+}
