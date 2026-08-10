@@ -2,13 +2,13 @@
   "cnVersion": "v0.3",
   "cnStatus": "draft_candidate",
   "cnTitle": "VCF-AFA Canonical Capability Model",
-  "compatibleAppBaseline": "VCF-AFA v1.39+",
+  "compatibleAppBaseline": "VCF-AFA v1.40+",
   "generatedFor": "Model stabilization \u2014 governed assessment input",
   "disclaimer": "Draft candidate for Keith/Rohit validation. Not evidence-backed comparator parity. Do not invent Full/Partial/No conclusions from this file alone. Unknown is better than false precision.",
   "metadata": {
     "ownerRole": "Architect / internal SME",
     "customerFillsThisFile": false,
-    "intendedUploadPage": "New/Resume Assessment Initialization (not yet implemented in v1.39)",
+    "intendedUploadPage": "New/Resume Assessment Initialization (implemented in v1.40)",
     "v139SupportsCnUpload": false,
     "targetScale": {
       "products": 12,
@@ -38,7 +38,8 @@
       "Capability",
       "Domain",
       "Platform"
-    ]
+    ],
+    "v140SupportsCnUpload": true
   },
   "enums": {
     "requirementImportance": [

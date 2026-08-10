@@ -1,43 +1,35 @@
-# VCF-AFA App Prototype v1.39
+# VCF-AFA App Prototype v1.40
 
-v1.39 is a focused stability and code-hygiene build from the accepted v1.36 baseline.
+v1.40 builds on the accepted v1.39 baseline and adds Canonical Model (CN v0.3) upload + validation on Assessment Initialization.
 
-## v1.39 Changes
+## v1.40 Changes
 
-- Removed finite background `setInterval` self-healing loops that could cause unsolicited screen jumps.
-- Removed broad persistent `MutationObserver` self-healing patchers for Executive Decision View mounting, comparator color synchronization, VCF Baseline chip placement, and completion-message scrubbing.
-- Replaced periodic/background patching with explicit render, navigation, selection, upload, click, and change hooks.
-- Scoped KB diagnostics and Ingestion Regression Guard refresh behavior to initialization/upload contexts and manual refresh controls.
-- Coalesced Active Data Mode Executive Decision View rendering into a single scheduled render per data/selection event instead of multiple delayed renders.
-- Added Executive Decision View render-signature guarding to avoid full `innerHTML` re-renders when the selected comparator and data have not changed.
-- Preserved right-side Executive Insight Modules scroll position and page scroll position across Executive Decision View renders.
-- Updated current version references to v1.39.
+- New Assessment Initialization requires CN v0.3 JSON **and** assessment KB `.xlsx` files.
+- Resume Assessment Initialization requires AssessmentProfile JSON, CN v0.3 JSON, and assessment KB files.
+- CN validation checks: 12 fixed VCF product areas, unique `featureId` / `functionalityId`, scale warnings, scoring-key metadata.
+- Valid CN is stored in `state.canonicalModel` and summarized on the AssessmentProfile (`cnVersion`, counts, file name).
+- Version references updated to v1.40 / 2026-08-10.
 
-## Preserved Behavior
+## CN gate prerequisite
 
-- v1.36 accepted workflow and Executive Decision View behavior.
-- Demo Mode and Active Data Mode Executive Decision View functionality.
-- Comparator color synchronization.
-- VCF Baseline chip behavior.
-- Results and exports.
-- Resume Assessment.
-- Breadcrumbs.
-- Saved AssessmentProfile status handling.
-- Upload recognition.
-- KB diagnostics and Ingestion Regression Guard, now without background polling.
-- VCF Technical Requirements behavior.
-- Repository packaging behavior.
+Structural CN v0.3 gate marked **Pass** in:
 
-## Validation Summary
+- `../CN_v0.3_Review_Signoff.md`
+- `../CN_v0.3_Validation_and_Init_Contract.md`
 
-- Inline JavaScript syntax check passed.
-- Static checks confirmed no active `setInterval`, `new MutationObserver`, or `observer.observe` calls remain.
-- Static checks confirmed app runtime version references are updated to v1.39 / 2026-06-21.
-- Static checks confirmed Executive Decision View render signature and scroll-preservation logic are present.
-- Browser smoke testing could not be completed because browser navigation is blocked in this execution environment.
-- ZIP integrity check passed.
+Sample CN file:
 
+- `../canonical-model/CN_v0.3_Canonical_Capability_Model.json`
 
-## v1.39 Concept Test
+## Preserved from v1.39
 
-Applies the accepted Executive Decision View card styling language visibly across preceding workflow screens: darker full-card outlines, light matching fills, stronger headers, contained inner cards, and tinted action areas. Built from accepted v1.37 baseline; v1.38 failed concept was not used as source.
+- Active Data Mode / Demo Mode Executive Decision View behavior
+- Comparator color sync, VCF Baseline chip, results/exports
+- Resume Assessment, breadcrumbs, KB diagnostics / Ingestion Regression Guard
+- No broad background `setInterval` / persistent `MutationObserver` self-healers
+
+## Not yet in v1.40
+
+- Scoring engine still largely FeatureID-based (migration to `functionalityId` is next after CN is routinely loaded)
+- Core comparator evidence matrix fill
+- Administration / Configuration page for editable rules/weights

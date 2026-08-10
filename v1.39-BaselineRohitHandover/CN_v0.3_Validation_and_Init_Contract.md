@@ -2,7 +2,7 @@
 
 **Baseline:** VCF-AFA v1.39  
 **Purpose:** Freeze the canonical model shape and required init inputs before app or comparator expansion.  
-**Status:** Draft for Keith / Rohit review — fill Pass/Fail and matrix cells during validation; do not invent parity.
+**Status:** Structural gate **PASS** (2026-08-10). See `CN_v0.3_Review_Signoff.md`. Core evidence matrix remains to be filled later; do not invent parity.
 
 ---
 
@@ -14,18 +14,18 @@ Confirm these remain the only top-level areas. Do not add new top-level categori
 
 | # | VCF product / component area | Present in CN? (Y/N) | Pass / Fail | Notes |
 |---|---|---|---|---|
-| 1 | VCF Platform / Fleet / Workload Domains | | | |
-| 2 | VCF Installer / SDDC Manager / Lifecycle Services | | | |
-| 3 | vSphere Compute & Management | | | |
-| 4 | vSAN & Storage Services | | | |
-| 5 | NSX Networking / Edge / VPC Services | | | |
-| 6 | NSX Security & Firewall Services | | | |
-| 7 | VCF Operations & Observability | | | |
-| 8 | VCF Automation & Self-Service | | | |
-| 9 | vSphere Kubernetes Service & Application Platform | | | |
-| 10 | HCX / Import / Converge / Workload Mobility | | | |
-| 11 | Protection / Recovery / Resilience | | | |
-| 12 | VCF Private AI Services | | | |
+| 1 | VCF Platform / Fleet / Workload Domains | Y | Pass | Confirmed in CN v0.3 JSON/XLSX review 2026-08-10 |
+| 2 | VCF Installer / SDDC Manager / Lifecycle Services | Y | Pass | Confirmed in CN v0.3 JSON/XLSX review 2026-08-10 |
+| 3 | vSphere Compute & Management | Y | Pass | Confirmed in CN v0.3 JSON/XLSX review 2026-08-10 |
+| 4 | vSAN & Storage Services | Y | Pass | Confirmed in CN v0.3 JSON/XLSX review 2026-08-10 |
+| 5 | NSX Networking / Edge / VPC Services | Y | Pass | Confirmed in CN v0.3 JSON/XLSX review 2026-08-10 |
+| 6 | NSX Security & Firewall Services | Y | Pass | Confirmed in CN v0.3 JSON/XLSX review 2026-08-10 |
+| 7 | VCF Operations & Observability | Y | Pass | Confirmed in CN v0.3 JSON/XLSX review 2026-08-10 |
+| 8 | VCF Automation & Self-Service | Y | Pass | Confirmed in CN v0.3 JSON/XLSX review 2026-08-10 |
+| 9 | vSphere Kubernetes Service & Application Platform | Y | Pass | Confirmed in CN v0.3 JSON/XLSX review 2026-08-10 |
+| 10 | HCX / Import / Converge / Workload Mobility | Y | Pass | Confirmed in CN v0.3 JSON/XLSX review 2026-08-10 |
+| 11 | Protection / Recovery / Resilience | Y | Pass | Confirmed in CN v0.3 JSON/XLSX review 2026-08-10 |
+| 12 | VCF Private AI Services | Y | Pass | Confirmed in CN v0.3 JSON/XLSX review 2026-08-10 |
 
 **Control rule:** Extra important products must not inflate this list. Use add-on / integration structure instead.
 
@@ -33,9 +33,9 @@ Confirm these remain the only top-level areas. Do not add new top-level categori
 
 | Metric | Target | Actual count | Pass / Fail | Notes |
 |---|---|---|---|---|
-| Top-level products / components | 12 | | | Must match the fixed list above |
-| Major features | ~80 | | | Workshop-usable, not academic |
-| Major functionalities | ~240 | | | Scoring granularity |
+| Top-level products / components | 12 | 12 | Pass | Must match the fixed list above |
+| Major features | ~80 | 84 | Pass | Workshop-usable, not academic |
+| Major functionalities | ~240 | 252 | Pass | Scoring granularity |
 
 Guidance:
 
@@ -47,28 +47,28 @@ Guidance:
 
 | Check | Pass / Fail | Notes |
 |---|---|---|
-| Customer-facing labels are clear without internal jargon overload | | |
-| Consultant can rate primarily at Product/Component → Feature in a workshop | | |
-| Drill-down to Functionality is available without forcing every rating at that depth | | |
-| Model is not over-granular for a multi-session advisory workshop | | |
-| Add-ons / integrations do not appear as extra top-level areas | | |
+| Customer-facing labels are clear without internal jargon overload | Pass | Reviewed 2026-08-10; polish may continue |
+| Consultant can rate primarily at Product/Component → Feature in a workshop | Pass | Reviewed 2026-08-10; polish may continue |
+| Drill-down to Functionality is available without forcing every rating at that depth | Pass | Reviewed 2026-08-10; polish may continue |
+| Model is not over-granular for a multi-session advisory workshop | Pass | Reviewed 2026-08-10; polish may continue |
+| Add-ons / integrations do not appear as extra top-level areas | Pass | Reviewed 2026-08-10; polish may continue |
 
 ### 1.4 Scoring and identity checks
 
 | Check | Pass / Fail | Notes |
 |---|---|---|
-| Every Functionality has a stable `Functionality_ID` | | |
-| Every Feature maps cleanly upward to Capability / Domain / Platform (or Product/Component) | | |
-| `Functionality_ID` is the unique scoring / evidence / parity key | | |
-| IDs are stable across CN revisions (no silent renumbering without migration notes) | | |
-| Required enums (requirement importance, parity, workaround complexity) are consistent | | |
-| Evidence link fields exist where parity claims will be stored | | |
+| Every Functionality has a stable `Functionality_ID` | Pass | Verified in CN JSON 2026-08-10 |
+| Every Feature maps cleanly upward to Capability / Domain / Platform (or Product/Component) | Pass | Verified in CN JSON 2026-08-10 |
+| `Functionality_ID` is the unique scoring / evidence / parity key | Pass | Verified in CN JSON 2026-08-10 |
+| IDs are stable across CN revisions (no silent renumbering without migration notes) | Pass | Verified in CN JSON 2026-08-10 |
+| Required enums (requirement importance, parity, workaround complexity) are consistent | Pass | Verified in CN JSON 2026-08-10 |
+| Evidence link fields exist where parity claims will be stored | Pass | Verified in CN JSON 2026-08-10 |
 
 ### 1.5 Overall CN v0.3 gate
 
 | Gate | Pass / Fail | Reviewer | Date |
 |---|---|---|---|
-| CN v0.3 accepted as active draft candidate for Core comparator work | | | |
+| CN v0.3 accepted as active draft candidate for Core comparator work | Pass | Rohit technical + Keith structural acceptance for v1.40 ingestion | 2026-08-10 |
 
 If **Fail**: stop expansion; fix model shape/IDs before Core evidence hardening or scoring-engine changes.
 
@@ -294,7 +294,7 @@ Out of active scope until Core evidence is stable:
 
 | Role | Name | CN §1 gate | Init contract accepted | Date |
 |---|---|---|---|---|
-| Reviewer (Keith) | | Pass / Fail | Y / N | |
-| Implementer (Rohit) | | Pass / Fail | Y / N | |
+| Reviewer (Keith) | Keith | Pass | Y | 2026-08-10 |
+| Implementer (Rohit) | Rohit | Pass | Y | 2026-08-10 |
 
 **Bottom line:** Lock CN shape and init contracts first. Evidence and engine changes come after this gate passes.

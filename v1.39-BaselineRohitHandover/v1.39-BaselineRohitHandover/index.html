@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>VCF-AFA Application Prototype v1.39</title>
+<title>VCF-AFA Application Prototype v1.40</title>
 <script src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js"></script>
 <style>
 :root{
@@ -878,10 +878,19 @@ html body #v102ExecutiveDecisionView .v119DecisionRail .v117SummaryPanel .v115Se
   <section class="card v082PreflightCard">
     <div class="cardHeader"><h3>Assessment files</h3><span id="v082NewGateStatus" class="pill neutral">Waiting for files</span></div>
     <div class="cardBody">
-      <div class="notice"><b>Required:</b> select the current assessment files. For this v1.39 baseline, the app reads the selected workbook files and detects VCF KBs and comparator KBs from the loaded KB set. Additional artifact validation will be added after the Canonical Capability Model ingestion work.</div>
-      <div class="v082UploadGrid v084UploadGridSingle">
+      <div class="notice"><b>Required (v1.40):</b> select the Canonical Model (CN v0.3 JSON) and the assessment KB workbooks. The app validates CN structure (12 areas, stable Functionality IDs) and detects VCF KBs and comparator KBs from the loaded KB set before Assessment Basics.</div>
+      <div class="v082UploadGrid v140UploadGridCnKb">
+        <div class="v082UploadBox v140CnBox">
+          <h4>1. Canonical Model (CN v0.3)</h4>
+          <p>Upload the approved CN JSON (for example <code>CN_v0.3_Canonical_Capability_Model.json</code>). This locks the workshop syllabus and Functionality IDs.</p>
+          <div class="btnRow">
+            <button type="button" class="btn magenta" onclick="v082Click('v140NewCnFile')">Select CN File</button>
+          </div>
+          <input id="v140NewCnFile" type="file" accept="application/json,.json" class="hidden" onchange="handleV140CnInput('new',this.files)">
+          <div id="v140NewCnStatus" class="v082UploadStatus">No CN file selected.</div>
+        </div>
         <div class="v082UploadBox v084FolderBox">
-          <h4>1. Assessment Files</h4>
+          <h4>2. Assessment Files (KB workbooks)</h4>
           <p>Select the assessment files together. Include the VCF KB set and latest comparator KB files required for the workshop.</p>
           <div class="btnRow">
             <button type="button" class="btn magenta" onclick="v082Click('v082NewKbFolder')">Select Assessment Files</button>
@@ -890,7 +899,7 @@ html body #v102ExecutiveDecisionView .v119DecisionRail .v117SummaryPanel .v115Se
           <div id="v082NewKbStatus" class="v082UploadStatus">No assessment files selected.</div>
         </div>
       </div>
-      <div id="v082NewValidation" class="v082ValidationBox">Select the assessment files to continue.</div>
+      <div id="v082NewValidation" class="v082ValidationBox">Select the CN file and assessment KB files to continue.</div>
       <div class="btnRow v082PreflightActions">
         <button type="button" class="btn secondary" onclick="showPage('start')">Cancel</button>
         <button id="v082NewContinue" type="button" class="btn magenta" onclick="continueNewAssessmentV082()" disabled>Next Step</button>
@@ -910,8 +919,8 @@ html body #v102ExecutiveDecisionView .v119DecisionRail .v117SummaryPanel .v115Se
   <section class="card v082PreflightCard">
     <div class="cardHeader"><h3>Resume file and assessment files</h3><span id="v082ResumeGateStatus" class="pill neutral">Waiting for files</span></div>
     <div class="cardBody">
-      <div class="notice"><b>Required:</b> select the saved AssessmentProfile file and the current assessment files. If the resume file contains a previously selected customer VCF deployment version, it will be loaded into app memory and rebound to the matching VCF KB when available.</div>
-      <div class="v082UploadGrid v084UploadGridResume">
+      <div class="notice"><b>Required (v1.40):</b> select the saved AssessmentProfile, the Canonical Model (CN v0.3 JSON), and the current assessment KB files. If the resume file contains a previously selected customer VCF deployment version, it will be rebound to the matching VCF KB when available.</div>
+      <div class="v082UploadGrid v140UploadGridResumeCn">
         <div class="v082UploadBox v084ResumeBox">
           <h4>1. Resume AssessmentProfile File</h4>
           <p>Select the saved AssessmentProfile JSON file.</p>
@@ -919,8 +928,15 @@ html body #v102ExecutiveDecisionView .v119DecisionRail .v117SummaryPanel .v115Se
           <input id="v082ResumeFile" type="file" accept="application/json,.json" class="hidden" onchange="handleV082ResumeInput(this.files)">
           <div id="v082ResumeFileStatus" class="v082UploadStatus">No resume file selected.</div>
         </div>
+        <div class="v082UploadBox v140CnBox">
+          <h4>2. Canonical Model (CN v0.3)</h4>
+          <p>Upload the approved CN JSON used for this workshop (Functionality ID syllabus).</p>
+          <button type="button" class="btn magenta" onclick="v082Click('v140ResumeCnFile')">Select CN File</button>
+          <input id="v140ResumeCnFile" type="file" accept="application/json,.json" class="hidden" onchange="handleV140CnInput('resume',this.files)">
+          <div id="v140ResumeCnStatus" class="v082UploadStatus">No CN file selected.</div>
+        </div>
         <div class="v082UploadBox v084FolderBox">
-          <h4>2. Assessment Files</h4>
+          <h4>3. Assessment Files</h4>
           <p>Select the assessment files together, including the VCF KB set and latest comparator KB files required to continue the workshop.</p>
           <div class="btnRow">
             <button type="button" class="btn magenta" onclick="v082Click('v082ResumeKbFolder')">Select Assessment Files</button>
@@ -929,7 +945,7 @@ html body #v102ExecutiveDecisionView .v119DecisionRail .v117SummaryPanel .v115Se
           <div id="v082ResumeKbStatus" class="v082UploadStatus">No assessment files selected.</div>
         </div>
       </div>
-      <div id="v082ResumeValidation" class="v082ValidationBox">Select the resume file and assessment files to continue.</div>
+      <div id="v082ResumeValidation" class="v082ValidationBox">Select the resume file, CN file, and assessment KB files to continue.</div>
       <div class="btnRow v082PreflightActions">
         <button type="button" class="btn secondary" onclick="showPage('start')">Cancel</button>
         <button id="v082ResumeContinue" type="button" class="btn magenta" onclick="continueResumeAssessmentV082()" disabled>Next Step</button>
@@ -1476,11 +1492,11 @@ Status: Manual review required before approval</pre>
 <div id="page-helpFeasibility" class="page hidden"><div class="topline"><div class="title"><h2>Feasibility Logic</h2><p>Feasibility is driven by requirement criticality and comparator parity.</p></div><div class="tag">Help / logic</div></div><section class="card"><div class="cardHeader"><h3>Core Rule</h3><span class="pill purple">Feasibility</span></div><div class="cardBody"><div class="placeholderList"><div class="placeholderCard"><h4>Required + Full Parity</h4><p>Feasible.</p></div><div class="placeholderCard"><h4>Required + Partial Parity</h4><p>Feasible with considerations, risk, or mitigation.</p></div><div class="placeholderCard"><h4>Required + No Parity</h4><p>Not feasible unless requirement or solution assumptions change.</p></div></div></div></section></div>
 <div id="page-helpReports" class="page hidden"><div class="topline"><div class="title"><h2>Report Guide</h2><p>Reports are intended to support executive decisions and technical follow-up.</p></div><div class="tag">Help / reports</div></div><section class="card"><div class="cardHeader"><h3>Report Content</h3><span class="pill blue">Guidance</span></div><div class="cardBody"><ul><li>Executive feasibility summary.</li><li>Comparator recommendation view.</li><li>Technical parity heat map.</li><li>Required gap and risk analysis.</li><li>Non-technical strategic considerations summary.</li><li>Recommended next steps.</li></ul></div></section></div>
 
-<div class="cpsFooter">Tool Version v1.39 | Release Date 2026-06-21</div>
+<div class="cpsFooter">Tool Version v1.40 | Release Date 2026-08-10</div>
   </div>
 </main>
 <script>
-const APP_VERSION='v1.39';
+const APP_VERSION='v1.40';
 const REQUIRED_TABS=["00_ReadMe","01_Metadata","02_FunctionalityMaster","03_FeatureEvidenceRegister","90_Lists","99_ChangeLog"];
 const RATING_WEIGHTS={"Required":4,"Important":3,"Nice To Have":2,"Not Required":0,"Unknown":1};
 const BUSINESS_CRITERIA=[
@@ -10288,6 +10304,286 @@ html body #v102ExecutiveDecisionView .v119ModuleScrollFrame .v117RecommendationC
   #page-review .v131ReviewMasterFooter{justify-content:flex-start!important;}
 }
 </style>
+
+<style>
+/* v1.40 CN initialization upload layout */
+.v140UploadGridCnKb{grid-template-columns:minmax(300px,1fr) minmax(360px,1.2fr)!important;}
+.v140UploadGridResumeCn{grid-template-columns:repeat(3,minmax(240px,1fr))!important;}
+.v140CnBox{min-height:156px;border-color:#F7B3D5;background:#FDF2FA;}
+@media(max-width:1100px){.v140UploadGridCnKb,.v140UploadGridResumeCn{grid-template-columns:1fr!important;}}
+</style>
+<script>
+/* v1.40 Canonical Model (CN) upload + validation on Initialization */
+(function(){
+  'use strict';
+  var V='v1.40';
+  var RELEASE_DATE='2026-08-10';
+  var EXPECTED_PRODUCTS=[
+    'VCF Platform / Fleet / Workload Domains',
+    'VCF Installer / SDDC Manager / Lifecycle Services',
+    'vSphere Compute & Management',
+    'vSAN & Storage Services',
+    'NSX Networking / Edge / VPC Services',
+    'NSX Security & Firewall Services',
+    'VCF Operations & Observability',
+    'VCF Automation & Self-Service',
+    'vSphere Kubernetes Service & Application Platform',
+    'HCX / Import / Converge / Workload Mobility',
+    'Protection / Recovery / Resilience',
+    'VCF Private AI Services'
+  ];
+
+  function byId(id){return document.getElementById(id);}
+  function esc(s){return String(s==null?'':s).replace(/[&<>\"']/g,function(m){return ({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;',"'":'&#39;'})[m];});}
+  function filesArr(files){return Array.from(files||[]).filter(Boolean);}
+  function setStatus(id,cls,html){var el=byId(id);if(el){el.className='v082UploadStatus '+(cls||'');el.innerHTML=html;}}
+  function setPill(id,cls,text){var el=byId(id);if(el){el.className='pill '+cls;el.textContent=text;}}
+  function showValidation(mode,cls,html){var id=mode==='resume'?'v082ResumeValidation':'v082NewValidation';var el=byId(id);if(el){el.className='v082ValidationBox '+(cls||'');el.innerHTML=html;}}
+  function statusHtml(items){return '<ul style="margin:0;padding-left:18px;">'+items.map(function(x){return '<li>'+esc(x)+'</li>';}).join('')+'</ul>';}
+  function preflight(){window.state=window.state||{};state.v082Preflight=state.v082Preflight||{new:{},resume:{}};return state.v082Preflight;}
+  function modeState(mode){var root=preflight();root[mode]=root[mode]||{};return root[mode];}
+  function validKbLoaded(m){return !!(m.kbLoaded && m.kbValid && (window.state&&state.vcfKbs&&state.vcfKbs.length) && (state.comparators&&state.comparators.length));}
+  function validCn(m){return !!(m.cnValid && m.cnModel);}
+
+  function applyVersionText(){
+    document.title='VCF-AFA Application Prototype '+V;
+    document.querySelectorAll('.cpsFooter').forEach(function(n){n.textContent='Tool Version '+V+' | Release Date '+RELEASE_DATE;});
+    try{window.APP_VERSION=V;}catch(e){}
+  }
+
+  function readJsonFile(file){
+    return new Promise(function(resolve,reject){
+      var rd=new FileReader();
+      rd.onload=function(){
+        try{
+          var raw=String(rd.result||'').replace(/^\uFEFF/,'').trim();
+          resolve(JSON.parse(raw));
+        }catch(e){reject(new Error('CN file is not valid JSON.'));}
+      };
+      rd.onerror=function(){reject(new Error('The selected CN file could not be read.'));};
+      rd.readAsText(file);
+    });
+  }
+
+  function validateCnModel(obj){
+    var errors=[];
+    var warnings=[];
+    if(!obj || typeof obj!=='object'){errors.push('CN root must be a JSON object.');return {ok:false,errors:errors,warnings:warnings,summary:null};}
+    if(!obj.cnVersion){errors.push('Missing cnVersion.');}
+    if(!Array.isArray(obj.products) || !obj.products.length){errors.push('CN products array is missing or empty.');return {ok:false,errors:errors,warnings:warnings,summary:null};}
+    if(obj.products.length!==12){errors.push('Expected exactly 12 top-level products/components, found '+obj.products.length+'.');}
+    var names=obj.products.map(function(p){return String((p&&p.name)||'');});
+    EXPECTED_PRODUCTS.forEach(function(expected,i){
+      if(names[i]!==expected){errors.push('Product #'+(i+1)+' name mismatch. Expected "'+expected+'".');}
+    });
+    var featureIds={};
+    var functionalityIds={};
+    var featureCount=0;
+    var functionalityCount=0;
+    obj.products.forEach(function(p){
+      (p.features||[]).forEach(function(f){
+        featureCount++;
+        var fid=String((f&&f.featureId)||'');
+        if(!fid){errors.push('A feature is missing featureId under '+(p.name||'product')+'.');}
+        else if(featureIds[fid]){errors.push('Duplicate featureId: '+fid);}
+        else featureIds[fid]=true;
+        (f.functionalities||[]).forEach(function(g){
+          functionalityCount++;
+          var gid=String((g&&g.functionalityId)||'');
+          if(!gid){errors.push('A functionality is missing functionalityId under '+(f.name||fid||'feature')+'.');}
+          else if(functionalityIds[gid]){errors.push('Duplicate functionalityId: '+gid);}
+          else functionalityIds[gid]=true;
+        });
+      });
+    });
+    if(featureCount<60 || featureCount>120){warnings.push('Feature count '+featureCount+' is outside the preferred ~80 workshop band.');}
+    if(functionalityCount<180 || functionalityCount>320){warnings.push('Functionality count '+functionalityCount+' is outside the preferred ~240 workshop band.');}
+    var scoringKey=((obj.metadata||{}).scoringKey)||'';
+    if(scoringKey && scoringKey!=='functionalityId'){warnings.push('metadata.scoringKey is "'+scoringKey+'"; expected functionalityId.');}
+    var ok=errors.length===0;
+    return {
+      ok:ok,
+      errors:errors,
+      warnings:warnings,
+      summary:{
+        cnVersion:obj.cnVersion||'',
+        cnStatus:obj.cnStatus||'',
+        products:obj.products.length,
+        features:featureCount,
+        functionalities:functionalityCount,
+        scoringKey:scoringKey||'functionalityId'
+      }
+    };
+  }
+
+  function persistCn(model, fileName, summary){
+    window.state=window.state||{};
+    state.canonicalModel=model;
+    state.cnLoaded=true;
+    state.cnSummary=summary;
+    state.profile=Object.assign({}, state.profile||{}, {
+      cnVersion:summary.cnVersion,
+      cnStatus:summary.cnStatus,
+      cnFileName:fileName||'',
+      cnProductCount:summary.products,
+      cnFeatureCount:summary.features,
+      cnFunctionalityCount:summary.functionalities,
+      cnScoringKey:summary.scoringKey,
+      cnLoadedAt:new Date().toISOString()
+    });
+  }
+
+  function updateGate(mode){
+    var m=modeState(mode);
+    var messages=[];
+    var ok=false;
+    if(mode==='new'){
+      if(!validCn(m)) messages.push('Upload a valid CN v0.3 Canonical Model JSON file.');
+      if(!validKbLoaded(m)) messages.push('Select assessment files containing at least one VCF KB and at least one comparator KB.');
+      ok=validCn(m)&&validKbLoaded(m);
+      if(ok){
+        messages=['CN validated ('+m.cnSummary.products+' products / '+m.cnSummary.features+' features / '+m.cnSummary.functionalities+' functionalities). KB set ready.'];
+      }
+      showValidation('new', ok?'ok':'warn', statusHtml(messages));
+      setPill('v082NewGateStatus', ok?'ok':'warn', ok?'Ready':'Files required');
+      var btn=byId('v082NewContinue'); if(btn) btn.disabled=!ok;
+    }else{
+      var resumeOk=!!m.resumeObj;
+      if(!resumeOk) messages.push('Upload a valid AssessmentProfile resume JSON file.');
+      if(!validCn(m)) messages.push('Upload a valid CN v0.3 Canonical Model JSON file.');
+      if(!validKbLoaded(m)) messages.push('Select assessment files containing at least one VCF KB and at least one comparator KB.');
+      ok=resumeOk&&validCn(m)&&validKbLoaded(m);
+      if(ok){
+        messages=['Resume, CN, and KB set validated. Ready to continue.'];
+      }
+      showValidation('resume', ok?'ok':'warn', statusHtml(messages));
+      setPill('v082ResumeGateStatus', ok?'ok':'warn', ok?'Ready':'Files required');
+      var btn2=byId('v082ResumeContinue'); if(btn2) btn2.disabled=!ok;
+    }
+  }
+
+  window.handleV140CnInput=async function(mode, files){
+    var m=modeState(mode);
+    var statusId=mode==='resume'?'v140ResumeCnStatus':'v140NewCnStatus';
+    var f=filesArr(files)[0];
+    m.cnFile=f||null;
+    m.cnModel=null;
+    m.cnValid=false;
+    m.cnSummary=null;
+    m.cnError='';
+    if(!f){
+      setStatus(statusId,'bad','No CN file selected.');
+      updateGate(mode);
+      return;
+    }
+    if(!/\.json$/i.test(f.name||'')){
+      setStatus(statusId,'bad','CN file must be a .json Canonical Model export.');
+      updateGate(mode);
+      return;
+    }
+    setStatus(statusId,'warn','Validating '+esc(f.name)+'...');
+    try{
+      var obj=await readJsonFile(f);
+      var result=validateCnModel(obj);
+      if(!result.ok){
+        m.cnError=result.errors.join('; ');
+        setStatus(statusId,'bad','CN validation failed:<br>'+statusHtml(result.errors.slice(0,8)));
+        updateGate(mode);
+        return;
+      }
+      m.cnModel=obj;
+      m.cnValid=true;
+      m.cnSummary=result.summary;
+      persistCn(obj, f.name, result.summary);
+      var warnHtml=result.warnings.length?('<br><span class="muted">Warnings: '+esc(result.warnings.join(' | '))+'</span>'):'';
+      setStatus(statusId,'ok','Loaded <b>'+esc(f.name)+'</b><br>CN '+esc(result.summary.cnVersion)+' · '+result.summary.products+' products · '+result.summary.features+' features · '+result.summary.functionalities+' functionalities'+warnHtml);
+    }catch(e){
+      m.cnError=e&&e.message?e.message:String(e);
+      setStatus(statusId,'bad','CN load failed: '+esc(m.cnError));
+    }
+    updateGate(mode);
+  };
+
+  // Wrap existing KB/resume handlers and gate so CN remains required.
+  var priorUpdateGate=null;
+  function installGateWrapper(){
+    // Locate latest updateGate by wrapping continue + KB handlers that call into preflight state.
+    var priorKb=window.handleV082KbInput;
+    window.handleV082KbInput=function(mode, files){
+      var r=typeof priorKb==='function'?priorKb.apply(this, arguments):undefined;
+      setTimeout(function(){updateGate(mode);},0);
+      return r;
+    };
+    var priorResume=window.handleV082ResumeInput;
+    window.handleV082ResumeInput=async function(files){
+      var r=typeof priorResume==='function'?await priorResume.apply(this, arguments):undefined;
+      setTimeout(function(){updateGate('resume');},0);
+      return r;
+    };
+    var priorContinueNew=window.continueNewAssessmentV082;
+    window.continueNewAssessmentV082=function(){
+      var m=modeState('new');
+      if(!(validCn(m)&&validKbLoaded(m))){updateGate('new');return;}
+      if(m.cnModel&&m.cnSummary) persistCn(m.cnModel, (m.cnFile&&m.cnFile.name)||'', m.cnSummary);
+      return typeof priorContinueNew==='function'?priorContinueNew.apply(this, arguments):undefined;
+    };
+    var priorContinueResume=window.continueResumeAssessmentV082;
+    window.continueResumeAssessmentV082=async function(){
+      var m=modeState('resume');
+      if(!(m.resumeObj&&validCn(m)&&validKbLoaded(m))){updateGate('resume');return;}
+      if(m.cnModel&&m.cnSummary) persistCn(m.cnModel, (m.cnFile&&m.cnFile.name)||'', m.cnSummary);
+      return typeof priorContinueResume==='function'?await priorContinueResume.apply(this, arguments):undefined;
+    };
+    var priorBeginNew=window.beginNewAssessmentV082;
+    window.beginNewAssessmentV082=function(){
+      var r=typeof priorBeginNew==='function'?priorBeginNew.apply(this, arguments):undefined;
+      setStatus('v140NewCnStatus','','No CN file selected.');
+      var m=modeState('new'); m.cnFile=null; m.cnModel=null; m.cnValid=false; m.cnSummary=null;
+      showValidation('new','','Select the CN file and assessment KB files to continue.');
+      return r;
+    };
+    var priorBeginResume=window.beginResumeAssessmentV082;
+    window.beginResumeAssessmentV082=function(){
+      var r=typeof priorBeginResume==='function'?priorBeginResume.apply(this, arguments):undefined;
+      setStatus('v140ResumeCnStatus','','No CN file selected.');
+      var m=modeState('resume'); m.cnFile=null; m.cnModel=null; m.cnValid=false; m.cnSummary=null;
+      showValidation('resume','','Select the resume file, CN file, and assessment KB files to continue.');
+      return r;
+    };
+  }
+
+  var priorEnhanced=window.enhancedAssessmentObject;
+  window.enhancedAssessmentObject=function(){
+    var obj=typeof priorEnhanced==='function'?priorEnhanced.apply(this, arguments):{profile:{}};
+    obj.applicationVersion=V;
+    obj.canonicalModelSummary=state.cnSummary||null;
+    obj.profile=Object.assign({}, obj.profile||{}, state.profile||{}, {applicationVersion:V});
+    return obj;
+  };
+  var priorAssessmentObject=window.assessmentObject;
+  window.assessmentObject=function(){
+    var obj=typeof priorAssessmentObject==='function'?priorAssessmentObject.apply(this, arguments):{profile:{}};
+    obj.applicationVersion=V;
+    obj.canonicalModelSummary=state.cnSummary||null;
+    obj.profile=Object.assign({}, obj.profile||{}, state.profile||{}, {applicationVersion:V});
+    return obj;
+  };
+
+  function boot(){
+    applyVersionText();
+    installGateWrapper();
+    var priorShow=window.showPage;
+    window.showPage=function(page){
+      var r=typeof priorShow==='function'?priorShow.apply(this,arguments):undefined;
+      setTimeout(applyVersionText,0);
+      return r;
+    };
+    applyVersionText();
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded', boot);
+  else boot();
+})();
+</script>
 
 </body>
 </html>

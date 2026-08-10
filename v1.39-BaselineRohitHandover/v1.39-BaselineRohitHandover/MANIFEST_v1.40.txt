@@ -1,0 +1,27 @@
+VCF-AFA App Prototype v1.40
+
+Package contents:
+- index.html
+- README.md
+- MANIFEST_v1.40.txt
+- assets/T_systems_logo_rgb_p.png
+
+Related stabilization artifacts (parent folder):
+- CN_v0.3_Validation_and_Init_Contract.md
+- CN_v0.3_Review_Signoff.md
+- canonical-model/CN_v0.3_Canonical_Capability_Model.json
+- canonical-model/CN_v0.3_Canonical_Capability_Model.xlsx
+- canonical-model/CN_v0.3_Functionality_Index.json
+- canonical-model/CN_v0.3_Functionality_Index.xlsx
+
+Build source:
+- Accepted v1.39 baseline + CN v0.3 structural Pass (2026-08-10)
+
+Implemented scope:
+- CN v0.3 JSON upload on New/Resume Assessment Initialization
+- CN structural validation (12 areas, unique IDs, scale warnings)
+- Continue gate requires CN + KB set (and resume profile on resume path)
+- Version references updated to v1.40 / 2026-08-10
+
+Preserved behavior:
+- v1.39 Executive Decision View, Demo/Active modes, exports, resume, breadcrumbs, KB diagnostics
