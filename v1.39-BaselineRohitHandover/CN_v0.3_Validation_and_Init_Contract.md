@@ -239,23 +239,23 @@ Core set only:
 
 | Comparator | Evaluation basis type (ProductVersion / CompositePeriod) | Evaluation basis value | CN coverage % | Full | Partial | No | Unknown | Evidence links present (Y/N/%) | Ready for advisory use? (Y/N) | Notes |
 |---|---|---|---|---|---|---|---|---|---|---|
-| VCF | | | | | | | | | | Baseline reference |
-| NCP_AHV | | | | | | | | | | |
-| AzureLocal | | | | | | | | | | |
-| OpenShiftVirtualization | | | | | | | | | | |
-| OpenStackKVM | | | | | | | | | | Likely composite-period candidate |
-| ProxmoxVE | | | | | | | | | | |
+| VCF | ProductVersion | Selected customer VCF baseline | 100 | 252 | 0 | 0 | 0 | N | N | Baseline reference; ASSUMED-DRAFT fill |
+| NCP_AHV | ProductVersion | ASSUMED latest NCP/AHV — confirm | 100 | 14 | 147 | 91 | 0 | N | N | ASSUMED-DRAFT 2026-08-10 |
+| AzureLocal | ProductVersion | ASSUMED current Azure Local — confirm | 100 | 14 | 161 | 77 | 0 | N | N | ASSUMED-DRAFT 2026-08-10 |
+| OpenShiftVirtualization | ProductVersion | ASSUMED current OCP Virt — confirm | 100 | 14 | 147 | 91 | 0 | N | N | Stronger on K8s area by assumption |
+| OpenStackKVM | CompositePeriod | ASSUMED Q2-2026 — confirm | 91.7 | 14 | 133 | 84 | 21 | N | N | Composite evaluation-period candidate |
+| ProxmoxVE | ProductVersion | ASSUMED current Proxmox VE — confirm | 91.7 | 14 | 91 | 126 | 21 | N | N | ASSUMED-DRAFT 2026-08-10 |
 
 ### 4.1 Partial parity quality check (when Partial > 0)
 
 | Comparator | Partials with workaround + impact context complete | Partials missing context | Pass / Fail |
 |---|---|---|---|
-| VCF | | | |
-| NCP_AHV | | | |
-| AzureLocal | | | |
-| OpenShiftVirtualization | | | |
-| OpenStackKVM | | | |
-| ProxmoxVE | | | |
+| VCF | 0 | 0 | N/A (baseline Full) |
+| NCP_AHV | 0 | 147 | Fail — assumptions only; need evidence |
+| AzureLocal | 0 | 161 | Fail — assumptions only; need evidence |
+| OpenShiftVirtualization | 0 | 147 | Fail — assumptions only; need evidence |
+| OpenStackKVM | 0 | 133 | Fail — assumptions only; need evidence |
+| ProxmoxVE | 0 | 91 | Fail — assumptions only; need evidence |
 
 ### 4.2 Extended set (do not work now)
 

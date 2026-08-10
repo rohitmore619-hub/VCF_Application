@@ -23,6 +23,8 @@ Governed **Canonical Capability Model** for VCF-AFA stabilization.
 
 Fill comparator parity cells only from evidence. Leave blank/Unknown rather than guessing. JSON remains the structured source for future app ingestion.
 
+**Current exception (stabilization unblock):** Core parity columns were filled on 2026-08-10 with **ASSUMED-DRAFT** heuristics (see `Assumptions` sheet). Replace before advisory use.
+
 **Scale in this draft:** 12 products / 84 features / 252 functionalities (target ~12 / ~80 / ~240).
 
 ## Important truths
@@ -57,3 +59,13 @@ Fill comparator parity cells only from evidence. Leave blank/Unknown rather than
 ## Status
 
 `draft_candidate` — requires sign-off before advisory production use.
+
+
+## Draft Core parity fill (2026-08-10)
+
+The Excel `Functionalities` sheet and `CoreEvidenceMatrix` sheet now include **ASSUMED-DRAFT** Core comparator parity values to unblock stabilization dry-runs.
+
+- See sheet `Assumptions` for heuristic rules
+- See `CN_v0.3_Core_Parity_Assumptions.json` for machine-readable counts
+- **Not ready for customer advisory conclusions** until evidence links replace assumptions
+- Prefer keeping Unknown over fake certainty when re-reviewing
