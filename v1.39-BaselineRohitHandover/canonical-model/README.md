@@ -7,8 +7,19 @@ Governed **Canonical Capability Model** for VCF-AFA stabilization.
 | File | Purpose |
 |---|---|
 | [`CN_v0.3_Canonical_Capability_Model.json`](CN_v0.3_Canonical_Capability_Model.json) | Full CN structure: 12 products, features, functionalities, enums, ID rules, init alignment |
+| [`CN_v0.3_Canonical_Capability_Model.xlsx`](CN_v0.3_Canonical_Capability_Model.xlsx) | Excel review workbook for comparison (Products, Features, Functionalities + empty Core parity columns) |
 | [`CN_v0.3_Functionality_Index.json`](CN_v0.3_Functionality_Index.json) | Flat index of every `functionalityId` for review and future ingestion mapping |
 | [`../CN_v0.3_Validation_and_Init_Contract.md`](../CN_v0.3_Validation_and_Init_Contract.md) | Pass/Fail validation checklist + init contract |
+
+### Excel sheets
+
+- `Metadata` — version, counts, scoring key, upload status  
+- `Products` — 12 areas with Pass/Fail note columns  
+- `Features` — feature inventory  
+- `Functionalities` — main comparison sheet (`functionalityId` + blank Core comparator parity columns)  
+- `Enums`, `PartialParityFields`, `InitAndCoreSet`, `IdRules` — governance helpers  
+
+Fill comparator parity cells only from evidence. Leave blank/Unknown rather than guessing. JSON remains the structured source for future app ingestion.
 
 **Scale in this draft:** 12 products / 84 features / 252 functionalities (target ~12 / ~80 / ~240).
 
