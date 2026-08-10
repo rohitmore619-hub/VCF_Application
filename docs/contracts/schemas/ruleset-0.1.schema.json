@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://vcf-afa.local/schemas/ruleset-0.1.json",
+  "title": "VCF-AFA Ruleset",
+  "type": "object",
+  "required": [
+    "rulesetId",
+    "rulesetVersion",
+    "status",
+    "requirementRatings",
+    "parityValues",
+    "weights",
+    "aggregation",
+    "comparatorAssumptions"
+  ],
+  "properties": {
+    "rulesetId": {
+      "type": "string"
+    },
+    "rulesetVersion": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "Draft",
+        "Review",
+        "Approved",
+        "Deprecated"
+      ]
+    },
+    "requirementRatings": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "parityValues": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "partialParityRequiredFields": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "weights": {
+      "type": "object"
+    },
+    "aggregation": {
+      "type": "object"
+    },
+    "thresholds": {
+      "type": "object"
+    },
+    "riskBurden": {
+      "type": "object"
+    },
+    "comparatorAssumptions": {
+      "type": "object"
+    }
+  }
+}

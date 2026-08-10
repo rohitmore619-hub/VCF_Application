@@ -1,0 +1,94 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://vcf-afa.local/schemas/comparator-evaluation-basis-0.1.json",
+  "title": "Comparator Evaluation Basis",
+  "type": "object",
+  "required": [
+    "platformKey",
+    "versioningMode",
+    "evaluationBasisLabel"
+  ],
+  "properties": {
+    "platformKey": {
+      "type": "string"
+    },
+    "versioningMode": {
+      "type": "string",
+      "enum": [
+        "single_product",
+        "composite_period"
+      ]
+    },
+    "productVersion": {
+      "type": "string"
+    },
+    "evaluationPeriod": {
+      "type": "string"
+    },
+    "evaluationDate": {
+      "type": "string"
+    },
+    "evaluationBasisLabel": {
+      "type": "string"
+    },
+    "components": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "componentKey"
+        ],
+        "properties": {
+          "componentKey": {
+            "type": "string"
+          },
+          "componentVersion": {
+            "type": "string"
+          },
+          "componentRole": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "evidenceFreezeNotes": {
+      "type": "string"
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "versioningMode": {
+            "const": "single_product"
+          }
+        },
+        "required": [
+          "versioningMode"
+        ]
+      },
+      "then": {
+        "required": [
+          "productVersion"
+        ]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "versioningMode": {
+            "const": "composite_period"
+          }
+        },
+        "required": [
+          "versioningMode"
+        ]
+      },
+      "then": {
+        "required": [
+          "evaluationPeriod"
+        ]
+      }
+    }
+  ]
+}

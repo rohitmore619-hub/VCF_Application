@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://vcf-afa.local/schemas/initialization-manifest-0.1.json",
+  "title": "Assessment Initialization Manifest",
+  "type": "object",
+  "required": [
+    "manifestVersion",
+    "canonicalModel",
+    "vcfKnowledgeBases",
+    "comparatorKnowledgeBases",
+    "strategicConsiderations",
+    "ruleset"
+  ],
+  "properties": {
+    "manifestVersion": {
+      "type": "string"
+    },
+    "canonicalModel": {
+      "type": "object",
+      "required": [
+        "fileName",
+        "modelVersion"
+      ]
+    },
+    "vcfKnowledgeBases": {
+      "type": "array",
+      "minItems": 1
+    },
+    "comparatorKnowledgeBases": {
+      "type": "array",
+      "minItems": 1
+    },
+    "strategicConsiderations": {
+      "type": "object",
+      "required": [
+        "fileName"
+      ]
+    },
+    "ruleset": {
+      "type": "object",
+      "required": [
+        "fileName",
+        "rulesetVersion"
+      ]
+    },
+    "assessmentProfile": {
+      "type": "object"
+    }
+  }
+}

@@ -1,6 +1,10 @@
 # VCF-AFA App Prototype v1.39
 
-v1.39 is a focused stability and code-hygiene build from the accepted v1.36 baseline.
+**This is the accepted active implementation baseline.**
+
+Repo working path: `assessment-app/v1.39/`
+
+Open `index.html` in a browser to run the prototype.
 
 ## v1.39 Changes
 
@@ -28,16 +32,20 @@ v1.39 is a focused stability and code-hygiene build from the accepted v1.36 base
 - VCF Technical Requirements behavior.
 - Repository packaging behavior.
 
+## Related repo docs
+
+- Baseline confirmation: `../../docs/baseline/ACTIVE_BASELINE.md`
+- Contracts: `../../docs/contracts/`
+- CN validation: `../../docs/models/cn-v0.3-validation.md`
+- Next steps: `../../docs/backlog/immediate-next-steps.md`
+
 ## Validation Summary
 
-- Inline JavaScript syntax check passed.
-- Static checks confirmed no active `setInterval`, `new MutationObserver`, or `observer.observe` calls remain.
-- Static checks confirmed app runtime version references are updated to v1.39 / 2026-06-21.
-- Static checks confirmed Executive Decision View render signature and scroll-preservation logic are present.
-- Browser smoke testing could not be completed because browser navigation is blocked in this execution environment.
-- ZIP integrity check passed.
+- Inline JavaScript syntax check passed in original handover package.
+- Static checks confirmed no active `setInterval`, `new MutationObserver`, or `observer.observe` calls remain as production self-healing behavior.
+- App runtime version references are v1.39 / 2026-06-21.
+- ZIP integrity copies retained under `../../packages/`.
 
+## Concept note
 
-## v1.39 Concept Test
-
-Applies the accepted Executive Decision View card styling language visibly across preceding workflow screens: darker full-card outlines, light matching fills, stronger headers, contained inner cards, and tinted action areas. Built from accepted v1.37 baseline; v1.38 failed concept was not used as source.
+Applies the accepted Executive Decision View card styling language across preceding workflow screens. Built from accepted v1.37 baseline; v1.38 failed concept was not used as source.

@@ -1,0 +1,41 @@
+{
+  "rulesetId": "VCF-AFA-RULESET",
+  "rulesetVersion": "0.1",
+  "status": "Draft",
+  "requirementRatings": ["Required", "Important", "Nice-to-have", "Not Required", "Unknown"],
+  "parityValues": ["Full Parity", "Partial Parity", "No Parity", "Unknown"],
+  "partialParityRequiredFields": [
+    "workaroundAvailability",
+    "workaroundDescription",
+    "workaroundComplexity",
+    "technicalImpact",
+    "operationalImpact",
+    "commercialImpact",
+    "sovereigntyImpact",
+    "advisoryNotes",
+    "evidenceLinks"
+  ],
+  "weights": {
+    "technicalDefault": 60,
+    "strategicDefault": 40
+  },
+  "aggregation": {
+    "scoreAt": "Functionality",
+    "rollUpOrder": ["Feature", "Capability", "Domain", "Platform"]
+  },
+  "thresholds": {
+    "requiredNoParityIsBlocker": true,
+    "unknownParityWatchArea": true
+  },
+  "riskBurden": {
+    "partialParityWeightByComplexity": {
+      "Low": 1,
+      "Medium": 2,
+      "High": 3
+    }
+  },
+  "comparatorAssumptions": {
+    "activeSet": ["VCF", "NCP_AHV", "AzureLocal", "OpenShiftVirtualization", "OpenStackKVM", "ProxmoxVE"],
+    "extendedSet": ["XCPng", "Harvester", "HyperV", "CitrixHypervisor", "ScaleComputingHC3"]
+  }
+}
