@@ -1,0 +1,35 @@
+VCF-AFA App Prototype v1.39
+
+Package contents:
+- index.html
+- README.md
+- MANIFEST_v1.39.txt
+- assets/T_systems_logo_rgb_p.png
+
+Build source:
+- Accepted v1.36 baseline
+
+Implemented scope:
+- Stability/code hygiene cleanup to reduce unsolicited screen jumps
+- Removed periodic self-healing timers
+- Removed broad persistent MutationObserver patchers
+- Scoped diagnostics refresh behavior
+- Coalesced Active Data Mode Executive Decision View render scheduling
+- Added Executive Decision View render-signature guard and scroll-position preservation
+- Version references updated to v1.39
+
+Preserved behavior:
+- v1.36 Executive Decision View behavior in Demo and Active modes
+- Comparator color synchronization
+- VCF Baseline chip behavior
+- Results and exports
+- Resume Assessment
+- Breadcrumbs
+- Saved AssessmentProfile handling
+- Upload recognition
+- KB diagnostics and Ingestion Regression Guard
+- VCF Technical Requirements
+- Repository packaging behavior
+
+
+v1.39 concept test: visible workflow-card styling consistency applied from v1.37 baseline. v1.38 was not used as source.
