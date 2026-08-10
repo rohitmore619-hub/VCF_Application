@@ -1,0 +1,2522 @@
+[
+  {
+    "productId": "VCF-01",
+    "productName": "VCF Platform / Fleet / Workload Domains",
+    "domainName": "Platform Foundation",
+    "capabilityName": "Fleet and Workload Domain Management",
+    "featureId": "VCF-01-F01",
+    "featureName": "Fleet inventory and topology visibility",
+    "functionalityId": "VCF-01-F01-FN01",
+    "functionalityName": "Discover hosts and clusters"
+  },
+  {
+    "productId": "VCF-01",
+    "productName": "VCF Platform / Fleet / Workload Domains",
+    "domainName": "Platform Foundation",
+    "capabilityName": "Fleet and Workload Domain Management",
+    "featureId": "VCF-01-F01",
+    "featureName": "Fleet inventory and topology visibility",
+    "functionalityId": "VCF-01-F01-FN02",
+    "functionalityName": "View domain membership"
+  },
+  {
+    "productId": "VCF-01",
+    "productName": "VCF Platform / Fleet / Workload Domains",
+    "domainName": "Platform Foundation",
+    "capabilityName": "Fleet and Workload Domain Management",
+    "featureId": "VCF-01-F01",
+    "featureName": "Fleet inventory and topology visibility",
+    "functionalityId": "VCF-01-F01-FN03",
+    "functionalityName": "Track capacity summary"
+  },
+  {
+    "productId": "VCF-01",
+    "productName": "VCF Platform / Fleet / Workload Domains",
+    "domainName": "Platform Foundation",
+    "capabilityName": "Fleet and Workload Domain Management",
+    "featureId": "VCF-01-F02",
+    "featureName": "Workload domain lifecycle",
+    "functionalityId": "VCF-01-F02-FN01",
+    "functionalityName": "Create workload domain"
+  },
+  {
+    "productId": "VCF-01",
+    "productName": "VCF Platform / Fleet / Workload Domains",
+    "domainName": "Platform Foundation",
+    "capabilityName": "Fleet and Workload Domain Management",
+    "featureId": "VCF-01-F02",
+    "featureName": "Workload domain lifecycle",
+    "functionalityId": "VCF-01-F02-FN02",
+    "functionalityName": "Expand workload domain"
+  },
+  {
+    "productId": "VCF-01",
+    "productName": "VCF Platform / Fleet / Workload Domains",
+    "domainName": "Platform Foundation",
+    "capabilityName": "Fleet and Workload Domain Management",
+    "featureId": "VCF-01-F02",
+    "featureName": "Workload domain lifecycle",
+    "functionalityId": "VCF-01-F02-FN03",
+    "functionalityName": "Delete/decommission domain"
+  },
+  {
+    "productId": "VCF-01",
+    "productName": "VCF Platform / Fleet / Workload Domains",
+    "domainName": "Platform Foundation",
+    "capabilityName": "Fleet and Workload Domain Management",
+    "featureId": "VCF-01-F03",
+    "featureName": "Cluster composition controls",
+    "functionalityId": "VCF-01-F03-FN01",
+    "functionalityName": "Add hosts to cluster"
+  },
+  {
+    "productId": "VCF-01",
+    "productName": "VCF Platform / Fleet / Workload Domains",
+    "domainName": "Platform Foundation",
+    "capabilityName": "Fleet and Workload Domain Management",
+    "featureId": "VCF-01-F03",
+    "featureName": "Cluster composition controls",
+    "functionalityId": "VCF-01-F03-FN02",
+    "functionalityName": "Remove hosts from cluster"
+  },
+  {
+    "productId": "VCF-01",
+    "productName": "VCF Platform / Fleet / Workload Domains",
+    "domainName": "Platform Foundation",
+    "capabilityName": "Fleet and Workload Domain Management",
+    "featureId": "VCF-01-F03",
+    "featureName": "Cluster composition controls",
+    "functionalityId": "VCF-01-F03-FN03",
+    "functionalityName": "Validate cluster readiness"
+  },
+  {
+    "productId": "VCF-01",
+    "productName": "VCF Platform / Fleet / Workload Domains",
+    "domainName": "Platform Foundation",
+    "capabilityName": "Fleet and Workload Domain Management",
+    "featureId": "VCF-01-F04",
+    "featureName": "Principal vs workload domain separation",
+    "functionalityId": "VCF-01-F04-FN01",
+    "functionalityName": "Maintain management domain isolation"
+  },
+  {
+    "productId": "VCF-01",
+    "productName": "VCF Platform / Fleet / Workload Domains",
+    "domainName": "Platform Foundation",
+    "capabilityName": "Fleet and Workload Domain Management",
+    "featureId": "VCF-01-F04",
+    "featureName": "Principal vs workload domain separation",
+    "functionalityId": "VCF-01-F04-FN02",
+    "functionalityName": "Apply domain-specific policies"
+  },
+  {
+    "productId": "VCF-01",
+    "productName": "VCF Platform / Fleet / Workload Domains",
+    "domainName": "Platform Foundation",
+    "capabilityName": "Fleet and Workload Domain Management",
+    "featureId": "VCF-01-F04",
+    "featureName": "Principal vs workload domain separation",
+    "functionalityId": "VCF-01-F04-FN03",
+    "functionalityName": "Audit cross-domain dependencies"
+  },
+  {
+    "productId": "VCF-01",
+    "productName": "VCF Platform / Fleet / Workload Domains",
+    "domainName": "Platform Foundation",
+    "capabilityName": "Fleet and Workload Domain Management",
+    "featureId": "VCF-01-F05",
+    "featureName": "Commissioning and host bring-up",
+    "functionalityId": "VCF-01-F05-FN01",
+    "functionalityName": "Commission host"
+  },
+  {
+    "productId": "VCF-01",
+    "productName": "VCF Platform / Fleet / Workload Domains",
+    "domainName": "Platform Foundation",
+    "capabilityName": "Fleet and Workload Domain Management",
+    "featureId": "VCF-01-F05",
+    "featureName": "Commissioning and host bring-up",
+    "functionalityId": "VCF-01-F05-FN02",
+    "functionalityName": "Validate hardware compatibility"
+  },
+  {
+    "productId": "VCF-01",
+    "productName": "VCF Platform / Fleet / Workload Domains",
+    "domainName": "Platform Foundation",
+    "capabilityName": "Fleet and Workload Domain Management",
+    "featureId": "VCF-01-F05",
+    "featureName": "Commissioning and host bring-up",
+    "functionalityId": "VCF-01-F05-FN03",
+    "functionalityName": "Assign host to domain"
+  },
+  {
+    "productId": "VCF-01",
+    "productName": "VCF Platform / Fleet / Workload Domains",
+    "domainName": "Platform Foundation",
+    "capabilityName": "Fleet and Workload Domain Management",
+    "featureId": "VCF-01-F06",
+    "featureName": "Platform configuration baselines",
+    "functionalityId": "VCF-01-F06-FN01",
+    "functionalityName": "Capture desired state baseline"
+  },
+  {
+    "productId": "VCF-01",
+    "productName": "VCF Platform / Fleet / Workload Domains",
+    "domainName": "Platform Foundation",
+    "capabilityName": "Fleet and Workload Domain Management",
+    "featureId": "VCF-01-F06",
+    "featureName": "Platform configuration baselines",
+    "functionalityId": "VCF-01-F06-FN02",
+    "functionalityName": "Detect configuration drift"
+  },
+  {
+    "productId": "VCF-01",
+    "productName": "VCF Platform / Fleet / Workload Domains",
+    "domainName": "Platform Foundation",
+    "capabilityName": "Fleet and Workload Domain Management",
+    "featureId": "VCF-01-F06",
+    "featureName": "Platform configuration baselines",
+    "functionalityId": "VCF-01-F06-FN03",
+    "functionalityName": "Export baseline snapshot"
+  },
+  {
+    "productId": "VCF-01",
+    "productName": "VCF Platform / Fleet / Workload Domains",
+    "domainName": "Platform Foundation",
+    "capabilityName": "Fleet and Workload Domain Management",
+    "featureId": "VCF-01-F07",
+    "featureName": "Multi-site / stretch awareness",
+    "functionalityId": "VCF-01-F07-FN01",
+    "functionalityName": "Identify stretched topology"
+  },
+  {
+    "productId": "VCF-01",
+    "productName": "VCF Platform / Fleet / Workload Domains",
+    "domainName": "Platform Foundation",
+    "capabilityName": "Fleet and Workload Domain Management",
+    "featureId": "VCF-01-F07",
+    "featureName": "Multi-site / stretch awareness",
+    "functionalityId": "VCF-01-F07-FN02",
+    "functionalityName": "Track site affinity"
+  },
+  {
+    "productId": "VCF-01",
+    "productName": "VCF Platform / Fleet / Workload Domains",
+    "domainName": "Platform Foundation",
+    "capabilityName": "Fleet and Workload Domain Management",
+    "featureId": "VCF-01-F07",
+    "featureName": "Multi-site / stretch awareness",
+    "functionalityId": "VCF-01-F07-FN03",
+    "functionalityName": "Surface site failure domains"
+  },
+  {
+    "productId": "VCF-02",
+    "productName": "VCF Installer / SDDC Manager / Lifecycle Services",
+    "domainName": "Lifecycle and Install",
+    "capabilityName": "Install, Upgrade, and Lifecycle Orchestration",
+    "featureId": "VCF-02-F01",
+    "featureName": "Initial bring-up / installer workflow",
+    "functionalityId": "VCF-02-F01-FN01",
+    "functionalityName": "Run bring-up wizard"
+  },
+  {
+    "productId": "VCF-02",
+    "productName": "VCF Installer / SDDC Manager / Lifecycle Services",
+    "domainName": "Lifecycle and Install",
+    "capabilityName": "Install, Upgrade, and Lifecycle Orchestration",
+    "featureId": "VCF-02-F01",
+    "featureName": "Initial bring-up / installer workflow",
+    "functionalityId": "VCF-02-F01-FN02",
+    "functionalityName": "Validate prerequisites"
+  },
+  {
+    "productId": "VCF-02",
+    "productName": "VCF Installer / SDDC Manager / Lifecycle Services",
+    "domainName": "Lifecycle and Install",
+    "capabilityName": "Install, Upgrade, and Lifecycle Orchestration",
+    "featureId": "VCF-02-F01",
+    "featureName": "Initial bring-up / installer workflow",
+    "functionalityId": "VCF-02-F01-FN03",
+    "functionalityName": "Apply initial configuration"
+  },
+  {
+    "productId": "VCF-02",
+    "productName": "VCF Installer / SDDC Manager / Lifecycle Services",
+    "domainName": "Lifecycle and Install",
+    "capabilityName": "Install, Upgrade, and Lifecycle Orchestration",
+    "featureId": "VCF-02-F02",
+    "featureName": "SDDC Manager orchestration",
+    "functionalityId": "VCF-02-F02-FN01",
+    "functionalityName": "Coordinate component workflows"
+  },
+  {
+    "productId": "VCF-02",
+    "productName": "VCF Installer / SDDC Manager / Lifecycle Services",
+    "domainName": "Lifecycle and Install",
+    "capabilityName": "Install, Upgrade, and Lifecycle Orchestration",
+    "featureId": "VCF-02-F02",
+    "featureName": "SDDC Manager orchestration",
+    "functionalityId": "VCF-02-F02-FN02",
+    "functionalityName": "Track task progress"
+  },
+  {
+    "productId": "VCF-02",
+    "productName": "VCF Installer / SDDC Manager / Lifecycle Services",
+    "domainName": "Lifecycle and Install",
+    "capabilityName": "Install, Upgrade, and Lifecycle Orchestration",
+    "featureId": "VCF-02-F02",
+    "featureName": "SDDC Manager orchestration",
+    "functionalityId": "VCF-02-F02-FN03",
+    "functionalityName": "Retry failed tasks safely"
+  },
+  {
+    "productId": "VCF-02",
+    "productName": "VCF Installer / SDDC Manager / Lifecycle Services",
+    "domainName": "Lifecycle and Install",
+    "capabilityName": "Install, Upgrade, and Lifecycle Orchestration",
+    "featureId": "VCF-02-F03",
+    "featureName": "Bundle / depot management",
+    "functionalityId": "VCF-02-F03-FN01",
+    "functionalityName": "Ingest update bundles"
+  },
+  {
+    "productId": "VCF-02",
+    "productName": "VCF Installer / SDDC Manager / Lifecycle Services",
+    "domainName": "Lifecycle and Install",
+    "capabilityName": "Install, Upgrade, and Lifecycle Orchestration",
+    "featureId": "VCF-02-F03",
+    "featureName": "Bundle / depot management",
+    "functionalityId": "VCF-02-F03-FN02",
+    "functionalityName": "Validate bundle integrity"
+  },
+  {
+    "productId": "VCF-02",
+    "productName": "VCF Installer / SDDC Manager / Lifecycle Services",
+    "domainName": "Lifecycle and Install",
+    "capabilityName": "Install, Upgrade, and Lifecycle Orchestration",
+    "featureId": "VCF-02-F03",
+    "featureName": "Bundle / depot management",
+    "functionalityId": "VCF-02-F03-FN03",
+    "functionalityName": "Stage bundles for upgrade"
+  },
+  {
+    "productId": "VCF-02",
+    "productName": "VCF Installer / SDDC Manager / Lifecycle Services",
+    "domainName": "Lifecycle and Install",
+    "capabilityName": "Install, Upgrade, and Lifecycle Orchestration",
+    "featureId": "VCF-02-F04",
+    "featureName": "Upgrade planning and prechecks",
+    "functionalityId": "VCF-02-F04-FN01",
+    "functionalityName": "Run upgrade prechecks"
+  },
+  {
+    "productId": "VCF-02",
+    "productName": "VCF Installer / SDDC Manager / Lifecycle Services",
+    "domainName": "Lifecycle and Install",
+    "capabilityName": "Install, Upgrade, and Lifecycle Orchestration",
+    "featureId": "VCF-02-F04",
+    "featureName": "Upgrade planning and prechecks",
+    "functionalityId": "VCF-02-F04-FN02",
+    "functionalityName": "Identify blockers"
+  },
+  {
+    "productId": "VCF-02",
+    "productName": "VCF Installer / SDDC Manager / Lifecycle Services",
+    "domainName": "Lifecycle and Install",
+    "capabilityName": "Install, Upgrade, and Lifecycle Orchestration",
+    "featureId": "VCF-02-F04",
+    "featureName": "Upgrade planning and prechecks",
+    "functionalityId": "VCF-02-F04-FN03",
+    "functionalityName": "Produce upgrade readiness report"
+  },
+  {
+    "productId": "VCF-02",
+    "productName": "VCF Installer / SDDC Manager / Lifecycle Services",
+    "domainName": "Lifecycle and Install",
+    "capabilityName": "Install, Upgrade, and Lifecycle Orchestration",
+    "featureId": "VCF-02-F05",
+    "featureName": "Coordinated stack upgrade",
+    "functionalityId": "VCF-02-F05-FN01",
+    "functionalityName": "Upgrade management components"
+  },
+  {
+    "productId": "VCF-02",
+    "productName": "VCF Installer / SDDC Manager / Lifecycle Services",
+    "domainName": "Lifecycle and Install",
+    "capabilityName": "Install, Upgrade, and Lifecycle Orchestration",
+    "featureId": "VCF-02-F05",
+    "featureName": "Coordinated stack upgrade",
+    "functionalityId": "VCF-02-F05-FN02",
+    "functionalityName": "Upgrade workload domain components"
+  },
+  {
+    "productId": "VCF-02",
+    "productName": "VCF Installer / SDDC Manager / Lifecycle Services",
+    "domainName": "Lifecycle and Install",
+    "capabilityName": "Install, Upgrade, and Lifecycle Orchestration",
+    "featureId": "VCF-02-F05",
+    "featureName": "Coordinated stack upgrade",
+    "functionalityId": "VCF-02-F05-FN03",
+    "functionalityName": "Track upgrade checkpoints"
+  },
+  {
+    "productId": "VCF-02",
+    "productName": "VCF Installer / SDDC Manager / Lifecycle Services",
+    "domainName": "Lifecycle and Install",
+    "capabilityName": "Install, Upgrade, and Lifecycle Orchestration",
+    "featureId": "VCF-02-F06",
+    "featureName": "Skip-level / selective update controls",
+    "functionalityId": "VCF-02-F06-FN01",
+    "functionalityName": "Select update scope"
+  },
+  {
+    "productId": "VCF-02",
+    "productName": "VCF Installer / SDDC Manager / Lifecycle Services",
+    "domainName": "Lifecycle and Install",
+    "capabilityName": "Install, Upgrade, and Lifecycle Orchestration",
+    "featureId": "VCF-02-F06",
+    "featureName": "Skip-level / selective update controls",
+    "functionalityId": "VCF-02-F06-FN02",
+    "functionalityName": "Defer non-critical updates"
+  },
+  {
+    "productId": "VCF-02",
+    "productName": "VCF Installer / SDDC Manager / Lifecycle Services",
+    "domainName": "Lifecycle and Install",
+    "capabilityName": "Install, Upgrade, and Lifecycle Orchestration",
+    "featureId": "VCF-02-F06",
+    "featureName": "Skip-level / selective update controls",
+    "functionalityId": "VCF-02-F06-FN03",
+    "functionalityName": "Record update exceptions"
+  },
+  {
+    "productId": "VCF-02",
+    "productName": "VCF Installer / SDDC Manager / Lifecycle Services",
+    "domainName": "Lifecycle and Install",
+    "capabilityName": "Install, Upgrade, and Lifecycle Orchestration",
+    "featureId": "VCF-02-F07",
+    "featureName": "Lifecycle audit and rollback posture",
+    "functionalityId": "VCF-02-F07-FN01",
+    "functionalityName": "Retain upgrade history"
+  },
+  {
+    "productId": "VCF-02",
+    "productName": "VCF Installer / SDDC Manager / Lifecycle Services",
+    "domainName": "Lifecycle and Install",
+    "capabilityName": "Install, Upgrade, and Lifecycle Orchestration",
+    "featureId": "VCF-02-F07",
+    "featureName": "Lifecycle audit and rollback posture",
+    "functionalityId": "VCF-02-F07-FN02",
+    "functionalityName": "Document rollback constraints"
+  },
+  {
+    "productId": "VCF-02",
+    "productName": "VCF Installer / SDDC Manager / Lifecycle Services",
+    "domainName": "Lifecycle and Install",
+    "capabilityName": "Install, Upgrade, and Lifecycle Orchestration",
+    "featureId": "VCF-02-F07",
+    "featureName": "Lifecycle audit and rollback posture",
+    "functionalityId": "VCF-02-F07-FN03",
+    "functionalityName": "Export lifecycle evidence"
+  },
+  {
+    "productId": "VCF-03",
+    "productName": "vSphere Compute & Management",
+    "domainName": "Compute",
+    "capabilityName": "Virtual Compute and Cluster Operations",
+    "featureId": "VCF-03-F01",
+    "featureName": "ESXi host compute services",
+    "functionalityId": "VCF-03-F01-FN01",
+    "functionalityName": "Run virtual machines"
+  },
+  {
+    "productId": "VCF-03",
+    "productName": "vSphere Compute & Management",
+    "domainName": "Compute",
+    "capabilityName": "Virtual Compute and Cluster Operations",
+    "featureId": "VCF-03-F01",
+    "featureName": "ESXi host compute services",
+    "functionalityId": "VCF-03-F01-FN02",
+    "functionalityName": "Manage host services"
+  },
+  {
+    "productId": "VCF-03",
+    "productName": "vSphere Compute & Management",
+    "domainName": "Compute",
+    "capabilityName": "Virtual Compute and Cluster Operations",
+    "featureId": "VCF-03-F01",
+    "featureName": "ESXi host compute services",
+    "functionalityId": "VCF-03-F01-FN03",
+    "functionalityName": "Apply host profiles/baselines"
+  },
+  {
+    "productId": "VCF-03",
+    "productName": "vSphere Compute & Management",
+    "domainName": "Compute",
+    "capabilityName": "Virtual Compute and Cluster Operations",
+    "featureId": "VCF-03-F02",
+    "featureName": "vCenter management plane",
+    "functionalityId": "VCF-03-F02-FN01",
+    "functionalityName": "Central inventory control"
+  },
+  {
+    "productId": "VCF-03",
+    "productName": "vSphere Compute & Management",
+    "domainName": "Compute",
+    "capabilityName": "Virtual Compute and Cluster Operations",
+    "featureId": "VCF-03-F02",
+    "featureName": "vCenter management plane",
+    "functionalityId": "VCF-03-F02-FN02",
+    "functionalityName": "Role-based access for compute"
+  },
+  {
+    "productId": "VCF-03",
+    "productName": "vSphere Compute & Management",
+    "domainName": "Compute",
+    "capabilityName": "Virtual Compute and Cluster Operations",
+    "featureId": "VCF-03-F02",
+    "featureName": "vCenter management plane",
+    "functionalityId": "VCF-03-F02-FN03",
+    "functionalityName": "API/automation access"
+  },
+  {
+    "productId": "VCF-03",
+    "productName": "vSphere Compute & Management",
+    "domainName": "Compute",
+    "capabilityName": "Virtual Compute and Cluster Operations",
+    "featureId": "VCF-03-F03",
+    "featureName": "DRS / placement optimization",
+    "functionalityId": "VCF-03-F03-FN01",
+    "functionalityName": "Balance workloads"
+  },
+  {
+    "productId": "VCF-03",
+    "productName": "vSphere Compute & Management",
+    "domainName": "Compute",
+    "capabilityName": "Virtual Compute and Cluster Operations",
+    "featureId": "VCF-03-F03",
+    "featureName": "DRS / placement optimization",
+    "functionalityId": "VCF-03-F03-FN02",
+    "functionalityName": "Apply placement rules"
+  },
+  {
+    "productId": "VCF-03",
+    "productName": "vSphere Compute & Management",
+    "domainName": "Compute",
+    "capabilityName": "Virtual Compute and Cluster Operations",
+    "featureId": "VCF-03-F03",
+    "featureName": "DRS / placement optimization",
+    "functionalityId": "VCF-03-F03-FN03",
+    "functionalityName": "Evacuate hosts for maintenance"
+  },
+  {
+    "productId": "VCF-03",
+    "productName": "vSphere Compute & Management",
+    "domainName": "Compute",
+    "capabilityName": "Virtual Compute and Cluster Operations",
+    "featureId": "VCF-03-F04",
+    "featureName": "HA and restart protection",
+    "functionalityId": "VCF-03-F04-FN01",
+    "functionalityName": "Detect host failure"
+  },
+  {
+    "productId": "VCF-03",
+    "productName": "vSphere Compute & Management",
+    "domainName": "Compute",
+    "capabilityName": "Virtual Compute and Cluster Operations",
+    "featureId": "VCF-03-F04",
+    "featureName": "HA and restart protection",
+    "functionalityId": "VCF-03-F04-FN02",
+    "functionalityName": "Restart impacted VMs"
+  },
+  {
+    "productId": "VCF-03",
+    "productName": "vSphere Compute & Management",
+    "domainName": "Compute",
+    "capabilityName": "Virtual Compute and Cluster Operations",
+    "featureId": "VCF-03-F04",
+    "featureName": "HA and restart protection",
+    "functionalityId": "VCF-03-F04-FN03",
+    "functionalityName": "Configure admission control"
+  },
+  {
+    "productId": "VCF-03",
+    "productName": "vSphere Compute & Management",
+    "domainName": "Compute",
+    "capabilityName": "Virtual Compute and Cluster Operations",
+    "featureId": "VCF-03-F05",
+    "featureName": "Resource pools and controls",
+    "functionalityId": "VCF-03-F05-FN01",
+    "functionalityName": "Create resource pools"
+  },
+  {
+    "productId": "VCF-03",
+    "productName": "vSphere Compute & Management",
+    "domainName": "Compute",
+    "capabilityName": "Virtual Compute and Cluster Operations",
+    "featureId": "VCF-03-F05",
+    "featureName": "Resource pools and controls",
+    "functionalityId": "VCF-03-F05-FN02",
+    "functionalityName": "Set reservations/limits/shares"
+  },
+  {
+    "productId": "VCF-03",
+    "productName": "vSphere Compute & Management",
+    "domainName": "Compute",
+    "capabilityName": "Virtual Compute and Cluster Operations",
+    "featureId": "VCF-03-F05",
+    "featureName": "Resource pools and controls",
+    "functionalityId": "VCF-03-F05-FN03",
+    "functionalityName": "Monitor pool contention"
+  },
+  {
+    "productId": "VCF-03",
+    "productName": "vSphere Compute & Management",
+    "domainName": "Compute",
+    "capabilityName": "Virtual Compute and Cluster Operations",
+    "featureId": "VCF-03-F06",
+    "featureName": "VM lifecycle operations",
+    "functionalityId": "VCF-03-F06-FN01",
+    "functionalityName": "Provision VM"
+  },
+  {
+    "productId": "VCF-03",
+    "productName": "vSphere Compute & Management",
+    "domainName": "Compute",
+    "capabilityName": "Virtual Compute and Cluster Operations",
+    "featureId": "VCF-03-F06",
+    "featureName": "VM lifecycle operations",
+    "functionalityId": "VCF-03-F06-FN02",
+    "functionalityName": "Clone/template deploy"
+  },
+  {
+    "productId": "VCF-03",
+    "productName": "vSphere Compute & Management",
+    "domainName": "Compute",
+    "capabilityName": "Virtual Compute and Cluster Operations",
+    "featureId": "VCF-03-F06",
+    "featureName": "VM lifecycle operations",
+    "functionalityId": "VCF-03-F06-FN03",
+    "functionalityName": "Snapshot and revert controls"
+  },
+  {
+    "productId": "VCF-03",
+    "productName": "vSphere Compute & Management",
+    "domainName": "Compute",
+    "capabilityName": "Virtual Compute and Cluster Operations",
+    "featureId": "VCF-03-F07",
+    "featureName": "Maintenance and remediation",
+    "functionalityId": "VCF-03-F07-FN01",
+    "functionalityName": "Enter maintenance mode"
+  },
+  {
+    "productId": "VCF-03",
+    "productName": "vSphere Compute & Management",
+    "domainName": "Compute",
+    "capabilityName": "Virtual Compute and Cluster Operations",
+    "featureId": "VCF-03-F07",
+    "featureName": "Maintenance and remediation",
+    "functionalityId": "VCF-03-F07-FN02",
+    "functionalityName": "Remediate host compliance"
+  },
+  {
+    "productId": "VCF-03",
+    "productName": "vSphere Compute & Management",
+    "domainName": "Compute",
+    "capabilityName": "Virtual Compute and Cluster Operations",
+    "featureId": "VCF-03-F07",
+    "featureName": "Maintenance and remediation",
+    "functionalityId": "VCF-03-F07-FN03",
+    "functionalityName": "Coordinate live migration"
+  },
+  {
+    "productId": "VCF-04",
+    "productName": "vSAN & Storage Services",
+    "domainName": "Storage",
+    "capabilityName": "Software-Defined Storage and Datastore Services",
+    "featureId": "VCF-04-F01",
+    "featureName": "vSAN datastore services",
+    "functionalityId": "VCF-04-F01-FN01",
+    "functionalityName": "Provide shared datastore"
+  },
+  {
+    "productId": "VCF-04",
+    "productName": "vSAN & Storage Services",
+    "domainName": "Storage",
+    "capabilityName": "Software-Defined Storage and Datastore Services",
+    "featureId": "VCF-04-F01",
+    "featureName": "vSAN datastore services",
+    "functionalityId": "VCF-04-F01-FN02",
+    "functionalityName": "Support VM storage provisioning"
+  },
+  {
+    "productId": "VCF-04",
+    "productName": "vSAN & Storage Services",
+    "domainName": "Storage",
+    "capabilityName": "Software-Defined Storage and Datastore Services",
+    "featureId": "VCF-04-F01",
+    "featureName": "vSAN datastore services",
+    "functionalityId": "VCF-04-F01-FN03",
+    "functionalityName": "Expose capacity health"
+  },
+  {
+    "productId": "VCF-04",
+    "productName": "vSAN & Storage Services",
+    "domainName": "Storage",
+    "capabilityName": "Software-Defined Storage and Datastore Services",
+    "featureId": "VCF-04-F02",
+    "featureName": "Storage policy based management",
+    "functionalityId": "VCF-04-F02-FN01",
+    "functionalityName": "Define storage policies"
+  },
+  {
+    "productId": "VCF-04",
+    "productName": "vSAN & Storage Services",
+    "domainName": "Storage",
+    "capabilityName": "Software-Defined Storage and Datastore Services",
+    "featureId": "VCF-04-F02",
+    "featureName": "Storage policy based management",
+    "functionalityId": "VCF-04-F02-FN02",
+    "functionalityName": "Apply policy to VMs/disks"
+  },
+  {
+    "productId": "VCF-04",
+    "productName": "vSAN & Storage Services",
+    "domainName": "Storage",
+    "capabilityName": "Software-Defined Storage and Datastore Services",
+    "featureId": "VCF-04-F02",
+    "featureName": "Storage policy based management",
+    "functionalityId": "VCF-04-F02-FN03",
+    "functionalityName": "Monitor policy compliance"
+  },
+  {
+    "productId": "VCF-04",
+    "productName": "vSAN & Storage Services",
+    "domainName": "Storage",
+    "capabilityName": "Software-Defined Storage and Datastore Services",
+    "featureId": "VCF-04-F03",
+    "featureName": "Dedup / compression / efficiency",
+    "functionalityId": "VCF-04-F03-FN01",
+    "functionalityName": "Enable space efficiency features"
+  },
+  {
+    "productId": "VCF-04",
+    "productName": "vSAN & Storage Services",
+    "domainName": "Storage",
+    "capabilityName": "Software-Defined Storage and Datastore Services",
+    "featureId": "VCF-04-F03",
+    "featureName": "Dedup / compression / efficiency",
+    "functionalityId": "VCF-04-F03-FN02",
+    "functionalityName": "Monitor savings"
+  },
+  {
+    "productId": "VCF-04",
+    "productName": "vSAN & Storage Services",
+    "domainName": "Storage",
+    "capabilityName": "Software-Defined Storage and Datastore Services",
+    "featureId": "VCF-04-F03",
+    "featureName": "Dedup / compression / efficiency",
+    "functionalityId": "VCF-04-F03-FN03",
+    "functionalityName": "Assess performance impact"
+  },
+  {
+    "productId": "VCF-04",
+    "productName": "vSAN & Storage Services",
+    "domainName": "Storage",
+    "capabilityName": "Software-Defined Storage and Datastore Services",
+    "featureId": "VCF-04-F04",
+    "featureName": "Fault domains and resilience",
+    "functionalityId": "VCF-04-F04-FN01",
+    "functionalityName": "Configure fault domains"
+  },
+  {
+    "productId": "VCF-04",
+    "productName": "vSAN & Storage Services",
+    "domainName": "Storage",
+    "capabilityName": "Software-Defined Storage and Datastore Services",
+    "featureId": "VCF-04-F04",
+    "featureName": "Fault domains and resilience",
+    "functionalityId": "VCF-04-F04-FN02",
+    "functionalityName": "Tolerate host/site failures"
+  },
+  {
+    "productId": "VCF-04",
+    "productName": "vSAN & Storage Services",
+    "domainName": "Storage",
+    "capabilityName": "Software-Defined Storage and Datastore Services",
+    "featureId": "VCF-04-F04",
+    "featureName": "Fault domains and resilience",
+    "functionalityId": "VCF-04-F04-FN03",
+    "functionalityName": "Rebuild degraded objects"
+  },
+  {
+    "productId": "VCF-04",
+    "productName": "vSAN & Storage Services",
+    "domainName": "Storage",
+    "capabilityName": "Software-Defined Storage and Datastore Services",
+    "featureId": "VCF-04-F05",
+    "featureName": "Stretched / dual-site storage",
+    "functionalityId": "VCF-04-F05-FN01",
+    "functionalityName": "Configure stretch cluster storage"
+  },
+  {
+    "productId": "VCF-04",
+    "productName": "vSAN & Storage Services",
+    "domainName": "Storage",
+    "capabilityName": "Software-Defined Storage and Datastore Services",
+    "featureId": "VCF-04-F05",
+    "featureName": "Stretched / dual-site storage",
+    "functionalityId": "VCF-04-F05-FN02",
+    "functionalityName": "Manage site affinity"
+  },
+  {
+    "productId": "VCF-04",
+    "productName": "vSAN & Storage Services",
+    "domainName": "Storage",
+    "capabilityName": "Software-Defined Storage and Datastore Services",
+    "featureId": "VCF-04-F05",
+    "featureName": "Stretched / dual-site storage",
+    "functionalityId": "VCF-04-F05-FN03",
+    "functionalityName": "Handle site isolation behavior"
+  },
+  {
+    "productId": "VCF-04",
+    "productName": "vSAN & Storage Services",
+    "domainName": "Storage",
+    "capabilityName": "Software-Defined Storage and Datastore Services",
+    "featureId": "VCF-04-F06",
+    "featureName": "File and supplemental services",
+    "functionalityId": "VCF-04-F06-FN01",
+    "functionalityName": "Provide file share services where applicable"
+  },
+  {
+    "productId": "VCF-04",
+    "productName": "vSAN & Storage Services",
+    "domainName": "Storage",
+    "capabilityName": "Software-Defined Storage and Datastore Services",
+    "featureId": "VCF-04-F06",
+    "featureName": "File and supplemental services",
+    "functionalityId": "VCF-04-F06-FN02",
+    "functionalityName": "Integrate supplemental storage"
+  },
+  {
+    "productId": "VCF-04",
+    "productName": "vSAN & Storage Services",
+    "domainName": "Storage",
+    "capabilityName": "Software-Defined Storage and Datastore Services",
+    "featureId": "VCF-04-F06",
+    "featureName": "File and supplemental services",
+    "functionalityId": "VCF-04-F06-FN03",
+    "functionalityName": "Monitor service health"
+  },
+  {
+    "productId": "VCF-04",
+    "productName": "vSAN & Storage Services",
+    "domainName": "Storage",
+    "capabilityName": "Software-Defined Storage and Datastore Services",
+    "featureId": "VCF-04-F07",
+    "featureName": "Storage operations and supportability",
+    "functionalityId": "VCF-04-F07-FN01",
+    "functionalityName": "Run health checks"
+  },
+  {
+    "productId": "VCF-04",
+    "productName": "vSAN & Storage Services",
+    "domainName": "Storage",
+    "capabilityName": "Software-Defined Storage and Datastore Services",
+    "featureId": "VCF-04-F07",
+    "featureName": "Storage operations and supportability",
+    "functionalityId": "VCF-04-F07-FN02",
+    "functionalityName": "Collect support bundles"
+  },
+  {
+    "productId": "VCF-04",
+    "productName": "vSAN & Storage Services",
+    "domainName": "Storage",
+    "capabilityName": "Software-Defined Storage and Datastore Services",
+    "featureId": "VCF-04-F07",
+    "featureName": "Storage operations and supportability",
+    "functionalityId": "VCF-04-F07-FN03",
+    "functionalityName": "Track resync/rebuild progress"
+  },
+  {
+    "productId": "VCF-05",
+    "productName": "NSX Networking / Edge / VPC Services",
+    "domainName": "Networking",
+    "capabilityName": "Software-Defined Networking and Edge Services",
+    "featureId": "VCF-05-F01",
+    "featureName": "Logical switching / segments",
+    "functionalityId": "VCF-05-F01-FN01",
+    "functionalityName": "Create network segments"
+  },
+  {
+    "productId": "VCF-05",
+    "productName": "NSX Networking / Edge / VPC Services",
+    "domainName": "Networking",
+    "capabilityName": "Software-Defined Networking and Edge Services",
+    "featureId": "VCF-05-F01",
+    "featureName": "Logical switching / segments",
+    "functionalityId": "VCF-05-F01-FN02",
+    "functionalityName": "Attach workloads"
+  },
+  {
+    "productId": "VCF-05",
+    "productName": "NSX Networking / Edge / VPC Services",
+    "domainName": "Networking",
+    "capabilityName": "Software-Defined Networking and Edge Services",
+    "featureId": "VCF-05-F01",
+    "featureName": "Logical switching / segments",
+    "functionalityId": "VCF-05-F01-FN03",
+    "functionalityName": "Isolate broadcast domains"
+  },
+  {
+    "productId": "VCF-05",
+    "productName": "NSX Networking / Edge / VPC Services",
+    "domainName": "Networking",
+    "capabilityName": "Software-Defined Networking and Edge Services",
+    "featureId": "VCF-05-F02",
+    "featureName": "Logical routing / Tier services",
+    "functionalityId": "VCF-05-F02-FN01",
+    "functionalityName": "Configure Tier-0/Tier-1 style routing"
+  },
+  {
+    "productId": "VCF-05",
+    "productName": "NSX Networking / Edge / VPC Services",
+    "domainName": "Networking",
+    "capabilityName": "Software-Defined Networking and Edge Services",
+    "featureId": "VCF-05-F02",
+    "featureName": "Logical routing / Tier services",
+    "functionalityId": "VCF-05-F02-FN02",
+    "functionalityName": "Advertise routes"
+  },
+  {
+    "productId": "VCF-05",
+    "productName": "NSX Networking / Edge / VPC Services",
+    "domainName": "Networking",
+    "capabilityName": "Software-Defined Networking and Edge Services",
+    "featureId": "VCF-05-F02",
+    "featureName": "Logical routing / Tier services",
+    "functionalityId": "VCF-05-F02-FN03",
+    "functionalityName": "Control north-south traffic"
+  },
+  {
+    "productId": "VCF-05",
+    "productName": "NSX Networking / Edge / VPC Services",
+    "domainName": "Networking",
+    "capabilityName": "Software-Defined Networking and Edge Services",
+    "featureId": "VCF-05-F03",
+    "featureName": "Edge services and gateways",
+    "functionalityId": "VCF-05-F03-FN01",
+    "functionalityName": "Deploy edge nodes/gateways"
+  },
+  {
+    "productId": "VCF-05",
+    "productName": "NSX Networking / Edge / VPC Services",
+    "domainName": "Networking",
+    "capabilityName": "Software-Defined Networking and Edge Services",
+    "featureId": "VCF-05-F03",
+    "featureName": "Edge services and gateways",
+    "functionalityId": "VCF-05-F03-FN02",
+    "functionalityName": "Provide NAT/load services as designed"
+  },
+  {
+    "productId": "VCF-05",
+    "productName": "NSX Networking / Edge / VPC Services",
+    "domainName": "Networking",
+    "capabilityName": "Software-Defined Networking and Edge Services",
+    "featureId": "VCF-05-F03",
+    "featureName": "Edge services and gateways",
+    "functionalityId": "VCF-05-F03-FN03",
+    "functionalityName": "Monitor edge health"
+  },
+  {
+    "productId": "VCF-05",
+    "productName": "NSX Networking / Edge / VPC Services",
+    "domainName": "Networking",
+    "capabilityName": "Software-Defined Networking and Edge Services",
+    "featureId": "VCF-05-F04",
+    "featureName": "VPC / multi-tenancy networking",
+    "functionalityId": "VCF-05-F04-FN01",
+    "functionalityName": "Create tenant network contexts"
+  },
+  {
+    "productId": "VCF-05",
+    "productName": "NSX Networking / Edge / VPC Services",
+    "domainName": "Networking",
+    "capabilityName": "Software-Defined Networking and Edge Services",
+    "featureId": "VCF-05-F04",
+    "featureName": "VPC / multi-tenancy networking",
+    "functionalityId": "VCF-05-F04-FN02",
+    "functionalityName": "Isolate tenant routing"
+  },
+  {
+    "productId": "VCF-05",
+    "productName": "NSX Networking / Edge / VPC Services",
+    "domainName": "Networking",
+    "capabilityName": "Software-Defined Networking and Edge Services",
+    "featureId": "VCF-05-F04",
+    "featureName": "VPC / multi-tenancy networking",
+    "functionalityId": "VCF-05-F04-FN03",
+    "functionalityName": "Delegate network self-service bounds"
+  },
+  {
+    "productId": "VCF-05",
+    "productName": "NSX Networking / Edge / VPC Services",
+    "domainName": "Networking",
+    "capabilityName": "Software-Defined Networking and Edge Services",
+    "featureId": "VCF-05-F05",
+    "featureName": "Overlay and underlay integration",
+    "functionalityId": "VCF-05-F05-FN01",
+    "functionalityName": "Establish overlay transport"
+  },
+  {
+    "productId": "VCF-05",
+    "productName": "NSX Networking / Edge / VPC Services",
+    "domainName": "Networking",
+    "capabilityName": "Software-Defined Networking and Edge Services",
+    "featureId": "VCF-05-F05",
+    "featureName": "Overlay and underlay integration",
+    "functionalityId": "VCF-05-F05-FN02",
+    "functionalityName": "Validate underlay MTU/connectivity"
+  },
+  {
+    "productId": "VCF-05",
+    "productName": "NSX Networking / Edge / VPC Services",
+    "domainName": "Networking",
+    "capabilityName": "Software-Defined Networking and Edge Services",
+    "featureId": "VCF-05-F05",
+    "featureName": "Overlay and underlay integration",
+    "functionalityId": "VCF-05-F05-FN03",
+    "functionalityName": "Troubleshoot tunnel health"
+  },
+  {
+    "productId": "VCF-05",
+    "productName": "NSX Networking / Edge / VPC Services",
+    "domainName": "Networking",
+    "capabilityName": "Software-Defined Networking and Edge Services",
+    "featureId": "VCF-05-F06",
+    "featureName": "DNS / DHCP / network services",
+    "functionalityId": "VCF-05-F06-FN01",
+    "functionalityName": "Provide DHCP services"
+  },
+  {
+    "productId": "VCF-05",
+    "productName": "NSX Networking / Edge / VPC Services",
+    "domainName": "Networking",
+    "capabilityName": "Software-Defined Networking and Edge Services",
+    "featureId": "VCF-05-F06",
+    "featureName": "DNS / DHCP / network services",
+    "functionalityId": "VCF-05-F06-FN02",
+    "functionalityName": "Integrate DNS services"
+  },
+  {
+    "productId": "VCF-05",
+    "productName": "NSX Networking / Edge / VPC Services",
+    "domainName": "Networking",
+    "capabilityName": "Software-Defined Networking and Edge Services",
+    "featureId": "VCF-05-F06",
+    "featureName": "DNS / DHCP / network services",
+    "functionalityId": "VCF-05-F06-FN03",
+    "functionalityName": "Manage IP address allocation"
+  },
+  {
+    "productId": "VCF-05",
+    "productName": "NSX Networking / Edge / VPC Services",
+    "domainName": "Networking",
+    "capabilityName": "Software-Defined Networking and Edge Services",
+    "featureId": "VCF-05-F07",
+    "featureName": "Network observability basics",
+    "functionalityId": "VCF-05-F07-FN01",
+    "functionalityName": "Trace logical paths"
+  },
+  {
+    "productId": "VCF-05",
+    "productName": "NSX Networking / Edge / VPC Services",
+    "domainName": "Networking",
+    "capabilityName": "Software-Defined Networking and Edge Services",
+    "featureId": "VCF-05-F07",
+    "featureName": "Network observability basics",
+    "functionalityId": "VCF-05-F07-FN02",
+    "functionalityName": "Capture network topology view"
+  },
+  {
+    "productId": "VCF-05",
+    "productName": "NSX Networking / Edge / VPC Services",
+    "domainName": "Networking",
+    "capabilityName": "Software-Defined Networking and Edge Services",
+    "featureId": "VCF-05-F07",
+    "featureName": "Network observability basics",
+    "functionalityId": "VCF-05-F07-FN03",
+    "functionalityName": "Alert on network faults"
+  },
+  {
+    "productId": "VCF-06",
+    "productName": "NSX Security & Firewall Services",
+    "domainName": "Security",
+    "capabilityName": "Microsegmentation and Network Security Controls",
+    "featureId": "VCF-06-F01",
+    "featureName": "Distributed firewall",
+    "functionalityId": "VCF-06-F01-FN01",
+    "functionalityName": "Define DFW policies"
+  },
+  {
+    "productId": "VCF-06",
+    "productName": "NSX Security & Firewall Services",
+    "domainName": "Security",
+    "capabilityName": "Microsegmentation and Network Security Controls",
+    "featureId": "VCF-06-F01",
+    "featureName": "Distributed firewall",
+    "functionalityId": "VCF-06-F01-FN02",
+    "functionalityName": "Enforce east-west controls"
+  },
+  {
+    "productId": "VCF-06",
+    "productName": "NSX Security & Firewall Services",
+    "domainName": "Security",
+    "capabilityName": "Microsegmentation and Network Security Controls",
+    "featureId": "VCF-06-F01",
+    "featureName": "Distributed firewall",
+    "functionalityId": "VCF-06-F01-FN03",
+    "functionalityName": "Log policy hits"
+  },
+  {
+    "productId": "VCF-06",
+    "productName": "NSX Security & Firewall Services",
+    "domainName": "Security",
+    "capabilityName": "Microsegmentation and Network Security Controls",
+    "featureId": "VCF-06-F02",
+    "featureName": "Gateway firewall",
+    "functionalityId": "VCF-06-F02-FN01",
+    "functionalityName": "Define gateway firewall rules"
+  },
+  {
+    "productId": "VCF-06",
+    "productName": "NSX Security & Firewall Services",
+    "domainName": "Security",
+    "capabilityName": "Microsegmentation and Network Security Controls",
+    "featureId": "VCF-06-F02",
+    "featureName": "Gateway firewall",
+    "functionalityId": "VCF-06-F02-FN02",
+    "functionalityName": "Control north-south access"
+  },
+  {
+    "productId": "VCF-06",
+    "productName": "NSX Security & Firewall Services",
+    "domainName": "Security",
+    "capabilityName": "Microsegmentation and Network Security Controls",
+    "featureId": "VCF-06-F02",
+    "featureName": "Gateway firewall",
+    "functionalityId": "VCF-06-F02-FN03",
+    "functionalityName": "Monitor rule effectiveness"
+  },
+  {
+    "productId": "VCF-06",
+    "productName": "NSX Security & Firewall Services",
+    "domainName": "Security",
+    "capabilityName": "Microsegmentation and Network Security Controls",
+    "featureId": "VCF-06-F03",
+    "featureName": "Security groups / dynamic membership",
+    "functionalityId": "VCF-06-F03-FN01",
+    "functionalityName": "Group workloads by tag/criteria"
+  },
+  {
+    "productId": "VCF-06",
+    "productName": "NSX Security & Firewall Services",
+    "domainName": "Security",
+    "capabilityName": "Microsegmentation and Network Security Controls",
+    "featureId": "VCF-06-F03",
+    "featureName": "Security groups / dynamic membership",
+    "functionalityId": "VCF-06-F03-FN02",
+    "functionalityName": "Auto-update membership"
+  },
+  {
+    "productId": "VCF-06",
+    "productName": "NSX Security & Firewall Services",
+    "domainName": "Security",
+    "capabilityName": "Microsegmentation and Network Security Controls",
+    "featureId": "VCF-06-F03",
+    "featureName": "Security groups / dynamic membership",
+    "functionalityId": "VCF-06-F03-FN03",
+    "functionalityName": "Bind policies to groups"
+  },
+  {
+    "productId": "VCF-06",
+    "productName": "NSX Security & Firewall Services",
+    "domainName": "Security",
+    "capabilityName": "Microsegmentation and Network Security Controls",
+    "featureId": "VCF-06-F04",
+    "featureName": "IDS/IPS or advanced threat controls",
+    "functionalityId": "VCF-06-F04-FN01",
+    "functionalityName": "Enable detection/prevention features"
+  },
+  {
+    "productId": "VCF-06",
+    "productName": "NSX Security & Firewall Services",
+    "domainName": "Security",
+    "capabilityName": "Microsegmentation and Network Security Controls",
+    "featureId": "VCF-06-F04",
+    "featureName": "IDS/IPS or advanced threat controls",
+    "functionalityId": "VCF-06-F04-FN02",
+    "functionalityName": "Tune signatures/profiles"
+  },
+  {
+    "productId": "VCF-06",
+    "productName": "NSX Security & Firewall Services",
+    "domainName": "Security",
+    "capabilityName": "Microsegmentation and Network Security Controls",
+    "featureId": "VCF-06-F04",
+    "featureName": "IDS/IPS or advanced threat controls",
+    "functionalityId": "VCF-06-F04-FN03",
+    "functionalityName": "Review security events"
+  },
+  {
+    "productId": "VCF-06",
+    "productName": "NSX Security & Firewall Services",
+    "domainName": "Security",
+    "capabilityName": "Microsegmentation and Network Security Controls",
+    "featureId": "VCF-06-F05",
+    "featureName": "Identity / context-aware controls",
+    "functionalityId": "VCF-06-F05-FN01",
+    "functionalityName": "Use identity/context in rules where supported"
+  },
+  {
+    "productId": "VCF-06",
+    "productName": "NSX Security & Firewall Services",
+    "domainName": "Security",
+    "capabilityName": "Microsegmentation and Network Security Controls",
+    "featureId": "VCF-06-F05",
+    "featureName": "Identity / context-aware controls",
+    "functionalityId": "VCF-06-F05-FN02",
+    "functionalityName": "Map users/apps to policies"
+  },
+  {
+    "productId": "VCF-06",
+    "productName": "NSX Security & Firewall Services",
+    "domainName": "Security",
+    "capabilityName": "Microsegmentation and Network Security Controls",
+    "featureId": "VCF-06-F05",
+    "featureName": "Identity / context-aware controls",
+    "functionalityId": "VCF-06-F05-FN03",
+    "functionalityName": "Audit context-based decisions"
+  },
+  {
+    "productId": "VCF-06",
+    "productName": "NSX Security & Firewall Services",
+    "domainName": "Security",
+    "capabilityName": "Microsegmentation and Network Security Controls",
+    "featureId": "VCF-06-F06",
+    "featureName": "Policy lifecycle and change control",
+    "functionalityId": "VCF-06-F06-FN01",
+    "functionalityName": "Stage policy changes"
+  },
+  {
+    "productId": "VCF-06",
+    "productName": "NSX Security & Firewall Services",
+    "domainName": "Security",
+    "capabilityName": "Microsegmentation and Network Security Controls",
+    "featureId": "VCF-06-F06",
+    "featureName": "Policy lifecycle and change control",
+    "functionalityId": "VCF-06-F06-FN02",
+    "functionalityName": "Review before publish"
+  },
+  {
+    "productId": "VCF-06",
+    "productName": "NSX Security & Firewall Services",
+    "domainName": "Security",
+    "capabilityName": "Microsegmentation and Network Security Controls",
+    "featureId": "VCF-06-F06",
+    "featureName": "Policy lifecycle and change control",
+    "functionalityId": "VCF-06-F06-FN03",
+    "functionalityName": "Rollback policy sets"
+  },
+  {
+    "productId": "VCF-06",
+    "productName": "NSX Security & Firewall Services",
+    "domainName": "Security",
+    "capabilityName": "Microsegmentation and Network Security Controls",
+    "featureId": "VCF-06-F07",
+    "featureName": "Security posture reporting",
+    "functionalityId": "VCF-06-F07-FN01",
+    "functionalityName": "Export policy inventory"
+  },
+  {
+    "productId": "VCF-06",
+    "productName": "NSX Security & Firewall Services",
+    "domainName": "Security",
+    "capabilityName": "Microsegmentation and Network Security Controls",
+    "featureId": "VCF-06-F07",
+    "featureName": "Security posture reporting",
+    "functionalityId": "VCF-06-F07-FN02",
+    "functionalityName": "Report uncovered workloads"
+  },
+  {
+    "productId": "VCF-06",
+    "productName": "NSX Security & Firewall Services",
+    "domainName": "Security",
+    "capabilityName": "Microsegmentation and Network Security Controls",
+    "featureId": "VCF-06-F07",
+    "featureName": "Security posture reporting",
+    "functionalityId": "VCF-06-F07-FN03",
+    "functionalityName": "Evidence for compliance reviews"
+  },
+  {
+    "productId": "VCF-07",
+    "productName": "VCF Operations & Observability",
+    "domainName": "Operations",
+    "capabilityName": "Monitoring, Analytics, and Operational Insight",
+    "featureId": "VCF-07-F01",
+    "featureName": "Infrastructure monitoring",
+    "functionalityId": "VCF-07-F01-FN01",
+    "functionalityName": "Collect metrics from compute/storage/network"
+  },
+  {
+    "productId": "VCF-07",
+    "productName": "VCF Operations & Observability",
+    "domainName": "Operations",
+    "capabilityName": "Monitoring, Analytics, and Operational Insight",
+    "featureId": "VCF-07-F01",
+    "featureName": "Infrastructure monitoring",
+    "functionalityId": "VCF-07-F01-FN02",
+    "functionalityName": "Visualize health dashboards"
+  },
+  {
+    "productId": "VCF-07",
+    "productName": "VCF Operations & Observability",
+    "domainName": "Operations",
+    "capabilityName": "Monitoring, Analytics, and Operational Insight",
+    "featureId": "VCF-07-F01",
+    "featureName": "Infrastructure monitoring",
+    "functionalityId": "VCF-07-F01-FN03",
+    "functionalityName": "Alert on threshold breaches"
+  },
+  {
+    "productId": "VCF-07",
+    "productName": "VCF Operations & Observability",
+    "domainName": "Operations",
+    "capabilityName": "Monitoring, Analytics, and Operational Insight",
+    "featureId": "VCF-07-F02",
+    "featureName": "Log collection and analysis",
+    "functionalityId": "VCF-07-F02-FN01",
+    "functionalityName": "Ingest component logs"
+  },
+  {
+    "productId": "VCF-07",
+    "productName": "VCF Operations & Observability",
+    "domainName": "Operations",
+    "capabilityName": "Monitoring, Analytics, and Operational Insight",
+    "featureId": "VCF-07-F02",
+    "featureName": "Log collection and analysis",
+    "functionalityId": "VCF-07-F02-FN02",
+    "functionalityName": "Search/correlate events"
+  },
+  {
+    "productId": "VCF-07",
+    "productName": "VCF Operations & Observability",
+    "domainName": "Operations",
+    "capabilityName": "Monitoring, Analytics, and Operational Insight",
+    "featureId": "VCF-07-F02",
+    "featureName": "Log collection and analysis",
+    "functionalityId": "VCF-07-F02-FN03",
+    "functionalityName": "Retain logs per policy"
+  },
+  {
+    "productId": "VCF-07",
+    "productName": "VCF Operations & Observability",
+    "domainName": "Operations",
+    "capabilityName": "Monitoring, Analytics, and Operational Insight",
+    "featureId": "VCF-07-F03",
+    "featureName": "Capacity and performance planning",
+    "functionalityId": "VCF-07-F03-FN01",
+    "functionalityName": "Forecast capacity risk"
+  },
+  {
+    "productId": "VCF-07",
+    "productName": "VCF Operations & Observability",
+    "domainName": "Operations",
+    "capabilityName": "Monitoring, Analytics, and Operational Insight",
+    "featureId": "VCF-07-F03",
+    "featureName": "Capacity and performance planning",
+    "functionalityId": "VCF-07-F03-FN02",
+    "functionalityName": "Identify contention hotspots"
+  },
+  {
+    "productId": "VCF-07",
+    "productName": "VCF Operations & Observability",
+    "domainName": "Operations",
+    "capabilityName": "Monitoring, Analytics, and Operational Insight",
+    "featureId": "VCF-07-F03",
+    "featureName": "Capacity and performance planning",
+    "functionalityId": "VCF-07-F03-FN03",
+    "functionalityName": "Recommend rightsizing"
+  },
+  {
+    "productId": "VCF-07",
+    "productName": "VCF Operations & Observability",
+    "domainName": "Operations",
+    "capabilityName": "Monitoring, Analytics, and Operational Insight",
+    "featureId": "VCF-07-F04",
+    "featureName": "Configuration and compliance monitoring",
+    "functionalityId": "VCF-07-F04-FN01",
+    "functionalityName": "Detect drift from desired config"
+  },
+  {
+    "productId": "VCF-07",
+    "productName": "VCF Operations & Observability",
+    "domainName": "Operations",
+    "capabilityName": "Monitoring, Analytics, and Operational Insight",
+    "featureId": "VCF-07-F04",
+    "featureName": "Configuration and compliance monitoring",
+    "functionalityId": "VCF-07-F04-FN02",
+    "functionalityName": "Assess compliance score"
+  },
+  {
+    "productId": "VCF-07",
+    "productName": "VCF Operations & Observability",
+    "domainName": "Operations",
+    "capabilityName": "Monitoring, Analytics, and Operational Insight",
+    "featureId": "VCF-07-F04",
+    "featureName": "Configuration and compliance monitoring",
+    "functionalityId": "VCF-07-F04-FN03",
+    "functionalityName": "Track remediation status"
+  },
+  {
+    "productId": "VCF-07",
+    "productName": "VCF Operations & Observability",
+    "domainName": "Operations",
+    "capabilityName": "Monitoring, Analytics, and Operational Insight",
+    "featureId": "VCF-07-F05",
+    "featureName": "Service/application awareness",
+    "functionalityId": "VCF-07-F05-FN01",
+    "functionalityName": "Map apps to infrastructure"
+  },
+  {
+    "productId": "VCF-07",
+    "productName": "VCF Operations & Observability",
+    "domainName": "Operations",
+    "capabilityName": "Monitoring, Analytics, and Operational Insight",
+    "featureId": "VCF-07-F05",
+    "featureName": "Service/application awareness",
+    "functionalityId": "VCF-07-F05-FN02",
+    "functionalityName": "Track service health"
+  },
+  {
+    "productId": "VCF-07",
+    "productName": "VCF Operations & Observability",
+    "domainName": "Operations",
+    "capabilityName": "Monitoring, Analytics, and Operational Insight",
+    "featureId": "VCF-07-F05",
+    "featureName": "Service/application awareness",
+    "functionalityId": "VCF-07-F05-FN03",
+    "functionalityName": "Correlate incidents to dependencies"
+  },
+  {
+    "productId": "VCF-07",
+    "productName": "VCF Operations & Observability",
+    "domainName": "Operations",
+    "capabilityName": "Monitoring, Analytics, and Operational Insight",
+    "featureId": "VCF-07-F06",
+    "featureName": "Alerting and notification routing",
+    "functionalityId": "VCF-07-F06-FN01",
+    "functionalityName": "Define alert policies"
+  },
+  {
+    "productId": "VCF-07",
+    "productName": "VCF Operations & Observability",
+    "domainName": "Operations",
+    "capabilityName": "Monitoring, Analytics, and Operational Insight",
+    "featureId": "VCF-07-F06",
+    "featureName": "Alerting and notification routing",
+    "functionalityId": "VCF-07-F06-FN02",
+    "functionalityName": "Route notifications"
+  },
+  {
+    "productId": "VCF-07",
+    "productName": "VCF Operations & Observability",
+    "domainName": "Operations",
+    "capabilityName": "Monitoring, Analytics, and Operational Insight",
+    "featureId": "VCF-07-F06",
+    "featureName": "Alerting and notification routing",
+    "functionalityId": "VCF-07-F06-FN03",
+    "functionalityName": "Suppress noise/duplicates"
+  },
+  {
+    "productId": "VCF-07",
+    "productName": "VCF Operations & Observability",
+    "domainName": "Operations",
+    "capabilityName": "Monitoring, Analytics, and Operational Insight",
+    "featureId": "VCF-07-F07",
+    "featureName": "Operational reporting and evidence",
+    "functionalityId": "VCF-07-F07-FN01",
+    "functionalityName": "Generate ops reports"
+  },
+  {
+    "productId": "VCF-07",
+    "productName": "VCF Operations & Observability",
+    "domainName": "Operations",
+    "capabilityName": "Monitoring, Analytics, and Operational Insight",
+    "featureId": "VCF-07-F07",
+    "featureName": "Operational reporting and evidence",
+    "functionalityId": "VCF-07-F07-FN02",
+    "functionalityName": "Export evidence packs"
+  },
+  {
+    "productId": "VCF-07",
+    "productName": "VCF Operations & Observability",
+    "domainName": "Operations",
+    "capabilityName": "Monitoring, Analytics, and Operational Insight",
+    "featureId": "VCF-07-F07",
+    "featureName": "Operational reporting and evidence",
+    "functionalityId": "VCF-07-F07-FN03",
+    "functionalityName": "Support incident retrospectives"
+  },
+  {
+    "productId": "VCF-08",
+    "productName": "VCF Automation & Self-Service",
+    "domainName": "Automation",
+    "capabilityName": "Service Broker, Catalog, and Orchestrated Provisioning",
+    "featureId": "VCF-08-F01",
+    "featureName": "Service catalog / self-service requests",
+    "functionalityId": "VCF-08-F01-FN01",
+    "functionalityName": "Publish catalog items"
+  },
+  {
+    "productId": "VCF-08",
+    "productName": "VCF Automation & Self-Service",
+    "domainName": "Automation",
+    "capabilityName": "Service Broker, Catalog, and Orchestrated Provisioning",
+    "featureId": "VCF-08-F01",
+    "featureName": "Service catalog / self-service requests",
+    "functionalityId": "VCF-08-F01-FN02",
+    "functionalityName": "Request services"
+  },
+  {
+    "productId": "VCF-08",
+    "productName": "VCF Automation & Self-Service",
+    "domainName": "Automation",
+    "capabilityName": "Service Broker, Catalog, and Orchestrated Provisioning",
+    "featureId": "VCF-08-F01",
+    "featureName": "Service catalog / self-service requests",
+    "functionalityId": "VCF-08-F01-FN03",
+    "functionalityName": "Track request status"
+  },
+  {
+    "productId": "VCF-08",
+    "productName": "VCF Automation & Self-Service",
+    "domainName": "Automation",
+    "capabilityName": "Service Broker, Catalog, and Orchestrated Provisioning",
+    "featureId": "VCF-08-F02",
+    "featureName": "Infrastructure as code / templates",
+    "functionalityId": "VCF-08-F02-FN01",
+    "functionalityName": "Define deployable templates"
+  },
+  {
+    "productId": "VCF-08",
+    "productName": "VCF Automation & Self-Service",
+    "domainName": "Automation",
+    "capabilityName": "Service Broker, Catalog, and Orchestrated Provisioning",
+    "featureId": "VCF-08-F02",
+    "featureName": "Infrastructure as code / templates",
+    "functionalityId": "VCF-08-F02-FN02",
+    "functionalityName": "Parameterize deployments"
+  },
+  {
+    "productId": "VCF-08",
+    "productName": "VCF Automation & Self-Service",
+    "domainName": "Automation",
+    "capabilityName": "Service Broker, Catalog, and Orchestrated Provisioning",
+    "featureId": "VCF-08-F02",
+    "featureName": "Infrastructure as code / templates",
+    "functionalityId": "VCF-08-F02-FN03",
+    "functionalityName": "Version templates"
+  },
+  {
+    "productId": "VCF-08",
+    "productName": "VCF Automation & Self-Service",
+    "domainName": "Automation",
+    "capabilityName": "Service Broker, Catalog, and Orchestrated Provisioning",
+    "featureId": "VCF-08-F03",
+    "featureName": "Approval and governance workflows",
+    "functionalityId": "VCF-08-F03-FN01",
+    "functionalityName": "Require approvals"
+  },
+  {
+    "productId": "VCF-08",
+    "productName": "VCF Automation & Self-Service",
+    "domainName": "Automation",
+    "capabilityName": "Service Broker, Catalog, and Orchestrated Provisioning",
+    "featureId": "VCF-08-F03",
+    "featureName": "Approval and governance workflows",
+    "functionalityId": "VCF-08-F03-FN02",
+    "functionalityName": "Enforce policy gates"
+  },
+  {
+    "productId": "VCF-08",
+    "productName": "VCF Automation & Self-Service",
+    "domainName": "Automation",
+    "capabilityName": "Service Broker, Catalog, and Orchestrated Provisioning",
+    "featureId": "VCF-08-F03",
+    "featureName": "Approval and governance workflows",
+    "functionalityId": "VCF-08-F03-FN03",
+    "functionalityName": "Audit request decisions"
+  },
+  {
+    "productId": "VCF-08",
+    "productName": "VCF Automation & Self-Service",
+    "domainName": "Automation",
+    "capabilityName": "Service Broker, Catalog, and Orchestrated Provisioning",
+    "featureId": "VCF-08-F04",
+    "featureName": "Day-2 automation actions",
+    "functionalityId": "VCF-08-F04-FN01",
+    "functionalityName": "Scale services"
+  },
+  {
+    "productId": "VCF-08",
+    "productName": "VCF Automation & Self-Service",
+    "domainName": "Automation",
+    "capabilityName": "Service Broker, Catalog, and Orchestrated Provisioning",
+    "featureId": "VCF-08-F04",
+    "featureName": "Day-2 automation actions",
+    "functionalityId": "VCF-08-F04-FN02",
+    "functionalityName": "Run operational workflows"
+  },
+  {
+    "productId": "VCF-08",
+    "productName": "VCF Automation & Self-Service",
+    "domainName": "Automation",
+    "capabilityName": "Service Broker, Catalog, and Orchestrated Provisioning",
+    "featureId": "VCF-08-F04",
+    "featureName": "Day-2 automation actions",
+    "functionalityId": "VCF-08-F04-FN03",
+    "functionalityName": "Decommission services"
+  },
+  {
+    "productId": "VCF-08",
+    "productName": "VCF Automation & Self-Service",
+    "domainName": "Automation",
+    "capabilityName": "Service Broker, Catalog, and Orchestrated Provisioning",
+    "featureId": "VCF-08-F05",
+    "featureName": "Multi-tenancy and entitlement",
+    "functionalityId": "VCF-08-F05-FN01",
+    "functionalityName": "Entitle projects/tenants"
+  },
+  {
+    "productId": "VCF-08",
+    "productName": "VCF Automation & Self-Service",
+    "domainName": "Automation",
+    "capabilityName": "Service Broker, Catalog, and Orchestrated Provisioning",
+    "featureId": "VCF-08-F05",
+    "featureName": "Multi-tenancy and entitlement",
+    "functionalityId": "VCF-08-F05-FN02",
+    "functionalityName": "Scope visible catalog"
+  },
+  {
+    "productId": "VCF-08",
+    "productName": "VCF Automation & Self-Service",
+    "domainName": "Automation",
+    "capabilityName": "Service Broker, Catalog, and Orchestrated Provisioning",
+    "featureId": "VCF-08-F05",
+    "featureName": "Multi-tenancy and entitlement",
+    "functionalityId": "VCF-08-F05-FN03",
+    "functionalityName": "Isolate tenant quotas"
+  },
+  {
+    "productId": "VCF-08",
+    "productName": "VCF Automation & Self-Service",
+    "domainName": "Automation",
+    "capabilityName": "Service Broker, Catalog, and Orchestrated Provisioning",
+    "featureId": "VCF-08-F06",
+    "featureName": "Integrations to ITSM / pipelines",
+    "functionalityId": "VCF-08-F06-FN01",
+    "functionalityName": "Trigger from external systems"
+  },
+  {
+    "productId": "VCF-08",
+    "productName": "VCF Automation & Self-Service",
+    "domainName": "Automation",
+    "capabilityName": "Service Broker, Catalog, and Orchestrated Provisioning",
+    "featureId": "VCF-08-F06",
+    "featureName": "Integrations to ITSM / pipelines",
+    "functionalityId": "VCF-08-F06-FN02",
+    "functionalityName": "Sync ticket status"
+  },
+  {
+    "productId": "VCF-08",
+    "productName": "VCF Automation & Self-Service",
+    "domainName": "Automation",
+    "capabilityName": "Service Broker, Catalog, and Orchestrated Provisioning",
+    "featureId": "VCF-08-F06",
+    "featureName": "Integrations to ITSM / pipelines",
+    "functionalityId": "VCF-08-F06-FN03",
+    "functionalityName": "Emit automation events"
+  },
+  {
+    "productId": "VCF-08",
+    "productName": "VCF Automation & Self-Service",
+    "domainName": "Automation",
+    "capabilityName": "Service Broker, Catalog, and Orchestrated Provisioning",
+    "featureId": "VCF-08-F07",
+    "featureName": "Automation extensibility",
+    "functionalityId": "VCF-08-F07-FN01",
+    "functionalityName": "Add custom actions/workflows"
+  },
+  {
+    "productId": "VCF-08",
+    "productName": "VCF Automation & Self-Service",
+    "domainName": "Automation",
+    "capabilityName": "Service Broker, Catalog, and Orchestrated Provisioning",
+    "featureId": "VCF-08-F07",
+    "featureName": "Automation extensibility",
+    "functionalityId": "VCF-08-F07-FN02",
+    "functionalityName": "Use APIs/webhooks"
+  },
+  {
+    "productId": "VCF-08",
+    "productName": "VCF Automation & Self-Service",
+    "domainName": "Automation",
+    "capabilityName": "Service Broker, Catalog, and Orchestrated Provisioning",
+    "featureId": "VCF-08-F07",
+    "featureName": "Automation extensibility",
+    "functionalityId": "VCF-08-F07-FN03",
+    "functionalityName": "Manage credentials securely"
+  },
+  {
+    "productId": "VCF-09",
+    "productName": "vSphere Kubernetes Service & Application Platform",
+    "domainName": "Application Platform",
+    "capabilityName": "Kubernetes and Modern App Services on VCF",
+    "featureId": "VCF-09-F01",
+    "featureName": "Supervisor / cluster lifecycle",
+    "functionalityId": "VCF-09-F01-FN01",
+    "functionalityName": "Create Kubernetes clusters"
+  },
+  {
+    "productId": "VCF-09",
+    "productName": "vSphere Kubernetes Service & Application Platform",
+    "domainName": "Application Platform",
+    "capabilityName": "Kubernetes and Modern App Services on VCF",
+    "featureId": "VCF-09-F01",
+    "featureName": "Supervisor / cluster lifecycle",
+    "functionalityId": "VCF-09-F01-FN02",
+    "functionalityName": "Upgrade clusters"
+  },
+  {
+    "productId": "VCF-09",
+    "productName": "vSphere Kubernetes Service & Application Platform",
+    "domainName": "Application Platform",
+    "capabilityName": "Kubernetes and Modern App Services on VCF",
+    "featureId": "VCF-09-F01",
+    "featureName": "Supervisor / cluster lifecycle",
+    "functionalityId": "VCF-09-F01-FN03",
+    "functionalityName": "Delete/retire clusters"
+  },
+  {
+    "productId": "VCF-09",
+    "productName": "vSphere Kubernetes Service & Application Platform",
+    "domainName": "Application Platform",
+    "capabilityName": "Kubernetes and Modern App Services on VCF",
+    "featureId": "VCF-09-F02",
+    "featureName": "Workload tenancy and namespaces",
+    "functionalityId": "VCF-09-F02-FN01",
+    "functionalityName": "Create namespaces"
+  },
+  {
+    "productId": "VCF-09",
+    "productName": "vSphere Kubernetes Service & Application Platform",
+    "domainName": "Application Platform",
+    "capabilityName": "Kubernetes and Modern App Services on VCF",
+    "featureId": "VCF-09-F02",
+    "featureName": "Workload tenancy and namespaces",
+    "functionalityId": "VCF-09-F02-FN02",
+    "functionalityName": "Apply quota/limit ranges"
+  },
+  {
+    "productId": "VCF-09",
+    "productName": "vSphere Kubernetes Service & Application Platform",
+    "domainName": "Application Platform",
+    "capabilityName": "Kubernetes and Modern App Services on VCF",
+    "featureId": "VCF-09-F02",
+    "featureName": "Workload tenancy and namespaces",
+    "functionalityId": "VCF-09-F02-FN03",
+    "functionalityName": "Isolate team access"
+  },
+  {
+    "productId": "VCF-09",
+    "productName": "vSphere Kubernetes Service & Application Platform",
+    "domainName": "Application Platform",
+    "capabilityName": "Kubernetes and Modern App Services on VCF",
+    "featureId": "VCF-09-F03",
+    "featureName": "Container networking & services",
+    "functionalityId": "VCF-09-F03-FN01",
+    "functionalityName": "Provide pod/service networking"
+  },
+  {
+    "productId": "VCF-09",
+    "productName": "vSphere Kubernetes Service & Application Platform",
+    "domainName": "Application Platform",
+    "capabilityName": "Kubernetes and Modern App Services on VCF",
+    "featureId": "VCF-09-F03",
+    "featureName": "Container networking & services",
+    "functionalityId": "VCF-09-F03-FN02",
+    "functionalityName": "Expose ingress/services"
+  },
+  {
+    "productId": "VCF-09",
+    "productName": "vSphere Kubernetes Service & Application Platform",
+    "domainName": "Application Platform",
+    "capabilityName": "Kubernetes and Modern App Services on VCF",
+    "featureId": "VCF-09-F03",
+    "featureName": "Container networking & services",
+    "functionalityId": "VCF-09-F03-FN03",
+    "functionalityName": "Integrate with SDN controls"
+  },
+  {
+    "productId": "VCF-09",
+    "productName": "vSphere Kubernetes Service & Application Platform",
+    "domainName": "Application Platform",
+    "capabilityName": "Kubernetes and Modern App Services on VCF",
+    "featureId": "VCF-09-F04",
+    "featureName": "Persistent storage for containers",
+    "functionalityId": "VCF-09-F04-FN01",
+    "functionalityName": "Provision persistent volumes"
+  },
+  {
+    "productId": "VCF-09",
+    "productName": "vSphere Kubernetes Service & Application Platform",
+    "domainName": "Application Platform",
+    "capabilityName": "Kubernetes and Modern App Services on VCF",
+    "featureId": "VCF-09-F04",
+    "featureName": "Persistent storage for containers",
+    "functionalityId": "VCF-09-F04-FN02",
+    "functionalityName": "Apply storage classes/policies"
+  },
+  {
+    "productId": "VCF-09",
+    "productName": "vSphere Kubernetes Service & Application Platform",
+    "domainName": "Application Platform",
+    "capabilityName": "Kubernetes and Modern App Services on VCF",
+    "featureId": "VCF-09-F04",
+    "featureName": "Persistent storage for containers",
+    "functionalityId": "VCF-09-F04-FN03",
+    "functionalityName": "Protect stateful workloads"
+  },
+  {
+    "productId": "VCF-09",
+    "productName": "vSphere Kubernetes Service & Application Platform",
+    "domainName": "Application Platform",
+    "capabilityName": "Kubernetes and Modern App Services on VCF",
+    "featureId": "VCF-09-F05",
+    "featureName": "Registry / package / content services",
+    "functionalityId": "VCF-09-F05-FN01",
+    "functionalityName": "Host or integrate registry"
+  },
+  {
+    "productId": "VCF-09",
+    "productName": "vSphere Kubernetes Service & Application Platform",
+    "domainName": "Application Platform",
+    "capabilityName": "Kubernetes and Modern App Services on VCF",
+    "featureId": "VCF-09-F05",
+    "featureName": "Registry / package / content services",
+    "functionalityId": "VCF-09-F05-FN02",
+    "functionalityName": "Manage content trust basics"
+  },
+  {
+    "productId": "VCF-09",
+    "productName": "vSphere Kubernetes Service & Application Platform",
+    "domainName": "Application Platform",
+    "capabilityName": "Kubernetes and Modern App Services on VCF",
+    "featureId": "VCF-09-F05",
+    "featureName": "Registry / package / content services",
+    "functionalityId": "VCF-09-F05-FN03",
+    "functionalityName": "Distribute packages/charts"
+  },
+  {
+    "productId": "VCF-09",
+    "productName": "vSphere Kubernetes Service & Application Platform",
+    "domainName": "Application Platform",
+    "capabilityName": "Kubernetes and Modern App Services on VCF",
+    "featureId": "VCF-09-F06",
+    "featureName": "Platform security controls",
+    "functionalityId": "VCF-09-F06-FN01",
+    "functionalityName": "Enforce pod security baselines"
+  },
+  {
+    "productId": "VCF-09",
+    "productName": "vSphere Kubernetes Service & Application Platform",
+    "domainName": "Application Platform",
+    "capabilityName": "Kubernetes and Modern App Services on VCF",
+    "featureId": "VCF-09-F06",
+    "featureName": "Platform security controls",
+    "functionalityId": "VCF-09-F06-FN02",
+    "functionalityName": "Manage secrets"
+  },
+  {
+    "productId": "VCF-09",
+    "productName": "vSphere Kubernetes Service & Application Platform",
+    "domainName": "Application Platform",
+    "capabilityName": "Kubernetes and Modern App Services on VCF",
+    "featureId": "VCF-09-F06",
+    "featureName": "Platform security controls",
+    "functionalityId": "VCF-09-F06-FN03",
+    "functionalityName": "Scan/admit workloads as designed"
+  },
+  {
+    "productId": "VCF-09",
+    "productName": "vSphere Kubernetes Service & Application Platform",
+    "domainName": "Application Platform",
+    "capabilityName": "Kubernetes and Modern App Services on VCF",
+    "featureId": "VCF-09-F07",
+    "featureName": "Developer self-service experience",
+    "functionalityId": "VCF-09-F07-FN01",
+    "functionalityName": "Provide self-service cluster/namespace access"
+  },
+  {
+    "productId": "VCF-09",
+    "productName": "vSphere Kubernetes Service & Application Platform",
+    "domainName": "Application Platform",
+    "capabilityName": "Kubernetes and Modern App Services on VCF",
+    "featureId": "VCF-09-F07",
+    "featureName": "Developer self-service experience",
+    "functionalityId": "VCF-09-F07-FN02",
+    "functionalityName": "Support CI/CD consumption"
+  },
+  {
+    "productId": "VCF-09",
+    "productName": "vSphere Kubernetes Service & Application Platform",
+    "domainName": "Application Platform",
+    "capabilityName": "Kubernetes and Modern App Services on VCF",
+    "featureId": "VCF-09-F07",
+    "featureName": "Developer self-service experience",
+    "functionalityId": "VCF-09-F07-FN03",
+    "functionalityName": "Expose APIs/CLI/UI"
+  },
+  {
+    "productId": "VCF-10",
+    "productName": "HCX / Import / Converge / Workload Mobility",
+    "domainName": "Migration and Mobility",
+    "capabilityName": "Workload Migration, Import, and Mobility Services",
+    "featureId": "VCF-10-F01",
+    "featureName": "Bulk / cold migration",
+    "functionalityId": "VCF-10-F01-FN01",
+    "functionalityName": "Migrate powered-off workloads"
+  },
+  {
+    "productId": "VCF-10",
+    "productName": "HCX / Import / Converge / Workload Mobility",
+    "domainName": "Migration and Mobility",
+    "capabilityName": "Workload Migration, Import, and Mobility Services",
+    "featureId": "VCF-10-F01",
+    "featureName": "Bulk / cold migration",
+    "functionalityId": "VCF-10-F01-FN02",
+    "functionalityName": "Validate target readiness"
+  },
+  {
+    "productId": "VCF-10",
+    "productName": "HCX / Import / Converge / Workload Mobility",
+    "domainName": "Migration and Mobility",
+    "capabilityName": "Workload Migration, Import, and Mobility Services",
+    "featureId": "VCF-10-F01",
+    "featureName": "Bulk / cold migration",
+    "functionalityId": "VCF-10-F01-FN03",
+    "functionalityName": "Track migration batches"
+  },
+  {
+    "productId": "VCF-10",
+    "productName": "HCX / Import / Converge / Workload Mobility",
+    "domainName": "Migration and Mobility",
+    "capabilityName": "Workload Migration, Import, and Mobility Services",
+    "featureId": "VCF-10-F02",
+    "featureName": "Live / vMotion-style mobility",
+    "functionalityId": "VCF-10-F02-FN01",
+    "functionalityName": "Migrate running workloads"
+  },
+  {
+    "productId": "VCF-10",
+    "productName": "HCX / Import / Converge / Workload Mobility",
+    "domainName": "Migration and Mobility",
+    "capabilityName": "Workload Migration, Import, and Mobility Services",
+    "featureId": "VCF-10-F02",
+    "featureName": "Live / vMotion-style mobility",
+    "functionalityId": "VCF-10-F02-FN02",
+    "functionalityName": "Maintain network continuity as designed"
+  },
+  {
+    "productId": "VCF-10",
+    "productName": "HCX / Import / Converge / Workload Mobility",
+    "domainName": "Migration and Mobility",
+    "capabilityName": "Workload Migration, Import, and Mobility Services",
+    "featureId": "VCF-10-F02",
+    "featureName": "Live / vMotion-style mobility",
+    "functionalityId": "VCF-10-F02-FN03",
+    "functionalityName": "Monitor live move health"
+  },
+  {
+    "productId": "VCF-10",
+    "productName": "HCX / Import / Converge / Workload Mobility",
+    "domainName": "Migration and Mobility",
+    "capabilityName": "Workload Migration, Import, and Mobility Services",
+    "featureId": "VCF-10-F03",
+    "featureName": "Replication-assisted migration",
+    "functionalityId": "VCF-10-F03-FN01",
+    "functionalityName": "Seed replicas"
+  },
+  {
+    "productId": "VCF-10",
+    "productName": "HCX / Import / Converge / Workload Mobility",
+    "domainName": "Migration and Mobility",
+    "capabilityName": "Workload Migration, Import, and Mobility Services",
+    "featureId": "VCF-10-F03",
+    "featureName": "Replication-assisted migration",
+    "functionalityId": "VCF-10-F03-FN02",
+    "functionalityName": "Cut over workloads"
+  },
+  {
+    "productId": "VCF-10",
+    "productName": "HCX / Import / Converge / Workload Mobility",
+    "domainName": "Migration and Mobility",
+    "capabilityName": "Workload Migration, Import, and Mobility Services",
+    "featureId": "VCF-10-F03",
+    "featureName": "Replication-assisted migration",
+    "functionalityId": "VCF-10-F03-FN03",
+    "functionalityName": "Control RPO/switch windows"
+  },
+  {
+    "productId": "VCF-10",
+    "productName": "HCX / Import / Converge / Workload Mobility",
+    "domainName": "Migration and Mobility",
+    "capabilityName": "Workload Migration, Import, and Mobility Services",
+    "featureId": "VCF-10-F04",
+    "featureName": "Network extension / mobility bridging",
+    "functionalityId": "VCF-10-F04-FN01",
+    "functionalityName": "Extend L2 as designed"
+  },
+  {
+    "productId": "VCF-10",
+    "productName": "HCX / Import / Converge / Workload Mobility",
+    "domainName": "Migration and Mobility",
+    "capabilityName": "Workload Migration, Import, and Mobility Services",
+    "featureId": "VCF-10-F04",
+    "featureName": "Network extension / mobility bridging",
+    "functionalityId": "VCF-10-F04-FN02",
+    "functionalityName": "Manage stretch during migration"
+  },
+  {
+    "productId": "VCF-10",
+    "productName": "HCX / Import / Converge / Workload Mobility",
+    "domainName": "Migration and Mobility",
+    "capabilityName": "Workload Migration, Import, and Mobility Services",
+    "featureId": "VCF-10-F04",
+    "featureName": "Network extension / mobility bridging",
+    "functionalityId": "VCF-10-F04-FN03",
+    "functionalityName": "Tear down extensions safely"
+  },
+  {
+    "productId": "VCF-10",
+    "productName": "HCX / Import / Converge / Workload Mobility",
+    "domainName": "Migration and Mobility",
+    "capabilityName": "Workload Migration, Import, and Mobility Services",
+    "featureId": "VCF-10-F05",
+    "featureName": "Import / converge workflows",
+    "functionalityId": "VCF-10-F05-FN01",
+    "functionalityName": "Import existing environments"
+  },
+  {
+    "productId": "VCF-10",
+    "productName": "HCX / Import / Converge / Workload Mobility",
+    "domainName": "Migration and Mobility",
+    "capabilityName": "Workload Migration, Import, and Mobility Services",
+    "featureId": "VCF-10-F05",
+    "featureName": "Import / converge workflows",
+    "functionalityId": "VCF-10-F05-FN02",
+    "functionalityName": "Converge into managed topology"
+  },
+  {
+    "productId": "VCF-10",
+    "productName": "HCX / Import / Converge / Workload Mobility",
+    "domainName": "Migration and Mobility",
+    "capabilityName": "Workload Migration, Import, and Mobility Services",
+    "featureId": "VCF-10-F05",
+    "featureName": "Import / converge workflows",
+    "functionalityId": "VCF-10-F05-FN03",
+    "functionalityName": "Validate post-import state"
+  },
+  {
+    "productId": "VCF-10",
+    "productName": "HCX / Import / Converge / Workload Mobility",
+    "domainName": "Migration and Mobility",
+    "capabilityName": "Workload Migration, Import, and Mobility Services",
+    "featureId": "VCF-10-F06",
+    "featureName": "Mobility planning and wave ops",
+    "functionalityId": "VCF-10-F06-FN01",
+    "functionalityName": "Group migration waves"
+  },
+  {
+    "productId": "VCF-10",
+    "productName": "HCX / Import / Converge / Workload Mobility",
+    "domainName": "Migration and Mobility",
+    "capabilityName": "Workload Migration, Import, and Mobility Services",
+    "featureId": "VCF-10-F06",
+    "featureName": "Mobility planning and wave ops",
+    "functionalityId": "VCF-10-F06-FN02",
+    "functionalityName": "Assess dependencies"
+  },
+  {
+    "productId": "VCF-10",
+    "productName": "HCX / Import / Converge / Workload Mobility",
+    "domainName": "Migration and Mobility",
+    "capabilityName": "Workload Migration, Import, and Mobility Services",
+    "featureId": "VCF-10-F06",
+    "featureName": "Mobility planning and wave ops",
+    "functionalityId": "VCF-10-F06-FN03",
+    "functionalityName": "Report wave completion"
+  },
+  {
+    "productId": "VCF-10",
+    "productName": "HCX / Import / Converge / Workload Mobility",
+    "domainName": "Migration and Mobility",
+    "capabilityName": "Workload Migration, Import, and Mobility Services",
+    "featureId": "VCF-10-F07",
+    "featureName": "Rollback and fallback posture",
+    "functionalityId": "VCF-10-F07-FN01",
+    "functionalityName": "Define fallback points"
+  },
+  {
+    "productId": "VCF-10",
+    "productName": "HCX / Import / Converge / Workload Mobility",
+    "domainName": "Migration and Mobility",
+    "capabilityName": "Workload Migration, Import, and Mobility Services",
+    "featureId": "VCF-10-F07",
+    "featureName": "Rollback and fallback posture",
+    "functionalityId": "VCF-10-F07-FN02",
+    "functionalityName": "Execute controlled rollback where possible"
+  },
+  {
+    "productId": "VCF-10",
+    "productName": "HCX / Import / Converge / Workload Mobility",
+    "domainName": "Migration and Mobility",
+    "capabilityName": "Workload Migration, Import, and Mobility Services",
+    "featureId": "VCF-10-F07",
+    "featureName": "Rollback and fallback posture",
+    "functionalityId": "VCF-10-F07-FN03",
+    "functionalityName": "Capture mobility evidence"
+  },
+  {
+    "productId": "VCF-11",
+    "productName": "Protection / Recovery / Resilience",
+    "domainName": "Resilience",
+    "capabilityName": "Backup, Replication, and Disaster Recovery Controls",
+    "featureId": "VCF-11-F01",
+    "featureName": "Backup protection",
+    "functionalityId": "VCF-11-F01-FN01",
+    "functionalityName": "Protect VMs/workloads"
+  },
+  {
+    "productId": "VCF-11",
+    "productName": "Protection / Recovery / Resilience",
+    "domainName": "Resilience",
+    "capabilityName": "Backup, Replication, and Disaster Recovery Controls",
+    "featureId": "VCF-11-F01",
+    "featureName": "Backup protection",
+    "functionalityId": "VCF-11-F01-FN02",
+    "functionalityName": "Schedule backup jobs"
+  },
+  {
+    "productId": "VCF-11",
+    "productName": "Protection / Recovery / Resilience",
+    "domainName": "Resilience",
+    "capabilityName": "Backup, Replication, and Disaster Recovery Controls",
+    "featureId": "VCF-11-F01",
+    "featureName": "Backup protection",
+    "functionalityId": "VCF-11-F01-FN03",
+    "functionalityName": "Verify backup success"
+  },
+  {
+    "productId": "VCF-11",
+    "productName": "Protection / Recovery / Resilience",
+    "domainName": "Resilience",
+    "capabilityName": "Backup, Replication, and Disaster Recovery Controls",
+    "featureId": "VCF-11-F02",
+    "featureName": "Restore and recovery",
+    "functionalityId": "VCF-11-F02-FN01",
+    "functionalityName": "Restore full workloads"
+  },
+  {
+    "productId": "VCF-11",
+    "productName": "Protection / Recovery / Resilience",
+    "domainName": "Resilience",
+    "capabilityName": "Backup, Replication, and Disaster Recovery Controls",
+    "featureId": "VCF-11-F02",
+    "featureName": "Restore and recovery",
+    "functionalityId": "VCF-11-F02-FN02",
+    "functionalityName": "Restore files/objects where supported"
+  },
+  {
+    "productId": "VCF-11",
+    "productName": "Protection / Recovery / Resilience",
+    "domainName": "Resilience",
+    "capabilityName": "Backup, Replication, and Disaster Recovery Controls",
+    "featureId": "VCF-11-F02",
+    "featureName": "Restore and recovery",
+    "functionalityId": "VCF-11-F02-FN03",
+    "functionalityName": "Validate restore integrity"
+  },
+  {
+    "productId": "VCF-11",
+    "productName": "Protection / Recovery / Resilience",
+    "domainName": "Resilience",
+    "capabilityName": "Backup, Replication, and Disaster Recovery Controls",
+    "featureId": "VCF-11-F03",
+    "featureName": "Replication / DR orchestration",
+    "functionalityId": "VCF-11-F03-FN01",
+    "functionalityName": "Replicate to recovery site"
+  },
+  {
+    "productId": "VCF-11",
+    "productName": "Protection / Recovery / Resilience",
+    "domainName": "Resilience",
+    "capabilityName": "Backup, Replication, and Disaster Recovery Controls",
+    "featureId": "VCF-11-F03",
+    "featureName": "Replication / DR orchestration",
+    "functionalityId": "VCF-11-F03-FN02",
+    "functionalityName": "Orchestrate failover plans"
+  },
+  {
+    "productId": "VCF-11",
+    "productName": "Protection / Recovery / Resilience",
+    "domainName": "Resilience",
+    "capabilityName": "Backup, Replication, and Disaster Recovery Controls",
+    "featureId": "VCF-11-F03",
+    "featureName": "Replication / DR orchestration",
+    "functionalityId": "VCF-11-F03-FN03",
+    "functionalityName": "Run test failovers"
+  },
+  {
+    "productId": "VCF-11",
+    "productName": "Protection / Recovery / Resilience",
+    "domainName": "Resilience",
+    "capabilityName": "Backup, Replication, and Disaster Recovery Controls",
+    "featureId": "VCF-11-F04",
+    "featureName": "RPO/RTO policy alignment",
+    "functionalityId": "VCF-11-F04-FN01",
+    "functionalityName": "Define protection SLAs"
+  },
+  {
+    "productId": "VCF-11",
+    "productName": "Protection / Recovery / Resilience",
+    "domainName": "Resilience",
+    "capabilityName": "Backup, Replication, and Disaster Recovery Controls",
+    "featureId": "VCF-11-F04",
+    "featureName": "RPO/RTO policy alignment",
+    "functionalityId": "VCF-11-F04-FN02",
+    "functionalityName": "Monitor SLA compliance"
+  },
+  {
+    "productId": "VCF-11",
+    "productName": "Protection / Recovery / Resilience",
+    "domainName": "Resilience",
+    "capabilityName": "Backup, Replication, and Disaster Recovery Controls",
+    "featureId": "VCF-11-F04",
+    "featureName": "RPO/RTO policy alignment",
+    "functionalityId": "VCF-11-F04-FN03",
+    "functionalityName": "Escalate missed targets"
+  },
+  {
+    "productId": "VCF-11",
+    "productName": "Protection / Recovery / Resilience",
+    "domainName": "Resilience",
+    "capabilityName": "Backup, Replication, and Disaster Recovery Controls",
+    "featureId": "VCF-11-F05",
+    "featureName": "Cyber recovery / immutable posture",
+    "functionalityId": "VCF-11-F05-FN01",
+    "functionalityName": "Apply immutability controls where available"
+  },
+  {
+    "productId": "VCF-11",
+    "productName": "Protection / Recovery / Resilience",
+    "domainName": "Resilience",
+    "capabilityName": "Backup, Replication, and Disaster Recovery Controls",
+    "featureId": "VCF-11-F05",
+    "featureName": "Cyber recovery / immutable posture",
+    "functionalityId": "VCF-11-F05-FN02",
+    "functionalityName": "Isolate recovery copies"
+  },
+  {
+    "productId": "VCF-11",
+    "productName": "Protection / Recovery / Resilience",
+    "domainName": "Resilience",
+    "capabilityName": "Backup, Replication, and Disaster Recovery Controls",
+    "featureId": "VCF-11-F05",
+    "featureName": "Cyber recovery / immutable posture",
+    "functionalityId": "VCF-11-F05-FN03",
+    "functionalityName": "Support clean-room recovery patterns"
+  },
+  {
+    "productId": "VCF-11",
+    "productName": "Protection / Recovery / Resilience",
+    "domainName": "Resilience",
+    "capabilityName": "Backup, Replication, and Disaster Recovery Controls",
+    "featureId": "VCF-11-F06",
+    "featureName": "Application-consistent protection",
+    "functionalityId": "VCF-11-F06-FN01",
+    "functionalityName": "Coordinate app-aware backups"
+  },
+  {
+    "productId": "VCF-11",
+    "productName": "Protection / Recovery / Resilience",
+    "domainName": "Resilience",
+    "capabilityName": "Backup, Replication, and Disaster Recovery Controls",
+    "featureId": "VCF-11-F06",
+    "featureName": "Application-consistent protection",
+    "functionalityId": "VCF-11-F06-FN02",
+    "functionalityName": "Handle database/app agents as designed"
+  },
+  {
+    "productId": "VCF-11",
+    "productName": "Protection / Recovery / Resilience",
+    "domainName": "Resilience",
+    "capabilityName": "Backup, Replication, and Disaster Recovery Controls",
+    "featureId": "VCF-11-F06",
+    "featureName": "Application-consistent protection",
+    "functionalityId": "VCF-11-F06-FN03",
+    "functionalityName": "Validate consistency"
+  },
+  {
+    "productId": "VCF-11",
+    "productName": "Protection / Recovery / Resilience",
+    "domainName": "Resilience",
+    "capabilityName": "Backup, Replication, and Disaster Recovery Controls",
+    "featureId": "VCF-11-F07",
+    "featureName": "Resilience reporting and evidence",
+    "functionalityId": "VCF-11-F07-FN01",
+    "functionalityName": "Report protected vs unprotected estate"
+  },
+  {
+    "productId": "VCF-11",
+    "productName": "Protection / Recovery / Resilience",
+    "domainName": "Resilience",
+    "capabilityName": "Backup, Replication, and Disaster Recovery Controls",
+    "featureId": "VCF-11-F07",
+    "featureName": "Resilience reporting and evidence",
+    "functionalityId": "VCF-11-F07-FN02",
+    "functionalityName": "Export DR test evidence"
+  },
+  {
+    "productId": "VCF-11",
+    "productName": "Protection / Recovery / Resilience",
+    "domainName": "Resilience",
+    "capabilityName": "Backup, Replication, and Disaster Recovery Controls",
+    "featureId": "VCF-11-F07",
+    "featureName": "Resilience reporting and evidence",
+    "functionalityId": "VCF-11-F07-FN03",
+    "functionalityName": "Track recovery metrics"
+  },
+  {
+    "productId": "VCF-12",
+    "productName": "VCF Private AI Services",
+    "domainName": "Private AI",
+    "capabilityName": "Private AI Platform Services on VCF",
+    "featureId": "VCF-12-F01",
+    "featureName": "GPU / accelerator enablement",
+    "functionalityId": "VCF-12-F01-FN01",
+    "functionalityName": "Expose GPU resources"
+  },
+  {
+    "productId": "VCF-12",
+    "productName": "VCF Private AI Services",
+    "domainName": "Private AI",
+    "capabilityName": "Private AI Platform Services on VCF",
+    "featureId": "VCF-12-F01",
+    "featureName": "GPU / accelerator enablement",
+    "functionalityId": "VCF-12-F01-FN02",
+    "functionalityName": "Schedule accelerated workloads"
+  },
+  {
+    "productId": "VCF-12",
+    "productName": "VCF Private AI Services",
+    "domainName": "Private AI",
+    "capabilityName": "Private AI Platform Services on VCF",
+    "featureId": "VCF-12-F01",
+    "featureName": "GPU / accelerator enablement",
+    "functionalityId": "VCF-12-F01-FN03",
+    "functionalityName": "Monitor accelerator health/utilization"
+  },
+  {
+    "productId": "VCF-12",
+    "productName": "VCF Private AI Services",
+    "domainName": "Private AI",
+    "capabilityName": "Private AI Platform Services on VCF",
+    "featureId": "VCF-12-F02",
+    "featureName": "Model hosting / serving",
+    "functionalityId": "VCF-12-F02-FN01",
+    "functionalityName": "Deploy model endpoints"
+  },
+  {
+    "productId": "VCF-12",
+    "productName": "VCF Private AI Services",
+    "domainName": "Private AI",
+    "capabilityName": "Private AI Platform Services on VCF",
+    "featureId": "VCF-12-F02",
+    "featureName": "Model hosting / serving",
+    "functionalityId": "VCF-12-F02-FN02",
+    "functionalityName": "Scale inference services"
+  },
+  {
+    "productId": "VCF-12",
+    "productName": "VCF Private AI Services",
+    "domainName": "Private AI",
+    "capabilityName": "Private AI Platform Services on VCF",
+    "featureId": "VCF-12-F02",
+    "featureName": "Model hosting / serving",
+    "functionalityId": "VCF-12-F02-FN03",
+    "functionalityName": "Secure endpoint access"
+  },
+  {
+    "productId": "VCF-12",
+    "productName": "VCF Private AI Services",
+    "domainName": "Private AI",
+    "capabilityName": "Private AI Platform Services on VCF",
+    "featureId": "VCF-12-F03",
+    "featureName": "Data pipeline / RAG foundations",
+    "functionalityId": "VCF-12-F03-FN01",
+    "functionalityName": "Ingest enterprise data sources"
+  },
+  {
+    "productId": "VCF-12",
+    "productName": "VCF Private AI Services",
+    "domainName": "Private AI",
+    "capabilityName": "Private AI Platform Services on VCF",
+    "featureId": "VCF-12-F03",
+    "featureName": "Data pipeline / RAG foundations",
+    "functionalityId": "VCF-12-F03-FN02",
+    "functionalityName": "Index/retrieve context"
+  },
+  {
+    "productId": "VCF-12",
+    "productName": "VCF Private AI Services",
+    "domainName": "Private AI",
+    "capabilityName": "Private AI Platform Services on VCF",
+    "featureId": "VCF-12-F03",
+    "featureName": "Data pipeline / RAG foundations",
+    "functionalityId": "VCF-12-F03-FN03",
+    "functionalityName": "Control data residency path"
+  },
+  {
+    "productId": "VCF-12",
+    "productName": "VCF Private AI Services",
+    "domainName": "Private AI",
+    "capabilityName": "Private AI Platform Services on VCF",
+    "featureId": "VCF-12-F04",
+    "featureName": "AI lifecycle / MLOps basics",
+    "functionalityId": "VCF-12-F04-FN01",
+    "functionalityName": "Version models"
+  },
+  {
+    "productId": "VCF-12",
+    "productName": "VCF Private AI Services",
+    "domainName": "Private AI",
+    "capabilityName": "Private AI Platform Services on VCF",
+    "featureId": "VCF-12-F04",
+    "featureName": "AI lifecycle / MLOps basics",
+    "functionalityId": "VCF-12-F04-FN02",
+    "functionalityName": "Promote model stages"
+  },
+  {
+    "productId": "VCF-12",
+    "productName": "VCF Private AI Services",
+    "domainName": "Private AI",
+    "capabilityName": "Private AI Platform Services on VCF",
+    "featureId": "VCF-12-F04",
+    "featureName": "AI lifecycle / MLOps basics",
+    "functionalityId": "VCF-12-F04-FN03",
+    "functionalityName": "Rollback model deployments"
+  },
+  {
+    "productId": "VCF-12",
+    "productName": "VCF Private AI Services",
+    "domainName": "Private AI",
+    "capabilityName": "Private AI Platform Services on VCF",
+    "featureId": "VCF-12-F05",
+    "featureName": "Governance and access control for AI",
+    "functionalityId": "VCF-12-F05-FN01",
+    "functionalityName": "Entitle AI projects"
+  },
+  {
+    "productId": "VCF-12",
+    "productName": "VCF Private AI Services",
+    "domainName": "Private AI",
+    "capabilityName": "Private AI Platform Services on VCF",
+    "featureId": "VCF-12-F05",
+    "featureName": "Governance and access control for AI",
+    "functionalityId": "VCF-12-F05-FN02",
+    "functionalityName": "Audit AI resource usage"
+  },
+  {
+    "productId": "VCF-12",
+    "productName": "VCF Private AI Services",
+    "domainName": "Private AI",
+    "capabilityName": "Private AI Platform Services on VCF",
+    "featureId": "VCF-12-F05",
+    "featureName": "Governance and access control for AI",
+    "functionalityId": "VCF-12-F05-FN03",
+    "functionalityName": "Apply policy constraints"
+  },
+  {
+    "productId": "VCF-12",
+    "productName": "VCF Private AI Services",
+    "domainName": "Private AI",
+    "capabilityName": "Private AI Platform Services on VCF",
+    "featureId": "VCF-12-F06",
+    "featureName": "Integration with VCF platform services",
+    "functionalityId": "VCF-12-F06-FN01",
+    "functionalityName": "Use platform identity"
+  },
+  {
+    "productId": "VCF-12",
+    "productName": "VCF Private AI Services",
+    "domainName": "Private AI",
+    "capabilityName": "Private AI Platform Services on VCF",
+    "featureId": "VCF-12-F06",
+    "featureName": "Integration with VCF platform services",
+    "functionalityId": "VCF-12-F06-FN02",
+    "functionalityName": "Use platform networking/storage"
+  },
+  {
+    "productId": "VCF-12",
+    "productName": "VCF Private AI Services",
+    "domainName": "Private AI",
+    "capabilityName": "Private AI Platform Services on VCF",
+    "featureId": "VCF-12-F06",
+    "featureName": "Integration with VCF platform services",
+    "functionalityId": "VCF-12-F06-FN03",
+    "functionalityName": "Observe AI services in ops tooling"
+  },
+  {
+    "productId": "VCF-12",
+    "productName": "VCF Private AI Services",
+    "domainName": "Private AI",
+    "capabilityName": "Private AI Platform Services on VCF",
+    "featureId": "VCF-12-F07",
+    "featureName": "Sovereign / private AI controls",
+    "functionalityId": "VCF-12-F07-FN01",
+    "functionalityName": "Keep inference private as designed"
+  },
+  {
+    "productId": "VCF-12",
+    "productName": "VCF Private AI Services",
+    "domainName": "Private AI",
+    "capabilityName": "Private AI Platform Services on VCF",
+    "featureId": "VCF-12-F07",
+    "featureName": "Sovereign / private AI controls",
+    "functionalityId": "VCF-12-F07-FN02",
+    "functionalityName": "Restrict outbound model/data calls"
+  },
+  {
+    "productId": "VCF-12",
+    "productName": "VCF Private AI Services",
+    "domainName": "Private AI",
+    "capabilityName": "Private AI Platform Services on VCF",
+    "featureId": "VCF-12-F07",
+    "featureName": "Sovereign / private AI controls",
+    "functionalityId": "VCF-12-F07-FN03",
+    "functionalityName": "Evidence private processing posture"
+  }
+]

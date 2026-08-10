@@ -1,0 +1,46 @@
+# Canonical Model CN v0.3 (draft candidate)
+
+## What this is
+
+Governed **Canonical Capability Model** for VCF-AFA stabilization.
+
+| File | Purpose |
+|---|---|
+| [`CN_v0.3_Canonical_Capability_Model.json`](CN_v0.3_Canonical_Capability_Model.json) | Full CN structure: 12 products, features, functionalities, enums, ID rules, init alignment |
+| [`CN_v0.3_Functionality_Index.json`](CN_v0.3_Functionality_Index.json) | Flat index of every `functionalityId` for review and future ingestion mapping |
+| [`../CN_v0.3_Validation_and_Init_Contract.md`](../CN_v0.3_Validation_and_Init_Contract.md) | Pass/Fail validation checklist + init contract |
+
+**Scale in this draft:** 12 products / 84 features / 252 functionalities (target ~12 / ~80 / ~240).
+
+## Important truths
+
+1. **Customer does not create or fill this file.** Architects / internal SMEs own it.
+2. **v1.39 does not upload CN yet.** Initialization today accepts KB `.xlsx` files only. CN ingestion is future work on the Initialization page.
+3. **This file alone does not change app scoring.** Stabilization requires: validate CN → implement upload/validation → score by `functionalityId`.
+4. **No comparator parity is claimed here.** Do not invent Full/Partial/No from this syllabus. Unknown is better than false precision.
+
+## How to use now
+
+1. Review structure against the validation checklist.
+2. Keith/Rohit mark Pass/Fail on the 12 areas, counts, IDs, workshop usability.
+3. Trim, rename, or extend functionalities only with architect approval; keep IDs stable.
+4. After Pass: use as the governed input contract for Core evidence mapping and future app ingestion.
+
+## Intended future upload point
+
+**New Assessment — Initialization** and **Resume Assessment — Initialization**, together with:
+
+- VCF KB file(s)
+- Core comparator KB files
+- Strategic Considerations list
+- Rules / weighting / configuration
+
+## Scoring key
+
+- Customer-facing workshop depth: Product/Component → Feature  
+- Engine scoring key: **`functionalityId`**  
+- Aggregate upward: Functionality → Feature → Capability → Domain → Platform  
+
+## Status
+
+`draft_candidate` — requires sign-off before advisory production use.
