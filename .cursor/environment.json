@@ -1,0 +1,17 @@
+{
+  "name": "VCF-AFA App Prototype",
+  "install": "./.cursor/scripts/cloud-agent-install.sh",
+  "ports": [
+    {
+      "name": "VCF-AFA web app",
+      "port": 8080
+    }
+  ],
+  "terminals": [
+    {
+      "name": "vcf-afa-server",
+      "command": "python3 -m http.server 8080 --bind 0.0.0.0 --directory v1.39-BaselineRohitHandover/v1.39-BaselineRohitHandover",
+      "description": "Serves the VCF-AFA static prototype at http://localhost:8080"
+    }
+  ]
+}
