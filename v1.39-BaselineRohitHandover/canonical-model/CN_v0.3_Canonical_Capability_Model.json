@@ -1,0 +1,3507 @@
+{
+  "cnVersion": "v0.3",
+  "cnStatus": "draft_candidate",
+  "cnTitle": "VCF-AFA Canonical Capability Model",
+  "compatibleAppBaseline": "VCF-AFA v1.39+",
+  "generatedFor": "Model stabilization \u2014 governed assessment input",
+  "disclaimer": "Draft candidate for Keith/Rohit validation. Not evidence-backed comparator parity. Do not invent Full/Partial/No conclusions from this file alone. Unknown is better than false precision.",
+  "metadata": {
+    "ownerRole": "Architect / internal SME",
+    "customerFillsThisFile": false,
+    "intendedUploadPage": "New/Resume Assessment Initialization (not yet implemented in v1.39)",
+    "v139SupportsCnUpload": false,
+    "targetScale": {
+      "products": 12,
+      "features": 80,
+      "functionalities": 240
+    },
+    "actualScale": {
+      "products": 12,
+      "features": 84,
+      "functionalities": 252
+    },
+    "hierarchy": [
+      "Platform",
+      "Domain",
+      "Capability",
+      "Feature",
+      "Functionality"
+    ],
+    "customerFacingLevels": [
+      "Product/Component",
+      "Feature"
+    ],
+    "scoringKey": "functionalityId",
+    "aggregationPath": [
+      "Functionality",
+      "Feature",
+      "Capability",
+      "Domain",
+      "Platform"
+    ]
+  },
+  "enums": {
+    "requirementImportance": [
+      "Required",
+      "Important",
+      "Nice To Have",
+      "Not Required",
+      "Unknown"
+    ],
+    "parity": [
+      "Full Parity",
+      "Partial Parity",
+      "No Parity",
+      "Unknown"
+    ],
+    "workaroundComplexity": [
+      "Low",
+      "Medium",
+      "High"
+    ],
+    "evaluationBasisType": [
+      "ProductVersion",
+      "CompositePeriod"
+    ]
+  },
+  "partialParityRequiredFields": [
+    "workaroundAvailability",
+    "workaroundDescription",
+    "workaroundComplexity",
+    "technicalImpact",
+    "operationalImpact",
+    "commercialImpact",
+    "sovereigntyImpact",
+    "advisoryNotes",
+    "evidenceLinks"
+  ],
+  "initContractAlignment": {
+    "requiredWithThisCn": [
+      "VCF KB file(s)",
+      "Core comparator KB files",
+      "Strategic Considerations list",
+      "Rules / weighting / configuration"
+    ],
+    "coreComparators": [
+      "VCF",
+      "NCP_AHV",
+      "AzureLocal",
+      "OpenShiftVirtualization",
+      "OpenStackKVM",
+      "ProxmoxVE"
+    ],
+    "extendedComparatorsDeferred": [
+      "XCPng",
+      "Harvester",
+      "HyperV",
+      "CitrixHypervisor",
+      "ScaleComputingHC3"
+    ]
+  },
+  "idRules": {
+    "productIdPattern": "VCF-NN",
+    "featureIdPattern": "VCF-NN-Fnn",
+    "functionalityIdPattern": "VCF-NN-Fnn-FNnn",
+    "stabilityRule": "Do not renumber IDs silently; publish migration notes on breaking ID changes.",
+    "scoringMustUse": "functionalityId",
+    "currentAppGap": "v1.39 scores/matches largely on FeatureID; migrate to functionalityId after CN gate passes and ingestion is implemented."
+  },
+  "products": [
+    {
+      "productId": "VCF-01",
+      "name": "VCF Platform / Fleet / Workload Domains",
+      "domainName": "Platform Foundation",
+      "capabilityName": "Fleet and Workload Domain Management",
+      "sortOrder": 1,
+      "features": [
+        {
+          "featureId": "VCF-01-F01",
+          "name": "Fleet inventory and topology visibility",
+          "description": "Fleet inventory and topology visibility under VCF Platform / Fleet / Workload Domains.",
+          "capabilityName": "Fleet and Workload Domain Management",
+          "domainName": "Platform Foundation",
+          "functionalities": [
+            {
+              "functionalityId": "VCF-01-F01-FN01",
+              "name": "Discover hosts and clusters",
+              "description": "Discover hosts and clusters within Fleet inventory and topology visibility for VCF Platform / Fleet / Workload Domains.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-01-F01-FN02",
+              "name": "View domain membership",
+              "description": "View domain membership within Fleet inventory and topology visibility for VCF Platform / Fleet / Workload Domains.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-01-F01-FN03",
+              "name": "Track capacity summary",
+              "description": "Track capacity summary within Fleet inventory and topology visibility for VCF Platform / Fleet / Workload Domains.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "featureId": "VCF-01-F02",
+          "name": "Workload domain lifecycle",
+          "description": "Workload domain lifecycle under VCF Platform / Fleet / Workload Domains.",
+          "capabilityName": "Fleet and Workload Domain Management",
+          "domainName": "Platform Foundation",
+          "functionalities": [
+            {
+              "functionalityId": "VCF-01-F02-FN01",
+              "name": "Create workload domain",
+              "description": "Create workload domain within Workload domain lifecycle for VCF Platform / Fleet / Workload Domains.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-01-F02-FN02",
+              "name": "Expand workload domain",
+              "description": "Expand workload domain within Workload domain lifecycle for VCF Platform / Fleet / Workload Domains.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-01-F02-FN03",
+              "name": "Delete/decommission domain",
+              "description": "Delete/decommission domain within Workload domain lifecycle for VCF Platform / Fleet / Workload Domains.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "featureId": "VCF-01-F03",
+          "name": "Cluster composition controls",
+          "description": "Cluster composition controls under VCF Platform / Fleet / Workload Domains.",
+          "capabilityName": "Fleet and Workload Domain Management",
+          "domainName": "Platform Foundation",
+          "functionalities": [
+            {
+              "functionalityId": "VCF-01-F03-FN01",
+              "name": "Add hosts to cluster",
+              "description": "Add hosts to cluster within Cluster composition controls for VCF Platform / Fleet / Workload Domains.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-01-F03-FN02",
+              "name": "Remove hosts from cluster",
+              "description": "Remove hosts from cluster within Cluster composition controls for VCF Platform / Fleet / Workload Domains.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-01-F03-FN03",
+              "name": "Validate cluster readiness",
+              "description": "Validate cluster readiness within Cluster composition controls for VCF Platform / Fleet / Workload Domains.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "featureId": "VCF-01-F04",
+          "name": "Principal vs workload domain separation",
+          "description": "Principal vs workload domain separation under VCF Platform / Fleet / Workload Domains.",
+          "capabilityName": "Fleet and Workload Domain Management",
+          "domainName": "Platform Foundation",
+          "functionalities": [
+            {
+              "functionalityId": "VCF-01-F04-FN01",
+              "name": "Maintain management domain isolation",
+              "description": "Maintain management domain isolation within Principal vs workload domain separation for VCF Platform / Fleet / Workload Domains.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-01-F04-FN02",
+              "name": "Apply domain-specific policies",
+              "description": "Apply domain-specific policies within Principal vs workload domain separation for VCF Platform / Fleet / Workload Domains.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-01-F04-FN03",
+              "name": "Audit cross-domain dependencies",
+              "description": "Audit cross-domain dependencies within Principal vs workload domain separation for VCF Platform / Fleet / Workload Domains.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "featureId": "VCF-01-F05",
+          "name": "Commissioning and host bring-up",
+          "description": "Commissioning and host bring-up under VCF Platform / Fleet / Workload Domains.",
+          "capabilityName": "Fleet and Workload Domain Management",
+          "domainName": "Platform Foundation",
+          "functionalities": [
+            {
+              "functionalityId": "VCF-01-F05-FN01",
+              "name": "Commission host",
+              "description": "Commission host within Commissioning and host bring-up for VCF Platform / Fleet / Workload Domains.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-01-F05-FN02",
+              "name": "Validate hardware compatibility",
+              "description": "Validate hardware compatibility within Commissioning and host bring-up for VCF Platform / Fleet / Workload Domains.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-01-F05-FN03",
+              "name": "Assign host to domain",
+              "description": "Assign host to domain within Commissioning and host bring-up for VCF Platform / Fleet / Workload Domains.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "featureId": "VCF-01-F06",
+          "name": "Platform configuration baselines",
+          "description": "Platform configuration baselines under VCF Platform / Fleet / Workload Domains.",
+          "capabilityName": "Fleet and Workload Domain Management",
+          "domainName": "Platform Foundation",
+          "functionalities": [
+            {
+              "functionalityId": "VCF-01-F06-FN01",
+              "name": "Capture desired state baseline",
+              "description": "Capture desired state baseline within Platform configuration baselines for VCF Platform / Fleet / Workload Domains.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-01-F06-FN02",
+              "name": "Detect configuration drift",
+              "description": "Detect configuration drift within Platform configuration baselines for VCF Platform / Fleet / Workload Domains.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-01-F06-FN03",
+              "name": "Export baseline snapshot",
+              "description": "Export baseline snapshot within Platform configuration baselines for VCF Platform / Fleet / Workload Domains.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "featureId": "VCF-01-F07",
+          "name": "Multi-site / stretch awareness",
+          "description": "Multi-site / stretch awareness under VCF Platform / Fleet / Workload Domains.",
+          "capabilityName": "Fleet and Workload Domain Management",
+          "domainName": "Platform Foundation",
+          "functionalities": [
+            {
+              "functionalityId": "VCF-01-F07-FN01",
+              "name": "Identify stretched topology",
+              "description": "Identify stretched topology within Multi-site / stretch awareness for VCF Platform / Fleet / Workload Domains.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-01-F07-FN02",
+              "name": "Track site affinity",
+              "description": "Track site affinity within Multi-site / stretch awareness for VCF Platform / Fleet / Workload Domains.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-01-F07-FN03",
+              "name": "Surface site failure domains",
+              "description": "Surface site failure domains within Multi-site / stretch awareness for VCF Platform / Fleet / Workload Domains.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "productId": "VCF-02",
+      "name": "VCF Installer / SDDC Manager / Lifecycle Services",
+      "domainName": "Lifecycle and Install",
+      "capabilityName": "Install, Upgrade, and Lifecycle Orchestration",
+      "sortOrder": 2,
+      "features": [
+        {
+          "featureId": "VCF-02-F01",
+          "name": "Initial bring-up / installer workflow",
+          "description": "Initial bring-up / installer workflow under VCF Installer / SDDC Manager / Lifecycle Services.",
+          "capabilityName": "Install, Upgrade, and Lifecycle Orchestration",
+          "domainName": "Lifecycle and Install",
+          "functionalities": [
+            {
+              "functionalityId": "VCF-02-F01-FN01",
+              "name": "Run bring-up wizard",
+              "description": "Run bring-up wizard within Initial bring-up / installer workflow for VCF Installer / SDDC Manager / Lifecycle Services.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-02-F01-FN02",
+              "name": "Validate prerequisites",
+              "description": "Validate prerequisites within Initial bring-up / installer workflow for VCF Installer / SDDC Manager / Lifecycle Services.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-02-F01-FN03",
+              "name": "Apply initial configuration",
+              "description": "Apply initial configuration within Initial bring-up / installer workflow for VCF Installer / SDDC Manager / Lifecycle Services.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "featureId": "VCF-02-F02",
+          "name": "SDDC Manager orchestration",
+          "description": "SDDC Manager orchestration under VCF Installer / SDDC Manager / Lifecycle Services.",
+          "capabilityName": "Install, Upgrade, and Lifecycle Orchestration",
+          "domainName": "Lifecycle and Install",
+          "functionalities": [
+            {
+              "functionalityId": "VCF-02-F02-FN01",
+              "name": "Coordinate component workflows",
+              "description": "Coordinate component workflows within SDDC Manager orchestration for VCF Installer / SDDC Manager / Lifecycle Services.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-02-F02-FN02",
+              "name": "Track task progress",
+              "description": "Track task progress within SDDC Manager orchestration for VCF Installer / SDDC Manager / Lifecycle Services.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-02-F02-FN03",
+              "name": "Retry failed tasks safely",
+              "description": "Retry failed tasks safely within SDDC Manager orchestration for VCF Installer / SDDC Manager / Lifecycle Services.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "featureId": "VCF-02-F03",
+          "name": "Bundle / depot management",
+          "description": "Bundle / depot management under VCF Installer / SDDC Manager / Lifecycle Services.",
+          "capabilityName": "Install, Upgrade, and Lifecycle Orchestration",
+          "domainName": "Lifecycle and Install",
+          "functionalities": [
+            {
+              "functionalityId": "VCF-02-F03-FN01",
+              "name": "Ingest update bundles",
+              "description": "Ingest update bundles within Bundle / depot management for VCF Installer / SDDC Manager / Lifecycle Services.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-02-F03-FN02",
+              "name": "Validate bundle integrity",
+              "description": "Validate bundle integrity within Bundle / depot management for VCF Installer / SDDC Manager / Lifecycle Services.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-02-F03-FN03",
+              "name": "Stage bundles for upgrade",
+              "description": "Stage bundles for upgrade within Bundle / depot management for VCF Installer / SDDC Manager / Lifecycle Services.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "featureId": "VCF-02-F04",
+          "name": "Upgrade planning and prechecks",
+          "description": "Upgrade planning and prechecks under VCF Installer / SDDC Manager / Lifecycle Services.",
+          "capabilityName": "Install, Upgrade, and Lifecycle Orchestration",
+          "domainName": "Lifecycle and Install",
+          "functionalities": [
+            {
+              "functionalityId": "VCF-02-F04-FN01",
+              "name": "Run upgrade prechecks",
+              "description": "Run upgrade prechecks within Upgrade planning and prechecks for VCF Installer / SDDC Manager / Lifecycle Services.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-02-F04-FN02",
+              "name": "Identify blockers",
+              "description": "Identify blockers within Upgrade planning and prechecks for VCF Installer / SDDC Manager / Lifecycle Services.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-02-F04-FN03",
+              "name": "Produce upgrade readiness report",
+              "description": "Produce upgrade readiness report within Upgrade planning and prechecks for VCF Installer / SDDC Manager / Lifecycle Services.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "featureId": "VCF-02-F05",
+          "name": "Coordinated stack upgrade",
+          "description": "Coordinated stack upgrade under VCF Installer / SDDC Manager / Lifecycle Services.",
+          "capabilityName": "Install, Upgrade, and Lifecycle Orchestration",
+          "domainName": "Lifecycle and Install",
+          "functionalities": [
+            {
+              "functionalityId": "VCF-02-F05-FN01",
+              "name": "Upgrade management components",
+              "description": "Upgrade management components within Coordinated stack upgrade for VCF Installer / SDDC Manager / Lifecycle Services.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-02-F05-FN02",
+              "name": "Upgrade workload domain components",
+              "description": "Upgrade workload domain components within Coordinated stack upgrade for VCF Installer / SDDC Manager / Lifecycle Services.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-02-F05-FN03",
+              "name": "Track upgrade checkpoints",
+              "description": "Track upgrade checkpoints within Coordinated stack upgrade for VCF Installer / SDDC Manager / Lifecycle Services.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "featureId": "VCF-02-F06",
+          "name": "Skip-level / selective update controls",
+          "description": "Skip-level / selective update controls under VCF Installer / SDDC Manager / Lifecycle Services.",
+          "capabilityName": "Install, Upgrade, and Lifecycle Orchestration",
+          "domainName": "Lifecycle and Install",
+          "functionalities": [
+            {
+              "functionalityId": "VCF-02-F06-FN01",
+              "name": "Select update scope",
+              "description": "Select update scope within Skip-level / selective update controls for VCF Installer / SDDC Manager / Lifecycle Services.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-02-F06-FN02",
+              "name": "Defer non-critical updates",
+              "description": "Defer non-critical updates within Skip-level / selective update controls for VCF Installer / SDDC Manager / Lifecycle Services.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-02-F06-FN03",
+              "name": "Record update exceptions",
+              "description": "Record update exceptions within Skip-level / selective update controls for VCF Installer / SDDC Manager / Lifecycle Services.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "featureId": "VCF-02-F07",
+          "name": "Lifecycle audit and rollback posture",
+          "description": "Lifecycle audit and rollback posture under VCF Installer / SDDC Manager / Lifecycle Services.",
+          "capabilityName": "Install, Upgrade, and Lifecycle Orchestration",
+          "domainName": "Lifecycle and Install",
+          "functionalities": [
+            {
+              "functionalityId": "VCF-02-F07-FN01",
+              "name": "Retain upgrade history",
+              "description": "Retain upgrade history within Lifecycle audit and rollback posture for VCF Installer / SDDC Manager / Lifecycle Services.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-02-F07-FN02",
+              "name": "Document rollback constraints",
+              "description": "Document rollback constraints within Lifecycle audit and rollback posture for VCF Installer / SDDC Manager / Lifecycle Services.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-02-F07-FN03",
+              "name": "Export lifecycle evidence",
+              "description": "Export lifecycle evidence within Lifecycle audit and rollback posture for VCF Installer / SDDC Manager / Lifecycle Services.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "productId": "VCF-03",
+      "name": "vSphere Compute & Management",
+      "domainName": "Compute",
+      "capabilityName": "Virtual Compute and Cluster Operations",
+      "sortOrder": 3,
+      "features": [
+        {
+          "featureId": "VCF-03-F01",
+          "name": "ESXi host compute services",
+          "description": "ESXi host compute services under vSphere Compute & Management.",
+          "capabilityName": "Virtual Compute and Cluster Operations",
+          "domainName": "Compute",
+          "functionalities": [
+            {
+              "functionalityId": "VCF-03-F01-FN01",
+              "name": "Run virtual machines",
+              "description": "Run virtual machines within ESXi host compute services for vSphere Compute & Management.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-03-F01-FN02",
+              "name": "Manage host services",
+              "description": "Manage host services within ESXi host compute services for vSphere Compute & Management.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-03-F01-FN03",
+              "name": "Apply host profiles/baselines",
+              "description": "Apply host profiles/baselines within ESXi host compute services for vSphere Compute & Management.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "featureId": "VCF-03-F02",
+          "name": "vCenter management plane",
+          "description": "vCenter management plane under vSphere Compute & Management.",
+          "capabilityName": "Virtual Compute and Cluster Operations",
+          "domainName": "Compute",
+          "functionalities": [
+            {
+              "functionalityId": "VCF-03-F02-FN01",
+              "name": "Central inventory control",
+              "description": "Central inventory control within vCenter management plane for vSphere Compute & Management.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-03-F02-FN02",
+              "name": "Role-based access for compute",
+              "description": "Role-based access for compute within vCenter management plane for vSphere Compute & Management.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-03-F02-FN03",
+              "name": "API/automation access",
+              "description": "API/automation access within vCenter management plane for vSphere Compute & Management.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "featureId": "VCF-03-F03",
+          "name": "DRS / placement optimization",
+          "description": "DRS / placement optimization under vSphere Compute & Management.",
+          "capabilityName": "Virtual Compute and Cluster Operations",
+          "domainName": "Compute",
+          "functionalities": [
+            {
+              "functionalityId": "VCF-03-F03-FN01",
+              "name": "Balance workloads",
+              "description": "Balance workloads within DRS / placement optimization for vSphere Compute & Management.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-03-F03-FN02",
+              "name": "Apply placement rules",
+              "description": "Apply placement rules within DRS / placement optimization for vSphere Compute & Management.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-03-F03-FN03",
+              "name": "Evacuate hosts for maintenance",
+              "description": "Evacuate hosts for maintenance within DRS / placement optimization for vSphere Compute & Management.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "featureId": "VCF-03-F04",
+          "name": "HA and restart protection",
+          "description": "HA and restart protection under vSphere Compute & Management.",
+          "capabilityName": "Virtual Compute and Cluster Operations",
+          "domainName": "Compute",
+          "functionalities": [
+            {
+              "functionalityId": "VCF-03-F04-FN01",
+              "name": "Detect host failure",
+              "description": "Detect host failure within HA and restart protection for vSphere Compute & Management.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-03-F04-FN02",
+              "name": "Restart impacted VMs",
+              "description": "Restart impacted VMs within HA and restart protection for vSphere Compute & Management.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-03-F04-FN03",
+              "name": "Configure admission control",
+              "description": "Configure admission control within HA and restart protection for vSphere Compute & Management.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "featureId": "VCF-03-F05",
+          "name": "Resource pools and controls",
+          "description": "Resource pools and controls under vSphere Compute & Management.",
+          "capabilityName": "Virtual Compute and Cluster Operations",
+          "domainName": "Compute",
+          "functionalities": [
+            {
+              "functionalityId": "VCF-03-F05-FN01",
+              "name": "Create resource pools",
+              "description": "Create resource pools within Resource pools and controls for vSphere Compute & Management.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-03-F05-FN02",
+              "name": "Set reservations/limits/shares",
+              "description": "Set reservations/limits/shares within Resource pools and controls for vSphere Compute & Management.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-03-F05-FN03",
+              "name": "Monitor pool contention",
+              "description": "Monitor pool contention within Resource pools and controls for vSphere Compute & Management.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "featureId": "VCF-03-F06",
+          "name": "VM lifecycle operations",
+          "description": "VM lifecycle operations under vSphere Compute & Management.",
+          "capabilityName": "Virtual Compute and Cluster Operations",
+          "domainName": "Compute",
+          "functionalities": [
+            {
+              "functionalityId": "VCF-03-F06-FN01",
+              "name": "Provision VM",
+              "description": "Provision VM within VM lifecycle operations for vSphere Compute & Management.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-03-F06-FN02",
+              "name": "Clone/template deploy",
+              "description": "Clone/template deploy within VM lifecycle operations for vSphere Compute & Management.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-03-F06-FN03",
+              "name": "Snapshot and revert controls",
+              "description": "Snapshot and revert controls within VM lifecycle operations for vSphere Compute & Management.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "featureId": "VCF-03-F07",
+          "name": "Maintenance and remediation",
+          "description": "Maintenance and remediation under vSphere Compute & Management.",
+          "capabilityName": "Virtual Compute and Cluster Operations",
+          "domainName": "Compute",
+          "functionalities": [
+            {
+              "functionalityId": "VCF-03-F07-FN01",
+              "name": "Enter maintenance mode",
+              "description": "Enter maintenance mode within Maintenance and remediation for vSphere Compute & Management.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-03-F07-FN02",
+              "name": "Remediate host compliance",
+              "description": "Remediate host compliance within Maintenance and remediation for vSphere Compute & Management.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-03-F07-FN03",
+              "name": "Coordinate live migration",
+              "description": "Coordinate live migration within Maintenance and remediation for vSphere Compute & Management.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "productId": "VCF-04",
+      "name": "vSAN & Storage Services",
+      "domainName": "Storage",
+      "capabilityName": "Software-Defined Storage and Datastore Services",
+      "sortOrder": 4,
+      "features": [
+        {
+          "featureId": "VCF-04-F01",
+          "name": "vSAN datastore services",
+          "description": "vSAN datastore services under vSAN & Storage Services.",
+          "capabilityName": "Software-Defined Storage and Datastore Services",
+          "domainName": "Storage",
+          "functionalities": [
+            {
+              "functionalityId": "VCF-04-F01-FN01",
+              "name": "Provide shared datastore",
+              "description": "Provide shared datastore within vSAN datastore services for vSAN & Storage Services.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-04-F01-FN02",
+              "name": "Support VM storage provisioning",
+              "description": "Support VM storage provisioning within vSAN datastore services for vSAN & Storage Services.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-04-F01-FN03",
+              "name": "Expose capacity health",
+              "description": "Expose capacity health within vSAN datastore services for vSAN & Storage Services.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "featureId": "VCF-04-F02",
+          "name": "Storage policy based management",
+          "description": "Storage policy based management under vSAN & Storage Services.",
+          "capabilityName": "Software-Defined Storage and Datastore Services",
+          "domainName": "Storage",
+          "functionalities": [
+            {
+              "functionalityId": "VCF-04-F02-FN01",
+              "name": "Define storage policies",
+              "description": "Define storage policies within Storage policy based management for vSAN & Storage Services.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-04-F02-FN02",
+              "name": "Apply policy to VMs/disks",
+              "description": "Apply policy to VMs/disks within Storage policy based management for vSAN & Storage Services.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-04-F02-FN03",
+              "name": "Monitor policy compliance",
+              "description": "Monitor policy compliance within Storage policy based management for vSAN & Storage Services.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "featureId": "VCF-04-F03",
+          "name": "Dedup / compression / efficiency",
+          "description": "Dedup / compression / efficiency under vSAN & Storage Services.",
+          "capabilityName": "Software-Defined Storage and Datastore Services",
+          "domainName": "Storage",
+          "functionalities": [
+            {
+              "functionalityId": "VCF-04-F03-FN01",
+              "name": "Enable space efficiency features",
+              "description": "Enable space efficiency features within Dedup / compression / efficiency for vSAN & Storage Services.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-04-F03-FN02",
+              "name": "Monitor savings",
+              "description": "Monitor savings within Dedup / compression / efficiency for vSAN & Storage Services.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-04-F03-FN03",
+              "name": "Assess performance impact",
+              "description": "Assess performance impact within Dedup / compression / efficiency for vSAN & Storage Services.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "featureId": "VCF-04-F04",
+          "name": "Fault domains and resilience",
+          "description": "Fault domains and resilience under vSAN & Storage Services.",
+          "capabilityName": "Software-Defined Storage and Datastore Services",
+          "domainName": "Storage",
+          "functionalities": [
+            {
+              "functionalityId": "VCF-04-F04-FN01",
+              "name": "Configure fault domains",
+              "description": "Configure fault domains within Fault domains and resilience for vSAN & Storage Services.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-04-F04-FN02",
+              "name": "Tolerate host/site failures",
+              "description": "Tolerate host/site failures within Fault domains and resilience for vSAN & Storage Services.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-04-F04-FN03",
+              "name": "Rebuild degraded objects",
+              "description": "Rebuild degraded objects within Fault domains and resilience for vSAN & Storage Services.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "featureId": "VCF-04-F05",
+          "name": "Stretched / dual-site storage",
+          "description": "Stretched / dual-site storage under vSAN & Storage Services.",
+          "capabilityName": "Software-Defined Storage and Datastore Services",
+          "domainName": "Storage",
+          "functionalities": [
+            {
+              "functionalityId": "VCF-04-F05-FN01",
+              "name": "Configure stretch cluster storage",
+              "description": "Configure stretch cluster storage within Stretched / dual-site storage for vSAN & Storage Services.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-04-F05-FN02",
+              "name": "Manage site affinity",
+              "description": "Manage site affinity within Stretched / dual-site storage for vSAN & Storage Services.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-04-F05-FN03",
+              "name": "Handle site isolation behavior",
+              "description": "Handle site isolation behavior within Stretched / dual-site storage for vSAN & Storage Services.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "featureId": "VCF-04-F06",
+          "name": "File and supplemental services",
+          "description": "File and supplemental services under vSAN & Storage Services.",
+          "capabilityName": "Software-Defined Storage and Datastore Services",
+          "domainName": "Storage",
+          "functionalities": [
+            {
+              "functionalityId": "VCF-04-F06-FN01",
+              "name": "Provide file share services where applicable",
+              "description": "Provide file share services where applicable within File and supplemental services for vSAN & Storage Services.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-04-F06-FN02",
+              "name": "Integrate supplemental storage",
+              "description": "Integrate supplemental storage within File and supplemental services for vSAN & Storage Services.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-04-F06-FN03",
+              "name": "Monitor service health",
+              "description": "Monitor service health within File and supplemental services for vSAN & Storage Services.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "featureId": "VCF-04-F07",
+          "name": "Storage operations and supportability",
+          "description": "Storage operations and supportability under vSAN & Storage Services.",
+          "capabilityName": "Software-Defined Storage and Datastore Services",
+          "domainName": "Storage",
+          "functionalities": [
+            {
+              "functionalityId": "VCF-04-F07-FN01",
+              "name": "Run health checks",
+              "description": "Run health checks within Storage operations and supportability for vSAN & Storage Services.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-04-F07-FN02",
+              "name": "Collect support bundles",
+              "description": "Collect support bundles within Storage operations and supportability for vSAN & Storage Services.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-04-F07-FN03",
+              "name": "Track resync/rebuild progress",
+              "description": "Track resync/rebuild progress within Storage operations and supportability for vSAN & Storage Services.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "productId": "VCF-05",
+      "name": "NSX Networking / Edge / VPC Services",
+      "domainName": "Networking",
+      "capabilityName": "Software-Defined Networking and Edge Services",
+      "sortOrder": 5,
+      "features": [
+        {
+          "featureId": "VCF-05-F01",
+          "name": "Logical switching / segments",
+          "description": "Logical switching / segments under NSX Networking / Edge / VPC Services.",
+          "capabilityName": "Software-Defined Networking and Edge Services",
+          "domainName": "Networking",
+          "functionalities": [
+            {
+              "functionalityId": "VCF-05-F01-FN01",
+              "name": "Create network segments",
+              "description": "Create network segments within Logical switching / segments for NSX Networking / Edge / VPC Services.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-05-F01-FN02",
+              "name": "Attach workloads",
+              "description": "Attach workloads within Logical switching / segments for NSX Networking / Edge / VPC Services.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-05-F01-FN03",
+              "name": "Isolate broadcast domains",
+              "description": "Isolate broadcast domains within Logical switching / segments for NSX Networking / Edge / VPC Services.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "featureId": "VCF-05-F02",
+          "name": "Logical routing / Tier services",
+          "description": "Logical routing / Tier services under NSX Networking / Edge / VPC Services.",
+          "capabilityName": "Software-Defined Networking and Edge Services",
+          "domainName": "Networking",
+          "functionalities": [
+            {
+              "functionalityId": "VCF-05-F02-FN01",
+              "name": "Configure Tier-0/Tier-1 style routing",
+              "description": "Configure Tier-0/Tier-1 style routing within Logical routing / Tier services for NSX Networking / Edge / VPC Services.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-05-F02-FN02",
+              "name": "Advertise routes",
+              "description": "Advertise routes within Logical routing / Tier services for NSX Networking / Edge / VPC Services.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-05-F02-FN03",
+              "name": "Control north-south traffic",
+              "description": "Control north-south traffic within Logical routing / Tier services for NSX Networking / Edge / VPC Services.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "featureId": "VCF-05-F03",
+          "name": "Edge services and gateways",
+          "description": "Edge services and gateways under NSX Networking / Edge / VPC Services.",
+          "capabilityName": "Software-Defined Networking and Edge Services",
+          "domainName": "Networking",
+          "functionalities": [
+            {
+              "functionalityId": "VCF-05-F03-FN01",
+              "name": "Deploy edge nodes/gateways",
+              "description": "Deploy edge nodes/gateways within Edge services and gateways for NSX Networking / Edge / VPC Services.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-05-F03-FN02",
+              "name": "Provide NAT/load services as designed",
+              "description": "Provide NAT/load services as designed within Edge services and gateways for NSX Networking / Edge / VPC Services.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-05-F03-FN03",
+              "name": "Monitor edge health",
+              "description": "Monitor edge health within Edge services and gateways for NSX Networking / Edge / VPC Services.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "featureId": "VCF-05-F04",
+          "name": "VPC / multi-tenancy networking",
+          "description": "VPC / multi-tenancy networking under NSX Networking / Edge / VPC Services.",
+          "capabilityName": "Software-Defined Networking and Edge Services",
+          "domainName": "Networking",
+          "functionalities": [
+            {
+              "functionalityId": "VCF-05-F04-FN01",
+              "name": "Create tenant network contexts",
+              "description": "Create tenant network contexts within VPC / multi-tenancy networking for NSX Networking / Edge / VPC Services.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-05-F04-FN02",
+              "name": "Isolate tenant routing",
+              "description": "Isolate tenant routing within VPC / multi-tenancy networking for NSX Networking / Edge / VPC Services.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-05-F04-FN03",
+              "name": "Delegate network self-service bounds",
+              "description": "Delegate network self-service bounds within VPC / multi-tenancy networking for NSX Networking / Edge / VPC Services.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "featureId": "VCF-05-F05",
+          "name": "Overlay and underlay integration",
+          "description": "Overlay and underlay integration under NSX Networking / Edge / VPC Services.",
+          "capabilityName": "Software-Defined Networking and Edge Services",
+          "domainName": "Networking",
+          "functionalities": [
+            {
+              "functionalityId": "VCF-05-F05-FN01",
+              "name": "Establish overlay transport",
+              "description": "Establish overlay transport within Overlay and underlay integration for NSX Networking / Edge / VPC Services.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-05-F05-FN02",
+              "name": "Validate underlay MTU/connectivity",
+              "description": "Validate underlay MTU/connectivity within Overlay and underlay integration for NSX Networking / Edge / VPC Services.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-05-F05-FN03",
+              "name": "Troubleshoot tunnel health",
+              "description": "Troubleshoot tunnel health within Overlay and underlay integration for NSX Networking / Edge / VPC Services.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "featureId": "VCF-05-F06",
+          "name": "DNS / DHCP / network services",
+          "description": "DNS / DHCP / network services under NSX Networking / Edge / VPC Services.",
+          "capabilityName": "Software-Defined Networking and Edge Services",
+          "domainName": "Networking",
+          "functionalities": [
+            {
+              "functionalityId": "VCF-05-F06-FN01",
+              "name": "Provide DHCP services",
+              "description": "Provide DHCP services within DNS / DHCP / network services for NSX Networking / Edge / VPC Services.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-05-F06-FN02",
+              "name": "Integrate DNS services",
+              "description": "Integrate DNS services within DNS / DHCP / network services for NSX Networking / Edge / VPC Services.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-05-F06-FN03",
+              "name": "Manage IP address allocation",
+              "description": "Manage IP address allocation within DNS / DHCP / network services for NSX Networking / Edge / VPC Services.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "featureId": "VCF-05-F07",
+          "name": "Network observability basics",
+          "description": "Network observability basics under NSX Networking / Edge / VPC Services.",
+          "capabilityName": "Software-Defined Networking and Edge Services",
+          "domainName": "Networking",
+          "functionalities": [
+            {
+              "functionalityId": "VCF-05-F07-FN01",
+              "name": "Trace logical paths",
+              "description": "Trace logical paths within Network observability basics for NSX Networking / Edge / VPC Services.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-05-F07-FN02",
+              "name": "Capture network topology view",
+              "description": "Capture network topology view within Network observability basics for NSX Networking / Edge / VPC Services.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-05-F07-FN03",
+              "name": "Alert on network faults",
+              "description": "Alert on network faults within Network observability basics for NSX Networking / Edge / VPC Services.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "productId": "VCF-06",
+      "name": "NSX Security & Firewall Services",
+      "domainName": "Security",
+      "capabilityName": "Microsegmentation and Network Security Controls",
+      "sortOrder": 6,
+      "features": [
+        {
+          "featureId": "VCF-06-F01",
+          "name": "Distributed firewall",
+          "description": "Distributed firewall under NSX Security & Firewall Services.",
+          "capabilityName": "Microsegmentation and Network Security Controls",
+          "domainName": "Security",
+          "functionalities": [
+            {
+              "functionalityId": "VCF-06-F01-FN01",
+              "name": "Define DFW policies",
+              "description": "Define DFW policies within Distributed firewall for NSX Security & Firewall Services.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-06-F01-FN02",
+              "name": "Enforce east-west controls",
+              "description": "Enforce east-west controls within Distributed firewall for NSX Security & Firewall Services.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-06-F01-FN03",
+              "name": "Log policy hits",
+              "description": "Log policy hits within Distributed firewall for NSX Security & Firewall Services.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "featureId": "VCF-06-F02",
+          "name": "Gateway firewall",
+          "description": "Gateway firewall under NSX Security & Firewall Services.",
+          "capabilityName": "Microsegmentation and Network Security Controls",
+          "domainName": "Security",
+          "functionalities": [
+            {
+              "functionalityId": "VCF-06-F02-FN01",
+              "name": "Define gateway firewall rules",
+              "description": "Define gateway firewall rules within Gateway firewall for NSX Security & Firewall Services.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-06-F02-FN02",
+              "name": "Control north-south access",
+              "description": "Control north-south access within Gateway firewall for NSX Security & Firewall Services.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-06-F02-FN03",
+              "name": "Monitor rule effectiveness",
+              "description": "Monitor rule effectiveness within Gateway firewall for NSX Security & Firewall Services.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "featureId": "VCF-06-F03",
+          "name": "Security groups / dynamic membership",
+          "description": "Security groups / dynamic membership under NSX Security & Firewall Services.",
+          "capabilityName": "Microsegmentation and Network Security Controls",
+          "domainName": "Security",
+          "functionalities": [
+            {
+              "functionalityId": "VCF-06-F03-FN01",
+              "name": "Group workloads by tag/criteria",
+              "description": "Group workloads by tag/criteria within Security groups / dynamic membership for NSX Security & Firewall Services.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-06-F03-FN02",
+              "name": "Auto-update membership",
+              "description": "Auto-update membership within Security groups / dynamic membership for NSX Security & Firewall Services.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-06-F03-FN03",
+              "name": "Bind policies to groups",
+              "description": "Bind policies to groups within Security groups / dynamic membership for NSX Security & Firewall Services.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "featureId": "VCF-06-F04",
+          "name": "IDS/IPS or advanced threat controls",
+          "description": "IDS/IPS or advanced threat controls under NSX Security & Firewall Services.",
+          "capabilityName": "Microsegmentation and Network Security Controls",
+          "domainName": "Security",
+          "functionalities": [
+            {
+              "functionalityId": "VCF-06-F04-FN01",
+              "name": "Enable detection/prevention features",
+              "description": "Enable detection/prevention features within IDS/IPS or advanced threat controls for NSX Security & Firewall Services.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-06-F04-FN02",
+              "name": "Tune signatures/profiles",
+              "description": "Tune signatures/profiles within IDS/IPS or advanced threat controls for NSX Security & Firewall Services.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-06-F04-FN03",
+              "name": "Review security events",
+              "description": "Review security events within IDS/IPS or advanced threat controls for NSX Security & Firewall Services.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "featureId": "VCF-06-F05",
+          "name": "Identity / context-aware controls",
+          "description": "Identity / context-aware controls under NSX Security & Firewall Services.",
+          "capabilityName": "Microsegmentation and Network Security Controls",
+          "domainName": "Security",
+          "functionalities": [
+            {
+              "functionalityId": "VCF-06-F05-FN01",
+              "name": "Use identity/context in rules where supported",
+              "description": "Use identity/context in rules where supported within Identity / context-aware controls for NSX Security & Firewall Services.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-06-F05-FN02",
+              "name": "Map users/apps to policies",
+              "description": "Map users/apps to policies within Identity / context-aware controls for NSX Security & Firewall Services.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-06-F05-FN03",
+              "name": "Audit context-based decisions",
+              "description": "Audit context-based decisions within Identity / context-aware controls for NSX Security & Firewall Services.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "featureId": "VCF-06-F06",
+          "name": "Policy lifecycle and change control",
+          "description": "Policy lifecycle and change control under NSX Security & Firewall Services.",
+          "capabilityName": "Microsegmentation and Network Security Controls",
+          "domainName": "Security",
+          "functionalities": [
+            {
+              "functionalityId": "VCF-06-F06-FN01",
+              "name": "Stage policy changes",
+              "description": "Stage policy changes within Policy lifecycle and change control for NSX Security & Firewall Services.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-06-F06-FN02",
+              "name": "Review before publish",
+              "description": "Review before publish within Policy lifecycle and change control for NSX Security & Firewall Services.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-06-F06-FN03",
+              "name": "Rollback policy sets",
+              "description": "Rollback policy sets within Policy lifecycle and change control for NSX Security & Firewall Services.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "featureId": "VCF-06-F07",
+          "name": "Security posture reporting",
+          "description": "Security posture reporting under NSX Security & Firewall Services.",
+          "capabilityName": "Microsegmentation and Network Security Controls",
+          "domainName": "Security",
+          "functionalities": [
+            {
+              "functionalityId": "VCF-06-F07-FN01",
+              "name": "Export policy inventory",
+              "description": "Export policy inventory within Security posture reporting for NSX Security & Firewall Services.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-06-F07-FN02",
+              "name": "Report uncovered workloads",
+              "description": "Report uncovered workloads within Security posture reporting for NSX Security & Firewall Services.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-06-F07-FN03",
+              "name": "Evidence for compliance reviews",
+              "description": "Evidence for compliance reviews within Security posture reporting for NSX Security & Firewall Services.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "productId": "VCF-07",
+      "name": "VCF Operations & Observability",
+      "domainName": "Operations",
+      "capabilityName": "Monitoring, Analytics, and Operational Insight",
+      "sortOrder": 7,
+      "features": [
+        {
+          "featureId": "VCF-07-F01",
+          "name": "Infrastructure monitoring",
+          "description": "Infrastructure monitoring under VCF Operations & Observability.",
+          "capabilityName": "Monitoring, Analytics, and Operational Insight",
+          "domainName": "Operations",
+          "functionalities": [
+            {
+              "functionalityId": "VCF-07-F01-FN01",
+              "name": "Collect metrics from compute/storage/network",
+              "description": "Collect metrics from compute/storage/network within Infrastructure monitoring for VCF Operations & Observability.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-07-F01-FN02",
+              "name": "Visualize health dashboards",
+              "description": "Visualize health dashboards within Infrastructure monitoring for VCF Operations & Observability.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-07-F01-FN03",
+              "name": "Alert on threshold breaches",
+              "description": "Alert on threshold breaches within Infrastructure monitoring for VCF Operations & Observability.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "featureId": "VCF-07-F02",
+          "name": "Log collection and analysis",
+          "description": "Log collection and analysis under VCF Operations & Observability.",
+          "capabilityName": "Monitoring, Analytics, and Operational Insight",
+          "domainName": "Operations",
+          "functionalities": [
+            {
+              "functionalityId": "VCF-07-F02-FN01",
+              "name": "Ingest component logs",
+              "description": "Ingest component logs within Log collection and analysis for VCF Operations & Observability.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-07-F02-FN02",
+              "name": "Search/correlate events",
+              "description": "Search/correlate events within Log collection and analysis for VCF Operations & Observability.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-07-F02-FN03",
+              "name": "Retain logs per policy",
+              "description": "Retain logs per policy within Log collection and analysis for VCF Operations & Observability.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "featureId": "VCF-07-F03",
+          "name": "Capacity and performance planning",
+          "description": "Capacity and performance planning under VCF Operations & Observability.",
+          "capabilityName": "Monitoring, Analytics, and Operational Insight",
+          "domainName": "Operations",
+          "functionalities": [
+            {
+              "functionalityId": "VCF-07-F03-FN01",
+              "name": "Forecast capacity risk",
+              "description": "Forecast capacity risk within Capacity and performance planning for VCF Operations & Observability.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-07-F03-FN02",
+              "name": "Identify contention hotspots",
+              "description": "Identify contention hotspots within Capacity and performance planning for VCF Operations & Observability.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-07-F03-FN03",
+              "name": "Recommend rightsizing",
+              "description": "Recommend rightsizing within Capacity and performance planning for VCF Operations & Observability.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "featureId": "VCF-07-F04",
+          "name": "Configuration and compliance monitoring",
+          "description": "Configuration and compliance monitoring under VCF Operations & Observability.",
+          "capabilityName": "Monitoring, Analytics, and Operational Insight",
+          "domainName": "Operations",
+          "functionalities": [
+            {
+              "functionalityId": "VCF-07-F04-FN01",
+              "name": "Detect drift from desired config",
+              "description": "Detect drift from desired config within Configuration and compliance monitoring for VCF Operations & Observability.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-07-F04-FN02",
+              "name": "Assess compliance score",
+              "description": "Assess compliance score within Configuration and compliance monitoring for VCF Operations & Observability.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-07-F04-FN03",
+              "name": "Track remediation status",
+              "description": "Track remediation status within Configuration and compliance monitoring for VCF Operations & Observability.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "featureId": "VCF-07-F05",
+          "name": "Service/application awareness",
+          "description": "Service/application awareness under VCF Operations & Observability.",
+          "capabilityName": "Monitoring, Analytics, and Operational Insight",
+          "domainName": "Operations",
+          "functionalities": [
+            {
+              "functionalityId": "VCF-07-F05-FN01",
+              "name": "Map apps to infrastructure",
+              "description": "Map apps to infrastructure within Service/application awareness for VCF Operations & Observability.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-07-F05-FN02",
+              "name": "Track service health",
+              "description": "Track service health within Service/application awareness for VCF Operations & Observability.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-07-F05-FN03",
+              "name": "Correlate incidents to dependencies",
+              "description": "Correlate incidents to dependencies within Service/application awareness for VCF Operations & Observability.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "featureId": "VCF-07-F06",
+          "name": "Alerting and notification routing",
+          "description": "Alerting and notification routing under VCF Operations & Observability.",
+          "capabilityName": "Monitoring, Analytics, and Operational Insight",
+          "domainName": "Operations",
+          "functionalities": [
+            {
+              "functionalityId": "VCF-07-F06-FN01",
+              "name": "Define alert policies",
+              "description": "Define alert policies within Alerting and notification routing for VCF Operations & Observability.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-07-F06-FN02",
+              "name": "Route notifications",
+              "description": "Route notifications within Alerting and notification routing for VCF Operations & Observability.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-07-F06-FN03",
+              "name": "Suppress noise/duplicates",
+              "description": "Suppress noise/duplicates within Alerting and notification routing for VCF Operations & Observability.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "featureId": "VCF-07-F07",
+          "name": "Operational reporting and evidence",
+          "description": "Operational reporting and evidence under VCF Operations & Observability.",
+          "capabilityName": "Monitoring, Analytics, and Operational Insight",
+          "domainName": "Operations",
+          "functionalities": [
+            {
+              "functionalityId": "VCF-07-F07-FN01",
+              "name": "Generate ops reports",
+              "description": "Generate ops reports within Operational reporting and evidence for VCF Operations & Observability.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-07-F07-FN02",
+              "name": "Export evidence packs",
+              "description": "Export evidence packs within Operational reporting and evidence for VCF Operations & Observability.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-07-F07-FN03",
+              "name": "Support incident retrospectives",
+              "description": "Support incident retrospectives within Operational reporting and evidence for VCF Operations & Observability.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "productId": "VCF-08",
+      "name": "VCF Automation & Self-Service",
+      "domainName": "Automation",
+      "capabilityName": "Service Broker, Catalog, and Orchestrated Provisioning",
+      "sortOrder": 8,
+      "features": [
+        {
+          "featureId": "VCF-08-F01",
+          "name": "Service catalog / self-service requests",
+          "description": "Service catalog / self-service requests under VCF Automation & Self-Service.",
+          "capabilityName": "Service Broker, Catalog, and Orchestrated Provisioning",
+          "domainName": "Automation",
+          "functionalities": [
+            {
+              "functionalityId": "VCF-08-F01-FN01",
+              "name": "Publish catalog items",
+              "description": "Publish catalog items within Service catalog / self-service requests for VCF Automation & Self-Service.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-08-F01-FN02",
+              "name": "Request services",
+              "description": "Request services within Service catalog / self-service requests for VCF Automation & Self-Service.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-08-F01-FN03",
+              "name": "Track request status",
+              "description": "Track request status within Service catalog / self-service requests for VCF Automation & Self-Service.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "featureId": "VCF-08-F02",
+          "name": "Infrastructure as code / templates",
+          "description": "Infrastructure as code / templates under VCF Automation & Self-Service.",
+          "capabilityName": "Service Broker, Catalog, and Orchestrated Provisioning",
+          "domainName": "Automation",
+          "functionalities": [
+            {
+              "functionalityId": "VCF-08-F02-FN01",
+              "name": "Define deployable templates",
+              "description": "Define deployable templates within Infrastructure as code / templates for VCF Automation & Self-Service.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-08-F02-FN02",
+              "name": "Parameterize deployments",
+              "description": "Parameterize deployments within Infrastructure as code / templates for VCF Automation & Self-Service.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-08-F02-FN03",
+              "name": "Version templates",
+              "description": "Version templates within Infrastructure as code / templates for VCF Automation & Self-Service.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "featureId": "VCF-08-F03",
+          "name": "Approval and governance workflows",
+          "description": "Approval and governance workflows under VCF Automation & Self-Service.",
+          "capabilityName": "Service Broker, Catalog, and Orchestrated Provisioning",
+          "domainName": "Automation",
+          "functionalities": [
+            {
+              "functionalityId": "VCF-08-F03-FN01",
+              "name": "Require approvals",
+              "description": "Require approvals within Approval and governance workflows for VCF Automation & Self-Service.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-08-F03-FN02",
+              "name": "Enforce policy gates",
+              "description": "Enforce policy gates within Approval and governance workflows for VCF Automation & Self-Service.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-08-F03-FN03",
+              "name": "Audit request decisions",
+              "description": "Audit request decisions within Approval and governance workflows for VCF Automation & Self-Service.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "featureId": "VCF-08-F04",
+          "name": "Day-2 automation actions",
+          "description": "Day-2 automation actions under VCF Automation & Self-Service.",
+          "capabilityName": "Service Broker, Catalog, and Orchestrated Provisioning",
+          "domainName": "Automation",
+          "functionalities": [
+            {
+              "functionalityId": "VCF-08-F04-FN01",
+              "name": "Scale services",
+              "description": "Scale services within Day-2 automation actions for VCF Automation & Self-Service.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-08-F04-FN02",
+              "name": "Run operational workflows",
+              "description": "Run operational workflows within Day-2 automation actions for VCF Automation & Self-Service.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-08-F04-FN03",
+              "name": "Decommission services",
+              "description": "Decommission services within Day-2 automation actions for VCF Automation & Self-Service.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "featureId": "VCF-08-F05",
+          "name": "Multi-tenancy and entitlement",
+          "description": "Multi-tenancy and entitlement under VCF Automation & Self-Service.",
+          "capabilityName": "Service Broker, Catalog, and Orchestrated Provisioning",
+          "domainName": "Automation",
+          "functionalities": [
+            {
+              "functionalityId": "VCF-08-F05-FN01",
+              "name": "Entitle projects/tenants",
+              "description": "Entitle projects/tenants within Multi-tenancy and entitlement for VCF Automation & Self-Service.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-08-F05-FN02",
+              "name": "Scope visible catalog",
+              "description": "Scope visible catalog within Multi-tenancy and entitlement for VCF Automation & Self-Service.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-08-F05-FN03",
+              "name": "Isolate tenant quotas",
+              "description": "Isolate tenant quotas within Multi-tenancy and entitlement for VCF Automation & Self-Service.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "featureId": "VCF-08-F06",
+          "name": "Integrations to ITSM / pipelines",
+          "description": "Integrations to ITSM / pipelines under VCF Automation & Self-Service.",
+          "capabilityName": "Service Broker, Catalog, and Orchestrated Provisioning",
+          "domainName": "Automation",
+          "functionalities": [
+            {
+              "functionalityId": "VCF-08-F06-FN01",
+              "name": "Trigger from external systems",
+              "description": "Trigger from external systems within Integrations to ITSM / pipelines for VCF Automation & Self-Service.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-08-F06-FN02",
+              "name": "Sync ticket status",
+              "description": "Sync ticket status within Integrations to ITSM / pipelines for VCF Automation & Self-Service.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-08-F06-FN03",
+              "name": "Emit automation events",
+              "description": "Emit automation events within Integrations to ITSM / pipelines for VCF Automation & Self-Service.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "featureId": "VCF-08-F07",
+          "name": "Automation extensibility",
+          "description": "Automation extensibility under VCF Automation & Self-Service.",
+          "capabilityName": "Service Broker, Catalog, and Orchestrated Provisioning",
+          "domainName": "Automation",
+          "functionalities": [
+            {
+              "functionalityId": "VCF-08-F07-FN01",
+              "name": "Add custom actions/workflows",
+              "description": "Add custom actions/workflows within Automation extensibility for VCF Automation & Self-Service.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-08-F07-FN02",
+              "name": "Use APIs/webhooks",
+              "description": "Use APIs/webhooks within Automation extensibility for VCF Automation & Self-Service.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-08-F07-FN03",
+              "name": "Manage credentials securely",
+              "description": "Manage credentials securely within Automation extensibility for VCF Automation & Self-Service.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "productId": "VCF-09",
+      "name": "vSphere Kubernetes Service & Application Platform",
+      "domainName": "Application Platform",
+      "capabilityName": "Kubernetes and Modern App Services on VCF",
+      "sortOrder": 9,
+      "features": [
+        {
+          "featureId": "VCF-09-F01",
+          "name": "Supervisor / cluster lifecycle",
+          "description": "Supervisor / cluster lifecycle under vSphere Kubernetes Service & Application Platform.",
+          "capabilityName": "Kubernetes and Modern App Services on VCF",
+          "domainName": "Application Platform",
+          "functionalities": [
+            {
+              "functionalityId": "VCF-09-F01-FN01",
+              "name": "Create Kubernetes clusters",
+              "description": "Create Kubernetes clusters within Supervisor / cluster lifecycle for vSphere Kubernetes Service & Application Platform.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-09-F01-FN02",
+              "name": "Upgrade clusters",
+              "description": "Upgrade clusters within Supervisor / cluster lifecycle for vSphere Kubernetes Service & Application Platform.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-09-F01-FN03",
+              "name": "Delete/retire clusters",
+              "description": "Delete/retire clusters within Supervisor / cluster lifecycle for vSphere Kubernetes Service & Application Platform.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "featureId": "VCF-09-F02",
+          "name": "Workload tenancy and namespaces",
+          "description": "Workload tenancy and namespaces under vSphere Kubernetes Service & Application Platform.",
+          "capabilityName": "Kubernetes and Modern App Services on VCF",
+          "domainName": "Application Platform",
+          "functionalities": [
+            {
+              "functionalityId": "VCF-09-F02-FN01",
+              "name": "Create namespaces",
+              "description": "Create namespaces within Workload tenancy and namespaces for vSphere Kubernetes Service & Application Platform.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-09-F02-FN02",
+              "name": "Apply quota/limit ranges",
+              "description": "Apply quota/limit ranges within Workload tenancy and namespaces for vSphere Kubernetes Service & Application Platform.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-09-F02-FN03",
+              "name": "Isolate team access",
+              "description": "Isolate team access within Workload tenancy and namespaces for vSphere Kubernetes Service & Application Platform.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "featureId": "VCF-09-F03",
+          "name": "Container networking & services",
+          "description": "Container networking & services under vSphere Kubernetes Service & Application Platform.",
+          "capabilityName": "Kubernetes and Modern App Services on VCF",
+          "domainName": "Application Platform",
+          "functionalities": [
+            {
+              "functionalityId": "VCF-09-F03-FN01",
+              "name": "Provide pod/service networking",
+              "description": "Provide pod/service networking within Container networking & services for vSphere Kubernetes Service & Application Platform.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-09-F03-FN02",
+              "name": "Expose ingress/services",
+              "description": "Expose ingress/services within Container networking & services for vSphere Kubernetes Service & Application Platform.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-09-F03-FN03",
+              "name": "Integrate with SDN controls",
+              "description": "Integrate with SDN controls within Container networking & services for vSphere Kubernetes Service & Application Platform.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "featureId": "VCF-09-F04",
+          "name": "Persistent storage for containers",
+          "description": "Persistent storage for containers under vSphere Kubernetes Service & Application Platform.",
+          "capabilityName": "Kubernetes and Modern App Services on VCF",
+          "domainName": "Application Platform",
+          "functionalities": [
+            {
+              "functionalityId": "VCF-09-F04-FN01",
+              "name": "Provision persistent volumes",
+              "description": "Provision persistent volumes within Persistent storage for containers for vSphere Kubernetes Service & Application Platform.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-09-F04-FN02",
+              "name": "Apply storage classes/policies",
+              "description": "Apply storage classes/policies within Persistent storage for containers for vSphere Kubernetes Service & Application Platform.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-09-F04-FN03",
+              "name": "Protect stateful workloads",
+              "description": "Protect stateful workloads within Persistent storage for containers for vSphere Kubernetes Service & Application Platform.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "featureId": "VCF-09-F05",
+          "name": "Registry / package / content services",
+          "description": "Registry / package / content services under vSphere Kubernetes Service & Application Platform.",
+          "capabilityName": "Kubernetes and Modern App Services on VCF",
+          "domainName": "Application Platform",
+          "functionalities": [
+            {
+              "functionalityId": "VCF-09-F05-FN01",
+              "name": "Host or integrate registry",
+              "description": "Host or integrate registry within Registry / package / content services for vSphere Kubernetes Service & Application Platform.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-09-F05-FN02",
+              "name": "Manage content trust basics",
+              "description": "Manage content trust basics within Registry / package / content services for vSphere Kubernetes Service & Application Platform.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-09-F05-FN03",
+              "name": "Distribute packages/charts",
+              "description": "Distribute packages/charts within Registry / package / content services for vSphere Kubernetes Service & Application Platform.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "featureId": "VCF-09-F06",
+          "name": "Platform security controls",
+          "description": "Platform security controls under vSphere Kubernetes Service & Application Platform.",
+          "capabilityName": "Kubernetes and Modern App Services on VCF",
+          "domainName": "Application Platform",
+          "functionalities": [
+            {
+              "functionalityId": "VCF-09-F06-FN01",
+              "name": "Enforce pod security baselines",
+              "description": "Enforce pod security baselines within Platform security controls for vSphere Kubernetes Service & Application Platform.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-09-F06-FN02",
+              "name": "Manage secrets",
+              "description": "Manage secrets within Platform security controls for vSphere Kubernetes Service & Application Platform.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-09-F06-FN03",
+              "name": "Scan/admit workloads as designed",
+              "description": "Scan/admit workloads as designed within Platform security controls for vSphere Kubernetes Service & Application Platform.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "featureId": "VCF-09-F07",
+          "name": "Developer self-service experience",
+          "description": "Developer self-service experience under vSphere Kubernetes Service & Application Platform.",
+          "capabilityName": "Kubernetes and Modern App Services on VCF",
+          "domainName": "Application Platform",
+          "functionalities": [
+            {
+              "functionalityId": "VCF-09-F07-FN01",
+              "name": "Provide self-service cluster/namespace access",
+              "description": "Provide self-service cluster/namespace access within Developer self-service experience for vSphere Kubernetes Service & Application Platform.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-09-F07-FN02",
+              "name": "Support CI/CD consumption",
+              "description": "Support CI/CD consumption within Developer self-service experience for vSphere Kubernetes Service & Application Platform.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-09-F07-FN03",
+              "name": "Expose APIs/CLI/UI",
+              "description": "Expose APIs/CLI/UI within Developer self-service experience for vSphere Kubernetes Service & Application Platform.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "productId": "VCF-10",
+      "name": "HCX / Import / Converge / Workload Mobility",
+      "domainName": "Migration and Mobility",
+      "capabilityName": "Workload Migration, Import, and Mobility Services",
+      "sortOrder": 10,
+      "features": [
+        {
+          "featureId": "VCF-10-F01",
+          "name": "Bulk / cold migration",
+          "description": "Bulk / cold migration under HCX / Import / Converge / Workload Mobility.",
+          "capabilityName": "Workload Migration, Import, and Mobility Services",
+          "domainName": "Migration and Mobility",
+          "functionalities": [
+            {
+              "functionalityId": "VCF-10-F01-FN01",
+              "name": "Migrate powered-off workloads",
+              "description": "Migrate powered-off workloads within Bulk / cold migration for HCX / Import / Converge / Workload Mobility.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-10-F01-FN02",
+              "name": "Validate target readiness",
+              "description": "Validate target readiness within Bulk / cold migration for HCX / Import / Converge / Workload Mobility.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-10-F01-FN03",
+              "name": "Track migration batches",
+              "description": "Track migration batches within Bulk / cold migration for HCX / Import / Converge / Workload Mobility.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "featureId": "VCF-10-F02",
+          "name": "Live / vMotion-style mobility",
+          "description": "Live / vMotion-style mobility under HCX / Import / Converge / Workload Mobility.",
+          "capabilityName": "Workload Migration, Import, and Mobility Services",
+          "domainName": "Migration and Mobility",
+          "functionalities": [
+            {
+              "functionalityId": "VCF-10-F02-FN01",
+              "name": "Migrate running workloads",
+              "description": "Migrate running workloads within Live / vMotion-style mobility for HCX / Import / Converge / Workload Mobility.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-10-F02-FN02",
+              "name": "Maintain network continuity as designed",
+              "description": "Maintain network continuity as designed within Live / vMotion-style mobility for HCX / Import / Converge / Workload Mobility.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-10-F02-FN03",
+              "name": "Monitor live move health",
+              "description": "Monitor live move health within Live / vMotion-style mobility for HCX / Import / Converge / Workload Mobility.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "featureId": "VCF-10-F03",
+          "name": "Replication-assisted migration",
+          "description": "Replication-assisted migration under HCX / Import / Converge / Workload Mobility.",
+          "capabilityName": "Workload Migration, Import, and Mobility Services",
+          "domainName": "Migration and Mobility",
+          "functionalities": [
+            {
+              "functionalityId": "VCF-10-F03-FN01",
+              "name": "Seed replicas",
+              "description": "Seed replicas within Replication-assisted migration for HCX / Import / Converge / Workload Mobility.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-10-F03-FN02",
+              "name": "Cut over workloads",
+              "description": "Cut over workloads within Replication-assisted migration for HCX / Import / Converge / Workload Mobility.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-10-F03-FN03",
+              "name": "Control RPO/switch windows",
+              "description": "Control RPO/switch windows within Replication-assisted migration for HCX / Import / Converge / Workload Mobility.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "featureId": "VCF-10-F04",
+          "name": "Network extension / mobility bridging",
+          "description": "Network extension / mobility bridging under HCX / Import / Converge / Workload Mobility.",
+          "capabilityName": "Workload Migration, Import, and Mobility Services",
+          "domainName": "Migration and Mobility",
+          "functionalities": [
+            {
+              "functionalityId": "VCF-10-F04-FN01",
+              "name": "Extend L2 as designed",
+              "description": "Extend L2 as designed within Network extension / mobility bridging for HCX / Import / Converge / Workload Mobility.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-10-F04-FN02",
+              "name": "Manage stretch during migration",
+              "description": "Manage stretch during migration within Network extension / mobility bridging for HCX / Import / Converge / Workload Mobility.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-10-F04-FN03",
+              "name": "Tear down extensions safely",
+              "description": "Tear down extensions safely within Network extension / mobility bridging for HCX / Import / Converge / Workload Mobility.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "featureId": "VCF-10-F05",
+          "name": "Import / converge workflows",
+          "description": "Import / converge workflows under HCX / Import / Converge / Workload Mobility.",
+          "capabilityName": "Workload Migration, Import, and Mobility Services",
+          "domainName": "Migration and Mobility",
+          "functionalities": [
+            {
+              "functionalityId": "VCF-10-F05-FN01",
+              "name": "Import existing environments",
+              "description": "Import existing environments within Import / converge workflows for HCX / Import / Converge / Workload Mobility.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-10-F05-FN02",
+              "name": "Converge into managed topology",
+              "description": "Converge into managed topology within Import / converge workflows for HCX / Import / Converge / Workload Mobility.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-10-F05-FN03",
+              "name": "Validate post-import state",
+              "description": "Validate post-import state within Import / converge workflows for HCX / Import / Converge / Workload Mobility.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "featureId": "VCF-10-F06",
+          "name": "Mobility planning and wave ops",
+          "description": "Mobility planning and wave ops under HCX / Import / Converge / Workload Mobility.",
+          "capabilityName": "Workload Migration, Import, and Mobility Services",
+          "domainName": "Migration and Mobility",
+          "functionalities": [
+            {
+              "functionalityId": "VCF-10-F06-FN01",
+              "name": "Group migration waves",
+              "description": "Group migration waves within Mobility planning and wave ops for HCX / Import / Converge / Workload Mobility.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-10-F06-FN02",
+              "name": "Assess dependencies",
+              "description": "Assess dependencies within Mobility planning and wave ops for HCX / Import / Converge / Workload Mobility.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-10-F06-FN03",
+              "name": "Report wave completion",
+              "description": "Report wave completion within Mobility planning and wave ops for HCX / Import / Converge / Workload Mobility.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "featureId": "VCF-10-F07",
+          "name": "Rollback and fallback posture",
+          "description": "Rollback and fallback posture under HCX / Import / Converge / Workload Mobility.",
+          "capabilityName": "Workload Migration, Import, and Mobility Services",
+          "domainName": "Migration and Mobility",
+          "functionalities": [
+            {
+              "functionalityId": "VCF-10-F07-FN01",
+              "name": "Define fallback points",
+              "description": "Define fallback points within Rollback and fallback posture for HCX / Import / Converge / Workload Mobility.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-10-F07-FN02",
+              "name": "Execute controlled rollback where possible",
+              "description": "Execute controlled rollback where possible within Rollback and fallback posture for HCX / Import / Converge / Workload Mobility.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-10-F07-FN03",
+              "name": "Capture mobility evidence",
+              "description": "Capture mobility evidence within Rollback and fallback posture for HCX / Import / Converge / Workload Mobility.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "productId": "VCF-11",
+      "name": "Protection / Recovery / Resilience",
+      "domainName": "Resilience",
+      "capabilityName": "Backup, Replication, and Disaster Recovery Controls",
+      "sortOrder": 11,
+      "features": [
+        {
+          "featureId": "VCF-11-F01",
+          "name": "Backup protection",
+          "description": "Backup protection under Protection / Recovery / Resilience.",
+          "capabilityName": "Backup, Replication, and Disaster Recovery Controls",
+          "domainName": "Resilience",
+          "functionalities": [
+            {
+              "functionalityId": "VCF-11-F01-FN01",
+              "name": "Protect VMs/workloads",
+              "description": "Protect VMs/workloads within Backup protection for Protection / Recovery / Resilience.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-11-F01-FN02",
+              "name": "Schedule backup jobs",
+              "description": "Schedule backup jobs within Backup protection for Protection / Recovery / Resilience.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-11-F01-FN03",
+              "name": "Verify backup success",
+              "description": "Verify backup success within Backup protection for Protection / Recovery / Resilience.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "featureId": "VCF-11-F02",
+          "name": "Restore and recovery",
+          "description": "Restore and recovery under Protection / Recovery / Resilience.",
+          "capabilityName": "Backup, Replication, and Disaster Recovery Controls",
+          "domainName": "Resilience",
+          "functionalities": [
+            {
+              "functionalityId": "VCF-11-F02-FN01",
+              "name": "Restore full workloads",
+              "description": "Restore full workloads within Restore and recovery for Protection / Recovery / Resilience.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-11-F02-FN02",
+              "name": "Restore files/objects where supported",
+              "description": "Restore files/objects where supported within Restore and recovery for Protection / Recovery / Resilience.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-11-F02-FN03",
+              "name": "Validate restore integrity",
+              "description": "Validate restore integrity within Restore and recovery for Protection / Recovery / Resilience.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "featureId": "VCF-11-F03",
+          "name": "Replication / DR orchestration",
+          "description": "Replication / DR orchestration under Protection / Recovery / Resilience.",
+          "capabilityName": "Backup, Replication, and Disaster Recovery Controls",
+          "domainName": "Resilience",
+          "functionalities": [
+            {
+              "functionalityId": "VCF-11-F03-FN01",
+              "name": "Replicate to recovery site",
+              "description": "Replicate to recovery site within Replication / DR orchestration for Protection / Recovery / Resilience.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-11-F03-FN02",
+              "name": "Orchestrate failover plans",
+              "description": "Orchestrate failover plans within Replication / DR orchestration for Protection / Recovery / Resilience.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-11-F03-FN03",
+              "name": "Run test failovers",
+              "description": "Run test failovers within Replication / DR orchestration for Protection / Recovery / Resilience.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "featureId": "VCF-11-F04",
+          "name": "RPO/RTO policy alignment",
+          "description": "RPO/RTO policy alignment under Protection / Recovery / Resilience.",
+          "capabilityName": "Backup, Replication, and Disaster Recovery Controls",
+          "domainName": "Resilience",
+          "functionalities": [
+            {
+              "functionalityId": "VCF-11-F04-FN01",
+              "name": "Define protection SLAs",
+              "description": "Define protection SLAs within RPO/RTO policy alignment for Protection / Recovery / Resilience.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-11-F04-FN02",
+              "name": "Monitor SLA compliance",
+              "description": "Monitor SLA compliance within RPO/RTO policy alignment for Protection / Recovery / Resilience.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-11-F04-FN03",
+              "name": "Escalate missed targets",
+              "description": "Escalate missed targets within RPO/RTO policy alignment for Protection / Recovery / Resilience.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "featureId": "VCF-11-F05",
+          "name": "Cyber recovery / immutable posture",
+          "description": "Cyber recovery / immutable posture under Protection / Recovery / Resilience.",
+          "capabilityName": "Backup, Replication, and Disaster Recovery Controls",
+          "domainName": "Resilience",
+          "functionalities": [
+            {
+              "functionalityId": "VCF-11-F05-FN01",
+              "name": "Apply immutability controls where available",
+              "description": "Apply immutability controls where available within Cyber recovery / immutable posture for Protection / Recovery / Resilience.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-11-F05-FN02",
+              "name": "Isolate recovery copies",
+              "description": "Isolate recovery copies within Cyber recovery / immutable posture for Protection / Recovery / Resilience.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-11-F05-FN03",
+              "name": "Support clean-room recovery patterns",
+              "description": "Support clean-room recovery patterns within Cyber recovery / immutable posture for Protection / Recovery / Resilience.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "featureId": "VCF-11-F06",
+          "name": "Application-consistent protection",
+          "description": "Application-consistent protection under Protection / Recovery / Resilience.",
+          "capabilityName": "Backup, Replication, and Disaster Recovery Controls",
+          "domainName": "Resilience",
+          "functionalities": [
+            {
+              "functionalityId": "VCF-11-F06-FN01",
+              "name": "Coordinate app-aware backups",
+              "description": "Coordinate app-aware backups within Application-consistent protection for Protection / Recovery / Resilience.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-11-F06-FN02",
+              "name": "Handle database/app agents as designed",
+              "description": "Handle database/app agents as designed within Application-consistent protection for Protection / Recovery / Resilience.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-11-F06-FN03",
+              "name": "Validate consistency",
+              "description": "Validate consistency within Application-consistent protection for Protection / Recovery / Resilience.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "featureId": "VCF-11-F07",
+          "name": "Resilience reporting and evidence",
+          "description": "Resilience reporting and evidence under Protection / Recovery / Resilience.",
+          "capabilityName": "Backup, Replication, and Disaster Recovery Controls",
+          "domainName": "Resilience",
+          "functionalities": [
+            {
+              "functionalityId": "VCF-11-F07-FN01",
+              "name": "Report protected vs unprotected estate",
+              "description": "Report protected vs unprotected estate within Resilience reporting and evidence for Protection / Recovery / Resilience.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-11-F07-FN02",
+              "name": "Export DR test evidence",
+              "description": "Export DR test evidence within Resilience reporting and evidence for Protection / Recovery / Resilience.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-11-F07-FN03",
+              "name": "Track recovery metrics",
+              "description": "Track recovery metrics within Resilience reporting and evidence for Protection / Recovery / Resilience.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "productId": "VCF-12",
+      "name": "VCF Private AI Services",
+      "domainName": "Private AI",
+      "capabilityName": "Private AI Platform Services on VCF",
+      "sortOrder": 12,
+      "features": [
+        {
+          "featureId": "VCF-12-F01",
+          "name": "GPU / accelerator enablement",
+          "description": "GPU / accelerator enablement under VCF Private AI Services.",
+          "capabilityName": "Private AI Platform Services on VCF",
+          "domainName": "Private AI",
+          "functionalities": [
+            {
+              "functionalityId": "VCF-12-F01-FN01",
+              "name": "Expose GPU resources",
+              "description": "Expose GPU resources within GPU / accelerator enablement for VCF Private AI Services.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-12-F01-FN02",
+              "name": "Schedule accelerated workloads",
+              "description": "Schedule accelerated workloads within GPU / accelerator enablement for VCF Private AI Services.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-12-F01-FN03",
+              "name": "Monitor accelerator health/utilization",
+              "description": "Monitor accelerator health/utilization within GPU / accelerator enablement for VCF Private AI Services.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "featureId": "VCF-12-F02",
+          "name": "Model hosting / serving",
+          "description": "Model hosting / serving under VCF Private AI Services.",
+          "capabilityName": "Private AI Platform Services on VCF",
+          "domainName": "Private AI",
+          "functionalities": [
+            {
+              "functionalityId": "VCF-12-F02-FN01",
+              "name": "Deploy model endpoints",
+              "description": "Deploy model endpoints within Model hosting / serving for VCF Private AI Services.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-12-F02-FN02",
+              "name": "Scale inference services",
+              "description": "Scale inference services within Model hosting / serving for VCF Private AI Services.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-12-F02-FN03",
+              "name": "Secure endpoint access",
+              "description": "Secure endpoint access within Model hosting / serving for VCF Private AI Services.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "featureId": "VCF-12-F03",
+          "name": "Data pipeline / RAG foundations",
+          "description": "Data pipeline / RAG foundations under VCF Private AI Services.",
+          "capabilityName": "Private AI Platform Services on VCF",
+          "domainName": "Private AI",
+          "functionalities": [
+            {
+              "functionalityId": "VCF-12-F03-FN01",
+              "name": "Ingest enterprise data sources",
+              "description": "Ingest enterprise data sources within Data pipeline / RAG foundations for VCF Private AI Services.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-12-F03-FN02",
+              "name": "Index/retrieve context",
+              "description": "Index/retrieve context within Data pipeline / RAG foundations for VCF Private AI Services.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-12-F03-FN03",
+              "name": "Control data residency path",
+              "description": "Control data residency path within Data pipeline / RAG foundations for VCF Private AI Services.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "featureId": "VCF-12-F04",
+          "name": "AI lifecycle / MLOps basics",
+          "description": "AI lifecycle / MLOps basics under VCF Private AI Services.",
+          "capabilityName": "Private AI Platform Services on VCF",
+          "domainName": "Private AI",
+          "functionalities": [
+            {
+              "functionalityId": "VCF-12-F04-FN01",
+              "name": "Version models",
+              "description": "Version models within AI lifecycle / MLOps basics for VCF Private AI Services.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-12-F04-FN02",
+              "name": "Promote model stages",
+              "description": "Promote model stages within AI lifecycle / MLOps basics for VCF Private AI Services.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-12-F04-FN03",
+              "name": "Rollback model deployments",
+              "description": "Rollback model deployments within AI lifecycle / MLOps basics for VCF Private AI Services.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "featureId": "VCF-12-F05",
+          "name": "Governance and access control for AI",
+          "description": "Governance and access control for AI under VCF Private AI Services.",
+          "capabilityName": "Private AI Platform Services on VCF",
+          "domainName": "Private AI",
+          "functionalities": [
+            {
+              "functionalityId": "VCF-12-F05-FN01",
+              "name": "Entitle AI projects",
+              "description": "Entitle AI projects within Governance and access control for AI for VCF Private AI Services.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-12-F05-FN02",
+              "name": "Audit AI resource usage",
+              "description": "Audit AI resource usage within Governance and access control for AI for VCF Private AI Services.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-12-F05-FN03",
+              "name": "Apply policy constraints",
+              "description": "Apply policy constraints within Governance and access control for AI for VCF Private AI Services.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "featureId": "VCF-12-F06",
+          "name": "Integration with VCF platform services",
+          "description": "Integration with VCF platform services under VCF Private AI Services.",
+          "capabilityName": "Private AI Platform Services on VCF",
+          "domainName": "Private AI",
+          "functionalities": [
+            {
+              "functionalityId": "VCF-12-F06-FN01",
+              "name": "Use platform identity",
+              "description": "Use platform identity within Integration with VCF platform services for VCF Private AI Services.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-12-F06-FN02",
+              "name": "Use platform networking/storage",
+              "description": "Use platform networking/storage within Integration with VCF platform services for VCF Private AI Services.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-12-F06-FN03",
+              "name": "Observe AI services in ops tooling",
+              "description": "Observe AI services in ops tooling within Integration with VCF platform services for VCF Private AI Services.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "featureId": "VCF-12-F07",
+          "name": "Sovereign / private AI controls",
+          "description": "Sovereign / private AI controls under VCF Private AI Services.",
+          "capabilityName": "Private AI Platform Services on VCF",
+          "domainName": "Private AI",
+          "functionalities": [
+            {
+              "functionalityId": "VCF-12-F07-FN01",
+              "name": "Keep inference private as designed",
+              "description": "Keep inference private as designed within Sovereign / private AI controls for VCF Private AI Services.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-12-F07-FN02",
+              "name": "Restrict outbound model/data calls",
+              "description": "Restrict outbound model/data calls within Sovereign / private AI controls for VCF Private AI Services.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            },
+            {
+              "functionalityId": "VCF-12-F07-FN03",
+              "name": "Evidence private processing posture",
+              "description": "Evidence private processing posture within Sovereign / private AI controls for VCF Private AI Services.",
+              "customerFacing": true,
+              "scoringKey": true,
+              "evidenceRequiredForParityClaim": true,
+              "defaultRequirementImportance": "Unknown",
+              "notes": ""
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "addonsAndIntegrations": {
+    "guidance": "Do not inflate the 12 top-level products. Place official add-ons, advanced services, internal components, and external integrations here.",
+    "items": []
+  },
+  "validation": {
+    "useChecklist": "v1.39-BaselineRohitHandover/CN_v0.3_Validation_and_Init_Contract.md",
+    "gate": "CN v0.3 accepted as active draft candidate for Core comparator work",
+    "signOffRequiredFrom": [
+      "Keith",
+      "Rohit"
+    ]
+  }
+}
