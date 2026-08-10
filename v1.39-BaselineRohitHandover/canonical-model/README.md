@@ -41,7 +41,7 @@ Fill comparator parity cells only from evidence. Leave blank/Unknown rather than
 
 ## Intended future upload point
 
-**New Assessment — Initialization** and **Resume Assessment — Initialization**, together with:
+**New Assessment — Initialization** and **Resume Assessment — Initialization** (available in v1.40), together with:
 
 - VCF KB file(s)
 - Core comparator KB files
