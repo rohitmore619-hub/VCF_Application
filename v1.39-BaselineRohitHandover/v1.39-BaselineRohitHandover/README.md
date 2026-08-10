@@ -4,8 +4,8 @@ v1.40 builds on the accepted v1.39 baseline and adds Canonical Model (CN v0.3) u
 
 ## v1.40 Changes
 
-- New Assessment Initialization requires CN v0.3 JSON **and** assessment KB `.xlsx` files.
-- Resume Assessment Initialization requires AssessmentProfile JSON, CN v0.3 JSON, and assessment KB files.
+- New Assessment Initialization requires CN v0.3 Excel (.xlsx) **and** assessment KB `.xlsx` files.
+- Resume Assessment Initialization requires AssessmentProfile JSON, CN v0.3 Excel (.xlsx), and assessment KB files.
 - CN validation checks: 12 fixed VCF product areas, unique `featureId` / `functionalityId`, scale warnings, scoring-key metadata.
 - Valid CN is stored in `state.canonicalModel` and summarized on the AssessmentProfile (`cnVersion`, counts, file name).
 - Version references updated to v1.40 / 2026-08-10.
@@ -19,7 +19,7 @@ Structural CN v0.3 gate marked **Pass** in:
 
 Sample CN file:
 
-- `../canonical-model/CN_v0.3_Canonical_Capability_Model.json`
+- `../canonical-model/CN_v0.3_Canonical_Capability_Model.xlsx`
 
 ## Preserved from v1.39
 

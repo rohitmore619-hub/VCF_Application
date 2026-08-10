@@ -28,7 +28,7 @@
 - **Issue:** Q1–Q9 are identical copies. Uploading all nine does not add new comparator versions—only duplicate workbooks.
 
 ### Minimum upload set that should unlock Initialization
-1. CN JSON v0.3: `canonical-model/CN_v0.3_Canonical_Capability_Model.json`
+1. CN Excel v0.3: `canonical-model/CN_v0.3_Canonical_Capability_Model.xlsx`
 2. One VCF KB: `VCF_KnowledgeBase_7.0.xlsx` (or 8.0 — same bytes)
 3. One comparator: `NCP_AHV_KB_2026Q1.xlsx`
 
@@ -61,8 +61,8 @@ Governed **CN v0.1 draft schema workbook** (created 2026-06-23), not an app runt
 11. Identity, Access, and Policy Controls  
 12. Data Protection and Recovery Integration  
 
-### Compared with our CN v0.3 JSON
-| Topic | CN v0.1 XLSX | CN v0.3 JSON (current app input) |
+### Compared with our CN v0.3 Excel (.xlsx)
+| Topic | CN v0.1 XLSX | CN v0.3 Excel (.xlsx) (current app input) |
 |---|---|---|
 | Version | v0.1 | v0.3 |
 | Format for v1.40 upload | **No** (xlsx) | **Yes** (json) |
@@ -71,13 +71,13 @@ Governed **CN v0.1 draft schema workbook** (created 2026-06-23), not an app runt
 | Functionalities | 0 | 252 |
 | Status | Draft seed / schema | draft_candidate populated syllabus |
 
-**Conclusion:** CN v0.1 is a useful **schema/governance ancestor**, but it is **not ready** as the live syllabus and **cannot** be uploaded into v1.40 Initialization as the CN file. Keep using `CN_v0.3_Canonical_Capability_Model.json` for app upload. Align/migrate v0.1 product taxonomy vs v0.3 12-area model in a later controlled CN revision if Keith wants one authority list.
+**Conclusion:** CN v0.1 is a useful **schema/governance ancestor**, but it is **not ready** as the live syllabus and **cannot** be uploaded into v1.40 Initialization as the CN file. Keep using `CN_v0.3_Canonical_Capability_Model.xlsx` for app upload. Align/migrate v0.1 product taxonomy vs v0.3 12-area model in a later controlled CN revision if Keith wants one authority list.
 
 ## Recommended click/upload (after this pull)
 
 1. Open `v1.39-BaselineRohitHandover/v1.39-BaselineRohitHandover/index.html`
 2. **Assessment → New Assessment**
-3. **Select CN File** → `canonical-model/CN_v0.3_Canonical_Capability_Model.json`
+3. **Select CN File** → `canonical-model/CN_v0.3_Canonical_Capability_Model.xlsx`
 4. **Select Assessment Files** →  
    - `OneDrive_1_6-30-2026/VCF_KnowledgeBase_7.0.xlsx`  
    - `OneDrive_1_6-30-2026/NCP_AHV_KB_2026Q1.xlsx`  

@@ -6,7 +6,7 @@ Governed **Canonical Capability Model** for VCF-AFA stabilization.
 
 | File | Purpose |
 |---|---|
-| [`CN_v0.3_Canonical_Capability_Model.json`](CN_v0.3_Canonical_Capability_Model.json) | Full CN structure: 12 products, features, functionalities, enums, ID rules, init alignment |
+| [`CN_v0.3_Canonical_Capability_Model.xlsx`](CN_v0.3_Canonical_Capability_Model.xlsx) | Full CN structure: 12 products, features, functionalities, enums, ID rules, init alignment |
 | [`CN_v0.3_Canonical_Capability_Model.xlsx`](CN_v0.3_Canonical_Capability_Model.xlsx) | Excel review workbook for comparison (Products, Features, Functionalities, FunctionalityIndex + empty Core parity columns) |
 | [`CN_v0.3_Functionality_Index.json`](CN_v0.3_Functionality_Index.json) | Flat index of every `functionalityId` for review and future ingestion mapping |
 | [`CN_v0.3_Functionality_Index.xlsx`](CN_v0.3_Functionality_Index.xlsx) | Excel conversion of the flat functionality index (same rows as the JSON) |
