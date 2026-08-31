@@ -1,6 +1,6 @@
 {
   "cnVersion": "v0.3",
-  "cnStatus": "draft_candidate",
+  "cnStatus": "id_locked_draft",
   "cnTitle": "VCF-AFA Canonical Capability Model",
   "compatibleAppBaseline": "VCF-AFA v1.40+",
   "generatedFor": "Model stabilization \u2014 governed assessment input",
@@ -105,8 +105,146 @@
     "functionalityIdPattern": "VCF-NN-Fnn-FNnn",
     "stabilityRule": "Do not renumber IDs silently; publish migration notes on breaking ID changes.",
     "scoringMustUse": "functionalityId",
-    "currentAppGap": "v1.39 scores/matches largely on FeatureID; migrate to functionalityId after CN gate passes and ingestion is implemented."
+    "currentAppGap": "v1.39 scores/matches largely on FeatureID; migrate to functionalityId after CN gate passes and ingestion is implemented.",
+    "domainIdPattern": "VCF-DNN",
+    "capabilityIdPattern": "VCF-CNN"
   },
+  "domains": [
+    {
+      "domainId": "VCF-D01",
+      "name": "Platform Foundation",
+      "sortOrder": 1
+    },
+    {
+      "domainId": "VCF-D02",
+      "name": "Lifecycle and Install",
+      "sortOrder": 2
+    },
+    {
+      "domainId": "VCF-D03",
+      "name": "Compute",
+      "sortOrder": 3
+    },
+    {
+      "domainId": "VCF-D04",
+      "name": "Storage",
+      "sortOrder": 4
+    },
+    {
+      "domainId": "VCF-D05",
+      "name": "Networking",
+      "sortOrder": 5
+    },
+    {
+      "domainId": "VCF-D06",
+      "name": "Security",
+      "sortOrder": 6
+    },
+    {
+      "domainId": "VCF-D07",
+      "name": "Operations",
+      "sortOrder": 7
+    },
+    {
+      "domainId": "VCF-D08",
+      "name": "Automation",
+      "sortOrder": 8
+    },
+    {
+      "domainId": "VCF-D09",
+      "name": "Application Platform",
+      "sortOrder": 9
+    },
+    {
+      "domainId": "VCF-D10",
+      "name": "Migration and Mobility",
+      "sortOrder": 10
+    },
+    {
+      "domainId": "VCF-D11",
+      "name": "Resilience",
+      "sortOrder": 11
+    },
+    {
+      "domainId": "VCF-D12",
+      "name": "Private AI",
+      "sortOrder": 12
+    }
+  ],
+  "capabilities": [
+    {
+      "capabilityId": "VCF-C01",
+      "name": "Fleet and Workload Domain Management",
+      "domainId": "VCF-D01",
+      "sortOrder": 1
+    },
+    {
+      "capabilityId": "VCF-C02",
+      "name": "Install, Upgrade, and Lifecycle Orchestration",
+      "domainId": "VCF-D02",
+      "sortOrder": 2
+    },
+    {
+      "capabilityId": "VCF-C03",
+      "name": "Virtual Compute and Cluster Operations",
+      "domainId": "VCF-D03",
+      "sortOrder": 3
+    },
+    {
+      "capabilityId": "VCF-C04",
+      "name": "Software-Defined Storage and Datastore Services",
+      "domainId": "VCF-D04",
+      "sortOrder": 4
+    },
+    {
+      "capabilityId": "VCF-C05",
+      "name": "Software-Defined Networking and Edge Services",
+      "domainId": "VCF-D05",
+      "sortOrder": 5
+    },
+    {
+      "capabilityId": "VCF-C06",
+      "name": "Microsegmentation and Network Security Controls",
+      "domainId": "VCF-D06",
+      "sortOrder": 6
+    },
+    {
+      "capabilityId": "VCF-C07",
+      "name": "Monitoring, Analytics, and Operational Insight",
+      "domainId": "VCF-D07",
+      "sortOrder": 7
+    },
+    {
+      "capabilityId": "VCF-C08",
+      "name": "Service Broker, Catalog, and Orchestrated Provisioning",
+      "domainId": "VCF-D08",
+      "sortOrder": 8
+    },
+    {
+      "capabilityId": "VCF-C09",
+      "name": "Kubernetes and Modern App Services on VCF",
+      "domainId": "VCF-D09",
+      "sortOrder": 9
+    },
+    {
+      "capabilityId": "VCF-C10",
+      "name": "Workload Migration, Import, and Mobility Services",
+      "domainId": "VCF-D10",
+      "sortOrder": 10
+    },
+    {
+      "capabilityId": "VCF-C11",
+      "name": "Backup, Replication, and Disaster Recovery Controls",
+      "domainId": "VCF-D11",
+      "sortOrder": 11
+    },
+    {
+      "capabilityId": "VCF-C12",
+      "name": "Private AI Platform Services on VCF",
+      "domainId": "VCF-D12",
+      "sortOrder": 12
+    }
+  ],
   "products": [
     {
       "productId": "VCF-01",
@@ -130,7 +268,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D01",
+              "capabilityId": "VCF-C01",
+              "productId": "VCF-01",
+              "featureId": "VCF-01-F01"
             },
             {
               "functionalityId": "VCF-01-F01-FN02",
@@ -140,7 +282,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D01",
+              "capabilityId": "VCF-C01",
+              "productId": "VCF-01",
+              "featureId": "VCF-01-F01"
             },
             {
               "functionalityId": "VCF-01-F01-FN03",
@@ -150,9 +296,16 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D01",
+              "capabilityId": "VCF-C01",
+              "productId": "VCF-01",
+              "featureId": "VCF-01-F01"
             }
-          ]
+          ],
+          "domainId": "VCF-D01",
+          "capabilityId": "VCF-C01",
+          "productId": "VCF-01"
         },
         {
           "featureId": "VCF-01-F02",
@@ -169,7 +322,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D01",
+              "capabilityId": "VCF-C01",
+              "productId": "VCF-01",
+              "featureId": "VCF-01-F02"
             },
             {
               "functionalityId": "VCF-01-F02-FN02",
@@ -179,7 +336,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D01",
+              "capabilityId": "VCF-C01",
+              "productId": "VCF-01",
+              "featureId": "VCF-01-F02"
             },
             {
               "functionalityId": "VCF-01-F02-FN03",
@@ -189,9 +350,16 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D01",
+              "capabilityId": "VCF-C01",
+              "productId": "VCF-01",
+              "featureId": "VCF-01-F02"
             }
-          ]
+          ],
+          "domainId": "VCF-D01",
+          "capabilityId": "VCF-C01",
+          "productId": "VCF-01"
         },
         {
           "featureId": "VCF-01-F03",
@@ -208,7 +376,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D01",
+              "capabilityId": "VCF-C01",
+              "productId": "VCF-01",
+              "featureId": "VCF-01-F03"
             },
             {
               "functionalityId": "VCF-01-F03-FN02",
@@ -218,7 +390,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D01",
+              "capabilityId": "VCF-C01",
+              "productId": "VCF-01",
+              "featureId": "VCF-01-F03"
             },
             {
               "functionalityId": "VCF-01-F03-FN03",
@@ -228,9 +404,16 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D01",
+              "capabilityId": "VCF-C01",
+              "productId": "VCF-01",
+              "featureId": "VCF-01-F03"
             }
-          ]
+          ],
+          "domainId": "VCF-D01",
+          "capabilityId": "VCF-C01",
+          "productId": "VCF-01"
         },
         {
           "featureId": "VCF-01-F04",
@@ -247,7 +430,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D01",
+              "capabilityId": "VCF-C01",
+              "productId": "VCF-01",
+              "featureId": "VCF-01-F04"
             },
             {
               "functionalityId": "VCF-01-F04-FN02",
@@ -257,7 +444,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D01",
+              "capabilityId": "VCF-C01",
+              "productId": "VCF-01",
+              "featureId": "VCF-01-F04"
             },
             {
               "functionalityId": "VCF-01-F04-FN03",
@@ -267,9 +458,16 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D01",
+              "capabilityId": "VCF-C01",
+              "productId": "VCF-01",
+              "featureId": "VCF-01-F04"
             }
-          ]
+          ],
+          "domainId": "VCF-D01",
+          "capabilityId": "VCF-C01",
+          "productId": "VCF-01"
         },
         {
           "featureId": "VCF-01-F05",
@@ -286,7 +484,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D01",
+              "capabilityId": "VCF-C01",
+              "productId": "VCF-01",
+              "featureId": "VCF-01-F05"
             },
             {
               "functionalityId": "VCF-01-F05-FN02",
@@ -296,7 +498,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D01",
+              "capabilityId": "VCF-C01",
+              "productId": "VCF-01",
+              "featureId": "VCF-01-F05"
             },
             {
               "functionalityId": "VCF-01-F05-FN03",
@@ -306,9 +512,16 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D01",
+              "capabilityId": "VCF-C01",
+              "productId": "VCF-01",
+              "featureId": "VCF-01-F05"
             }
-          ]
+          ],
+          "domainId": "VCF-D01",
+          "capabilityId": "VCF-C01",
+          "productId": "VCF-01"
         },
         {
           "featureId": "VCF-01-F06",
@@ -325,7 +538,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D01",
+              "capabilityId": "VCF-C01",
+              "productId": "VCF-01",
+              "featureId": "VCF-01-F06"
             },
             {
               "functionalityId": "VCF-01-F06-FN02",
@@ -335,7 +552,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D01",
+              "capabilityId": "VCF-C01",
+              "productId": "VCF-01",
+              "featureId": "VCF-01-F06"
             },
             {
               "functionalityId": "VCF-01-F06-FN03",
@@ -345,9 +566,16 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D01",
+              "capabilityId": "VCF-C01",
+              "productId": "VCF-01",
+              "featureId": "VCF-01-F06"
             }
-          ]
+          ],
+          "domainId": "VCF-D01",
+          "capabilityId": "VCF-C01",
+          "productId": "VCF-01"
         },
         {
           "featureId": "VCF-01-F07",
@@ -364,7 +592,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D01",
+              "capabilityId": "VCF-C01",
+              "productId": "VCF-01",
+              "featureId": "VCF-01-F07"
             },
             {
               "functionalityId": "VCF-01-F07-FN02",
@@ -374,7 +606,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D01",
+              "capabilityId": "VCF-C01",
+              "productId": "VCF-01",
+              "featureId": "VCF-01-F07"
             },
             {
               "functionalityId": "VCF-01-F07-FN03",
@@ -384,11 +620,20 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D01",
+              "capabilityId": "VCF-C01",
+              "productId": "VCF-01",
+              "featureId": "VCF-01-F07"
             }
-          ]
+          ],
+          "domainId": "VCF-D01",
+          "capabilityId": "VCF-C01",
+          "productId": "VCF-01"
         }
-      ]
+      ],
+      "domainId": "VCF-D01",
+      "capabilityId": "VCF-C01"
     },
     {
       "productId": "VCF-02",
@@ -412,7 +657,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D02",
+              "capabilityId": "VCF-C02",
+              "productId": "VCF-02",
+              "featureId": "VCF-02-F01"
             },
             {
               "functionalityId": "VCF-02-F01-FN02",
@@ -422,7 +671,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D02",
+              "capabilityId": "VCF-C02",
+              "productId": "VCF-02",
+              "featureId": "VCF-02-F01"
             },
             {
               "functionalityId": "VCF-02-F01-FN03",
@@ -432,9 +685,16 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D02",
+              "capabilityId": "VCF-C02",
+              "productId": "VCF-02",
+              "featureId": "VCF-02-F01"
             }
-          ]
+          ],
+          "domainId": "VCF-D02",
+          "capabilityId": "VCF-C02",
+          "productId": "VCF-02"
         },
         {
           "featureId": "VCF-02-F02",
@@ -451,7 +711,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D02",
+              "capabilityId": "VCF-C02",
+              "productId": "VCF-02",
+              "featureId": "VCF-02-F02"
             },
             {
               "functionalityId": "VCF-02-F02-FN02",
@@ -461,7 +725,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D02",
+              "capabilityId": "VCF-C02",
+              "productId": "VCF-02",
+              "featureId": "VCF-02-F02"
             },
             {
               "functionalityId": "VCF-02-F02-FN03",
@@ -471,9 +739,16 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D02",
+              "capabilityId": "VCF-C02",
+              "productId": "VCF-02",
+              "featureId": "VCF-02-F02"
             }
-          ]
+          ],
+          "domainId": "VCF-D02",
+          "capabilityId": "VCF-C02",
+          "productId": "VCF-02"
         },
         {
           "featureId": "VCF-02-F03",
@@ -490,7 +765,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D02",
+              "capabilityId": "VCF-C02",
+              "productId": "VCF-02",
+              "featureId": "VCF-02-F03"
             },
             {
               "functionalityId": "VCF-02-F03-FN02",
@@ -500,7 +779,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D02",
+              "capabilityId": "VCF-C02",
+              "productId": "VCF-02",
+              "featureId": "VCF-02-F03"
             },
             {
               "functionalityId": "VCF-02-F03-FN03",
@@ -510,9 +793,16 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D02",
+              "capabilityId": "VCF-C02",
+              "productId": "VCF-02",
+              "featureId": "VCF-02-F03"
             }
-          ]
+          ],
+          "domainId": "VCF-D02",
+          "capabilityId": "VCF-C02",
+          "productId": "VCF-02"
         },
         {
           "featureId": "VCF-02-F04",
@@ -529,7 +819,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D02",
+              "capabilityId": "VCF-C02",
+              "productId": "VCF-02",
+              "featureId": "VCF-02-F04"
             },
             {
               "functionalityId": "VCF-02-F04-FN02",
@@ -539,7 +833,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D02",
+              "capabilityId": "VCF-C02",
+              "productId": "VCF-02",
+              "featureId": "VCF-02-F04"
             },
             {
               "functionalityId": "VCF-02-F04-FN03",
@@ -549,9 +847,16 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D02",
+              "capabilityId": "VCF-C02",
+              "productId": "VCF-02",
+              "featureId": "VCF-02-F04"
             }
-          ]
+          ],
+          "domainId": "VCF-D02",
+          "capabilityId": "VCF-C02",
+          "productId": "VCF-02"
         },
         {
           "featureId": "VCF-02-F05",
@@ -568,7 +873,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D02",
+              "capabilityId": "VCF-C02",
+              "productId": "VCF-02",
+              "featureId": "VCF-02-F05"
             },
             {
               "functionalityId": "VCF-02-F05-FN02",
@@ -578,7 +887,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D02",
+              "capabilityId": "VCF-C02",
+              "productId": "VCF-02",
+              "featureId": "VCF-02-F05"
             },
             {
               "functionalityId": "VCF-02-F05-FN03",
@@ -588,9 +901,16 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D02",
+              "capabilityId": "VCF-C02",
+              "productId": "VCF-02",
+              "featureId": "VCF-02-F05"
             }
-          ]
+          ],
+          "domainId": "VCF-D02",
+          "capabilityId": "VCF-C02",
+          "productId": "VCF-02"
         },
         {
           "featureId": "VCF-02-F06",
@@ -607,7 +927,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D02",
+              "capabilityId": "VCF-C02",
+              "productId": "VCF-02",
+              "featureId": "VCF-02-F06"
             },
             {
               "functionalityId": "VCF-02-F06-FN02",
@@ -617,7 +941,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D02",
+              "capabilityId": "VCF-C02",
+              "productId": "VCF-02",
+              "featureId": "VCF-02-F06"
             },
             {
               "functionalityId": "VCF-02-F06-FN03",
@@ -627,9 +955,16 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D02",
+              "capabilityId": "VCF-C02",
+              "productId": "VCF-02",
+              "featureId": "VCF-02-F06"
             }
-          ]
+          ],
+          "domainId": "VCF-D02",
+          "capabilityId": "VCF-C02",
+          "productId": "VCF-02"
         },
         {
           "featureId": "VCF-02-F07",
@@ -646,7 +981,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D02",
+              "capabilityId": "VCF-C02",
+              "productId": "VCF-02",
+              "featureId": "VCF-02-F07"
             },
             {
               "functionalityId": "VCF-02-F07-FN02",
@@ -656,7 +995,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D02",
+              "capabilityId": "VCF-C02",
+              "productId": "VCF-02",
+              "featureId": "VCF-02-F07"
             },
             {
               "functionalityId": "VCF-02-F07-FN03",
@@ -666,11 +1009,20 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D02",
+              "capabilityId": "VCF-C02",
+              "productId": "VCF-02",
+              "featureId": "VCF-02-F07"
             }
-          ]
+          ],
+          "domainId": "VCF-D02",
+          "capabilityId": "VCF-C02",
+          "productId": "VCF-02"
         }
-      ]
+      ],
+      "domainId": "VCF-D02",
+      "capabilityId": "VCF-C02"
     },
     {
       "productId": "VCF-03",
@@ -694,7 +1046,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D03",
+              "capabilityId": "VCF-C03",
+              "productId": "VCF-03",
+              "featureId": "VCF-03-F01"
             },
             {
               "functionalityId": "VCF-03-F01-FN02",
@@ -704,7 +1060,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D03",
+              "capabilityId": "VCF-C03",
+              "productId": "VCF-03",
+              "featureId": "VCF-03-F01"
             },
             {
               "functionalityId": "VCF-03-F01-FN03",
@@ -714,9 +1074,16 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D03",
+              "capabilityId": "VCF-C03",
+              "productId": "VCF-03",
+              "featureId": "VCF-03-F01"
             }
-          ]
+          ],
+          "domainId": "VCF-D03",
+          "capabilityId": "VCF-C03",
+          "productId": "VCF-03"
         },
         {
           "featureId": "VCF-03-F02",
@@ -733,7 +1100,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D03",
+              "capabilityId": "VCF-C03",
+              "productId": "VCF-03",
+              "featureId": "VCF-03-F02"
             },
             {
               "functionalityId": "VCF-03-F02-FN02",
@@ -743,7 +1114,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D03",
+              "capabilityId": "VCF-C03",
+              "productId": "VCF-03",
+              "featureId": "VCF-03-F02"
             },
             {
               "functionalityId": "VCF-03-F02-FN03",
@@ -753,9 +1128,16 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D03",
+              "capabilityId": "VCF-C03",
+              "productId": "VCF-03",
+              "featureId": "VCF-03-F02"
             }
-          ]
+          ],
+          "domainId": "VCF-D03",
+          "capabilityId": "VCF-C03",
+          "productId": "VCF-03"
         },
         {
           "featureId": "VCF-03-F03",
@@ -772,7 +1154,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D03",
+              "capabilityId": "VCF-C03",
+              "productId": "VCF-03",
+              "featureId": "VCF-03-F03"
             },
             {
               "functionalityId": "VCF-03-F03-FN02",
@@ -782,7 +1168,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D03",
+              "capabilityId": "VCF-C03",
+              "productId": "VCF-03",
+              "featureId": "VCF-03-F03"
             },
             {
               "functionalityId": "VCF-03-F03-FN03",
@@ -792,9 +1182,16 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D03",
+              "capabilityId": "VCF-C03",
+              "productId": "VCF-03",
+              "featureId": "VCF-03-F03"
             }
-          ]
+          ],
+          "domainId": "VCF-D03",
+          "capabilityId": "VCF-C03",
+          "productId": "VCF-03"
         },
         {
           "featureId": "VCF-03-F04",
@@ -811,7 +1208,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D03",
+              "capabilityId": "VCF-C03",
+              "productId": "VCF-03",
+              "featureId": "VCF-03-F04"
             },
             {
               "functionalityId": "VCF-03-F04-FN02",
@@ -821,7 +1222,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D03",
+              "capabilityId": "VCF-C03",
+              "productId": "VCF-03",
+              "featureId": "VCF-03-F04"
             },
             {
               "functionalityId": "VCF-03-F04-FN03",
@@ -831,9 +1236,16 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D03",
+              "capabilityId": "VCF-C03",
+              "productId": "VCF-03",
+              "featureId": "VCF-03-F04"
             }
-          ]
+          ],
+          "domainId": "VCF-D03",
+          "capabilityId": "VCF-C03",
+          "productId": "VCF-03"
         },
         {
           "featureId": "VCF-03-F05",
@@ -850,7 +1262,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D03",
+              "capabilityId": "VCF-C03",
+              "productId": "VCF-03",
+              "featureId": "VCF-03-F05"
             },
             {
               "functionalityId": "VCF-03-F05-FN02",
@@ -860,7 +1276,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D03",
+              "capabilityId": "VCF-C03",
+              "productId": "VCF-03",
+              "featureId": "VCF-03-F05"
             },
             {
               "functionalityId": "VCF-03-F05-FN03",
@@ -870,9 +1290,16 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D03",
+              "capabilityId": "VCF-C03",
+              "productId": "VCF-03",
+              "featureId": "VCF-03-F05"
             }
-          ]
+          ],
+          "domainId": "VCF-D03",
+          "capabilityId": "VCF-C03",
+          "productId": "VCF-03"
         },
         {
           "featureId": "VCF-03-F06",
@@ -889,7 +1316,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D03",
+              "capabilityId": "VCF-C03",
+              "productId": "VCF-03",
+              "featureId": "VCF-03-F06"
             },
             {
               "functionalityId": "VCF-03-F06-FN02",
@@ -899,7 +1330,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D03",
+              "capabilityId": "VCF-C03",
+              "productId": "VCF-03",
+              "featureId": "VCF-03-F06"
             },
             {
               "functionalityId": "VCF-03-F06-FN03",
@@ -909,9 +1344,16 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D03",
+              "capabilityId": "VCF-C03",
+              "productId": "VCF-03",
+              "featureId": "VCF-03-F06"
             }
-          ]
+          ],
+          "domainId": "VCF-D03",
+          "capabilityId": "VCF-C03",
+          "productId": "VCF-03"
         },
         {
           "featureId": "VCF-03-F07",
@@ -928,7 +1370,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D03",
+              "capabilityId": "VCF-C03",
+              "productId": "VCF-03",
+              "featureId": "VCF-03-F07"
             },
             {
               "functionalityId": "VCF-03-F07-FN02",
@@ -938,7 +1384,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D03",
+              "capabilityId": "VCF-C03",
+              "productId": "VCF-03",
+              "featureId": "VCF-03-F07"
             },
             {
               "functionalityId": "VCF-03-F07-FN03",
@@ -948,11 +1398,20 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D03",
+              "capabilityId": "VCF-C03",
+              "productId": "VCF-03",
+              "featureId": "VCF-03-F07"
             }
-          ]
+          ],
+          "domainId": "VCF-D03",
+          "capabilityId": "VCF-C03",
+          "productId": "VCF-03"
         }
-      ]
+      ],
+      "domainId": "VCF-D03",
+      "capabilityId": "VCF-C03"
     },
     {
       "productId": "VCF-04",
@@ -976,7 +1435,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D04",
+              "capabilityId": "VCF-C04",
+              "productId": "VCF-04",
+              "featureId": "VCF-04-F01"
             },
             {
               "functionalityId": "VCF-04-F01-FN02",
@@ -986,7 +1449,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D04",
+              "capabilityId": "VCF-C04",
+              "productId": "VCF-04",
+              "featureId": "VCF-04-F01"
             },
             {
               "functionalityId": "VCF-04-F01-FN03",
@@ -996,9 +1463,16 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D04",
+              "capabilityId": "VCF-C04",
+              "productId": "VCF-04",
+              "featureId": "VCF-04-F01"
             }
-          ]
+          ],
+          "domainId": "VCF-D04",
+          "capabilityId": "VCF-C04",
+          "productId": "VCF-04"
         },
         {
           "featureId": "VCF-04-F02",
@@ -1015,7 +1489,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D04",
+              "capabilityId": "VCF-C04",
+              "productId": "VCF-04",
+              "featureId": "VCF-04-F02"
             },
             {
               "functionalityId": "VCF-04-F02-FN02",
@@ -1025,7 +1503,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D04",
+              "capabilityId": "VCF-C04",
+              "productId": "VCF-04",
+              "featureId": "VCF-04-F02"
             },
             {
               "functionalityId": "VCF-04-F02-FN03",
@@ -1035,9 +1517,16 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D04",
+              "capabilityId": "VCF-C04",
+              "productId": "VCF-04",
+              "featureId": "VCF-04-F02"
             }
-          ]
+          ],
+          "domainId": "VCF-D04",
+          "capabilityId": "VCF-C04",
+          "productId": "VCF-04"
         },
         {
           "featureId": "VCF-04-F03",
@@ -1054,7 +1543,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D04",
+              "capabilityId": "VCF-C04",
+              "productId": "VCF-04",
+              "featureId": "VCF-04-F03"
             },
             {
               "functionalityId": "VCF-04-F03-FN02",
@@ -1064,7 +1557,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D04",
+              "capabilityId": "VCF-C04",
+              "productId": "VCF-04",
+              "featureId": "VCF-04-F03"
             },
             {
               "functionalityId": "VCF-04-F03-FN03",
@@ -1074,9 +1571,16 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D04",
+              "capabilityId": "VCF-C04",
+              "productId": "VCF-04",
+              "featureId": "VCF-04-F03"
             }
-          ]
+          ],
+          "domainId": "VCF-D04",
+          "capabilityId": "VCF-C04",
+          "productId": "VCF-04"
         },
         {
           "featureId": "VCF-04-F04",
@@ -1093,7 +1597,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D04",
+              "capabilityId": "VCF-C04",
+              "productId": "VCF-04",
+              "featureId": "VCF-04-F04"
             },
             {
               "functionalityId": "VCF-04-F04-FN02",
@@ -1103,7 +1611,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D04",
+              "capabilityId": "VCF-C04",
+              "productId": "VCF-04",
+              "featureId": "VCF-04-F04"
             },
             {
               "functionalityId": "VCF-04-F04-FN03",
@@ -1113,9 +1625,16 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D04",
+              "capabilityId": "VCF-C04",
+              "productId": "VCF-04",
+              "featureId": "VCF-04-F04"
             }
-          ]
+          ],
+          "domainId": "VCF-D04",
+          "capabilityId": "VCF-C04",
+          "productId": "VCF-04"
         },
         {
           "featureId": "VCF-04-F05",
@@ -1132,7 +1651,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D04",
+              "capabilityId": "VCF-C04",
+              "productId": "VCF-04",
+              "featureId": "VCF-04-F05"
             },
             {
               "functionalityId": "VCF-04-F05-FN02",
@@ -1142,7 +1665,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D04",
+              "capabilityId": "VCF-C04",
+              "productId": "VCF-04",
+              "featureId": "VCF-04-F05"
             },
             {
               "functionalityId": "VCF-04-F05-FN03",
@@ -1152,9 +1679,16 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D04",
+              "capabilityId": "VCF-C04",
+              "productId": "VCF-04",
+              "featureId": "VCF-04-F05"
             }
-          ]
+          ],
+          "domainId": "VCF-D04",
+          "capabilityId": "VCF-C04",
+          "productId": "VCF-04"
         },
         {
           "featureId": "VCF-04-F06",
@@ -1171,7 +1705,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D04",
+              "capabilityId": "VCF-C04",
+              "productId": "VCF-04",
+              "featureId": "VCF-04-F06"
             },
             {
               "functionalityId": "VCF-04-F06-FN02",
@@ -1181,7 +1719,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D04",
+              "capabilityId": "VCF-C04",
+              "productId": "VCF-04",
+              "featureId": "VCF-04-F06"
             },
             {
               "functionalityId": "VCF-04-F06-FN03",
@@ -1191,9 +1733,16 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D04",
+              "capabilityId": "VCF-C04",
+              "productId": "VCF-04",
+              "featureId": "VCF-04-F06"
             }
-          ]
+          ],
+          "domainId": "VCF-D04",
+          "capabilityId": "VCF-C04",
+          "productId": "VCF-04"
         },
         {
           "featureId": "VCF-04-F07",
@@ -1210,7 +1759,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D04",
+              "capabilityId": "VCF-C04",
+              "productId": "VCF-04",
+              "featureId": "VCF-04-F07"
             },
             {
               "functionalityId": "VCF-04-F07-FN02",
@@ -1220,7 +1773,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D04",
+              "capabilityId": "VCF-C04",
+              "productId": "VCF-04",
+              "featureId": "VCF-04-F07"
             },
             {
               "functionalityId": "VCF-04-F07-FN03",
@@ -1230,11 +1787,20 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D04",
+              "capabilityId": "VCF-C04",
+              "productId": "VCF-04",
+              "featureId": "VCF-04-F07"
             }
-          ]
+          ],
+          "domainId": "VCF-D04",
+          "capabilityId": "VCF-C04",
+          "productId": "VCF-04"
         }
-      ]
+      ],
+      "domainId": "VCF-D04",
+      "capabilityId": "VCF-C04"
     },
     {
       "productId": "VCF-05",
@@ -1258,7 +1824,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D05",
+              "capabilityId": "VCF-C05",
+              "productId": "VCF-05",
+              "featureId": "VCF-05-F01"
             },
             {
               "functionalityId": "VCF-05-F01-FN02",
@@ -1268,7 +1838,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D05",
+              "capabilityId": "VCF-C05",
+              "productId": "VCF-05",
+              "featureId": "VCF-05-F01"
             },
             {
               "functionalityId": "VCF-05-F01-FN03",
@@ -1278,9 +1852,16 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D05",
+              "capabilityId": "VCF-C05",
+              "productId": "VCF-05",
+              "featureId": "VCF-05-F01"
             }
-          ]
+          ],
+          "domainId": "VCF-D05",
+          "capabilityId": "VCF-C05",
+          "productId": "VCF-05"
         },
         {
           "featureId": "VCF-05-F02",
@@ -1297,7 +1878,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D05",
+              "capabilityId": "VCF-C05",
+              "productId": "VCF-05",
+              "featureId": "VCF-05-F02"
             },
             {
               "functionalityId": "VCF-05-F02-FN02",
@@ -1307,7 +1892,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D05",
+              "capabilityId": "VCF-C05",
+              "productId": "VCF-05",
+              "featureId": "VCF-05-F02"
             },
             {
               "functionalityId": "VCF-05-F02-FN03",
@@ -1317,9 +1906,16 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D05",
+              "capabilityId": "VCF-C05",
+              "productId": "VCF-05",
+              "featureId": "VCF-05-F02"
             }
-          ]
+          ],
+          "domainId": "VCF-D05",
+          "capabilityId": "VCF-C05",
+          "productId": "VCF-05"
         },
         {
           "featureId": "VCF-05-F03",
@@ -1336,7 +1932,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D05",
+              "capabilityId": "VCF-C05",
+              "productId": "VCF-05",
+              "featureId": "VCF-05-F03"
             },
             {
               "functionalityId": "VCF-05-F03-FN02",
@@ -1346,7 +1946,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D05",
+              "capabilityId": "VCF-C05",
+              "productId": "VCF-05",
+              "featureId": "VCF-05-F03"
             },
             {
               "functionalityId": "VCF-05-F03-FN03",
@@ -1356,9 +1960,16 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D05",
+              "capabilityId": "VCF-C05",
+              "productId": "VCF-05",
+              "featureId": "VCF-05-F03"
             }
-          ]
+          ],
+          "domainId": "VCF-D05",
+          "capabilityId": "VCF-C05",
+          "productId": "VCF-05"
         },
         {
           "featureId": "VCF-05-F04",
@@ -1375,7 +1986,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D05",
+              "capabilityId": "VCF-C05",
+              "productId": "VCF-05",
+              "featureId": "VCF-05-F04"
             },
             {
               "functionalityId": "VCF-05-F04-FN02",
@@ -1385,7 +2000,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D05",
+              "capabilityId": "VCF-C05",
+              "productId": "VCF-05",
+              "featureId": "VCF-05-F04"
             },
             {
               "functionalityId": "VCF-05-F04-FN03",
@@ -1395,9 +2014,16 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D05",
+              "capabilityId": "VCF-C05",
+              "productId": "VCF-05",
+              "featureId": "VCF-05-F04"
             }
-          ]
+          ],
+          "domainId": "VCF-D05",
+          "capabilityId": "VCF-C05",
+          "productId": "VCF-05"
         },
         {
           "featureId": "VCF-05-F05",
@@ -1414,7 +2040,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D05",
+              "capabilityId": "VCF-C05",
+              "productId": "VCF-05",
+              "featureId": "VCF-05-F05"
             },
             {
               "functionalityId": "VCF-05-F05-FN02",
@@ -1424,7 +2054,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D05",
+              "capabilityId": "VCF-C05",
+              "productId": "VCF-05",
+              "featureId": "VCF-05-F05"
             },
             {
               "functionalityId": "VCF-05-F05-FN03",
@@ -1434,9 +2068,16 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D05",
+              "capabilityId": "VCF-C05",
+              "productId": "VCF-05",
+              "featureId": "VCF-05-F05"
             }
-          ]
+          ],
+          "domainId": "VCF-D05",
+          "capabilityId": "VCF-C05",
+          "productId": "VCF-05"
         },
         {
           "featureId": "VCF-05-F06",
@@ -1453,7 +2094,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D05",
+              "capabilityId": "VCF-C05",
+              "productId": "VCF-05",
+              "featureId": "VCF-05-F06"
             },
             {
               "functionalityId": "VCF-05-F06-FN02",
@@ -1463,7 +2108,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D05",
+              "capabilityId": "VCF-C05",
+              "productId": "VCF-05",
+              "featureId": "VCF-05-F06"
             },
             {
               "functionalityId": "VCF-05-F06-FN03",
@@ -1473,9 +2122,16 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D05",
+              "capabilityId": "VCF-C05",
+              "productId": "VCF-05",
+              "featureId": "VCF-05-F06"
             }
-          ]
+          ],
+          "domainId": "VCF-D05",
+          "capabilityId": "VCF-C05",
+          "productId": "VCF-05"
         },
         {
           "featureId": "VCF-05-F07",
@@ -1492,7 +2148,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D05",
+              "capabilityId": "VCF-C05",
+              "productId": "VCF-05",
+              "featureId": "VCF-05-F07"
             },
             {
               "functionalityId": "VCF-05-F07-FN02",
@@ -1502,7 +2162,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D05",
+              "capabilityId": "VCF-C05",
+              "productId": "VCF-05",
+              "featureId": "VCF-05-F07"
             },
             {
               "functionalityId": "VCF-05-F07-FN03",
@@ -1512,11 +2176,20 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D05",
+              "capabilityId": "VCF-C05",
+              "productId": "VCF-05",
+              "featureId": "VCF-05-F07"
             }
-          ]
+          ],
+          "domainId": "VCF-D05",
+          "capabilityId": "VCF-C05",
+          "productId": "VCF-05"
         }
-      ]
+      ],
+      "domainId": "VCF-D05",
+      "capabilityId": "VCF-C05"
     },
     {
       "productId": "VCF-06",
@@ -1540,7 +2213,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D06",
+              "capabilityId": "VCF-C06",
+              "productId": "VCF-06",
+              "featureId": "VCF-06-F01"
             },
             {
               "functionalityId": "VCF-06-F01-FN02",
@@ -1550,7 +2227,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D06",
+              "capabilityId": "VCF-C06",
+              "productId": "VCF-06",
+              "featureId": "VCF-06-F01"
             },
             {
               "functionalityId": "VCF-06-F01-FN03",
@@ -1560,9 +2241,16 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D06",
+              "capabilityId": "VCF-C06",
+              "productId": "VCF-06",
+              "featureId": "VCF-06-F01"
             }
-          ]
+          ],
+          "domainId": "VCF-D06",
+          "capabilityId": "VCF-C06",
+          "productId": "VCF-06"
         },
         {
           "featureId": "VCF-06-F02",
@@ -1579,7 +2267,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D06",
+              "capabilityId": "VCF-C06",
+              "productId": "VCF-06",
+              "featureId": "VCF-06-F02"
             },
             {
               "functionalityId": "VCF-06-F02-FN02",
@@ -1589,7 +2281,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D06",
+              "capabilityId": "VCF-C06",
+              "productId": "VCF-06",
+              "featureId": "VCF-06-F02"
             },
             {
               "functionalityId": "VCF-06-F02-FN03",
@@ -1599,9 +2295,16 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D06",
+              "capabilityId": "VCF-C06",
+              "productId": "VCF-06",
+              "featureId": "VCF-06-F02"
             }
-          ]
+          ],
+          "domainId": "VCF-D06",
+          "capabilityId": "VCF-C06",
+          "productId": "VCF-06"
         },
         {
           "featureId": "VCF-06-F03",
@@ -1618,7 +2321,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D06",
+              "capabilityId": "VCF-C06",
+              "productId": "VCF-06",
+              "featureId": "VCF-06-F03"
             },
             {
               "functionalityId": "VCF-06-F03-FN02",
@@ -1628,7 +2335,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D06",
+              "capabilityId": "VCF-C06",
+              "productId": "VCF-06",
+              "featureId": "VCF-06-F03"
             },
             {
               "functionalityId": "VCF-06-F03-FN03",
@@ -1638,9 +2349,16 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D06",
+              "capabilityId": "VCF-C06",
+              "productId": "VCF-06",
+              "featureId": "VCF-06-F03"
             }
-          ]
+          ],
+          "domainId": "VCF-D06",
+          "capabilityId": "VCF-C06",
+          "productId": "VCF-06"
         },
         {
           "featureId": "VCF-06-F04",
@@ -1657,7 +2375,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D06",
+              "capabilityId": "VCF-C06",
+              "productId": "VCF-06",
+              "featureId": "VCF-06-F04"
             },
             {
               "functionalityId": "VCF-06-F04-FN02",
@@ -1667,7 +2389,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D06",
+              "capabilityId": "VCF-C06",
+              "productId": "VCF-06",
+              "featureId": "VCF-06-F04"
             },
             {
               "functionalityId": "VCF-06-F04-FN03",
@@ -1677,9 +2403,16 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D06",
+              "capabilityId": "VCF-C06",
+              "productId": "VCF-06",
+              "featureId": "VCF-06-F04"
             }
-          ]
+          ],
+          "domainId": "VCF-D06",
+          "capabilityId": "VCF-C06",
+          "productId": "VCF-06"
         },
         {
           "featureId": "VCF-06-F05",
@@ -1696,7 +2429,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D06",
+              "capabilityId": "VCF-C06",
+              "productId": "VCF-06",
+              "featureId": "VCF-06-F05"
             },
             {
               "functionalityId": "VCF-06-F05-FN02",
@@ -1706,7 +2443,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D06",
+              "capabilityId": "VCF-C06",
+              "productId": "VCF-06",
+              "featureId": "VCF-06-F05"
             },
             {
               "functionalityId": "VCF-06-F05-FN03",
@@ -1716,9 +2457,16 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D06",
+              "capabilityId": "VCF-C06",
+              "productId": "VCF-06",
+              "featureId": "VCF-06-F05"
             }
-          ]
+          ],
+          "domainId": "VCF-D06",
+          "capabilityId": "VCF-C06",
+          "productId": "VCF-06"
         },
         {
           "featureId": "VCF-06-F06",
@@ -1735,7 +2483,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D06",
+              "capabilityId": "VCF-C06",
+              "productId": "VCF-06",
+              "featureId": "VCF-06-F06"
             },
             {
               "functionalityId": "VCF-06-F06-FN02",
@@ -1745,7 +2497,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D06",
+              "capabilityId": "VCF-C06",
+              "productId": "VCF-06",
+              "featureId": "VCF-06-F06"
             },
             {
               "functionalityId": "VCF-06-F06-FN03",
@@ -1755,9 +2511,16 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D06",
+              "capabilityId": "VCF-C06",
+              "productId": "VCF-06",
+              "featureId": "VCF-06-F06"
             }
-          ]
+          ],
+          "domainId": "VCF-D06",
+          "capabilityId": "VCF-C06",
+          "productId": "VCF-06"
         },
         {
           "featureId": "VCF-06-F07",
@@ -1774,7 +2537,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D06",
+              "capabilityId": "VCF-C06",
+              "productId": "VCF-06",
+              "featureId": "VCF-06-F07"
             },
             {
               "functionalityId": "VCF-06-F07-FN02",
@@ -1784,7 +2551,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D06",
+              "capabilityId": "VCF-C06",
+              "productId": "VCF-06",
+              "featureId": "VCF-06-F07"
             },
             {
               "functionalityId": "VCF-06-F07-FN03",
@@ -1794,11 +2565,20 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D06",
+              "capabilityId": "VCF-C06",
+              "productId": "VCF-06",
+              "featureId": "VCF-06-F07"
             }
-          ]
+          ],
+          "domainId": "VCF-D06",
+          "capabilityId": "VCF-C06",
+          "productId": "VCF-06"
         }
-      ]
+      ],
+      "domainId": "VCF-D06",
+      "capabilityId": "VCF-C06"
     },
     {
       "productId": "VCF-07",
@@ -1822,7 +2602,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D07",
+              "capabilityId": "VCF-C07",
+              "productId": "VCF-07",
+              "featureId": "VCF-07-F01"
             },
             {
               "functionalityId": "VCF-07-F01-FN02",
@@ -1832,7 +2616,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D07",
+              "capabilityId": "VCF-C07",
+              "productId": "VCF-07",
+              "featureId": "VCF-07-F01"
             },
             {
               "functionalityId": "VCF-07-F01-FN03",
@@ -1842,9 +2630,16 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D07",
+              "capabilityId": "VCF-C07",
+              "productId": "VCF-07",
+              "featureId": "VCF-07-F01"
             }
-          ]
+          ],
+          "domainId": "VCF-D07",
+          "capabilityId": "VCF-C07",
+          "productId": "VCF-07"
         },
         {
           "featureId": "VCF-07-F02",
@@ -1861,7 +2656,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D07",
+              "capabilityId": "VCF-C07",
+              "productId": "VCF-07",
+              "featureId": "VCF-07-F02"
             },
             {
               "functionalityId": "VCF-07-F02-FN02",
@@ -1871,7 +2670,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D07",
+              "capabilityId": "VCF-C07",
+              "productId": "VCF-07",
+              "featureId": "VCF-07-F02"
             },
             {
               "functionalityId": "VCF-07-F02-FN03",
@@ -1881,9 +2684,16 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D07",
+              "capabilityId": "VCF-C07",
+              "productId": "VCF-07",
+              "featureId": "VCF-07-F02"
             }
-          ]
+          ],
+          "domainId": "VCF-D07",
+          "capabilityId": "VCF-C07",
+          "productId": "VCF-07"
         },
         {
           "featureId": "VCF-07-F03",
@@ -1900,7 +2710,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D07",
+              "capabilityId": "VCF-C07",
+              "productId": "VCF-07",
+              "featureId": "VCF-07-F03"
             },
             {
               "functionalityId": "VCF-07-F03-FN02",
@@ -1910,7 +2724,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D07",
+              "capabilityId": "VCF-C07",
+              "productId": "VCF-07",
+              "featureId": "VCF-07-F03"
             },
             {
               "functionalityId": "VCF-07-F03-FN03",
@@ -1920,9 +2738,16 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D07",
+              "capabilityId": "VCF-C07",
+              "productId": "VCF-07",
+              "featureId": "VCF-07-F03"
             }
-          ]
+          ],
+          "domainId": "VCF-D07",
+          "capabilityId": "VCF-C07",
+          "productId": "VCF-07"
         },
         {
           "featureId": "VCF-07-F04",
@@ -1939,7 +2764,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D07",
+              "capabilityId": "VCF-C07",
+              "productId": "VCF-07",
+              "featureId": "VCF-07-F04"
             },
             {
               "functionalityId": "VCF-07-F04-FN02",
@@ -1949,7 +2778,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D07",
+              "capabilityId": "VCF-C07",
+              "productId": "VCF-07",
+              "featureId": "VCF-07-F04"
             },
             {
               "functionalityId": "VCF-07-F04-FN03",
@@ -1959,9 +2792,16 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D07",
+              "capabilityId": "VCF-C07",
+              "productId": "VCF-07",
+              "featureId": "VCF-07-F04"
             }
-          ]
+          ],
+          "domainId": "VCF-D07",
+          "capabilityId": "VCF-C07",
+          "productId": "VCF-07"
         },
         {
           "featureId": "VCF-07-F05",
@@ -1978,7 +2818,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D07",
+              "capabilityId": "VCF-C07",
+              "productId": "VCF-07",
+              "featureId": "VCF-07-F05"
             },
             {
               "functionalityId": "VCF-07-F05-FN02",
@@ -1988,7 +2832,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D07",
+              "capabilityId": "VCF-C07",
+              "productId": "VCF-07",
+              "featureId": "VCF-07-F05"
             },
             {
               "functionalityId": "VCF-07-F05-FN03",
@@ -1998,9 +2846,16 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D07",
+              "capabilityId": "VCF-C07",
+              "productId": "VCF-07",
+              "featureId": "VCF-07-F05"
             }
-          ]
+          ],
+          "domainId": "VCF-D07",
+          "capabilityId": "VCF-C07",
+          "productId": "VCF-07"
         },
         {
           "featureId": "VCF-07-F06",
@@ -2017,7 +2872,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D07",
+              "capabilityId": "VCF-C07",
+              "productId": "VCF-07",
+              "featureId": "VCF-07-F06"
             },
             {
               "functionalityId": "VCF-07-F06-FN02",
@@ -2027,7 +2886,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D07",
+              "capabilityId": "VCF-C07",
+              "productId": "VCF-07",
+              "featureId": "VCF-07-F06"
             },
             {
               "functionalityId": "VCF-07-F06-FN03",
@@ -2037,9 +2900,16 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D07",
+              "capabilityId": "VCF-C07",
+              "productId": "VCF-07",
+              "featureId": "VCF-07-F06"
             }
-          ]
+          ],
+          "domainId": "VCF-D07",
+          "capabilityId": "VCF-C07",
+          "productId": "VCF-07"
         },
         {
           "featureId": "VCF-07-F07",
@@ -2056,7 +2926,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D07",
+              "capabilityId": "VCF-C07",
+              "productId": "VCF-07",
+              "featureId": "VCF-07-F07"
             },
             {
               "functionalityId": "VCF-07-F07-FN02",
@@ -2066,7 +2940,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D07",
+              "capabilityId": "VCF-C07",
+              "productId": "VCF-07",
+              "featureId": "VCF-07-F07"
             },
             {
               "functionalityId": "VCF-07-F07-FN03",
@@ -2076,11 +2954,20 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D07",
+              "capabilityId": "VCF-C07",
+              "productId": "VCF-07",
+              "featureId": "VCF-07-F07"
             }
-          ]
+          ],
+          "domainId": "VCF-D07",
+          "capabilityId": "VCF-C07",
+          "productId": "VCF-07"
         }
-      ]
+      ],
+      "domainId": "VCF-D07",
+      "capabilityId": "VCF-C07"
     },
     {
       "productId": "VCF-08",
@@ -2104,7 +2991,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D08",
+              "capabilityId": "VCF-C08",
+              "productId": "VCF-08",
+              "featureId": "VCF-08-F01"
             },
             {
               "functionalityId": "VCF-08-F01-FN02",
@@ -2114,7 +3005,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D08",
+              "capabilityId": "VCF-C08",
+              "productId": "VCF-08",
+              "featureId": "VCF-08-F01"
             },
             {
               "functionalityId": "VCF-08-F01-FN03",
@@ -2124,9 +3019,16 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D08",
+              "capabilityId": "VCF-C08",
+              "productId": "VCF-08",
+              "featureId": "VCF-08-F01"
             }
-          ]
+          ],
+          "domainId": "VCF-D08",
+          "capabilityId": "VCF-C08",
+          "productId": "VCF-08"
         },
         {
           "featureId": "VCF-08-F02",
@@ -2143,7 +3045,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D08",
+              "capabilityId": "VCF-C08",
+              "productId": "VCF-08",
+              "featureId": "VCF-08-F02"
             },
             {
               "functionalityId": "VCF-08-F02-FN02",
@@ -2153,7 +3059,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D08",
+              "capabilityId": "VCF-C08",
+              "productId": "VCF-08",
+              "featureId": "VCF-08-F02"
             },
             {
               "functionalityId": "VCF-08-F02-FN03",
@@ -2163,9 +3073,16 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D08",
+              "capabilityId": "VCF-C08",
+              "productId": "VCF-08",
+              "featureId": "VCF-08-F02"
             }
-          ]
+          ],
+          "domainId": "VCF-D08",
+          "capabilityId": "VCF-C08",
+          "productId": "VCF-08"
         },
         {
           "featureId": "VCF-08-F03",
@@ -2182,7 +3099,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D08",
+              "capabilityId": "VCF-C08",
+              "productId": "VCF-08",
+              "featureId": "VCF-08-F03"
             },
             {
               "functionalityId": "VCF-08-F03-FN02",
@@ -2192,7 +3113,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D08",
+              "capabilityId": "VCF-C08",
+              "productId": "VCF-08",
+              "featureId": "VCF-08-F03"
             },
             {
               "functionalityId": "VCF-08-F03-FN03",
@@ -2202,9 +3127,16 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D08",
+              "capabilityId": "VCF-C08",
+              "productId": "VCF-08",
+              "featureId": "VCF-08-F03"
             }
-          ]
+          ],
+          "domainId": "VCF-D08",
+          "capabilityId": "VCF-C08",
+          "productId": "VCF-08"
         },
         {
           "featureId": "VCF-08-F04",
@@ -2221,7 +3153,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D08",
+              "capabilityId": "VCF-C08",
+              "productId": "VCF-08",
+              "featureId": "VCF-08-F04"
             },
             {
               "functionalityId": "VCF-08-F04-FN02",
@@ -2231,7 +3167,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D08",
+              "capabilityId": "VCF-C08",
+              "productId": "VCF-08",
+              "featureId": "VCF-08-F04"
             },
             {
               "functionalityId": "VCF-08-F04-FN03",
@@ -2241,9 +3181,16 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D08",
+              "capabilityId": "VCF-C08",
+              "productId": "VCF-08",
+              "featureId": "VCF-08-F04"
             }
-          ]
+          ],
+          "domainId": "VCF-D08",
+          "capabilityId": "VCF-C08",
+          "productId": "VCF-08"
         },
         {
           "featureId": "VCF-08-F05",
@@ -2260,7 +3207,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D08",
+              "capabilityId": "VCF-C08",
+              "productId": "VCF-08",
+              "featureId": "VCF-08-F05"
             },
             {
               "functionalityId": "VCF-08-F05-FN02",
@@ -2270,7 +3221,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D08",
+              "capabilityId": "VCF-C08",
+              "productId": "VCF-08",
+              "featureId": "VCF-08-F05"
             },
             {
               "functionalityId": "VCF-08-F05-FN03",
@@ -2280,9 +3235,16 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D08",
+              "capabilityId": "VCF-C08",
+              "productId": "VCF-08",
+              "featureId": "VCF-08-F05"
             }
-          ]
+          ],
+          "domainId": "VCF-D08",
+          "capabilityId": "VCF-C08",
+          "productId": "VCF-08"
         },
         {
           "featureId": "VCF-08-F06",
@@ -2299,7 +3261,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D08",
+              "capabilityId": "VCF-C08",
+              "productId": "VCF-08",
+              "featureId": "VCF-08-F06"
             },
             {
               "functionalityId": "VCF-08-F06-FN02",
@@ -2309,7 +3275,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D08",
+              "capabilityId": "VCF-C08",
+              "productId": "VCF-08",
+              "featureId": "VCF-08-F06"
             },
             {
               "functionalityId": "VCF-08-F06-FN03",
@@ -2319,9 +3289,16 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D08",
+              "capabilityId": "VCF-C08",
+              "productId": "VCF-08",
+              "featureId": "VCF-08-F06"
             }
-          ]
+          ],
+          "domainId": "VCF-D08",
+          "capabilityId": "VCF-C08",
+          "productId": "VCF-08"
         },
         {
           "featureId": "VCF-08-F07",
@@ -2338,7 +3315,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D08",
+              "capabilityId": "VCF-C08",
+              "productId": "VCF-08",
+              "featureId": "VCF-08-F07"
             },
             {
               "functionalityId": "VCF-08-F07-FN02",
@@ -2348,7 +3329,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D08",
+              "capabilityId": "VCF-C08",
+              "productId": "VCF-08",
+              "featureId": "VCF-08-F07"
             },
             {
               "functionalityId": "VCF-08-F07-FN03",
@@ -2358,11 +3343,20 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D08",
+              "capabilityId": "VCF-C08",
+              "productId": "VCF-08",
+              "featureId": "VCF-08-F07"
             }
-          ]
+          ],
+          "domainId": "VCF-D08",
+          "capabilityId": "VCF-C08",
+          "productId": "VCF-08"
         }
-      ]
+      ],
+      "domainId": "VCF-D08",
+      "capabilityId": "VCF-C08"
     },
     {
       "productId": "VCF-09",
@@ -2386,7 +3380,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D09",
+              "capabilityId": "VCF-C09",
+              "productId": "VCF-09",
+              "featureId": "VCF-09-F01"
             },
             {
               "functionalityId": "VCF-09-F01-FN02",
@@ -2396,7 +3394,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D09",
+              "capabilityId": "VCF-C09",
+              "productId": "VCF-09",
+              "featureId": "VCF-09-F01"
             },
             {
               "functionalityId": "VCF-09-F01-FN03",
@@ -2406,9 +3408,16 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D09",
+              "capabilityId": "VCF-C09",
+              "productId": "VCF-09",
+              "featureId": "VCF-09-F01"
             }
-          ]
+          ],
+          "domainId": "VCF-D09",
+          "capabilityId": "VCF-C09",
+          "productId": "VCF-09"
         },
         {
           "featureId": "VCF-09-F02",
@@ -2425,7 +3434,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D09",
+              "capabilityId": "VCF-C09",
+              "productId": "VCF-09",
+              "featureId": "VCF-09-F02"
             },
             {
               "functionalityId": "VCF-09-F02-FN02",
@@ -2435,7 +3448,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D09",
+              "capabilityId": "VCF-C09",
+              "productId": "VCF-09",
+              "featureId": "VCF-09-F02"
             },
             {
               "functionalityId": "VCF-09-F02-FN03",
@@ -2445,9 +3462,16 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D09",
+              "capabilityId": "VCF-C09",
+              "productId": "VCF-09",
+              "featureId": "VCF-09-F02"
             }
-          ]
+          ],
+          "domainId": "VCF-D09",
+          "capabilityId": "VCF-C09",
+          "productId": "VCF-09"
         },
         {
           "featureId": "VCF-09-F03",
@@ -2464,7 +3488,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D09",
+              "capabilityId": "VCF-C09",
+              "productId": "VCF-09",
+              "featureId": "VCF-09-F03"
             },
             {
               "functionalityId": "VCF-09-F03-FN02",
@@ -2474,7 +3502,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D09",
+              "capabilityId": "VCF-C09",
+              "productId": "VCF-09",
+              "featureId": "VCF-09-F03"
             },
             {
               "functionalityId": "VCF-09-F03-FN03",
@@ -2484,9 +3516,16 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D09",
+              "capabilityId": "VCF-C09",
+              "productId": "VCF-09",
+              "featureId": "VCF-09-F03"
             }
-          ]
+          ],
+          "domainId": "VCF-D09",
+          "capabilityId": "VCF-C09",
+          "productId": "VCF-09"
         },
         {
           "featureId": "VCF-09-F04",
@@ -2503,7 +3542,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D09",
+              "capabilityId": "VCF-C09",
+              "productId": "VCF-09",
+              "featureId": "VCF-09-F04"
             },
             {
               "functionalityId": "VCF-09-F04-FN02",
@@ -2513,7 +3556,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D09",
+              "capabilityId": "VCF-C09",
+              "productId": "VCF-09",
+              "featureId": "VCF-09-F04"
             },
             {
               "functionalityId": "VCF-09-F04-FN03",
@@ -2523,9 +3570,16 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D09",
+              "capabilityId": "VCF-C09",
+              "productId": "VCF-09",
+              "featureId": "VCF-09-F04"
             }
-          ]
+          ],
+          "domainId": "VCF-D09",
+          "capabilityId": "VCF-C09",
+          "productId": "VCF-09"
         },
         {
           "featureId": "VCF-09-F05",
@@ -2542,7 +3596,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D09",
+              "capabilityId": "VCF-C09",
+              "productId": "VCF-09",
+              "featureId": "VCF-09-F05"
             },
             {
               "functionalityId": "VCF-09-F05-FN02",
@@ -2552,7 +3610,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D09",
+              "capabilityId": "VCF-C09",
+              "productId": "VCF-09",
+              "featureId": "VCF-09-F05"
             },
             {
               "functionalityId": "VCF-09-F05-FN03",
@@ -2562,9 +3624,16 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D09",
+              "capabilityId": "VCF-C09",
+              "productId": "VCF-09",
+              "featureId": "VCF-09-F05"
             }
-          ]
+          ],
+          "domainId": "VCF-D09",
+          "capabilityId": "VCF-C09",
+          "productId": "VCF-09"
         },
         {
           "featureId": "VCF-09-F06",
@@ -2581,7 +3650,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D09",
+              "capabilityId": "VCF-C09",
+              "productId": "VCF-09",
+              "featureId": "VCF-09-F06"
             },
             {
               "functionalityId": "VCF-09-F06-FN02",
@@ -2591,7 +3664,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D09",
+              "capabilityId": "VCF-C09",
+              "productId": "VCF-09",
+              "featureId": "VCF-09-F06"
             },
             {
               "functionalityId": "VCF-09-F06-FN03",
@@ -2601,9 +3678,16 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D09",
+              "capabilityId": "VCF-C09",
+              "productId": "VCF-09",
+              "featureId": "VCF-09-F06"
             }
-          ]
+          ],
+          "domainId": "VCF-D09",
+          "capabilityId": "VCF-C09",
+          "productId": "VCF-09"
         },
         {
           "featureId": "VCF-09-F07",
@@ -2620,7 +3704,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D09",
+              "capabilityId": "VCF-C09",
+              "productId": "VCF-09",
+              "featureId": "VCF-09-F07"
             },
             {
               "functionalityId": "VCF-09-F07-FN02",
@@ -2630,7 +3718,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D09",
+              "capabilityId": "VCF-C09",
+              "productId": "VCF-09",
+              "featureId": "VCF-09-F07"
             },
             {
               "functionalityId": "VCF-09-F07-FN03",
@@ -2640,11 +3732,20 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D09",
+              "capabilityId": "VCF-C09",
+              "productId": "VCF-09",
+              "featureId": "VCF-09-F07"
             }
-          ]
+          ],
+          "domainId": "VCF-D09",
+          "capabilityId": "VCF-C09",
+          "productId": "VCF-09"
         }
-      ]
+      ],
+      "domainId": "VCF-D09",
+      "capabilityId": "VCF-C09"
     },
     {
       "productId": "VCF-10",
@@ -2668,7 +3769,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D10",
+              "capabilityId": "VCF-C10",
+              "productId": "VCF-10",
+              "featureId": "VCF-10-F01"
             },
             {
               "functionalityId": "VCF-10-F01-FN02",
@@ -2678,7 +3783,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D10",
+              "capabilityId": "VCF-C10",
+              "productId": "VCF-10",
+              "featureId": "VCF-10-F01"
             },
             {
               "functionalityId": "VCF-10-F01-FN03",
@@ -2688,9 +3797,16 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D10",
+              "capabilityId": "VCF-C10",
+              "productId": "VCF-10",
+              "featureId": "VCF-10-F01"
             }
-          ]
+          ],
+          "domainId": "VCF-D10",
+          "capabilityId": "VCF-C10",
+          "productId": "VCF-10"
         },
         {
           "featureId": "VCF-10-F02",
@@ -2707,7 +3823,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D10",
+              "capabilityId": "VCF-C10",
+              "productId": "VCF-10",
+              "featureId": "VCF-10-F02"
             },
             {
               "functionalityId": "VCF-10-F02-FN02",
@@ -2717,7 +3837,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D10",
+              "capabilityId": "VCF-C10",
+              "productId": "VCF-10",
+              "featureId": "VCF-10-F02"
             },
             {
               "functionalityId": "VCF-10-F02-FN03",
@@ -2727,9 +3851,16 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D10",
+              "capabilityId": "VCF-C10",
+              "productId": "VCF-10",
+              "featureId": "VCF-10-F02"
             }
-          ]
+          ],
+          "domainId": "VCF-D10",
+          "capabilityId": "VCF-C10",
+          "productId": "VCF-10"
         },
         {
           "featureId": "VCF-10-F03",
@@ -2746,7 +3877,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D10",
+              "capabilityId": "VCF-C10",
+              "productId": "VCF-10",
+              "featureId": "VCF-10-F03"
             },
             {
               "functionalityId": "VCF-10-F03-FN02",
@@ -2756,7 +3891,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D10",
+              "capabilityId": "VCF-C10",
+              "productId": "VCF-10",
+              "featureId": "VCF-10-F03"
             },
             {
               "functionalityId": "VCF-10-F03-FN03",
@@ -2766,9 +3905,16 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D10",
+              "capabilityId": "VCF-C10",
+              "productId": "VCF-10",
+              "featureId": "VCF-10-F03"
             }
-          ]
+          ],
+          "domainId": "VCF-D10",
+          "capabilityId": "VCF-C10",
+          "productId": "VCF-10"
         },
         {
           "featureId": "VCF-10-F04",
@@ -2785,7 +3931,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D10",
+              "capabilityId": "VCF-C10",
+              "productId": "VCF-10",
+              "featureId": "VCF-10-F04"
             },
             {
               "functionalityId": "VCF-10-F04-FN02",
@@ -2795,7 +3945,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D10",
+              "capabilityId": "VCF-C10",
+              "productId": "VCF-10",
+              "featureId": "VCF-10-F04"
             },
             {
               "functionalityId": "VCF-10-F04-FN03",
@@ -2805,9 +3959,16 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D10",
+              "capabilityId": "VCF-C10",
+              "productId": "VCF-10",
+              "featureId": "VCF-10-F04"
             }
-          ]
+          ],
+          "domainId": "VCF-D10",
+          "capabilityId": "VCF-C10",
+          "productId": "VCF-10"
         },
         {
           "featureId": "VCF-10-F05",
@@ -2824,7 +3985,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D10",
+              "capabilityId": "VCF-C10",
+              "productId": "VCF-10",
+              "featureId": "VCF-10-F05"
             },
             {
               "functionalityId": "VCF-10-F05-FN02",
@@ -2834,7 +3999,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D10",
+              "capabilityId": "VCF-C10",
+              "productId": "VCF-10",
+              "featureId": "VCF-10-F05"
             },
             {
               "functionalityId": "VCF-10-F05-FN03",
@@ -2844,9 +4013,16 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D10",
+              "capabilityId": "VCF-C10",
+              "productId": "VCF-10",
+              "featureId": "VCF-10-F05"
             }
-          ]
+          ],
+          "domainId": "VCF-D10",
+          "capabilityId": "VCF-C10",
+          "productId": "VCF-10"
         },
         {
           "featureId": "VCF-10-F06",
@@ -2863,7 +4039,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D10",
+              "capabilityId": "VCF-C10",
+              "productId": "VCF-10",
+              "featureId": "VCF-10-F06"
             },
             {
               "functionalityId": "VCF-10-F06-FN02",
@@ -2873,7 +4053,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D10",
+              "capabilityId": "VCF-C10",
+              "productId": "VCF-10",
+              "featureId": "VCF-10-F06"
             },
             {
               "functionalityId": "VCF-10-F06-FN03",
@@ -2883,9 +4067,16 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D10",
+              "capabilityId": "VCF-C10",
+              "productId": "VCF-10",
+              "featureId": "VCF-10-F06"
             }
-          ]
+          ],
+          "domainId": "VCF-D10",
+          "capabilityId": "VCF-C10",
+          "productId": "VCF-10"
         },
         {
           "featureId": "VCF-10-F07",
@@ -2902,7 +4093,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D10",
+              "capabilityId": "VCF-C10",
+              "productId": "VCF-10",
+              "featureId": "VCF-10-F07"
             },
             {
               "functionalityId": "VCF-10-F07-FN02",
@@ -2912,7 +4107,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D10",
+              "capabilityId": "VCF-C10",
+              "productId": "VCF-10",
+              "featureId": "VCF-10-F07"
             },
             {
               "functionalityId": "VCF-10-F07-FN03",
@@ -2922,11 +4121,20 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D10",
+              "capabilityId": "VCF-C10",
+              "productId": "VCF-10",
+              "featureId": "VCF-10-F07"
             }
-          ]
+          ],
+          "domainId": "VCF-D10",
+          "capabilityId": "VCF-C10",
+          "productId": "VCF-10"
         }
-      ]
+      ],
+      "domainId": "VCF-D10",
+      "capabilityId": "VCF-C10"
     },
     {
       "productId": "VCF-11",
@@ -2950,7 +4158,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D11",
+              "capabilityId": "VCF-C11",
+              "productId": "VCF-11",
+              "featureId": "VCF-11-F01"
             },
             {
               "functionalityId": "VCF-11-F01-FN02",
@@ -2960,7 +4172,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D11",
+              "capabilityId": "VCF-C11",
+              "productId": "VCF-11",
+              "featureId": "VCF-11-F01"
             },
             {
               "functionalityId": "VCF-11-F01-FN03",
@@ -2970,9 +4186,16 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D11",
+              "capabilityId": "VCF-C11",
+              "productId": "VCF-11",
+              "featureId": "VCF-11-F01"
             }
-          ]
+          ],
+          "domainId": "VCF-D11",
+          "capabilityId": "VCF-C11",
+          "productId": "VCF-11"
         },
         {
           "featureId": "VCF-11-F02",
@@ -2989,7 +4212,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D11",
+              "capabilityId": "VCF-C11",
+              "productId": "VCF-11",
+              "featureId": "VCF-11-F02"
             },
             {
               "functionalityId": "VCF-11-F02-FN02",
@@ -2999,7 +4226,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D11",
+              "capabilityId": "VCF-C11",
+              "productId": "VCF-11",
+              "featureId": "VCF-11-F02"
             },
             {
               "functionalityId": "VCF-11-F02-FN03",
@@ -3009,9 +4240,16 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D11",
+              "capabilityId": "VCF-C11",
+              "productId": "VCF-11",
+              "featureId": "VCF-11-F02"
             }
-          ]
+          ],
+          "domainId": "VCF-D11",
+          "capabilityId": "VCF-C11",
+          "productId": "VCF-11"
         },
         {
           "featureId": "VCF-11-F03",
@@ -3028,7 +4266,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D11",
+              "capabilityId": "VCF-C11",
+              "productId": "VCF-11",
+              "featureId": "VCF-11-F03"
             },
             {
               "functionalityId": "VCF-11-F03-FN02",
@@ -3038,7 +4280,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D11",
+              "capabilityId": "VCF-C11",
+              "productId": "VCF-11",
+              "featureId": "VCF-11-F03"
             },
             {
               "functionalityId": "VCF-11-F03-FN03",
@@ -3048,9 +4294,16 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D11",
+              "capabilityId": "VCF-C11",
+              "productId": "VCF-11",
+              "featureId": "VCF-11-F03"
             }
-          ]
+          ],
+          "domainId": "VCF-D11",
+          "capabilityId": "VCF-C11",
+          "productId": "VCF-11"
         },
         {
           "featureId": "VCF-11-F04",
@@ -3067,7 +4320,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D11",
+              "capabilityId": "VCF-C11",
+              "productId": "VCF-11",
+              "featureId": "VCF-11-F04"
             },
             {
               "functionalityId": "VCF-11-F04-FN02",
@@ -3077,7 +4334,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D11",
+              "capabilityId": "VCF-C11",
+              "productId": "VCF-11",
+              "featureId": "VCF-11-F04"
             },
             {
               "functionalityId": "VCF-11-F04-FN03",
@@ -3087,9 +4348,16 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D11",
+              "capabilityId": "VCF-C11",
+              "productId": "VCF-11",
+              "featureId": "VCF-11-F04"
             }
-          ]
+          ],
+          "domainId": "VCF-D11",
+          "capabilityId": "VCF-C11",
+          "productId": "VCF-11"
         },
         {
           "featureId": "VCF-11-F05",
@@ -3106,7 +4374,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D11",
+              "capabilityId": "VCF-C11",
+              "productId": "VCF-11",
+              "featureId": "VCF-11-F05"
             },
             {
               "functionalityId": "VCF-11-F05-FN02",
@@ -3116,7 +4388,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D11",
+              "capabilityId": "VCF-C11",
+              "productId": "VCF-11",
+              "featureId": "VCF-11-F05"
             },
             {
               "functionalityId": "VCF-11-F05-FN03",
@@ -3126,9 +4402,16 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D11",
+              "capabilityId": "VCF-C11",
+              "productId": "VCF-11",
+              "featureId": "VCF-11-F05"
             }
-          ]
+          ],
+          "domainId": "VCF-D11",
+          "capabilityId": "VCF-C11",
+          "productId": "VCF-11"
         },
         {
           "featureId": "VCF-11-F06",
@@ -3145,7 +4428,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D11",
+              "capabilityId": "VCF-C11",
+              "productId": "VCF-11",
+              "featureId": "VCF-11-F06"
             },
             {
               "functionalityId": "VCF-11-F06-FN02",
@@ -3155,7 +4442,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D11",
+              "capabilityId": "VCF-C11",
+              "productId": "VCF-11",
+              "featureId": "VCF-11-F06"
             },
             {
               "functionalityId": "VCF-11-F06-FN03",
@@ -3165,9 +4456,16 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D11",
+              "capabilityId": "VCF-C11",
+              "productId": "VCF-11",
+              "featureId": "VCF-11-F06"
             }
-          ]
+          ],
+          "domainId": "VCF-D11",
+          "capabilityId": "VCF-C11",
+          "productId": "VCF-11"
         },
         {
           "featureId": "VCF-11-F07",
@@ -3184,7 +4482,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D11",
+              "capabilityId": "VCF-C11",
+              "productId": "VCF-11",
+              "featureId": "VCF-11-F07"
             },
             {
               "functionalityId": "VCF-11-F07-FN02",
@@ -3194,7 +4496,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D11",
+              "capabilityId": "VCF-C11",
+              "productId": "VCF-11",
+              "featureId": "VCF-11-F07"
             },
             {
               "functionalityId": "VCF-11-F07-FN03",
@@ -3204,11 +4510,20 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D11",
+              "capabilityId": "VCF-C11",
+              "productId": "VCF-11",
+              "featureId": "VCF-11-F07"
             }
-          ]
+          ],
+          "domainId": "VCF-D11",
+          "capabilityId": "VCF-C11",
+          "productId": "VCF-11"
         }
-      ]
+      ],
+      "domainId": "VCF-D11",
+      "capabilityId": "VCF-C11"
     },
     {
       "productId": "VCF-12",
@@ -3232,7 +4547,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D12",
+              "capabilityId": "VCF-C12",
+              "productId": "VCF-12",
+              "featureId": "VCF-12-F01"
             },
             {
               "functionalityId": "VCF-12-F01-FN02",
@@ -3242,7 +4561,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D12",
+              "capabilityId": "VCF-C12",
+              "productId": "VCF-12",
+              "featureId": "VCF-12-F01"
             },
             {
               "functionalityId": "VCF-12-F01-FN03",
@@ -3252,9 +4575,16 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D12",
+              "capabilityId": "VCF-C12",
+              "productId": "VCF-12",
+              "featureId": "VCF-12-F01"
             }
-          ]
+          ],
+          "domainId": "VCF-D12",
+          "capabilityId": "VCF-C12",
+          "productId": "VCF-12"
         },
         {
           "featureId": "VCF-12-F02",
@@ -3271,7 +4601,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D12",
+              "capabilityId": "VCF-C12",
+              "productId": "VCF-12",
+              "featureId": "VCF-12-F02"
             },
             {
               "functionalityId": "VCF-12-F02-FN02",
@@ -3281,7 +4615,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D12",
+              "capabilityId": "VCF-C12",
+              "productId": "VCF-12",
+              "featureId": "VCF-12-F02"
             },
             {
               "functionalityId": "VCF-12-F02-FN03",
@@ -3291,9 +4629,16 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D12",
+              "capabilityId": "VCF-C12",
+              "productId": "VCF-12",
+              "featureId": "VCF-12-F02"
             }
-          ]
+          ],
+          "domainId": "VCF-D12",
+          "capabilityId": "VCF-C12",
+          "productId": "VCF-12"
         },
         {
           "featureId": "VCF-12-F03",
@@ -3310,7 +4655,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D12",
+              "capabilityId": "VCF-C12",
+              "productId": "VCF-12",
+              "featureId": "VCF-12-F03"
             },
             {
               "functionalityId": "VCF-12-F03-FN02",
@@ -3320,7 +4669,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D12",
+              "capabilityId": "VCF-C12",
+              "productId": "VCF-12",
+              "featureId": "VCF-12-F03"
             },
             {
               "functionalityId": "VCF-12-F03-FN03",
@@ -3330,9 +4683,16 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D12",
+              "capabilityId": "VCF-C12",
+              "productId": "VCF-12",
+              "featureId": "VCF-12-F03"
             }
-          ]
+          ],
+          "domainId": "VCF-D12",
+          "capabilityId": "VCF-C12",
+          "productId": "VCF-12"
         },
         {
           "featureId": "VCF-12-F04",
@@ -3349,7 +4709,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D12",
+              "capabilityId": "VCF-C12",
+              "productId": "VCF-12",
+              "featureId": "VCF-12-F04"
             },
             {
               "functionalityId": "VCF-12-F04-FN02",
@@ -3359,7 +4723,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D12",
+              "capabilityId": "VCF-C12",
+              "productId": "VCF-12",
+              "featureId": "VCF-12-F04"
             },
             {
               "functionalityId": "VCF-12-F04-FN03",
@@ -3369,9 +4737,16 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D12",
+              "capabilityId": "VCF-C12",
+              "productId": "VCF-12",
+              "featureId": "VCF-12-F04"
             }
-          ]
+          ],
+          "domainId": "VCF-D12",
+          "capabilityId": "VCF-C12",
+          "productId": "VCF-12"
         },
         {
           "featureId": "VCF-12-F05",
@@ -3388,7 +4763,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D12",
+              "capabilityId": "VCF-C12",
+              "productId": "VCF-12",
+              "featureId": "VCF-12-F05"
             },
             {
               "functionalityId": "VCF-12-F05-FN02",
@@ -3398,7 +4777,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D12",
+              "capabilityId": "VCF-C12",
+              "productId": "VCF-12",
+              "featureId": "VCF-12-F05"
             },
             {
               "functionalityId": "VCF-12-F05-FN03",
@@ -3408,9 +4791,16 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D12",
+              "capabilityId": "VCF-C12",
+              "productId": "VCF-12",
+              "featureId": "VCF-12-F05"
             }
-          ]
+          ],
+          "domainId": "VCF-D12",
+          "capabilityId": "VCF-C12",
+          "productId": "VCF-12"
         },
         {
           "featureId": "VCF-12-F06",
@@ -3427,7 +4817,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D12",
+              "capabilityId": "VCF-C12",
+              "productId": "VCF-12",
+              "featureId": "VCF-12-F06"
             },
             {
               "functionalityId": "VCF-12-F06-FN02",
@@ -3437,7 +4831,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D12",
+              "capabilityId": "VCF-C12",
+              "productId": "VCF-12",
+              "featureId": "VCF-12-F06"
             },
             {
               "functionalityId": "VCF-12-F06-FN03",
@@ -3447,9 +4845,16 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D12",
+              "capabilityId": "VCF-C12",
+              "productId": "VCF-12",
+              "featureId": "VCF-12-F06"
             }
-          ]
+          ],
+          "domainId": "VCF-D12",
+          "capabilityId": "VCF-C12",
+          "productId": "VCF-12"
         },
         {
           "featureId": "VCF-12-F07",
@@ -3466,7 +4871,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D12",
+              "capabilityId": "VCF-C12",
+              "productId": "VCF-12",
+              "featureId": "VCF-12-F07"
             },
             {
               "functionalityId": "VCF-12-F07-FN02",
@@ -3476,7 +4885,11 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D12",
+              "capabilityId": "VCF-C12",
+              "productId": "VCF-12",
+              "featureId": "VCF-12-F07"
             },
             {
               "functionalityId": "VCF-12-F07-FN03",
@@ -3486,11 +4899,20 @@
               "scoringKey": true,
               "evidenceRequiredForParityClaim": true,
               "defaultRequirementImportance": "Unknown",
-              "notes": ""
+              "notes": "",
+              "domainId": "VCF-D12",
+              "capabilityId": "VCF-C12",
+              "productId": "VCF-12",
+              "featureId": "VCF-12-F07"
             }
-          ]
+          ],
+          "domainId": "VCF-D12",
+          "capabilityId": "VCF-C12",
+          "productId": "VCF-12"
         }
-      ]
+      ],
+      "domainId": "VCF-D12",
+      "capabilityId": "VCF-C12"
     }
   ],
   "addonsAndIntegrations": {
