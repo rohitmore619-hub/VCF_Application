@@ -52,79 +52,86 @@ function buildKb(cn, map, prefix) {
 
   for (const p of cn.products || []) {
     for (const f of p.features || []) {
-      const ev = features[f.featureId];
-      if (!ev) {
-        counts.Unknown++;
-        crosswalk.push({
-          featureId: f.featureId,
-          featureName: f.name,
-          parity: 'Unknown',
-          included: false,
-          reason: 'Missing from evidence map',
-        });
-        continue;
-      }
-      const parity = ev.parity || 'Unknown';
-      counts[parity] = (counts[parity] || 0) + 1;
-      const url = catalog[ev.evidenceKey] || '';
+      for (const g of f.functionalities || []) {
+        const ev = features[g.functionalityId] || features[f.featureId];
+        if (!ev) {
+          counts.Unknown++;
+          crosswalk.push({
+            featureId: f.featureId,
+            functionalityId: g.functionalityId,
+            functionalityName: g.name,
+            parity: 'Unknown',
+            included: false,
+            reason: 'Missing from evidence map',
+          });
+          continue;
+        }
+        const parity = ev.parity || 'Unknown';
+        counts[parity] = (counts[parity] || 0) + 1;
+        const url = catalog[ev.evidenceKey] || '';
 
-      if (parity === 'No Parity' || parity === 'Unknown') {
+        if (parity === 'No Parity' || parity === 'Unknown') {
+          crosswalk.push({
+            featureId: f.featureId,
+            functionalityId: g.functionalityId,
+            functionalityName: g.name,
+            parity,
+            included: false,
+            evidenceUrl: url,
+            notes: ev.notes || '',
+          });
+          continue;
+        }
+
+        const encodedFnId = parity === 'Full Parity' ? g.functionalityId : `${prefix}-P-${g.functionalityId}`;
         crosswalk.push({
           featureId: f.featureId,
-          featureName: f.name,
+          functionalityId: g.functionalityId,
+          functionalityName: g.name,
           parity,
-          included: false,
+          included: true,
+          encodedFunctionalityId: encodedFnId,
           evidenceUrl: url,
+          primaryComponent: ev.primaryComponent || '',
+          workaround: ev.workaround || '',
+          workaroundComplexity: ev.workaroundComplexity || '',
+          technicalImpact: ev.technicalImpact || '',
           notes: ev.notes || '',
         });
-        continue;
-      }
 
-      const encodedId = parity === 'Full Parity' ? f.featureId : `${prefix}-P-${f.featureId}`;
-      crosswalk.push({
-        featureId: f.featureId,
-        featureName: f.name,
-        parity,
-        included: true,
-        encodedFeatureId: encodedId,
-        evidenceUrl: url,
-        primaryComponent: ev.primaryComponent || '',
-        workaround: ev.workaround || '',
-        workaroundComplexity: ev.workaroundComplexity || '',
-        technicalImpact: ev.technicalImpact || '',
-        notes: ev.notes || '',
-      });
+        if (!seen.has(encodedFnId)) {
+          seen.add(encodedFnId);
+          evidenceRows.push({
+            FeatureID: f.featureId,
+            FeatureName: f.name,
+            FunctionalityID: encodedFnId,
+            FunctionalityName: g.name,
+            CapabilityID: p.capabilityId,
+            DomainID: p.domainId,
+            EvidenceURL: url,
+            EvidenceSource: map.evidenceSource || 'Public official product documentation',
+            EvidenceVersion: map.evaluatedBaseline,
+            EvidenceDate: '2026-09-07',
+            EvidenceStatus: parity === 'Full Parity' ? 'Evidence-Backed' : 'Evidence-Backed-Partial',
+            EvidenceNotes: [
+              ev.notes || '',
+              ev.workaround ? `Workaround: ${ev.workaround}` : '',
+              ev.workaroundComplexity ? `Complexity: ${ev.workaroundComplexity}` : '',
+              ev.technicalImpact ? `TechnicalImpact: ${ev.technicalImpact}` : '',
+              `CN featureId=${f.featureId}`,
+              `CN functionalityId=${g.functionalityId}`,
+            ]
+              .filter(Boolean)
+              .join(' | '),
+          });
+        }
 
-      if (!seen.has(encodedId)) {
-        seen.add(encodedId);
-        evidenceRows.push({
-          FeatureID: encodedId,
-          FeatureName: f.name,
-          CapabilityID: p.capabilityId,
-          DomainID: p.domainId,
-          EvidenceURL: url,
-          EvidenceSource: map.evidenceSource || 'Public official product documentation',
-          EvidenceVersion: map.evaluatedBaseline,
-          EvidenceDate: '2026-09-07',
-          EvidenceStatus: parity === 'Full Parity' ? 'Evidence-Backed' : 'Evidence-Backed-Partial',
-          EvidenceNotes: [
-            ev.notes || '',
-            ev.workaround ? `Workaround: ${ev.workaround}` : '',
-            ev.workaroundComplexity ? `Complexity: ${ev.workaroundComplexity}` : '',
-            ev.technicalImpact ? `TechnicalImpact: ${ev.technicalImpact}` : '',
-            `CN featureId=${f.featureId}`,
-          ]
-            .filter(Boolean)
-            .join(' | '),
-        });
-      }
-
-      for (const g of f.functionalities || []) {
         funcRows.push({
-          ComparatorFunctionalityID: `${prefix}-${g.functionalityId}`,
+          FunctionalityID: encodedFnId,
+          ComparatorFunctionalityID: encodedFnId,
           FunctionalityName: g.name,
           Description: `${ev.notes || g.description || g.name}`,
-          FeatureID: encodedId,
+          FeatureID: f.featureId,
           FeatureName: f.name,
           DomainName: p.domainName,
           CapabilityName: p.capabilityName,
@@ -140,6 +147,7 @@ function buildKb(cn, map, prefix) {
             `parity=${parity}`,
             `cnFeatureId=${f.featureId}`,
             `cnFunctionalityId=${g.functionalityId}`,
+            `scoringKey=functionalityId`,
             url ? `evidence=${url}` : '',
             ev.workaround ? `workaround=${ev.workaround}` : '',
           ]
@@ -155,9 +163,10 @@ function buildKb(cn, map, prefix) {
     wb,
     '00_ReadMe',
     sheetPairs([
-      ['Purpose', `Evidence-backed ${map.platformKey} comparator KB aligned to CN v0.3 FeatureIDs`],
+      ['Purpose', `Evidence-backed ${map.platformKey} comparator KB aligned to CN v0.3 functionalityIds`],
       ['CustomerUse', 'Workshop dry-run / advisory prep — confirm vendor portal point releases before sign-off'],
-      ['Encoding', `Full=exact FeatureID; Partial=${prefix}-P-{FeatureID}+same name; No=omitted`],
+      ['ScoringKey', 'functionalityId'],
+      ['Encoding', `Full=exact FunctionalityID; Partial=${prefix}-P-{functionalityId}+same FunctionalityName; No=omitted`],
       ['EvidenceMap', `${map.platformKey}_Evidence_Map_v1.json`],
       ['PairedVcfKb', 'VCF_KnowledgeBase_CN_v0.3.xlsx'],
       ['Disclaimer', map.disclaimer],
@@ -178,7 +187,8 @@ function buildKb(cn, map, prefix) {
       ['evaluationBasisType', map.evaluationBasisType || 'ProductVersion'],
       ['EvaluatedVersion', map.evaluatedBaseline],
       ['EvaluatedVersionStatus', 'Public documentation validated; portal point-release confirmation pending'],
-      ['FeatureCount', String(seen.size)],
+      ['ScoringKey', 'functionalityId'],
+      ['FeatureCount', String(new Set(funcRows.map((r) => r.FeatureID)).size)],
       ['FunctionalityCount', String(funcRows.length)],
       ['GeneratedOn', '2026-09-07'],
       ['FullParityFeatures', String(counts['Full Parity'] || 0)],
@@ -195,8 +205,9 @@ function buildKb(cn, map, prefix) {
     XLSX.utils.json_to_sheet(
       evidenceRows.map((r) => ({
         FeatureID: r.FeatureID,
+        FunctionalityID: r.FunctionalityID,
         PrimaryComponent:
-          (crosswalk.find((c) => c.encodedFeatureId === r.FeatureID) || {}).primaryComponent || map.platformKey,
+          (crosswalk.find((c) => c.encodedFunctionalityId === r.FunctionalityID) || {}).primaryComponent || map.platformKey,
         SupportingComponents: (map.supportingComponents || []).join('; '),
       })),
     ),

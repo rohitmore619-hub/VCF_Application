@@ -137,6 +137,7 @@ function buildWorkbooks(cn, index, assumptions, oldNcpWb) {
 
       for (const g of f.functionalities || []) {
         vcfFuncRows.push({
+          FunctionalityID: g.functionalityId,
           ComparatorFunctionalityID: g.functionalityId,
           FunctionalityName: g.name,
           Description: g.description || `${g.name} under ${featureName}`,
@@ -268,7 +269,7 @@ function buildWorkbooks(cn, index, assumptions, oldNcpWb) {
     '00_ReadMe',
     sheetPairs([
       ['Purpose', 'CN v0.3–aligned VCF KB paired with NCP_AHV_KB_CN_v0.3.xlsx'],
-      ['ScoringKey', 'FeatureID (app v1.39/v1.40 current engine)'],
+      ['ScoringKey', 'functionalityId (app v1.41)'],
       ['Source', 'CN_v0.3_Canonical_Capability_Model.json'],
       ['Note', 'Generated for structural testing; not a production VCF evidence pack.'],
     ]),

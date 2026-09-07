@@ -1,7 +1,11 @@
 #!/usr/bin/env python3
-"""Generate CN v0.3 evidence maps for remaining Core comparators."""
+"""Generate CN v0.3 evidence maps for remaining Core comparators (252 functionalityIds)."""
 import json
+import sys
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from expand_feature_map_to_fns import expand_features_to_fns
 
 ROOT = Path("/workspace/v1.39-BaselineRohitHandover")
 CN = json.loads((ROOT / "canonical-model/CN_v0.3_Canonical_Capability_Model.json").read_text())
@@ -760,16 +764,28 @@ PLATFORMS = [
 
 
 def main():
+    only = sys.argv[1] if len(sys.argv) > 1 else None
     for spec in PLATFORMS:
-        assign = spec.pop("assign")
-        features = all_features(assign)
-        obj = {**spec, "status": "evidence_backed_draft", "features": features}
+        if only and spec["platformKey"] != only:
+            continue
+        assign = spec["assign"]
+        payload = {k: v for k, v in spec.items() if k != "assign"}
+        feature_level = all_features(assign)
+        functions = expand_features_to_fns(CN, feature_level)
+        if len(functions) != 252:
+            raise SystemExit(f"{spec['platformKey']}: expected 252 functionalities, got {len(functions)}")
+        obj = {
+            **payload,
+            "status": "evidence_backed_draft",
+            "scoringKey": "functionalityId",
+            "features": functions,
+        }
         path = OUT / f"{spec['platformKey']}_Evidence_Map_v1.json"
         path.write_text(json.dumps(obj, indent=2) + "\n")
         counts = {}
-        for v in features.values():
+        for v in functions.values():
             counts[v["parity"]] = counts.get(v["parity"], 0) + 1
-        print(spec["platformKey"], counts, "wrote", path.name)
+        print(spec["platformKey"], counts, "keys", len(functions), "wrote", path.name)
 
 
 if __name__ == "__main__":
