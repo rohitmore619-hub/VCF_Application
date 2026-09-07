@@ -132,7 +132,7 @@ function main() {
       if (!wb.SheetNames.includes(t)) errors.push(`${label}: missing tab ${t}`);
     }
     const meta = rows(wb, '01_Metadata');
-    const ctype = meta.find((r) => r.Key === 'ComparatorType');
+    const ctype = meta.find((r) => r.Field === 'ComparatorType' || r.Key === 'ComparatorType');
     if (!ctype || String(ctype.Value) !== 'Extended Comparator') {
       errors.push(`${label}: workbook ComparatorType must be Extended Comparator`);
     }
