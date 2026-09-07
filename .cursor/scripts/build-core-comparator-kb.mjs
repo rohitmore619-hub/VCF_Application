@@ -2,7 +2,8 @@
 /**
  * Build a CN v0.3–aligned Core comparator KB from an evidence map JSON.
  * Usage: node build-core-comparator-kb.mjs <PlatformKey>
- *   AzureLocal | OpenShiftVirtualization | OpenStackKVM | ProxmoxVE
+ *   Core: AzureLocal | OpenShiftVirtualization | OpenStackKVM | ProxmoxVE
+ *   Extended: Harvester | HyperV | CitrixHypervisor | ScaleComputingHC3 | XCPng
  */
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { dirname, join } from 'node:path';
@@ -22,6 +23,11 @@ const PLATFORMS = {
   OpenShiftVirtualization: { prefix: 'OSV', fileBase: 'OpenShiftVirtualization' },
   OpenStackKVM: { prefix: 'OSK', fileBase: 'OpenStackKVM' },
   ProxmoxVE: { prefix: 'PMX', fileBase: 'ProxmoxVE' },
+  Harvester: { prefix: 'HRV', fileBase: 'Harvester' },
+  HyperV: { prefix: 'HYP', fileBase: 'HyperV' },
+  CitrixHypervisor: { prefix: 'CTX', fileBase: 'CitrixHypervisor' },
+  ScaleComputingHC3: { prefix: 'SC3', fileBase: 'ScaleComputingHC3' },
+  XCPng: { prefix: 'XCP', fileBase: 'XCPng' },
 };
 
 function loadJson(p) {
@@ -163,7 +169,7 @@ function buildKb(cn, map, prefix) {
     sheetPairs([
       ['PlatformKey', map.platformKey],
       ['PlatformName', map.platformName],
-      ['ComparatorType', 'Core Comparator'],
+      ['ComparatorType', map.comparatorType || 'Core Comparator'],
       ['KBStatus', 'Evidence-Backed Draft'],
       ['Selectable', 'Yes'],
       ['Approved', 'No'],
@@ -214,7 +220,7 @@ function buildKb(cn, map, prefix) {
       {
         Date: '2026-09-07',
         Change: `Generated CN v0.3–aligned ${map.platformKey} evidence KB from public official documentation SME map.`,
-        Author: 'Rohit track / core comparator evidence v1',
+        Author: 'Rohit track / comparator evidence v1',
       },
     ]),
   );
@@ -236,7 +242,9 @@ function buildKb(cn, map, prefix) {
 function main() {
   const key = process.argv[2];
   if (!PLATFORMS[key]) {
-    console.error('Usage: node build-core-comparator-kb.mjs <AzureLocal|OpenShiftVirtualization|OpenStackKVM|ProxmoxVE>');
+    console.error(
+      'Usage: node build-core-comparator-kb.mjs <AzureLocal|OpenShiftVirtualization|OpenStackKVM|ProxmoxVE|Harvester|HyperV|CitrixHypervisor|ScaleComputingHC3|XCPng>',
+    );
     process.exit(1);
   }
   const { prefix, fileBase } = PLATFORMS[key];
