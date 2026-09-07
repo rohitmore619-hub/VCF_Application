@@ -1,0 +1,651 @@
+{
+  "platformKey": "XCPng",
+  "platformName": "XCP-ng",
+  "comparatorType": "Extended Comparator",
+  "evaluationBasisType": "ProductVersion",
+  "evaluatedBaseline": "XCP-ng and Xen Orchestra public documentation baseline (2026-09)",
+  "evidenceSource": "XCP-ng official documentation",
+  "supportingComponents": [
+    "XCP-ng",
+    "Xen Orchestra",
+    "XAPI"
+  ],
+  "solutionComponents": [
+    {
+      "Component": "XCP-ng",
+      "Role": "Xen hypervisor host"
+    },
+    {
+      "Component": "Xen Orchestra",
+      "Role": "Management / backup"
+    }
+  ],
+  "disclaimer": "Open-source XCP-ng map using xcp-ng.org docs. Not a copy of Citrix Hypervisor answers. Evidence-Backed Draft. Not advisory-ready.",
+  "evidenceCatalog": {
+    "xcpng": "https://docs.xcp-ng.org/"
+  },
+  "status": "evidence_backed_draft",
+  "features": {
+    "VCF-01-F01": {
+      "parity": "Partial Parity",
+      "primaryComponent": "XCP-ng / Xen Orchestra",
+      "evidenceKey": "xcpng",
+      "notes": "XCP-ng/XO can approach Fleet inventory and topology visibility via XO and XAPI, distinct from Citrix commercial packaging.",
+      "workaround": "Use Xen Orchestra and XAPI for Fleet inventory and topology visibility.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Open-source Xen stack; not Citrix branded feature parity and not VCF."
+    },
+    "VCF-01-F02": {
+      "parity": "Full Parity",
+      "primaryComponent": "XCP-ng / Xen Orchestra",
+      "evidenceKey": "xcpng",
+      "notes": "XCP-ng with Xen Orchestra provides Workload domain lifecycle on the open-source Xen stack."
+    },
+    "VCF-01-F03": {
+      "parity": "Partial Parity",
+      "primaryComponent": "XCP-ng / Xen Orchestra",
+      "evidenceKey": "xcpng",
+      "notes": "XCP-ng/XO can approach Cluster composition controls via XO and XAPI, distinct from Citrix commercial packaging.",
+      "workaround": "Use Xen Orchestra and XAPI for Cluster composition controls.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Open-source Xen stack; not Citrix branded feature parity and not VCF."
+    },
+    "VCF-01-F04": {
+      "parity": "No Parity",
+      "primaryComponent": "N/A",
+      "evidenceKey": "xcpng",
+      "notes": "No XCP-ng equivalent for VCF Principal vs workload domain separation (NSX DFW, VKS, SDDC Manager)."
+    },
+    "VCF-01-F05": {
+      "parity": "Partial Parity",
+      "primaryComponent": "XCP-ng / Xen Orchestra",
+      "evidenceKey": "xcpng",
+      "notes": "XCP-ng/XO can approach Commissioning and host bring-up via XO and XAPI, distinct from Citrix commercial packaging.",
+      "workaround": "Use Xen Orchestra and XAPI for Commissioning and host bring-up.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Open-source Xen stack; not Citrix branded feature parity and not VCF."
+    },
+    "VCF-01-F06": {
+      "parity": "Partial Parity",
+      "primaryComponent": "XCP-ng / Xen Orchestra",
+      "evidenceKey": "xcpng",
+      "notes": "XCP-ng/XO can approach Platform configuration baselines via XO and XAPI, distinct from Citrix commercial packaging.",
+      "workaround": "Use Xen Orchestra and XAPI for Platform configuration baselines.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Open-source Xen stack; not Citrix branded feature parity and not VCF."
+    },
+    "VCF-01-F07": {
+      "parity": "No Parity",
+      "primaryComponent": "N/A",
+      "evidenceKey": "xcpng",
+      "notes": "No XCP-ng equivalent for VCF Multi-site / stretch awareness (NSX DFW, VKS, SDDC Manager)."
+    },
+    "VCF-02-F01": {
+      "parity": "Partial Parity",
+      "primaryComponent": "XCP-ng / Xen Orchestra",
+      "evidenceKey": "xcpng",
+      "notes": "XCP-ng/XO can approach Initial bring-up / installer workflow via XO and XAPI, distinct from Citrix commercial packaging.",
+      "workaround": "Use Xen Orchestra and XAPI for Initial bring-up / installer workflow.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Open-source Xen stack; not Citrix branded feature parity and not VCF."
+    },
+    "VCF-02-F02": {
+      "parity": "No Parity",
+      "primaryComponent": "N/A",
+      "evidenceKey": "xcpng",
+      "notes": "No XCP-ng equivalent for VCF SDDC Manager orchestration (NSX DFW, VKS, SDDC Manager)."
+    },
+    "VCF-02-F03": {
+      "parity": "Partial Parity",
+      "primaryComponent": "XCP-ng / Xen Orchestra",
+      "evidenceKey": "xcpng",
+      "notes": "XCP-ng/XO can approach Bundle / depot management via XO and XAPI, distinct from Citrix commercial packaging.",
+      "workaround": "Use Xen Orchestra and XAPI for Bundle / depot management.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Open-source Xen stack; not Citrix branded feature parity and not VCF."
+    },
+    "VCF-02-F04": {
+      "parity": "Partial Parity",
+      "primaryComponent": "XCP-ng / Xen Orchestra",
+      "evidenceKey": "xcpng",
+      "notes": "XCP-ng/XO can approach Upgrade planning and prechecks via XO and XAPI, distinct from Citrix commercial packaging.",
+      "workaround": "Use Xen Orchestra and XAPI for Upgrade planning and prechecks.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Open-source Xen stack; not Citrix branded feature parity and not VCF."
+    },
+    "VCF-02-F05": {
+      "parity": "Partial Parity",
+      "primaryComponent": "XCP-ng / Xen Orchestra",
+      "evidenceKey": "xcpng",
+      "notes": "XCP-ng/XO can approach Coordinated stack upgrade via XO and XAPI, distinct from Citrix commercial packaging.",
+      "workaround": "Use Xen Orchestra and XAPI for Coordinated stack upgrade.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Open-source Xen stack; not Citrix branded feature parity and not VCF."
+    },
+    "VCF-02-F06": {
+      "parity": "Partial Parity",
+      "primaryComponent": "XCP-ng / Xen Orchestra",
+      "evidenceKey": "xcpng",
+      "notes": "XCP-ng/XO can approach Skip-level / selective update controls via XO and XAPI, distinct from Citrix commercial packaging.",
+      "workaround": "Use Xen Orchestra and XAPI for Skip-level / selective update controls.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Open-source Xen stack; not Citrix branded feature parity and not VCF."
+    },
+    "VCF-02-F07": {
+      "parity": "No Parity",
+      "primaryComponent": "N/A",
+      "evidenceKey": "xcpng",
+      "notes": "No XCP-ng equivalent for VCF Lifecycle audit and rollback posture (NSX DFW, VKS, SDDC Manager)."
+    },
+    "VCF-03-F01": {
+      "parity": "Full Parity",
+      "primaryComponent": "XCP-ng / Xen Orchestra",
+      "evidenceKey": "xcpng",
+      "notes": "XCP-ng with Xen Orchestra provides ESXi host compute services on the open-source Xen stack."
+    },
+    "VCF-03-F02": {
+      "parity": "Full Parity",
+      "primaryComponent": "XCP-ng / Xen Orchestra",
+      "evidenceKey": "xcpng",
+      "notes": "XCP-ng with Xen Orchestra provides vCenter management plane on the open-source Xen stack."
+    },
+    "VCF-03-F03": {
+      "parity": "Full Parity",
+      "primaryComponent": "XCP-ng / Xen Orchestra",
+      "evidenceKey": "xcpng",
+      "notes": "XCP-ng with Xen Orchestra provides DRS / placement optimization on the open-source Xen stack."
+    },
+    "VCF-03-F04": {
+      "parity": "Partial Parity",
+      "primaryComponent": "XCP-ng / Xen Orchestra",
+      "evidenceKey": "xcpng",
+      "notes": "XCP-ng/XO can approach HA and restart protection via XO and XAPI, distinct from Citrix commercial packaging.",
+      "workaround": "Use Xen Orchestra and XAPI for HA and restart protection.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Open-source Xen stack; not Citrix branded feature parity and not VCF."
+    },
+    "VCF-03-F05": {
+      "parity": "Full Parity",
+      "primaryComponent": "XCP-ng / Xen Orchestra",
+      "evidenceKey": "xcpng",
+      "notes": "XCP-ng with Xen Orchestra provides Resource pools and controls on the open-source Xen stack."
+    },
+    "VCF-03-F06": {
+      "parity": "Full Parity",
+      "primaryComponent": "XCP-ng / Xen Orchestra",
+      "evidenceKey": "xcpng",
+      "notes": "XCP-ng with Xen Orchestra provides VM lifecycle operations on the open-source Xen stack."
+    },
+    "VCF-03-F07": {
+      "parity": "Full Parity",
+      "primaryComponent": "XCP-ng / Xen Orchestra",
+      "evidenceKey": "xcpng",
+      "notes": "XCP-ng with Xen Orchestra provides Maintenance and remediation on the open-source Xen stack."
+    },
+    "VCF-04-F01": {
+      "parity": "Partial Parity",
+      "primaryComponent": "XCP-ng / Xen Orchestra",
+      "evidenceKey": "xcpng",
+      "notes": "XCP-ng/XO can approach vSAN datastore services via XO and XAPI, distinct from Citrix commercial packaging.",
+      "workaround": "Use Xen Orchestra and XAPI for vSAN datastore services.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Open-source Xen stack; not Citrix branded feature parity and not VCF."
+    },
+    "VCF-04-F02": {
+      "parity": "Partial Parity",
+      "primaryComponent": "XCP-ng / Xen Orchestra",
+      "evidenceKey": "xcpng",
+      "notes": "XCP-ng/XO can approach Storage policy based management via XO and XAPI, distinct from Citrix commercial packaging.",
+      "workaround": "Use Xen Orchestra and XAPI for Storage policy based management.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Open-source Xen stack; not Citrix branded feature parity and not VCF."
+    },
+    "VCF-04-F03": {
+      "parity": "No Parity",
+      "primaryComponent": "N/A",
+      "evidenceKey": "xcpng",
+      "notes": "No XCP-ng equivalent for VCF Dedup / compression / efficiency (NSX DFW, VKS, SDDC Manager)."
+    },
+    "VCF-04-F04": {
+      "parity": "Partial Parity",
+      "primaryComponent": "XCP-ng / Xen Orchestra",
+      "evidenceKey": "xcpng",
+      "notes": "XCP-ng/XO can approach Fault domains and resilience via XO and XAPI, distinct from Citrix commercial packaging.",
+      "workaround": "Use Xen Orchestra and XAPI for Fault domains and resilience.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Open-source Xen stack; not Citrix branded feature parity and not VCF."
+    },
+    "VCF-04-F05": {
+      "parity": "Partial Parity",
+      "primaryComponent": "XCP-ng / Xen Orchestra",
+      "evidenceKey": "xcpng",
+      "notes": "XCP-ng/XO can approach Stretched / dual-site storage via XO and XAPI, distinct from Citrix commercial packaging.",
+      "workaround": "Use Xen Orchestra and XAPI for Stretched / dual-site storage.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Open-source Xen stack; not Citrix branded feature parity and not VCF."
+    },
+    "VCF-04-F06": {
+      "parity": "Partial Parity",
+      "primaryComponent": "XCP-ng / Xen Orchestra",
+      "evidenceKey": "xcpng",
+      "notes": "XCP-ng/XO can approach File and supplemental services via XO and XAPI, distinct from Citrix commercial packaging.",
+      "workaround": "Use Xen Orchestra and XAPI for File and supplemental services.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Open-source Xen stack; not Citrix branded feature parity and not VCF."
+    },
+    "VCF-04-F07": {
+      "parity": "Partial Parity",
+      "primaryComponent": "XCP-ng / Xen Orchestra",
+      "evidenceKey": "xcpng",
+      "notes": "XCP-ng/XO can approach Storage operations and supportability via XO and XAPI, distinct from Citrix commercial packaging.",
+      "workaround": "Use Xen Orchestra and XAPI for Storage operations and supportability.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Open-source Xen stack; not Citrix branded feature parity and not VCF."
+    },
+    "VCF-05-F01": {
+      "parity": "Partial Parity",
+      "primaryComponent": "XCP-ng / Xen Orchestra",
+      "evidenceKey": "xcpng",
+      "notes": "XCP-ng/XO can approach Logical switching / segments via XO and XAPI, distinct from Citrix commercial packaging.",
+      "workaround": "Use Xen Orchestra and XAPI for Logical switching / segments.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Open-source Xen stack; not Citrix branded feature parity and not VCF."
+    },
+    "VCF-05-F02": {
+      "parity": "Partial Parity",
+      "primaryComponent": "XCP-ng / Xen Orchestra",
+      "evidenceKey": "xcpng",
+      "notes": "XCP-ng/XO can approach Logical routing / Tier services via XO and XAPI, distinct from Citrix commercial packaging.",
+      "workaround": "Use Xen Orchestra and XAPI for Logical routing / Tier services.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Open-source Xen stack; not Citrix branded feature parity and not VCF."
+    },
+    "VCF-05-F03": {
+      "parity": "No Parity",
+      "primaryComponent": "N/A",
+      "evidenceKey": "xcpng",
+      "notes": "No XCP-ng equivalent for VCF Edge services and gateways (NSX DFW, VKS, SDDC Manager)."
+    },
+    "VCF-05-F04": {
+      "parity": "No Parity",
+      "primaryComponent": "N/A",
+      "evidenceKey": "xcpng",
+      "notes": "No XCP-ng equivalent for VCF VPC / multi-tenancy networking (NSX DFW, VKS, SDDC Manager)."
+    },
+    "VCF-05-F05": {
+      "parity": "Partial Parity",
+      "primaryComponent": "XCP-ng / Xen Orchestra",
+      "evidenceKey": "xcpng",
+      "notes": "XCP-ng/XO can approach Overlay and underlay integration via XO and XAPI, distinct from Citrix commercial packaging.",
+      "workaround": "Use Xen Orchestra and XAPI for Overlay and underlay integration.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Open-source Xen stack; not Citrix branded feature parity and not VCF."
+    },
+    "VCF-05-F06": {
+      "parity": "Partial Parity",
+      "primaryComponent": "XCP-ng / Xen Orchestra",
+      "evidenceKey": "xcpng",
+      "notes": "XCP-ng/XO can approach DNS / DHCP / network services via XO and XAPI, distinct from Citrix commercial packaging.",
+      "workaround": "Use Xen Orchestra and XAPI for DNS / DHCP / network services.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Open-source Xen stack; not Citrix branded feature parity and not VCF."
+    },
+    "VCF-05-F07": {
+      "parity": "No Parity",
+      "primaryComponent": "N/A",
+      "evidenceKey": "xcpng",
+      "notes": "No XCP-ng equivalent for VCF Network observability basics (NSX DFW, VKS, SDDC Manager)."
+    },
+    "VCF-06-F01": {
+      "parity": "No Parity",
+      "primaryComponent": "N/A",
+      "evidenceKey": "xcpng",
+      "notes": "No XCP-ng equivalent for VCF Distributed firewall (NSX DFW, VKS, SDDC Manager)."
+    },
+    "VCF-06-F02": {
+      "parity": "No Parity",
+      "primaryComponent": "N/A",
+      "evidenceKey": "xcpng",
+      "notes": "No XCP-ng equivalent for VCF Gateway firewall (NSX DFW, VKS, SDDC Manager)."
+    },
+    "VCF-06-F03": {
+      "parity": "No Parity",
+      "primaryComponent": "N/A",
+      "evidenceKey": "xcpng",
+      "notes": "No XCP-ng equivalent for VCF Security groups / dynamic membership (NSX DFW, VKS, SDDC Manager)."
+    },
+    "VCF-06-F04": {
+      "parity": "No Parity",
+      "primaryComponent": "N/A",
+      "evidenceKey": "xcpng",
+      "notes": "No XCP-ng equivalent for VCF IDS/IPS or advanced threat controls (NSX DFW, VKS, SDDC Manager)."
+    },
+    "VCF-06-F05": {
+      "parity": "No Parity",
+      "primaryComponent": "N/A",
+      "evidenceKey": "xcpng",
+      "notes": "No XCP-ng equivalent for VCF Identity / context-aware controls (NSX DFW, VKS, SDDC Manager)."
+    },
+    "VCF-06-F06": {
+      "parity": "No Parity",
+      "primaryComponent": "N/A",
+      "evidenceKey": "xcpng",
+      "notes": "No XCP-ng equivalent for VCF Policy lifecycle and change control (NSX DFW, VKS, SDDC Manager)."
+    },
+    "VCF-06-F07": {
+      "parity": "No Parity",
+      "primaryComponent": "N/A",
+      "evidenceKey": "xcpng",
+      "notes": "No XCP-ng equivalent for VCF Security posture reporting (NSX DFW, VKS, SDDC Manager)."
+    },
+    "VCF-07-F01": {
+      "parity": "Partial Parity",
+      "primaryComponent": "XCP-ng / Xen Orchestra",
+      "evidenceKey": "xcpng",
+      "notes": "XCP-ng/XO can approach Infrastructure monitoring via XO and XAPI, distinct from Citrix commercial packaging.",
+      "workaround": "Use Xen Orchestra and XAPI for Infrastructure monitoring.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Open-source Xen stack; not Citrix branded feature parity and not VCF."
+    },
+    "VCF-07-F02": {
+      "parity": "Partial Parity",
+      "primaryComponent": "XCP-ng / Xen Orchestra",
+      "evidenceKey": "xcpng",
+      "notes": "XCP-ng/XO can approach Log collection and analysis via XO and XAPI, distinct from Citrix commercial packaging.",
+      "workaround": "Use Xen Orchestra and XAPI for Log collection and analysis.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Open-source Xen stack; not Citrix branded feature parity and not VCF."
+    },
+    "VCF-07-F03": {
+      "parity": "No Parity",
+      "primaryComponent": "N/A",
+      "evidenceKey": "xcpng",
+      "notes": "No XCP-ng equivalent for VCF Capacity and performance planning (NSX DFW, VKS, SDDC Manager)."
+    },
+    "VCF-07-F04": {
+      "parity": "No Parity",
+      "primaryComponent": "N/A",
+      "evidenceKey": "xcpng",
+      "notes": "No XCP-ng equivalent for VCF Configuration and compliance monitoring (NSX DFW, VKS, SDDC Manager)."
+    },
+    "VCF-07-F05": {
+      "parity": "Partial Parity",
+      "primaryComponent": "XCP-ng / Xen Orchestra",
+      "evidenceKey": "xcpng",
+      "notes": "XCP-ng/XO can approach Service/application awareness via XO and XAPI, distinct from Citrix commercial packaging.",
+      "workaround": "Use Xen Orchestra and XAPI for Service/application awareness.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Open-source Xen stack; not Citrix branded feature parity and not VCF."
+    },
+    "VCF-07-F06": {
+      "parity": "No Parity",
+      "primaryComponent": "N/A",
+      "evidenceKey": "xcpng",
+      "notes": "No XCP-ng equivalent for VCF Alerting and notification routing (NSX DFW, VKS, SDDC Manager)."
+    },
+    "VCF-07-F07": {
+      "parity": "Partial Parity",
+      "primaryComponent": "XCP-ng / Xen Orchestra",
+      "evidenceKey": "xcpng",
+      "notes": "XCP-ng/XO can approach Operational reporting and evidence via XO and XAPI, distinct from Citrix commercial packaging.",
+      "workaround": "Use Xen Orchestra and XAPI for Operational reporting and evidence.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Open-source Xen stack; not Citrix branded feature parity and not VCF."
+    },
+    "VCF-08-F01": {
+      "parity": "Partial Parity",
+      "primaryComponent": "XCP-ng / Xen Orchestra",
+      "evidenceKey": "xcpng",
+      "notes": "XCP-ng/XO can approach Service catalog / self-service requests via XO and XAPI, distinct from Citrix commercial packaging.",
+      "workaround": "Use Xen Orchestra and XAPI for Service catalog / self-service requests.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Open-source Xen stack; not Citrix branded feature parity and not VCF."
+    },
+    "VCF-08-F02": {
+      "parity": "Full Parity",
+      "primaryComponent": "XCP-ng / Xen Orchestra",
+      "evidenceKey": "xcpng",
+      "notes": "XCP-ng with Xen Orchestra provides Infrastructure as code / templates on the open-source Xen stack."
+    },
+    "VCF-08-F03": {
+      "parity": "Partial Parity",
+      "primaryComponent": "XCP-ng / Xen Orchestra",
+      "evidenceKey": "xcpng",
+      "notes": "XCP-ng/XO can approach Approval and governance workflows via XO and XAPI, distinct from Citrix commercial packaging.",
+      "workaround": "Use Xen Orchestra and XAPI for Approval and governance workflows.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Open-source Xen stack; not Citrix branded feature parity and not VCF."
+    },
+    "VCF-08-F04": {
+      "parity": "No Parity",
+      "primaryComponent": "N/A",
+      "evidenceKey": "xcpng",
+      "notes": "No XCP-ng equivalent for VCF Day-2 automation actions (NSX DFW, VKS, SDDC Manager)."
+    },
+    "VCF-08-F05": {
+      "parity": "Partial Parity",
+      "primaryComponent": "XCP-ng / Xen Orchestra",
+      "evidenceKey": "xcpng",
+      "notes": "XCP-ng/XO can approach Multi-tenancy and entitlement via XO and XAPI, distinct from Citrix commercial packaging.",
+      "workaround": "Use Xen Orchestra and XAPI for Multi-tenancy and entitlement.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Open-source Xen stack; not Citrix branded feature parity and not VCF."
+    },
+    "VCF-08-F06": {
+      "parity": "Partial Parity",
+      "primaryComponent": "XCP-ng / Xen Orchestra",
+      "evidenceKey": "xcpng",
+      "notes": "XCP-ng/XO can approach Integrations to ITSM / pipelines via XO and XAPI, distinct from Citrix commercial packaging.",
+      "workaround": "Use Xen Orchestra and XAPI for Integrations to ITSM / pipelines.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Open-source Xen stack; not Citrix branded feature parity and not VCF."
+    },
+    "VCF-08-F07": {
+      "parity": "No Parity",
+      "primaryComponent": "N/A",
+      "evidenceKey": "xcpng",
+      "notes": "No XCP-ng equivalent for VCF Automation extensibility (NSX DFW, VKS, SDDC Manager)."
+    },
+    "VCF-09-F01": {
+      "parity": "No Parity",
+      "primaryComponent": "N/A",
+      "evidenceKey": "xcpng",
+      "notes": "No XCP-ng equivalent for VCF Supervisor / cluster lifecycle (NSX DFW, VKS, SDDC Manager)."
+    },
+    "VCF-09-F02": {
+      "parity": "No Parity",
+      "primaryComponent": "N/A",
+      "evidenceKey": "xcpng",
+      "notes": "No XCP-ng equivalent for VCF Workload tenancy and namespaces (NSX DFW, VKS, SDDC Manager)."
+    },
+    "VCF-09-F03": {
+      "parity": "No Parity",
+      "primaryComponent": "N/A",
+      "evidenceKey": "xcpng",
+      "notes": "No XCP-ng equivalent for VCF Container networking & services (NSX DFW, VKS, SDDC Manager)."
+    },
+    "VCF-09-F04": {
+      "parity": "No Parity",
+      "primaryComponent": "N/A",
+      "evidenceKey": "xcpng",
+      "notes": "No XCP-ng equivalent for VCF Persistent storage for containers (NSX DFW, VKS, SDDC Manager)."
+    },
+    "VCF-09-F05": {
+      "parity": "No Parity",
+      "primaryComponent": "N/A",
+      "evidenceKey": "xcpng",
+      "notes": "No XCP-ng equivalent for VCF Registry / package / content services (NSX DFW, VKS, SDDC Manager)."
+    },
+    "VCF-09-F06": {
+      "parity": "No Parity",
+      "primaryComponent": "N/A",
+      "evidenceKey": "xcpng",
+      "notes": "No XCP-ng equivalent for VCF Platform security controls (NSX DFW, VKS, SDDC Manager)."
+    },
+    "VCF-09-F07": {
+      "parity": "No Parity",
+      "primaryComponent": "N/A",
+      "evidenceKey": "xcpng",
+      "notes": "No XCP-ng equivalent for VCF Developer self-service experience (NSX DFW, VKS, SDDC Manager)."
+    },
+    "VCF-10-F01": {
+      "parity": "Partial Parity",
+      "primaryComponent": "XCP-ng / Xen Orchestra",
+      "evidenceKey": "xcpng",
+      "notes": "XCP-ng/XO can approach Bulk / cold migration via XO and XAPI, distinct from Citrix commercial packaging.",
+      "workaround": "Use Xen Orchestra and XAPI for Bulk / cold migration.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Open-source Xen stack; not Citrix branded feature parity and not VCF."
+    },
+    "VCF-10-F02": {
+      "parity": "Partial Parity",
+      "primaryComponent": "XCP-ng / Xen Orchestra",
+      "evidenceKey": "xcpng",
+      "notes": "XCP-ng/XO can approach Live / vMotion-style mobility via XO and XAPI, distinct from Citrix commercial packaging.",
+      "workaround": "Use Xen Orchestra and XAPI for Live / vMotion-style mobility.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Open-source Xen stack; not Citrix branded feature parity and not VCF."
+    },
+    "VCF-10-F03": {
+      "parity": "Partial Parity",
+      "primaryComponent": "XCP-ng / Xen Orchestra",
+      "evidenceKey": "xcpng",
+      "notes": "XCP-ng/XO can approach Replication-assisted migration via XO and XAPI, distinct from Citrix commercial packaging.",
+      "workaround": "Use Xen Orchestra and XAPI for Replication-assisted migration.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Open-source Xen stack; not Citrix branded feature parity and not VCF."
+    },
+    "VCF-10-F04": {
+      "parity": "No Parity",
+      "primaryComponent": "N/A",
+      "evidenceKey": "xcpng",
+      "notes": "No XCP-ng equivalent for VCF Network extension / mobility bridging (NSX DFW, VKS, SDDC Manager)."
+    },
+    "VCF-10-F05": {
+      "parity": "Partial Parity",
+      "primaryComponent": "XCP-ng / Xen Orchestra",
+      "evidenceKey": "xcpng",
+      "notes": "XCP-ng/XO can approach Import / converge workflows via XO and XAPI, distinct from Citrix commercial packaging.",
+      "workaround": "Use Xen Orchestra and XAPI for Import / converge workflows.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Open-source Xen stack; not Citrix branded feature parity and not VCF."
+    },
+    "VCF-10-F06": {
+      "parity": "Partial Parity",
+      "primaryComponent": "XCP-ng / Xen Orchestra",
+      "evidenceKey": "xcpng",
+      "notes": "XCP-ng/XO can approach Mobility planning and wave ops via XO and XAPI, distinct from Citrix commercial packaging.",
+      "workaround": "Use Xen Orchestra and XAPI for Mobility planning and wave ops.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Open-source Xen stack; not Citrix branded feature parity and not VCF."
+    },
+    "VCF-10-F07": {
+      "parity": "No Parity",
+      "primaryComponent": "N/A",
+      "evidenceKey": "xcpng",
+      "notes": "No XCP-ng equivalent for VCF Rollback and fallback posture (NSX DFW, VKS, SDDC Manager)."
+    },
+    "VCF-11-F01": {
+      "parity": "Full Parity",
+      "primaryComponent": "XCP-ng / Xen Orchestra",
+      "evidenceKey": "xcpng",
+      "notes": "XCP-ng with Xen Orchestra provides Backup protection on the open-source Xen stack."
+    },
+    "VCF-11-F02": {
+      "parity": "Full Parity",
+      "primaryComponent": "XCP-ng / Xen Orchestra",
+      "evidenceKey": "xcpng",
+      "notes": "XCP-ng with Xen Orchestra provides Restore and recovery on the open-source Xen stack."
+    },
+    "VCF-11-F03": {
+      "parity": "Partial Parity",
+      "primaryComponent": "XCP-ng / Xen Orchestra",
+      "evidenceKey": "xcpng",
+      "notes": "XCP-ng/XO can approach Replication / DR orchestration via XO and XAPI, distinct from Citrix commercial packaging.",
+      "workaround": "Use Xen Orchestra and XAPI for Replication / DR orchestration.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Open-source Xen stack; not Citrix branded feature parity and not VCF."
+    },
+    "VCF-11-F04": {
+      "parity": "Partial Parity",
+      "primaryComponent": "XCP-ng / Xen Orchestra",
+      "evidenceKey": "xcpng",
+      "notes": "XCP-ng/XO can approach RPO/RTO policy alignment via XO and XAPI, distinct from Citrix commercial packaging.",
+      "workaround": "Use Xen Orchestra and XAPI for RPO/RTO policy alignment.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Open-source Xen stack; not Citrix branded feature parity and not VCF."
+    },
+    "VCF-11-F05": {
+      "parity": "Partial Parity",
+      "primaryComponent": "XCP-ng / Xen Orchestra",
+      "evidenceKey": "xcpng",
+      "notes": "XCP-ng/XO can approach Cyber recovery / immutable posture via XO and XAPI, distinct from Citrix commercial packaging.",
+      "workaround": "Use Xen Orchestra and XAPI for Cyber recovery / immutable posture.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Open-source Xen stack; not Citrix branded feature parity and not VCF."
+    },
+    "VCF-11-F06": {
+      "parity": "Partial Parity",
+      "primaryComponent": "XCP-ng / Xen Orchestra",
+      "evidenceKey": "xcpng",
+      "notes": "XCP-ng/XO can approach Application-consistent protection via XO and XAPI, distinct from Citrix commercial packaging.",
+      "workaround": "Use Xen Orchestra and XAPI for Application-consistent protection.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Open-source Xen stack; not Citrix branded feature parity and not VCF."
+    },
+    "VCF-11-F07": {
+      "parity": "No Parity",
+      "primaryComponent": "N/A",
+      "evidenceKey": "xcpng",
+      "notes": "No XCP-ng equivalent for VCF Resilience reporting and evidence (NSX DFW, VKS, SDDC Manager)."
+    },
+    "VCF-12-F01": {
+      "parity": "Partial Parity",
+      "primaryComponent": "XCP-ng / Xen Orchestra",
+      "evidenceKey": "xcpng",
+      "notes": "XCP-ng/XO can approach GPU / accelerator enablement via XO and XAPI, distinct from Citrix commercial packaging.",
+      "workaround": "Use Xen Orchestra and XAPI for GPU / accelerator enablement.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Open-source Xen stack; not Citrix branded feature parity and not VCF."
+    },
+    "VCF-12-F02": {
+      "parity": "No Parity",
+      "primaryComponent": "N/A",
+      "evidenceKey": "xcpng",
+      "notes": "No XCP-ng equivalent for VCF Model hosting / serving (NSX DFW, VKS, SDDC Manager)."
+    },
+    "VCF-12-F03": {
+      "parity": "No Parity",
+      "primaryComponent": "N/A",
+      "evidenceKey": "xcpng",
+      "notes": "No XCP-ng equivalent for VCF Data pipeline / RAG foundations (NSX DFW, VKS, SDDC Manager)."
+    },
+    "VCF-12-F04": {
+      "parity": "No Parity",
+      "primaryComponent": "N/A",
+      "evidenceKey": "xcpng",
+      "notes": "No XCP-ng equivalent for VCF AI lifecycle / MLOps basics (NSX DFW, VKS, SDDC Manager)."
+    },
+    "VCF-12-F05": {
+      "parity": "No Parity",
+      "primaryComponent": "N/A",
+      "evidenceKey": "xcpng",
+      "notes": "No XCP-ng equivalent for VCF Governance and access control for AI (NSX DFW, VKS, SDDC Manager)."
+    },
+    "VCF-12-F06": {
+      "parity": "No Parity",
+      "primaryComponent": "N/A",
+      "evidenceKey": "xcpng",
+      "notes": "No XCP-ng equivalent for VCF Integration with VCF platform services (NSX DFW, VKS, SDDC Manager)."
+    },
+    "VCF-12-F07": {
+      "parity": "Partial Parity",
+      "primaryComponent": "XCP-ng / Xen Orchestra",
+      "evidenceKey": "xcpng",
+      "notes": "XCP-ng/XO can approach Sovereign / private AI controls via XO and XAPI, distinct from Citrix commercial packaging.",
+      "workaround": "Use Xen Orchestra and XAPI for Sovereign / private AI controls.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Open-source Xen stack; not Citrix branded feature parity and not VCF."
+    }
+  }
+}
