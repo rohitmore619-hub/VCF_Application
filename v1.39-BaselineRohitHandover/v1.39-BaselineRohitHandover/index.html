@@ -878,7 +878,7 @@ html body #v102ExecutiveDecisionView .v119DecisionRail .v117SummaryPanel .v115Se
   <section class="card v082PreflightCard">
     <div class="cardHeader"><h3>Assessment files</h3><span id="v082NewGateStatus" class="pill neutral">Waiting for files</span></div>
     <div class="cardBody">
-      <div class="notice"><b>Required (v1.40):</b> select the Canonical Model workbook (CN <code>.xlsx</code>) and the assessment KB workbooks. The app validates CN structure (12 areas, stable Functionality IDs) and detects VCF KBs and comparator KBs from the loaded KB set before Assessment Basics.</div>
+      <div class="notice"><b>Required (v1.41):</b> select the Canonical Model workbook (CN <code>.xlsx</code>) and the assessment KB workbooks. Scoring uses <code>functionalityId</code>. Optionally replace the bundled rules JSON. The app validates CN structure (12 areas, 252 Functionality IDs) and detects VCF KBs and comparator KBs before Assessment Basics.</div>
       <div class="v082UploadGrid v140UploadGridCnKb">
         <div class="v082UploadBox v140CnBox">
           <h4>1. Canonical Model (CN Excel)</h4>
@@ -897,6 +897,15 @@ html body #v102ExecutiveDecisionView .v119DecisionRail .v117SummaryPanel .v115Se
           </div>
           <input id="v082NewKbFolder" type="file" accept=".xlsx" multiple class="hidden" onchange="handleV082KbInput('new',this.files)">
           <div id="v082NewKbStatus" class="v082UploadStatus">No assessment files selected.</div>
+        </div>
+        <div class="v082UploadBox">
+          <h4>3. Scoring rules (optional)</h4>
+          <p>Default <code>VCF-AFA_Rules_v1.json</code> is bundled. Replace only to override weights and thresholds.</p>
+          <div class="btnRow">
+            <button type="button" class="btn secondary" onclick="v082Click('v141NewRulesFile')">Select Rules JSON</button>
+          </div>
+          <input id="v141NewRulesFile" type="file" accept="application/json,.json" class="hidden" onchange="handleV141RulesInput('new',this.files)">
+          <div id="v141NewRulesStatus" class="v082UploadStatus">Using bundled default rules.</div>
         </div>
       </div>
       <div id="v082NewValidation" class="v082ValidationBox">Select the CN file and assessment KB files to continue.</div>
@@ -945,6 +954,13 @@ html body #v102ExecutiveDecisionView .v119DecisionRail .v117SummaryPanel .v115Se
           <div id="v082ResumeKbStatus" class="v082UploadStatus">No assessment files selected.</div>
         </div>
       </div>
+      <div class="v082UploadBox" style="margin-top:12px">
+        <h4>4. Scoring rules (optional)</h4>
+        <p>Leave empty to keep bundled <code>VCF-AFA_Rules_v1.json</code>.</p>
+        <button type="button" class="btn secondary" onclick="v082Click('v141ResumeRulesFile')">Select Rules JSON</button>
+        <input id="v141ResumeRulesFile" type="file" accept="application/json,.json" class="hidden" onchange="handleV141RulesInput('resume',this.files)">
+        <div id="v141ResumeRulesStatus" class="v082UploadStatus">Using bundled default rules.</div>
+      </div>
       <div id="v082ResumeValidation" class="v082ValidationBox">Select the resume file, CN file, and assessment KB files to continue.</div>
       <div class="btnRow v082PreflightActions">
         <button type="button" class="btn secondary" onclick="showPage('start')">Cancel</button>
@@ -973,6 +989,7 @@ html body #v102ExecutiveDecisionView .v119DecisionRail .v117SummaryPanel .v115Se
         <div class="v083WelcomeActions" aria-label="Assessment entry actions">
           <button type="button" class="btn magenta" onclick="beginNewAssessmentV082()">New Assessment</button>
           <button type="button" class="btn secondary" onclick="beginResumeAssessmentV082()">Resume Assessment</button>
+          <button type="button" class="btn ghost" onclick="showPage('toolConfig')">Scoring rules</button>
         </div>
 
         <div class="welcomeValueGrid" aria-label="Assessment value summary">
@@ -1486,17 +1503,25 @@ Status: Manual review required before approval</pre>
   </section>
 </div>
 <div id="page-promoteKb" class="page hidden"><div class="topline"><div class="title"><h2>Promote Knowledge Base</h2><p>Promote reviewed KB drafts into the Active knowledge-base area. This workflow remains manual and validation-controlled.</p></div><div class="tag">Administration / promotion</div></div><section class="card"><div class="cardHeader"><h3>Promotion Control</h3><span class="pill warn">Planned workflow</span></div><div class="cardBody"><div class="notice"><b>Promotion principle:</b> AI or tooling may generate draft KB content, but only human-reviewed and approved files should be deployed as Active KBs.</div><button type="button" class="btn magenta" onclick="showPage('kb')">Load / Validate Active KBs</button></div></section></div>
-<div id="page-toolConfig" class="page hidden"><div class="topline"><div class="title"><h2>Tool Configuration</h2><p>View local prototype settings and planned configuration areas. No database or server-side configuration is used.</p></div><div class="tag">Administration / local browser</div></div><section class="card"><div class="cardHeader"><h3>Configuration</h3><span class="pill blue">Browser local</span></div><div class="cardBody"><div class="placeholderList"><div class="placeholderCard"><h4>File handling</h4><p>User-selected imports and user-saved exports remain the operating model.</p></div><div class="placeholderCard"><h4>Scoring</h4><p>Decision weighting can be adjusted inside the assessment profile.</p></div><div class="placeholderCard"><h4>Offline readiness</h4><p>Future release should package SheetJS locally for air-gapped use.</p></div></div></div></section></div>
+<div id="page-toolConfig" class="page hidden"><div class="topline"><div class="title"><h2>Scoring rules</h2><p>View and apply the active feasibility ruleset for this browser session. No server is used.</p></div><div class="tag">Administration / local browser</div></div><section class="card"><div class="cardHeader"><h3>Active ruleset</h3><span id="v141RulesPill" class="pill blue">VCF-AFA_Rules_v1</span></div><div class="cardBody">
+<div class="notice">Scoring key is <code>functionalityId</code>. Changes apply to this session only until you download JSON and reload it at Initialization.</div>
+<div id="v141RulesForm"></div>
+<div class="btnRow" style="margin-top:16px">
+<button type="button" class="btn magenta" onclick="v141ApplyRulesFromForm()">Apply to this session</button>
+<button type="button" class="btn secondary" onclick="v141DownloadRules()">Download rules JSON</button>
+<button type="button" class="btn ghost" onclick="showPage('start')">Back</button>
+</div>
+</div></section></div>
 <div id="page-helpCenter" class="page hidden"><div class="topline"><div class="title"><h2>Help Center</h2><p>Guidance for the assessment process, feasibility logic, and generated reports.</p></div><div class="tag">Help / guidance</div></div><section class="card"><div class="cardHeader"><h3>Help Topics</h3><span class="pill blue">Reference</span></div><div class="cardBody"><div class="placeholderList"><div class="placeholderCard"><h4>Assessment Guide</h4><p>Understand the guided journey from setup through final results.</p><button type="button" class="btn secondary btnMini" onclick="showPage('helpAssessment')">Open</button></div><div class="placeholderCard"><h4>Feasibility Logic</h4><p>Review how requirement ratings and parity results determine feasibility.</p><button type="button" class="btn secondary btnMini" onclick="showPage('helpFeasibility')">Open</button></div><div class="placeholderCard"><h4>Report Guide</h4><p>Understand the intended executive, technical, and detailed report outputs.</p><button type="button" class="btn secondary btnMini" onclick="showPage('helpReports')">Open</button></div></div></div></section></div>
 <div id="page-helpAssessment" class="page hidden"><div class="topline"><div class="title"><h2>Assessment Guide</h2><p>The assessment captures VCF baseline context, technical requirements, non-technical priorities, comparator parity, and final feasibility.</p></div><div class="tag">Help / assessment</div></div><section class="card"><div class="cardHeader"><h3>Assessment Journey</h3><span class="pill blue">Guidance</span></div><div class="cardBody"><ol><li>Capture assessment context and non-technical inputs.</li><li>Load the approved Active KB files and select the VCF baseline.</li><li>Capture technical requirements.</li><li>Run the VCF-to-comparator analysis.</li><li>Review heat maps, blockers, risks, and report outputs.</li></ol></div></section></div>
 <div id="page-helpFeasibility" class="page hidden"><div class="topline"><div class="title"><h2>Feasibility Logic</h2><p>Feasibility is driven by requirement criticality and comparator parity.</p></div><div class="tag">Help / logic</div></div><section class="card"><div class="cardHeader"><h3>Core Rule</h3><span class="pill purple">Feasibility</span></div><div class="cardBody"><div class="placeholderList"><div class="placeholderCard"><h4>Required + Full Parity</h4><p>Feasible.</p></div><div class="placeholderCard"><h4>Required + Partial Parity</h4><p>Feasible with considerations, risk, or mitigation.</p></div><div class="placeholderCard"><h4>Required + No Parity</h4><p>Not feasible unless requirement or solution assumptions change.</p></div></div></div></section></div>
 <div id="page-helpReports" class="page hidden"><div class="topline"><div class="title"><h2>Report Guide</h2><p>Reports are intended to support executive decisions and technical follow-up.</p></div><div class="tag">Help / reports</div></div><section class="card"><div class="cardHeader"><h3>Report Content</h3><span class="pill blue">Guidance</span></div><div class="cardBody"><ul><li>Executive feasibility summary.</li><li>Comparator recommendation view.</li><li>Technical parity heat map.</li><li>Required gap and risk analysis.</li><li>Non-technical strategic considerations summary.</li><li>Recommended next steps.</li></ul></div></section></div>
 
-<div class="cpsFooter">Tool Version v1.40 | Release Date 2026-08-10</div>
+<div class="cpsFooter">Tool Version v1.41 | Release Date 2026-09-07</div>
   </div>
 </main>
 <script>
-const APP_VERSION='v1.40';
+const APP_VERSION='v1.41';
 const REQUIRED_TABS=["00_ReadMe","01_Metadata","02_FunctionalityMaster","03_FeatureEvidenceRegister","90_Lists","99_ChangeLog"];
 const RATING_WEIGHTS={"Required":4,"Important":3,"Nice To Have":2,"Not Required":0,"Unknown":1};
 const BUSINESS_CRITERIA=[
@@ -10316,8 +10341,8 @@ html body #v102ExecutiveDecisionView .v119ModuleScrollFrame .v117RecommendationC
 /* v1.40 Canonical Model (CN) upload + validation on Initialization */
 (function(){
   'use strict';
-  var V='v1.40';
-  var RELEASE_DATE='2026-08-10';
+  var V='v1.41';
+  var RELEASE_DATE='2026-09-07';
   var EXPECTED_PRODUCTS=[
     'VCF Platform / Fleet / Workload Domains',
     'VCF Installer / SDDC Manager / Lifecycle Services',
@@ -10778,6 +10803,240 @@ html body #v102ExecutiveDecisionView .v119ModuleScrollFrame .v117RecommendationC
   }
   if(document.readyState==='loading') document.addEventListener('DOMContentLoaded', boot);
   else boot();
+})();
+</script>
+<script>
+/* v1.41 functionalityId scoring + rules JSON + thin Administration */
+(function(){
+  'use strict';
+  var DEFAULT_RULES={
+    schemaVersion:'1.0',rulesetId:'VCF-AFA_Rules_v1',scoringKey:'functionalityId',cnVersion:'v0.3',
+    ratingWeights:{Required:4,Important:3,'Nice To Have':2,'Not Required':0,Unknown:1},
+    parityScores:{'Full Parity':1,'Partial Parity':0.55,'No Parity':0,Unknown:0},
+    defaultTechnicalWeight:80,defaultDecisionWeight:20,
+    feasibility:{feasibleMinOverall:75,requiredNoParityIsBlocker:true,requiredOrImportantPartialIsRisk:true},
+    heat:{requiredNoParity:5,requiredOrImportantPartial:4,importantNoParity:4,otherNoParity:3,partial:2,full:1},
+    businessCriteria:typeof BUSINESS_CRITERIA!=='undefined'?BUSINESS_CRITERIA:[]
+  };
+  function clone(o){return JSON.parse(JSON.stringify(o||{}));}
+  function getRules(){
+    if(window.state&&state.rules&&state.rules.scoringKey)return state.rules;
+    if(!window.state)window.state={};
+    state.rules=clone(DEFAULT_RULES);
+    return state.rules;
+  }
+  function setRules(obj, source){
+    if(!obj||obj.scoringKey!=='functionalityId')throw new Error('Rules JSON must set scoringKey to functionalityId');
+    state.rules=obj;
+    state.rulesSource=source||obj.rulesetId||'custom';
+    try{if($('v141RulesPill'))pill('v141RulesPill','ok',obj.rulesetId||'rules');}catch(e){}
+    try{renderV141RulesForm();}catch(e){}
+  }
+  window.getV141Rules=getRules;
+  window.handleV141RulesInput=function(mode, files){
+    var f=files&&files[0];
+    var statusId=mode==='resume'?'v141ResumeRulesStatus':'v141NewRulesStatus';
+    if(!f){if($(statusId))$(statusId).textContent='Using bundled default rules.';return;}
+    var rd=new FileReader();
+    rd.onload=function(){
+      try{
+        var obj=JSON.parse(rd.result);
+        setRules(obj, f.name);
+        if($(statusId))$(statusId).innerHTML='Loaded <b>'+escapeHtml(f.name)+'</b> ('+escapeHtml(obj.rulesetId||'')+').';
+      }catch(e){
+        if($(statusId))$(statusId).textContent='Rules JSON failed: '+e.message;
+      }
+    };
+    rd.readAsText(f);
+  };
+  function renderV141RulesForm(){
+    var el=$('v141RulesForm'); if(!el)return;
+    var r=getRules();
+    var w=r.ratingWeights||{};
+    var p=r.parityScores||{};
+    var f=r.feasibility||{};
+    el.innerHTML='<p><b>Ruleset:</b> '+escapeHtml(r.rulesetId||'')+' · scoring key <code>'+escapeHtml(r.scoringKey||'')+'</code></p>'+
+      '<div class="formGrid" style="grid-template-columns:repeat(2,minmax(0,1fr));max-width:720px">'+
+      '<div class="formField"><label>Required weight</label><input id="v141wReq" type="number" value="'+(w.Required||4)+'"></div>'+
+      '<div class="formField"><label>Important weight</label><input id="v141wImp" type="number" value="'+(w.Important||3)+'"></div>'+
+      '<div class="formField"><label>Nice To Have weight</label><input id="v141wNice" type="number" value="'+(w['Nice To Have']||2)+'"></div>'+
+      '<div class="formField"><label>Partial parity score</label><input id="v141pPartial" type="number" step="0.01" value="'+(p['Partial Parity']||0.55)+'"></div>'+
+      '<div class="formField"><label>Feasible min overall</label><input id="v141feasMin" type="number" value="'+(f.feasibleMinOverall||75)+'"></div>'+
+      '<div class="formField"><label>Default decision weight %</label><input id="v141decW" type="number" value="'+(r.defaultDecisionWeight||20)+'"></div>'+
+      '</div>';
+  }
+  window.v141ApplyRulesFromForm=function(){
+    var r=clone(getRules());
+    r.ratingWeights=r.ratingWeights||{};
+    r.parityScores=r.parityScores||{};
+    r.feasibility=r.feasibility||{};
+    if($('v141wReq')) r.ratingWeights.Required=Number($('v141wReq').value);
+    if($('v141wImp')) r.ratingWeights.Important=Number($('v141wImp').value);
+    if($('v141wNice')) r.ratingWeights['Nice To Have']=Number($('v141wNice').value);
+    if($('v141pPartial')) r.parityScores['Partial Parity']=Number($('v141pPartial').value);
+    if($('v141feasMin')) r.feasibility.feasibleMinOverall=Number($('v141feasMin').value);
+    if($('v141decW')) r.defaultDecisionWeight=Number($('v141decW').value);
+    setRules(r, 'session-edit');
+    alert('Rules applied to this session.');
+  };
+  window.v141DownloadRules=function(){
+    var r=getRules();
+    downloadBlob(new Blob([JSON.stringify(r,null,2)],{type:'application/json'}),(r.rulesetId||'VCF-AFA_Rules')+'.json');
+  };
+  function isFnId(id){return /^VCF-\d{2}-F\d{2}-FN\d{2}$/.test(id)||/-P-VCF-\d{2}-F\d{2}-FN\d{2}$/.test(id);}
+  function decorateKb(kb){
+    kb.functionalities=[]; kb.functionalityIndex={};
+    (kb.functions||[]).forEach(function(r){
+      var gid=val(r,'FunctionalityID')||val(r,'ComparatorFunctionalityID');
+      if(!gid)return;
+      var rec={FunctionalityID:gid,FunctionalityName:val(r,'FunctionalityName')||val(r,'Functionality'),FeatureID:val(r,'FeatureID'),FeatureName:val(r,'FeatureName'),DomainName:val(r,'DomainName'),CapabilityName:val(r,'CapabilityName'),row:r};
+      kb.functionalities.push(rec);
+      kb.functionalityIndex[gid]=rec;
+    });
+    var hits=(kb.functionalities||[]).filter(function(x){return isFnId(x.FunctionalityID);}).length;
+    kb.scoringEncoding=hits>=12?'functionalityId':'featureId';
+    if(kb.type==='Comparator'&&kb.scoringEncoding!=='functionalityId'){
+      kb.warnings=(kb.warnings||[]).concat(['FunctionalityID scoring required; this KB is Feature-encoded and will not be scored.']);
+    }
+    return kb;
+  }
+  var priorParse=window.parseKbWorkbook;
+  window.parseKbWorkbook=function(fileName,wb,relativePath){
+    var kb=typeof priorParse==='function'?priorParse(fileName,wb,relativePath):{fileName:fileName,functions:[],warnings:[],type:'Unknown'};
+    return decorateKb(kb);
+  };
+  var priorSync=window.syncEffectiveFeatureRequirements;
+  window.syncEffectiveFeatureRequirements=function(){
+    if(typeof priorSync==='function') priorSync();
+    try{
+      var vcf=typeof selectedVcfKb==='function'?selectedVcfKb():null;
+      if(!vcf)return;
+      var hier=typeof buildReqHierarchy==='function'?buildReqHierarchy():[];
+      hier.forEach(function(d){
+        (d.capabilities||[]).forEach(function(c){
+          (c.features||[]).forEach(function(f){
+            (f.functionalities||[]).forEach(function(fn){
+              var rating=typeof effectiveFunctionalityRating==='function'?effectiveFunctionalityRating(fn,f,c.key):(state.requirements[f.FeatureID]||'Unknown');
+              if(fn.id) state.requirements[fn.id]=rating;
+            });
+          });
+        });
+      });
+    }catch(e){console.warn('v1.41 FN requirement cascade',e);}
+  };
+  function matchFn(comp, fnId, fnName){
+    if(comp.functionalityIndex&&comp.functionalityIndex[fnId]) return {parity:'Full Parity', rec:comp.functionalityIndex[fnId]};
+    var keys=Object.keys(comp.functionalityIndex||{});
+    var pk=keys.find(function(k){return k.endsWith('-P-'+fnId);});
+    if(pk) return {parity:'Partial Parity', rec:comp.functionalityIndex[pk]};
+    var name=(fnName||'').toLowerCase();
+    if(name){
+      var hit=(comp.functionalities||[]).find(function(x){return String(x.FunctionalityName||'').toLowerCase()===name && x.FunctionalityID!==fnId;});
+      if(hit) return {parity:'Partial Parity', rec:hit};
+    }
+    return {parity:'No Parity', rec:null};
+  }
+  function listVcfFns(vcf){
+    return (vcf.functionalities||[]).filter(function(x){return /^VCF-\d{2}-F\d{2}-FN\d{2}$/.test(x.FunctionalityID);});
+  }
+  function heatFor(parity, req, rules){
+    var h=rules.heat||{};
+    if(req==='Required'&&parity==='No Parity') return h.requiredNoParity||5;
+    if((req==='Required'||req==='Important')&&parity==='Partial Parity') return h.requiredOrImportantPartial||4;
+    if(req==='Important'&&parity==='No Parity') return h.importantNoParity||4;
+    if(parity==='No Parity') return h.otherNoParity||3;
+    if(parity==='Partial Parity') return h.partial||2;
+    return h.full||1;
+  }
+  var priorRun=window.runAnalysis;
+  window.runAnalysis=function(){
+    if(typeof window.syncEffectiveFeatureRequirements==='function') window.syncEffectiveFeatureRequirements();
+    var vcf=selectedVcfKb();
+    if(!vcf){alert('Load/select a VCF KB first.');showPage('kb');return;}
+    var comps=selectedComparators();
+    if(!comps.length){alert('Load/select at least one comparator KB.');showPage('profile');return;}
+    var fnComps=comps.filter(function(c){return c.scoringEncoding==='functionalityId';});
+    var skipped=comps.filter(function(c){return c.scoringEncoding!=='functionalityId';});
+    if(!fnComps.length){
+      alert('No comparator KB is encoded for functionalityId scoring. Load Core/NCP CN v0.3 Evidence workbooks (not Feature-encoded Extended KBs).');
+      return;
+    }
+    var rules=getRules();
+    var weights=rules.ratingWeights||(typeof RATING_WEIGHTS!=='undefined'?RATING_WEIGHTS:{Required:4,Important:3,'Nice To Have':2,'Not Required':0,Unknown:1});
+    var pScores=rules.parityScores||{'Full Parity':1,'Partial Parity':0.55,'No Parity':0};
+    var fns=listVcfFns(vcf);
+    if(fns.length<12){
+      if(typeof priorRun==='function') return priorRun();
+      alert('VCF KB is missing FunctionalityID rows.');
+      return;
+    }
+    var assessed=fns.filter(function(fn){var req=state.requirements[fn.FunctionalityID]||state.requirements[fn.FeatureID]||'Unknown';return req!=='Not Required';});
+    var decWeight=typeof decisionWeight==='function'?decisionWeight():(rules.defaultDecisionWeight||20);
+    var techWeight=100-decWeight;
+    var details=[];
+    var results=fnComps.map(function(c){
+      var full=0,partial=0,no=0,blockers=0,risks=0,weighted=0,max=0;
+      assessed.forEach(function(fn){
+        var req=state.requirements[fn.FunctionalityID]||state.requirements[fn.FeatureID]||'Unknown';
+        var w=weights[req]; if(w==null) w=1; if(w===0)return;
+        var m=matchFn(c, fn.FunctionalityID, fn.FunctionalityName);
+        var parity=m.parity;
+        var score=pScores[parity]; if(score==null) score=0;
+        if(parity==='Full Parity') full++; else if(parity==='Partial Parity') partial++; else no++;
+        if(parity==='No Parity'&&req==='Required') blockers++;
+        if(parity==='Partial Parity'&&(req==='Required'||req==='Important')) risks++;
+        weighted+=score*w; max+=w;
+        details.push({Comparator:c.fileName.replace(/\.xlsx$/,''),Baseline:c.baseline,Requirement:req,Parity:parity,DomainName:fn.DomainName||displayDomain({DomainName:fn.DomainName,FeatureName:fn.FeatureName,functionNames:[fn.FunctionalityName]}),CapabilityName:fn.CapabilityName||'',FeatureName:fn.FeatureName||'',FunctionalityID:fn.FunctionalityID,FunctionalityName:fn.FunctionalityName,Components:'',EvidenceURL:'',Heat:heatFor(parity,req,rules)});
+      });
+      var technicalScore=max?Math.round((weighted/max)*100):0;
+      var decisionScore=Math.round(typeof calcDecisionScore==='function'?calcDecisionScore(c):60);
+      var combined=Math.round((technicalScore*techWeight+decisionScore*decWeight)/100);
+      var feasMin=(rules.feasibility&&rules.feasibility.feasibleMinOverall)||75;
+      var feasibility=blockers?'Not Feasible':risks?'Feasible With Risk':combined>=feasMin?'Feasible':'Feasible With Risk';
+      return {Comparator:c.fileName.replace(/\.xlsx$/,''),Baseline:c.baseline,Feasibility:feasibility,TechnicalScore:technicalScore,DecisionScore:decisionScore,OverallScore:combined,Full:full,Partial:partial,NoParity:no,Blockers:blockers,Risks:risks,ScoringKey:'functionalityId'};
+    });
+    skipped.forEach(function(c){
+      results.push({Comparator:c.fileName.replace(/\.xlsx$/,''),Baseline:c.baseline,Feasibility:'Not scored',TechnicalScore:0,DecisionScore:0,OverallScore:0,Full:0,Partial:0,NoParity:0,Blockers:0,Risks:0,ScoringKey:'skipped-feature-encoded'});
+    });
+    state.analysis={runOn:new Date().toISOString(),vcf:vcf.fileName,requiredFeatures:assessed.length,assessedFunctionalities:assessed.length,results,details,decisionWeight:decWeight,technicalWeight:techWeight,rulesetId:rules.rulesetId,scoringKey:'functionalityId'};
+    if(typeof pill==='function') pill('analysisStatus','ok','Analysis complete');
+    if($('analysisMsg')){$('analysisMsg').className='okBox';$('analysisMsg').textContent='Analysis complete for '+fnComps.length+' functionalityId comparator(s), '+assessed.length+' assessed functionalities'+(skipped.length?' ('+skipped.length+' Feature-encoded KB(s) skipped)':'')+'.';}
+    if(typeof renderResults==='function') renderResults();
+    showPage('results');
+  };
+  var priorEnhanced=window.enhancedAssessmentObject;
+  window.enhancedAssessmentObject=function(){
+    var obj=typeof priorEnhanced==='function'?priorEnhanced.apply(this,arguments):{profile:{}};
+    var r=getRules();
+    obj.applicationVersion='v1.41';
+    obj.rulesetId=r.rulesetId;
+    obj.scoringKey='functionalityId';
+    obj.profile=Object.assign({},obj.profile||{},{applicationVersion:'v1.41',rulesetId:r.rulesetId,scoringKey:'functionalityId',cnScoringKey:'functionalityId'});
+    return obj;
+  };
+  fetch('VCF-AFA_Rules_v1.json').then(function(res){return res.ok?res.json():null;}).then(function(obj){if(obj) setRules(obj,'bundled'); else setRules(clone(DEFAULT_RULES),'embedded-default');}).catch(function(){setRules(clone(DEFAULT_RULES),'embedded-default');});
+  var priorShow=window.showPage;
+  window.showPage=function(page){
+    var r=typeof priorShow==='function'?priorShow.apply(this,arguments):undefined;
+    if(page==='toolConfig') renderV141RulesForm();
+    setTimeout(function(){
+      try{
+        document.querySelectorAll('.cpsFooter').forEach(function(n){n.textContent='Tool Version v1.41 | Release Date 2026-09-07';});
+        document.title='VCF-AFA Application Prototype v1.41';
+      }catch(e){}
+    },120);
+    return r;
+  };
+  try{
+    var menu=document.getElementById('menu-assessment');
+    if(menu&&!menu.querySelector('[data-v141-rules]')){
+      var b=document.createElement('button');
+      b.type='button'; b.className='navDropBtn'; b.setAttribute('role','menuitem'); b.setAttribute('data-v141-rules','1');
+      b.textContent='Scoring rules';
+      b.onclick=function(){showPage('toolConfig');};
+      menu.appendChild(b);
+    }
+  }catch(e){}
 })();
 </script>
 
