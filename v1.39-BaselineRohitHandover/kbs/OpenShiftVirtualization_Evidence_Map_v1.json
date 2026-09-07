@@ -48,696 +48,1762 @@
     "rhoai": "https://docs.redhat.com/en/documentation/red_hat_openshift_ai"
   },
   "status": "evidence_backed_draft",
+  "scoringKey": "functionalityId",
   "features": {
-    "VCF-01-F01": {
-      "parity": "Partial Parity",
+    "VCF-01-F01-FN01": {
       "primaryComponent": "OpenShift web console",
       "evidenceKey": "ocp",
-      "notes": "Cluster/node inventory exists; not VCF fleet/workload domains.",
+      "parity": "Partial Parity",
+      "notes": "Cluster/node inventory exists; not VCF fleet/workload domains. Functionality: Discover hosts and clusters.",
       "workaround": "Use OpenShift console and ACM for multi-cluster inventory.",
       "workaroundComplexity": "Medium",
       "technicalImpact": "No VCF domain topology."
     },
-    "VCF-01-F02": {
+    "VCF-01-F01-FN02": {
+      "primaryComponent": "OpenShift web console",
+      "evidenceKey": "ocp",
+      "parity": "Full Parity",
+      "notes": "Cluster/node inventory exists; not VCF fleet/workload domains. Functionality: View domain membership."
+    },
+    "VCF-01-F01-FN03": {
+      "primaryComponent": "OpenShift web console",
+      "evidenceKey": "ocp",
       "parity": "No Parity",
+      "notes": "Cluster/node inventory exists; not VCF fleet/workload domains. Functionality: Track capacity summary."
+    },
+    "VCF-01-F02-FN01": {
       "primaryComponent": "N/A",
       "evidenceKey": "ocp",
-      "notes": "No VCF Workload Domain lifecycle."
+      "parity": "No Parity",
+      "notes": "No VCF Workload Domain lifecycle. Functionality: Create workload domain."
     },
-    "VCF-01-F03": {
-      "parity": "Partial Parity",
+    "VCF-01-F02-FN02": {
+      "primaryComponent": "N/A",
+      "evidenceKey": "ocp",
+      "parity": "No Parity",
+      "notes": "No VCF Workload Domain lifecycle. Functionality: Expand workload domain."
+    },
+    "VCF-01-F02-FN03": {
+      "primaryComponent": "N/A",
+      "evidenceKey": "ocp",
+      "parity": "No Parity",
+      "notes": "No VCF Workload Domain lifecycle. Functionality: Delete/decommission domain."
+    },
+    "VCF-01-F03-FN01": {
       "primaryComponent": "MachineSets",
       "evidenceKey": "ocp",
-      "notes": "Node add/remove via Machine API, not VCF cluster composition.",
+      "parity": "Partial Parity",
+      "notes": "Node add/remove via Machine API, not VCF cluster composition. Functionality: Add hosts to cluster.",
       "workaround": "Scale MachineSets / host scaling.",
       "workaroundComplexity": "Medium",
       "technicalImpact": "Host model is Kubernetes Machines, not ESXi clusters."
     },
-    "VCF-01-F04": {
-      "parity": "Partial Parity",
+    "VCF-01-F03-FN02": {
+      "primaryComponent": "MachineSets",
+      "evidenceKey": "ocp",
+      "parity": "Full Parity",
+      "notes": "Node add/remove via Machine API, not VCF cluster composition. Functionality: Remove hosts from cluster."
+    },
+    "VCF-01-F03-FN03": {
+      "primaryComponent": "MachineSets",
+      "evidenceKey": "ocp",
+      "parity": "No Parity",
+      "notes": "Node add/remove via Machine API, not VCF cluster composition. Functionality: Validate cluster readiness."
+    },
+    "VCF-01-F04-FN01": {
       "primaryComponent": "ACM / Hive",
       "evidenceKey": "acm",
-      "notes": "Hub vs spoke isolation via ACM, not VCF management domain.",
+      "parity": "Partial Parity",
+      "notes": "Hub vs spoke isolation via ACM, not VCF management domain. Functionality: Maintain management domain isolation.",
       "workaround": "Use ACM hub cluster plus managed clusters.",
       "workaroundComplexity": "Medium",
       "technicalImpact": "Isolation model differs."
     },
-    "VCF-01-F05": {
-      "parity": "Partial Parity",
+    "VCF-01-F04-FN02": {
+      "primaryComponent": "ACM / Hive",
+      "evidenceKey": "acm",
+      "parity": "Full Parity",
+      "notes": "Hub vs spoke isolation via ACM, not VCF management domain. Functionality: Apply domain-specific policies."
+    },
+    "VCF-01-F04-FN03": {
+      "primaryComponent": "ACM / Hive",
+      "evidenceKey": "acm",
+      "parity": "No Parity",
+      "notes": "Hub vs spoke isolation via ACM, not VCF management domain. Functionality: Audit cross-domain dependencies."
+    },
+    "VCF-01-F05-FN01": {
       "primaryComponent": "Assisted Installer / IPI",
       "evidenceKey": "install",
-      "notes": "Node bring-up via Assisted Installer/IPI.",
+      "parity": "Partial Parity",
+      "notes": "Node bring-up via Assisted Installer/IPI. Functionality: Commission host.",
       "workaround": "Commission hosts with Assisted Installer.",
       "workaroundComplexity": "Medium",
       "technicalImpact": "Not VCF host commissioning."
     },
-    "VCF-01-F06": {
-      "parity": "Partial Parity",
+    "VCF-01-F05-FN02": {
+      "primaryComponent": "Assisted Installer / IPI",
+      "evidenceKey": "install",
+      "parity": "Full Parity",
+      "notes": "Node bring-up via Assisted Installer/IPI. Functionality: Validate hardware compatibility."
+    },
+    "VCF-01-F05-FN03": {
+      "primaryComponent": "Assisted Installer / IPI",
+      "evidenceKey": "install",
+      "parity": "No Parity",
+      "notes": "Node bring-up via Assisted Installer/IPI. Functionality: Assign host to domain."
+    },
+    "VCF-01-F06-FN01": {
       "primaryComponent": "GitOps / Policy",
       "evidenceKey": "gitops",
-      "notes": "Desired state via GitOps, not VCF baselines.",
+      "parity": "Partial Parity",
+      "notes": "Desired state via GitOps, not VCF baselines. Functionality: Capture desired state baseline.",
       "workaround": "Enforce cluster desired state with ACM policies/GitOps.",
       "workaroundComplexity": "Medium",
       "technicalImpact": "Drift tooling differs."
     },
-    "VCF-01-F07": {
-      "parity": "Partial Parity",
+    "VCF-01-F06-FN02": {
+      "primaryComponent": "GitOps / Policy",
+      "evidenceKey": "gitops",
+      "parity": "Full Parity",
+      "notes": "Desired state via GitOps, not VCF baselines. Functionality: Detect configuration drift."
+    },
+    "VCF-01-F06-FN03": {
+      "primaryComponent": "GitOps / Policy",
+      "evidenceKey": "gitops",
+      "parity": "No Parity",
+      "notes": "Desired state via GitOps, not VCF baselines. Functionality: Export baseline snapshot."
+    },
+    "VCF-01-F07-FN01": {
       "primaryComponent": "ACM",
       "evidenceKey": "acm",
-      "notes": "Multi-site as multiple clusters.",
+      "parity": "Partial Parity",
+      "notes": "Multi-site as multiple clusters. Functionality: Identify stretched topology.",
       "workaround": "Model sites as ACM-managed clusters.",
       "workaroundComplexity": "High",
       "technicalImpact": "No VCF stretch-domain object."
     },
-    "VCF-02-F01": {
-      "parity": "Partial Parity",
+    "VCF-01-F07-FN02": {
+      "primaryComponent": "ACM",
+      "evidenceKey": "acm",
+      "parity": "Full Parity",
+      "notes": "Multi-site as multiple clusters. Functionality: Track site affinity."
+    },
+    "VCF-01-F07-FN03": {
+      "primaryComponent": "ACM",
+      "evidenceKey": "acm",
+      "parity": "No Parity",
+      "notes": "Multi-site as multiple clusters. Functionality: Surface site failure domains."
+    },
+    "VCF-02-F01-FN01": {
       "primaryComponent": "Assisted Installer",
       "evidenceKey": "install",
-      "notes": "OpenShift install, not VCF Installer.",
+      "parity": "Partial Parity",
+      "notes": "OpenShift install, not VCF Installer. Functionality: Run bring-up wizard.",
       "workaround": "Use Assisted Installer / Agent-based installer.",
       "workaroundComplexity": "Medium",
       "technicalImpact": "Bring-up UX differs."
     },
-    "VCF-02-F02": {
+    "VCF-02-F01-FN02": {
+      "primaryComponent": "Assisted Installer",
+      "evidenceKey": "install",
+      "parity": "Full Parity",
+      "notes": "OpenShift install, not VCF Installer. Functionality: Validate prerequisites."
+    },
+    "VCF-02-F01-FN03": {
+      "primaryComponent": "Assisted Installer",
+      "evidenceKey": "install",
       "parity": "No Parity",
+      "notes": "OpenShift install, not VCF Installer. Functionality: Apply initial configuration."
+    },
+    "VCF-02-F02-FN01": {
       "primaryComponent": "N/A",
       "evidenceKey": "ocp",
-      "notes": "No SDDC Manager orchestration of VCF components."
+      "parity": "No Parity",
+      "notes": "No SDDC Manager orchestration of VCF components. Functionality: Coordinate component workflows."
     },
-    "VCF-02-F03": {
-      "parity": "Partial Parity",
+    "VCF-02-F02-FN02": {
+      "primaryComponent": "N/A",
+      "evidenceKey": "ocp",
+      "parity": "No Parity",
+      "notes": "No SDDC Manager orchestration of VCF components. Functionality: Track task progress."
+    },
+    "VCF-02-F02-FN03": {
+      "primaryComponent": "N/A",
+      "evidenceKey": "ocp",
+      "parity": "No Parity",
+      "notes": "No SDDC Manager orchestration of VCF components. Functionality: Retry failed tasks safely."
+    },
+    "VCF-02-F03-FN01": {
       "primaryComponent": "OSUS / oc-mirror",
       "evidenceKey": "upgrade",
-      "notes": "Release images via OSUS/oc-mirror, not VCF depot.",
+      "parity": "Partial Parity",
+      "notes": "Release images via OSUS/oc-mirror, not VCF depot. Functionality: Ingest update bundles.",
       "workaround": "Mirror release payloads for disconnected upgrades.",
       "workaroundComplexity": "Medium",
       "technicalImpact": "Bundle format differs."
     },
-    "VCF-02-F04": {
+    "VCF-02-F03-FN02": {
+      "primaryComponent": "OSUS / oc-mirror",
+      "evidenceKey": "upgrade",
       "parity": "Full Parity",
+      "notes": "Release images via OSUS/oc-mirror, not VCF depot. Functionality: Validate bundle integrity."
+    },
+    "VCF-02-F03-FN03": {
+      "primaryComponent": "OSUS / oc-mirror",
+      "evidenceKey": "upgrade",
+      "parity": "No Parity",
+      "notes": "Release images via OSUS/oc-mirror, not VCF depot. Functionality: Stage bundles for upgrade."
+    },
+    "VCF-02-F04-FN01": {
       "primaryComponent": "Cluster Version Operator",
       "evidenceKey": "upgrade",
-      "notes": "Upgrade prechecks via CVO/health operators."
+      "parity": "Full Parity",
+      "notes": "Upgrade prechecks via CVO/health operators. Functionality: Run upgrade prechecks."
     },
-    "VCF-02-F05": {
+    "VCF-02-F04-FN02": {
+      "primaryComponent": "Cluster Version Operator",
+      "evidenceKey": "upgrade",
+      "parity": "Full Parity",
+      "notes": "Upgrade prechecks via CVO/health operators. Functionality: Identify blockers."
+    },
+    "VCF-02-F04-FN03": {
+      "primaryComponent": "Cluster Version Operator",
+      "evidenceKey": "upgrade",
       "parity": "Partial Parity",
+      "notes": "Upgrade prechecks via CVO/health operators. Functionality: Produce upgrade readiness report.",
+      "workaround": "Use platform-native equivalent for Produce upgrade readiness report.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Not a 1:1 VCF equivalent; operating model differs."
+    },
+    "VCF-02-F05-FN01": {
       "primaryComponent": "CVO",
       "evidenceKey": "upgrade",
-      "notes": "Coordinates OCP upgrades, not VCF full stack (NSX/vSAN/vCenter).",
+      "parity": "Partial Parity",
+      "notes": "Coordinates OCP upgrades, not VCF full stack (NSX/vSAN/vCenter). Functionality: Upgrade management components.",
       "workaround": "Upgrade OpenShift + OLM operators as a set.",
       "workaroundComplexity": "Medium",
       "technicalImpact": "Does not upgrade a VCF-equivalent stack."
     },
-    "VCF-02-F06": {
-      "parity": "Partial Parity",
+    "VCF-02-F05-FN02": {
+      "primaryComponent": "CVO",
+      "evidenceKey": "upgrade",
+      "parity": "Full Parity",
+      "notes": "Coordinates OCP upgrades, not VCF full stack (NSX/vSAN/vCenter). Functionality: Upgrade workload domain components."
+    },
+    "VCF-02-F05-FN03": {
+      "primaryComponent": "CVO",
+      "evidenceKey": "upgrade",
+      "parity": "No Parity",
+      "notes": "Coordinates OCP upgrades, not VCF full stack (NSX/vSAN/vCenter). Functionality: Track upgrade checkpoints."
+    },
+    "VCF-02-F06-FN01": {
       "primaryComponent": "Channel / paused operators",
       "evidenceKey": "upgrade",
-      "notes": "Channels and paused operator updates.",
+      "parity": "Partial Parity",
+      "notes": "Channels and paused operator updates. Functionality: Select update scope.",
       "workaround": "Select upgrade channel; pause non-critical operators.",
       "workaroundComplexity": "Medium",
       "technicalImpact": "Not VCF skip-level controls."
     },
-    "VCF-02-F07": {
-      "parity": "Partial Parity",
+    "VCF-02-F06-FN02": {
+      "primaryComponent": "Channel / paused operators",
+      "evidenceKey": "upgrade",
+      "parity": "Full Parity",
+      "notes": "Channels and paused operator updates. Functionality: Defer non-critical updates."
+    },
+    "VCF-02-F06-FN03": {
+      "primaryComponent": "Channel / paused operators",
+      "evidenceKey": "upgrade",
+      "parity": "No Parity",
+      "notes": "Channels and paused operator updates. Functionality: Record update exceptions."
+    },
+    "VCF-02-F07-FN01": {
       "primaryComponent": "CVO history",
       "evidenceKey": "upgrade",
-      "notes": "Upgrade history in cluster version; rollback constrained.",
+      "parity": "Partial Parity",
+      "notes": "Upgrade history in cluster version; rollback constrained. Functionality: Retain upgrade history.",
       "workaround": "Retain CVO history; rollback via restore/reinstall patterns.",
       "workaroundComplexity": "High",
       "technicalImpact": "Full stack rollback is limited."
     },
-    "VCF-03-F01": {
+    "VCF-02-F07-FN02": {
+      "primaryComponent": "CVO history",
+      "evidenceKey": "upgrade",
       "parity": "Full Parity",
+      "notes": "Upgrade history in cluster version; rollback constrained. Functionality: Document rollback constraints."
+    },
+    "VCF-02-F07-FN03": {
+      "primaryComponent": "CVO history",
+      "evidenceKey": "upgrade",
+      "parity": "No Parity",
+      "notes": "Upgrade history in cluster version; rollback constrained. Functionality: Export lifecycle evidence."
+    },
+    "VCF-03-F01-FN01": {
       "primaryComponent": "OpenShift Virtualization / KubeVirt",
       "evidenceKey": "virt",
-      "notes": "KubeVirt runs VMs as first-class workloads on OpenShift."
-    },
-    "VCF-03-F02": {
       "parity": "Full Parity",
+      "notes": "KubeVirt runs VMs as first-class workloads on OpenShift. Functionality: Run virtual machines."
+    },
+    "VCF-03-F01-FN02": {
+      "primaryComponent": "OpenShift Virtualization / KubeVirt",
+      "evidenceKey": "virt",
+      "parity": "Full Parity",
+      "notes": "KubeVirt runs VMs as first-class workloads on OpenShift. Functionality: Manage host services."
+    },
+    "VCF-03-F01-FN03": {
+      "primaryComponent": "OpenShift Virtualization / KubeVirt",
+      "evidenceKey": "virt",
+      "parity": "Partial Parity",
+      "notes": "KubeVirt runs VMs as first-class workloads on OpenShift. Functionality: Apply host profiles/baselines.",
+      "workaround": "Use platform-native equivalent for Apply host profiles/baselines.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Not a 1:1 VCF equivalent; operating model differs."
+    },
+    "VCF-03-F02-FN01": {
       "primaryComponent": "OpenShift API / console",
       "evidenceKey": "ocp",
-      "notes": "Central inventory, RBAC, and APIs for VMs and cluster."
+      "parity": "Full Parity",
+      "notes": "Central inventory, RBAC, and APIs for VMs and cluster. Functionality: Central inventory control."
     },
-    "VCF-03-F03": {
+    "VCF-03-F02-FN02": {
+      "primaryComponent": "OpenShift API / console",
+      "evidenceKey": "ocp",
+      "parity": "Full Parity",
+      "notes": "Central inventory, RBAC, and APIs for VMs and cluster. Functionality: Role-based access for compute."
+    },
+    "VCF-03-F02-FN03": {
+      "primaryComponent": "OpenShift API / console",
+      "evidenceKey": "ocp",
       "parity": "Partial Parity",
+      "notes": "Central inventory, RBAC, and APIs for VMs and cluster. Functionality: API/automation access.",
+      "workaround": "Use platform-native equivalent for API/automation access.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Not a 1:1 VCF equivalent; operating model differs."
+    },
+    "VCF-03-F03-FN01": {
       "primaryComponent": "KubeVirt live migration",
       "evidenceKey": "virt",
-      "notes": "Live migration exists; not DRS.",
+      "parity": "Partial Parity",
+      "notes": "Live migration exists; not DRS. Functionality: Balance workloads.",
       "workaround": "Use live migration and node placement/taints.",
       "workaroundComplexity": "Medium",
       "technicalImpact": "No vSphere DRS equivalent."
     },
-    "VCF-03-F04": {
-      "parity": "Partial Parity",
+    "VCF-03-F03-FN02": {
+      "primaryComponent": "KubeVirt live migration",
+      "evidenceKey": "virt",
+      "parity": "Full Parity",
+      "notes": "Live migration exists; not DRS. Functionality: Apply placement rules."
+    },
+    "VCF-03-F03-FN03": {
+      "primaryComponent": "KubeVirt live migration",
+      "evidenceKey": "virt",
+      "parity": "No Parity",
+      "notes": "Live migration exists; not DRS. Functionality: Evacuate hosts for maintenance."
+    },
+    "VCF-03-F04-FN01": {
       "primaryComponent": "KubeVirt + node HA",
       "evidenceKey": "virt",
-      "notes": "VM restart depends on node/machine health; not vSphere HA.",
+      "parity": "Partial Parity",
+      "notes": "VM restart depends on node/machine health; not vSphere HA. Functionality: Detect host failure.",
       "workaround": "Combine MachineHealthChecks with VM runStrategy.",
       "workaroundComplexity": "Medium",
       "technicalImpact": "Admission control differs from vSphere HA."
     },
-    "VCF-03-F05": {
-      "parity": "Partial Parity",
+    "VCF-03-F04-FN02": {
+      "primaryComponent": "KubeVirt + node HA",
+      "evidenceKey": "virt",
+      "parity": "Full Parity",
+      "notes": "VM restart depends on node/machine health; not vSphere HA. Functionality: Restart impacted VMs."
+    },
+    "VCF-03-F04-FN03": {
+      "primaryComponent": "KubeVirt + node HA",
+      "evidenceKey": "virt",
+      "parity": "No Parity",
+      "notes": "VM restart depends on node/machine health; not vSphere HA. Functionality: Configure admission control."
+    },
+    "VCF-03-F05-FN01": {
       "primaryComponent": "ResourceQuotas",
       "evidenceKey": "ocp",
-      "notes": "Namespaces quotas, not resource pools.",
+      "parity": "Partial Parity",
+      "notes": "Namespaces quotas, not resource pools. Functionality: Create resource pools.",
       "workaround": "Use namespace quotas and LimitRanges.",
       "workaroundComplexity": "Low",
       "technicalImpact": "Pool model differs."
     },
-    "VCF-03-F06": {
+    "VCF-03-F05-FN02": {
+      "primaryComponent": "ResourceQuotas",
+      "evidenceKey": "ocp",
       "parity": "Full Parity",
+      "notes": "Namespaces quotas, not resource pools. Functionality: Set reservations/limits/shares."
+    },
+    "VCF-03-F05-FN03": {
+      "primaryComponent": "ResourceQuotas",
+      "evidenceKey": "ocp",
+      "parity": "No Parity",
+      "notes": "Namespaces quotas, not resource pools. Functionality: Monitor pool contention."
+    },
+    "VCF-03-F06-FN01": {
       "primaryComponent": "VirtualMachine CRs",
       "evidenceKey": "virt",
-      "notes": "VM create, clone, snapshot (with CSI) supported."
-    },
-    "VCF-03-F07": {
       "parity": "Full Parity",
+      "notes": "VM create, clone, snapshot (with CSI) supported. Functionality: Provision VM."
+    },
+    "VCF-03-F06-FN02": {
+      "primaryComponent": "VirtualMachine CRs",
+      "evidenceKey": "virt",
+      "parity": "Full Parity",
+      "notes": "VM create, clone, snapshot (with CSI) supported. Functionality: Clone/template deploy."
+    },
+    "VCF-03-F06-FN03": {
+      "primaryComponent": "VirtualMachine CRs",
+      "evidenceKey": "virt",
+      "parity": "Partial Parity",
+      "notes": "VM create, clone, snapshot (with CSI) supported. Functionality: Snapshot and revert controls.",
+      "workaround": "Use platform-native equivalent for Snapshot and revert controls.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Not a 1:1 VCF equivalent; operating model differs."
+    },
+    "VCF-03-F07-FN01": {
       "primaryComponent": "Live migration",
       "evidenceKey": "virt",
-      "notes": "Evacuate nodes via live migration / drain."
+      "parity": "Full Parity",
+      "notes": "Evacuate nodes via live migration / drain. Functionality: Enter maintenance mode."
     },
-    "VCF-04-F01": {
+    "VCF-03-F07-FN02": {
+      "primaryComponent": "Live migration",
+      "evidenceKey": "virt",
+      "parity": "Full Parity",
+      "notes": "Evacuate nodes via live migration / drain. Functionality: Remediate host compliance."
+    },
+    "VCF-03-F07-FN03": {
+      "primaryComponent": "Live migration",
+      "evidenceKey": "virt",
       "parity": "Partial Parity",
+      "notes": "Evacuate nodes via live migration / drain. Functionality: Coordinate live migration.",
+      "workaround": "Use platform-native equivalent for Coordinate live migration.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Not a 1:1 VCF equivalent; operating model differs."
+    },
+    "VCF-04-F01-FN01": {
       "primaryComponent": "ODF / CSI",
       "evidenceKey": "odf",
-      "notes": "Shared storage via ODF/CSI, not vSAN datastore.",
+      "parity": "Partial Parity",
+      "notes": "Shared storage via ODF/CSI, not vSAN datastore. Functionality: Provide shared datastore.",
       "workaround": "Provide RWX/RWO via ODF or certified CSI.",
       "workaroundComplexity": "Medium",
       "technicalImpact": "Datastore abstraction differs."
     },
-    "VCF-04-F02": {
-      "parity": "Partial Parity",
+    "VCF-04-F01-FN02": {
+      "primaryComponent": "ODF / CSI",
+      "evidenceKey": "odf",
+      "parity": "Full Parity",
+      "notes": "Shared storage via ODF/CSI, not vSAN datastore. Functionality: Support VM storage provisioning."
+    },
+    "VCF-04-F01-FN03": {
+      "primaryComponent": "ODF / CSI",
+      "evidenceKey": "odf",
+      "parity": "No Parity",
+      "notes": "Shared storage via ODF/CSI, not vSAN datastore. Functionality: Expose capacity health."
+    },
+    "VCF-04-F02-FN01": {
       "primaryComponent": "StorageClasses",
       "evidenceKey": "odf",
-      "notes": "StorageClasses vs SPBM.",
+      "parity": "Partial Parity",
+      "notes": "StorageClasses vs SPBM. Functionality: Define storage policies.",
       "workaround": "Map policies to StorageClasses/volume modes.",
       "workaroundComplexity": "Medium",
       "technicalImpact": "VM disk policy UX differs."
     },
-    "VCF-04-F03": {
-      "parity": "Partial Parity",
+    "VCF-04-F02-FN02": {
+      "primaryComponent": "StorageClasses",
+      "evidenceKey": "odf",
+      "parity": "Full Parity",
+      "notes": "StorageClasses vs SPBM. Functionality: Apply policy to VMs/disks."
+    },
+    "VCF-04-F02-FN03": {
+      "primaryComponent": "StorageClasses",
+      "evidenceKey": "odf",
+      "parity": "No Parity",
+      "notes": "StorageClasses vs SPBM. Functionality: Monitor policy compliance."
+    },
+    "VCF-04-F03-FN01": {
       "primaryComponent": "ODF",
       "evidenceKey": "odf",
-      "notes": "Efficiency depends on ODF/Ceph features.",
+      "parity": "Partial Parity",
+      "notes": "Efficiency depends on ODF/Ceph features. Functionality: Enable space efficiency features.",
       "workaround": "Enable ODF compression/encoding where licensed.",
       "workaroundComplexity": "Medium",
       "technicalImpact": "Not vSAN efficiency UI."
     },
-    "VCF-04-F04": {
-      "parity": "Partial Parity",
+    "VCF-04-F03-FN02": {
+      "primaryComponent": "ODF",
+      "evidenceKey": "odf",
+      "parity": "Full Parity",
+      "notes": "Efficiency depends on ODF/Ceph features. Functionality: Monitor savings."
+    },
+    "VCF-04-F03-FN03": {
+      "primaryComponent": "ODF",
+      "evidenceKey": "odf",
+      "parity": "No Parity",
+      "notes": "Efficiency depends on ODF/Ceph features. Functionality: Assess performance impact."
+    },
+    "VCF-04-F04-FN01": {
       "primaryComponent": "ODF / Ceph",
       "evidenceKey": "odf",
-      "notes": "Replication/rebuild via Ceph.",
+      "parity": "Partial Parity",
+      "notes": "Replication/rebuild via Ceph. Functionality: Configure fault domains.",
       "workaround": "Configure ODF failure domains.",
       "workaroundComplexity": "Medium",
       "technicalImpact": "Fault-domain model differs from vSAN."
     },
-    "VCF-04-F05": {
-      "parity": "Partial Parity",
+    "VCF-04-F04-FN02": {
+      "primaryComponent": "ODF / Ceph",
+      "evidenceKey": "odf",
+      "parity": "Full Parity",
+      "notes": "Replication/rebuild via Ceph. Functionality: Tolerate host/site failures."
+    },
+    "VCF-04-F04-FN03": {
+      "primaryComponent": "ODF / Ceph",
+      "evidenceKey": "odf",
+      "parity": "No Parity",
+      "notes": "Replication/rebuild via Ceph. Functionality: Rebuild degraded objects."
+    },
+    "VCF-04-F05-FN01": {
       "primaryComponent": "ODF DR",
       "evidenceKey": "odf",
-      "notes": "Regional DR patterns, not vSAN stretch.",
+      "parity": "Partial Parity",
+      "notes": "Regional DR patterns, not vSAN stretch. Functionality: Configure stretch cluster storage.",
       "workaround": "Use Regional DR / mirroring where supported.",
       "workaroundComplexity": "High",
       "technicalImpact": "Stretch design is different."
     },
-    "VCF-04-F06": {
-      "parity": "Partial Parity",
+    "VCF-04-F05-FN02": {
+      "primaryComponent": "ODF DR",
+      "evidenceKey": "odf",
+      "parity": "Full Parity",
+      "notes": "Regional DR patterns, not vSAN stretch. Functionality: Manage site affinity."
+    },
+    "VCF-04-F05-FN03": {
+      "primaryComponent": "ODF DR",
+      "evidenceKey": "odf",
+      "parity": "No Parity",
+      "notes": "Regional DR patterns, not vSAN stretch. Functionality: Handle site isolation behavior."
+    },
+    "VCF-04-F06-FN01": {
       "primaryComponent": "NFS / ODF",
       "evidenceKey": "odf",
-      "notes": "File via NFS CSI or ODF file.",
+      "parity": "Partial Parity",
+      "notes": "File via NFS CSI or ODF file. Functionality: Provide file share services where applicable.",
       "workaround": "Deploy NFS provisioner or ODF file.",
       "workaroundComplexity": "Medium",
       "technicalImpact": "Supplemental file services are add-on."
     },
-    "VCF-04-F07": {
-      "parity": "Partial Parity",
+    "VCF-04-F06-FN02": {
+      "primaryComponent": "NFS / ODF",
+      "evidenceKey": "odf",
+      "parity": "Full Parity",
+      "notes": "File via NFS CSI or ODF file. Functionality: Integrate supplemental storage."
+    },
+    "VCF-04-F06-FN03": {
+      "primaryComponent": "NFS / ODF",
+      "evidenceKey": "odf",
+      "parity": "No Parity",
+      "notes": "File via NFS CSI or ODF file. Functionality: Monitor service health."
+    },
+    "VCF-04-F07-FN01": {
       "primaryComponent": "ODF must-gather",
       "evidenceKey": "odf",
-      "notes": "must-gather/health, not vSAN support bundles.",
+      "parity": "Partial Parity",
+      "notes": "must-gather/health, not vSAN support bundles. Functionality: Run health checks.",
       "workaround": "Use must-gather and ODF dashboards.",
       "workaroundComplexity": "Low",
       "technicalImpact": "Supportability tooling differs."
     },
-    "VCF-05-F01": {
-      "parity": "Partial Parity",
+    "VCF-04-F07-FN02": {
+      "primaryComponent": "ODF must-gather",
+      "evidenceKey": "odf",
+      "parity": "Full Parity",
+      "notes": "must-gather/health, not vSAN support bundles. Functionality: Collect support bundles."
+    },
+    "VCF-04-F07-FN03": {
+      "primaryComponent": "ODF must-gather",
+      "evidenceKey": "odf",
+      "parity": "No Parity",
+      "notes": "must-gather/health, not vSAN support bundles. Functionality: Track resync/rebuild progress."
+    },
+    "VCF-05-F01-FN01": {
       "primaryComponent": "OVN-Kubernetes / NAD",
       "evidenceKey": "ovn",
-      "notes": "NAD/localnet/OVN; not NSX segments.",
+      "parity": "Partial Parity",
+      "notes": "NAD/localnet/OVN; not NSX segments. Functionality: Create network segments.",
       "workaround": "Use NetworkAttachmentDefinitions and OVN overlay.",
       "workaroundComplexity": "Medium",
       "technicalImpact": "Segment model differs."
     },
-    "VCF-05-F02": {
-      "parity": "Partial Parity",
+    "VCF-05-F01-FN02": {
+      "primaryComponent": "OVN-Kubernetes / NAD",
+      "evidenceKey": "ovn",
+      "parity": "Full Parity",
+      "notes": "NAD/localnet/OVN; not NSX segments. Functionality: Attach workloads."
+    },
+    "VCF-05-F01-FN03": {
+      "primaryComponent": "OVN-Kubernetes / NAD",
+      "evidenceKey": "ovn",
+      "parity": "No Parity",
+      "notes": "NAD/localnet/OVN; not NSX segments. Functionality: Isolate broadcast domains."
+    },
+    "VCF-05-F02-FN01": {
       "primaryComponent": "OVN",
       "evidenceKey": "ovn",
-      "notes": "OVN routing, not NSX T0/T1.",
+      "parity": "Partial Parity",
+      "notes": "OVN routing, not NSX T0/T1. Functionality: Configure Tier-0/Tier-1 style routing.",
       "workaround": "Design OVN logical routers / UDN.",
       "workaroundComplexity": "High",
       "technicalImpact": "No Tier-0/1 construct."
     },
-    "VCF-05-F03": {
-      "parity": "Partial Parity",
+    "VCF-05-F02-FN02": {
+      "primaryComponent": "OVN",
+      "evidenceKey": "ovn",
+      "parity": "Full Parity",
+      "notes": "OVN routing, not NSX T0/T1. Functionality: Advertise routes."
+    },
+    "VCF-05-F02-FN03": {
+      "primaryComponent": "OVN",
+      "evidenceKey": "ovn",
+      "parity": "No Parity",
+      "notes": "OVN routing, not NSX T0/T1. Functionality: Control north-south traffic."
+    },
+    "VCF-05-F03-FN01": {
       "primaryComponent": "MetalLB / Ingress",
       "evidenceKey": "ovn",
-      "notes": "LB via MetalLB/Ingress, not NSX Edge.",
+      "parity": "Partial Parity",
+      "notes": "LB via MetalLB/Ingress, not NSX Edge. Functionality: Deploy edge nodes/gateways.",
       "workaround": "Deploy MetalLB or cloud LB plus ingress.",
       "workaroundComplexity": "Medium",
       "technicalImpact": "Edge services are composed."
     },
-    "VCF-05-F04": {
-      "parity": "Partial Parity",
+    "VCF-05-F03-FN02": {
+      "primaryComponent": "MetalLB / Ingress",
+      "evidenceKey": "ovn",
+      "parity": "Full Parity",
+      "notes": "LB via MetalLB/Ingress, not NSX Edge. Functionality: Provide NAT/load services as designed."
+    },
+    "VCF-05-F03-FN03": {
+      "primaryComponent": "MetalLB / Ingress",
+      "evidenceKey": "ovn",
+      "parity": "No Parity",
+      "notes": "LB via MetalLB/Ingress, not NSX Edge. Functionality: Monitor edge health."
+    },
+    "VCF-05-F04-FN01": {
       "primaryComponent": "UDN / projects",
       "evidenceKey": "ovn",
-      "notes": "Project/UDN isolation, not NSX VPC.",
+      "parity": "Partial Parity",
+      "notes": "Project/UDN isolation, not NSX VPC. Functionality: Create tenant network contexts.",
       "workaround": "Use projects and User Defined Networks.",
       "workaroundComplexity": "Medium",
       "technicalImpact": "Tenant networking differs."
     },
-    "VCF-05-F05": {
-      "parity": "Partial Parity",
+    "VCF-05-F04-FN02": {
+      "primaryComponent": "UDN / projects",
+      "evidenceKey": "ovn",
+      "parity": "Full Parity",
+      "notes": "Project/UDN isolation, not NSX VPC. Functionality: Isolate tenant routing."
+    },
+    "VCF-05-F04-FN03": {
+      "primaryComponent": "UDN / projects",
+      "evidenceKey": "ovn",
+      "parity": "No Parity",
+      "notes": "Project/UDN isolation, not NSX VPC. Functionality: Delegate network self-service bounds."
+    },
+    "VCF-05-F05-FN01": {
       "primaryComponent": "OVN",
       "evidenceKey": "ovn",
-      "notes": "Geneve overlay; underlay is admin-owned.",
+      "parity": "Partial Parity",
+      "notes": "Geneve overlay; underlay is admin-owned. Functionality: Establish overlay transport.",
       "workaround": "Validate MTU/Geneve per OpenShift networking.",
       "workaroundComplexity": "Medium",
       "technicalImpact": "No NSX TZ operational model."
     },
-    "VCF-05-F06": {
-      "parity": "Partial Parity",
+    "VCF-05-F05-FN02": {
+      "primaryComponent": "OVN",
+      "evidenceKey": "ovn",
+      "parity": "Full Parity",
+      "notes": "Geneve overlay; underlay is admin-owned. Functionality: Validate underlay MTU/connectivity."
+    },
+    "VCF-05-F05-FN03": {
+      "primaryComponent": "OVN",
+      "evidenceKey": "ovn",
+      "parity": "No Parity",
+      "notes": "Geneve overlay; underlay is admin-owned. Functionality: Troubleshoot tunnel health."
+    },
+    "VCF-05-F06-FN01": {
       "primaryComponent": "CoreDNS / NMState",
       "evidenceKey": "ocp",
-      "notes": "CoreDNS and NMState DHCP patterns.",
+      "parity": "Partial Parity",
+      "notes": "CoreDNS and NMState DHCP patterns. Functionality: Provide DHCP services.",
       "workaround": "Use CoreDNS and NMState for host networking.",
       "workaroundComplexity": "Low",
       "technicalImpact": "IPAM is less NSX-like."
     },
-    "VCF-05-F07": {
-      "parity": "Partial Parity",
+    "VCF-05-F06-FN02": {
+      "primaryComponent": "CoreDNS / NMState",
+      "evidenceKey": "ocp",
+      "parity": "Full Parity",
+      "notes": "CoreDNS and NMState DHCP patterns. Functionality: Integrate DNS services."
+    },
+    "VCF-05-F06-FN03": {
+      "primaryComponent": "CoreDNS / NMState",
+      "evidenceKey": "ocp",
+      "parity": "No Parity",
+      "notes": "CoreDNS and NMState DHCP patterns. Functionality: Manage IP address allocation."
+    },
+    "VCF-05-F07-FN01": {
       "primaryComponent": "OVN tracing",
       "evidenceKey": "ovn",
-      "notes": "ovn-trace / Network Observability operator.",
+      "parity": "Partial Parity",
+      "notes": "ovn-trace / Network Observability operator. Functionality: Trace logical paths.",
       "workaround": "Install Network Observability operator.",
       "workaroundComplexity": "Medium",
       "technicalImpact": "Traceflow-class UX is different."
     },
-    "VCF-06-F01": {
-      "parity": "Partial Parity",
+    "VCF-05-F07-FN02": {
+      "primaryComponent": "OVN tracing",
+      "evidenceKey": "ovn",
+      "parity": "Full Parity",
+      "notes": "ovn-trace / Network Observability operator. Functionality: Capture network topology view."
+    },
+    "VCF-05-F07-FN03": {
+      "primaryComponent": "OVN tracing",
+      "evidenceKey": "ovn",
+      "parity": "No Parity",
+      "notes": "ovn-trace / Network Observability operator. Functionality: Alert on network faults."
+    },
+    "VCF-06-F01-FN01": {
       "primaryComponent": "NetworkPolicy / AdminNetworkPolicy",
       "evidenceKey": "ovn",
-      "notes": "K8s NetworkPolicy, not NSX DFW.",
+      "parity": "Partial Parity",
+      "notes": "K8s NetworkPolicy, not NSX DFW. Functionality: Define DFW policies.",
       "workaround": "Use AdminNetworkPolicy and baseline deny.",
       "workaroundComplexity": "High",
       "technicalImpact": "L4/L7 DFW depth lower than NSX."
     },
-    "VCF-06-F02": {
-      "parity": "Partial Parity",
+    "VCF-06-F01-FN02": {
+      "primaryComponent": "NetworkPolicy / AdminNetworkPolicy",
+      "evidenceKey": "ovn",
+      "parity": "Full Parity",
+      "notes": "K8s NetworkPolicy, not NSX DFW. Functionality: Enforce east-west controls."
+    },
+    "VCF-06-F01-FN03": {
+      "primaryComponent": "NetworkPolicy / AdminNetworkPolicy",
+      "evidenceKey": "ovn",
+      "parity": "No Parity",
+      "notes": "K8s NetworkPolicy, not NSX DFW. Functionality: Log policy hits."
+    },
+    "VCF-06-F02-FN01": {
       "primaryComponent": "Ingress / egress firewall",
       "evidenceKey": "ovn",
-      "notes": "EgressFirewall / Ingress controls.",
+      "parity": "Partial Parity",
+      "notes": "EgressFirewall / Ingress controls. Functionality: Define gateway firewall rules.",
       "workaround": "Configure EgressFirewall and ingress ACLs.",
       "workaroundComplexity": "Medium",
       "technicalImpact": "Not NSX gateway firewall."
     },
-    "VCF-06-F03": {
+    "VCF-06-F02-FN02": {
+      "primaryComponent": "Ingress / egress firewall",
+      "evidenceKey": "ovn",
       "parity": "Full Parity",
+      "notes": "EgressFirewall / Ingress controls. Functionality: Control north-south access."
+    },
+    "VCF-06-F02-FN03": {
+      "primaryComponent": "Ingress / egress firewall",
+      "evidenceKey": "ovn",
+      "parity": "No Parity",
+      "notes": "EgressFirewall / Ingress controls. Functionality: Monitor rule effectiveness."
+    },
+    "VCF-06-F03-FN01": {
       "primaryComponent": "Labels / selectors",
       "evidenceKey": "ocp",
-      "notes": "Dynamic grouping via labels is native."
+      "parity": "Full Parity",
+      "notes": "Dynamic grouping via labels is native. Functionality: Group workloads by tag/criteria."
     },
-    "VCF-06-F04": {
+    "VCF-06-F03-FN02": {
+      "primaryComponent": "Labels / selectors",
+      "evidenceKey": "ocp",
+      "parity": "Full Parity",
+      "notes": "Dynamic grouping via labels is native. Functionality: Auto-update membership."
+    },
+    "VCF-06-F03-FN03": {
+      "primaryComponent": "Labels / selectors",
+      "evidenceKey": "ocp",
       "parity": "Partial Parity",
+      "notes": "Dynamic grouping via labels is native. Functionality: Bind policies to groups.",
+      "workaround": "Use platform-native equivalent for Bind policies to groups.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Not a 1:1 VCF equivalent; operating model differs."
+    },
+    "VCF-06-F04-FN01": {
       "primaryComponent": "ACS",
       "evidenceKey": "acs",
-      "notes": "Advanced Cluster Security for threat/policy.",
+      "parity": "Partial Parity",
+      "notes": "Advanced Cluster Security for threat/policy. Functionality: Enable detection/prevention features.",
       "workaround": "Deploy RHACS for runtime/vulnerability controls.",
       "workaroundComplexity": "High",
       "technicalImpact": "IDS/IPS-class depends on ACS."
     },
-    "VCF-06-F05": {
-      "parity": "Partial Parity",
+    "VCF-06-F04-FN02": {
+      "primaryComponent": "ACS",
+      "evidenceKey": "acs",
+      "parity": "Full Parity",
+      "notes": "Advanced Cluster Security for threat/policy. Functionality: Tune signatures/profiles."
+    },
+    "VCF-06-F04-FN03": {
+      "primaryComponent": "ACS",
+      "evidenceKey": "acs",
+      "parity": "No Parity",
+      "notes": "Advanced Cluster Security for threat/policy. Functionality: Review security events."
+    },
+    "VCF-06-F05-FN01": {
       "primaryComponent": "SSO / ACS",
       "evidenceKey": "ocp",
-      "notes": "Identity via SSO; limited identity firewall.",
+      "parity": "Partial Parity",
+      "notes": "Identity via SSO; limited identity firewall. Functionality: Use identity/context in rules where supported.",
       "workaround": "Bind SSO groups to NetworkPolicies/ACS.",
       "workaroundComplexity": "High",
       "technicalImpact": "Not NSX identity firewall."
     },
-    "VCF-06-F06": {
-      "parity": "Partial Parity",
+    "VCF-06-F05-FN02": {
+      "primaryComponent": "SSO / ACS",
+      "evidenceKey": "ocp",
+      "parity": "Full Parity",
+      "notes": "Identity via SSO; limited identity firewall. Functionality: Map users/apps to policies."
+    },
+    "VCF-06-F05-FN03": {
+      "primaryComponent": "SSO / ACS",
+      "evidenceKey": "ocp",
+      "parity": "No Parity",
+      "notes": "Identity via SSO; limited identity firewall. Functionality: Audit context-based decisions."
+    },
+    "VCF-06-F06-FN01": {
       "primaryComponent": "GitOps",
       "evidenceKey": "gitops",
-      "notes": "Policy as code.",
+      "parity": "Partial Parity",
+      "notes": "Policy as code. Functionality: Stage policy changes.",
       "workaround": "Stage NetworkPolicy via GitOps PRs.",
       "workaroundComplexity": "Medium",
       "technicalImpact": "Rollback is Git revert."
     },
-    "VCF-06-F07": {
-      "parity": "Partial Parity",
+    "VCF-06-F06-FN02": {
+      "primaryComponent": "GitOps",
+      "evidenceKey": "gitops",
+      "parity": "Full Parity",
+      "notes": "Policy as code. Functionality: Review before publish."
+    },
+    "VCF-06-F06-FN03": {
+      "primaryComponent": "GitOps",
+      "evidenceKey": "gitops",
+      "parity": "No Parity",
+      "notes": "Policy as code. Functionality: Rollback policy sets."
+    },
+    "VCF-06-F07-FN01": {
       "primaryComponent": "ACS / Compliance operator",
       "evidenceKey": "acs",
-      "notes": "Compliance reports via ACS/Compliance operator.",
+      "parity": "Partial Parity",
+      "notes": "Compliance reports via ACS/Compliance operator. Functionality: Export policy inventory.",
       "workaround": "Export ACS compliance evidence.",
       "workaroundComplexity": "Medium",
       "technicalImpact": "Format differs from NSX."
     },
-    "VCF-07-F01": {
+    "VCF-06-F07-FN02": {
+      "primaryComponent": "ACS / Compliance operator",
+      "evidenceKey": "acs",
       "parity": "Full Parity",
+      "notes": "Compliance reports via ACS/Compliance operator. Functionality: Report uncovered workloads."
+    },
+    "VCF-06-F07-FN03": {
+      "primaryComponent": "ACS / Compliance operator",
+      "evidenceKey": "acs",
+      "parity": "No Parity",
+      "notes": "Compliance reports via ACS/Compliance operator. Functionality: Evidence for compliance reviews."
+    },
+    "VCF-07-F01-FN01": {
       "primaryComponent": "Monitoring stack",
       "evidenceKey": "monitor",
-      "notes": "Prometheus/Grafana in-cluster monitoring."
+      "parity": "Full Parity",
+      "notes": "Prometheus/Grafana in-cluster monitoring. Functionality: Collect metrics from compute/storage/network."
     },
-    "VCF-07-F02": {
+    "VCF-07-F01-FN02": {
+      "primaryComponent": "Monitoring stack",
+      "evidenceKey": "monitor",
+      "parity": "Full Parity",
+      "notes": "Prometheus/Grafana in-cluster monitoring. Functionality: Visualize health dashboards."
+    },
+    "VCF-07-F01-FN03": {
+      "primaryComponent": "Monitoring stack",
+      "evidenceKey": "monitor",
       "parity": "Partial Parity",
+      "notes": "Prometheus/Grafana in-cluster monitoring. Functionality: Alert on threshold breaches.",
+      "workaround": "Use platform-native equivalent for Alert on threshold breaches.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Not a 1:1 VCF equivalent; operating model differs."
+    },
+    "VCF-07-F02-FN01": {
       "primaryComponent": "Logging operator",
       "evidenceKey": "monitor",
-      "notes": "Cluster logging; often Loki/ES.",
+      "parity": "Partial Parity",
+      "notes": "Cluster logging; often Loki/ES. Functionality: Ingest component logs.",
       "workaround": "Install OpenShift Logging / Loki.",
       "workaroundComplexity": "Medium",
       "technicalImpact": "Not Aria Logs."
     },
-    "VCF-07-F03": {
-      "parity": "Partial Parity",
+    "VCF-07-F02-FN02": {
+      "primaryComponent": "Logging operator",
+      "evidenceKey": "monitor",
+      "parity": "Full Parity",
+      "notes": "Cluster logging; often Loki/ES. Functionality: Search/correlate events."
+    },
+    "VCF-07-F02-FN03": {
+      "primaryComponent": "Logging operator",
+      "evidenceKey": "monitor",
+      "parity": "No Parity",
+      "notes": "Cluster logging; often Loki/ES. Functionality: Retain logs per policy."
+    },
+    "VCF-07-F03-FN01": {
       "primaryComponent": "Prometheus",
       "evidenceKey": "monitor",
-      "notes": "Capacity via metrics; less Aria planning.",
+      "parity": "Partial Parity",
+      "notes": "Capacity via metrics; less Aria planning. Functionality: Forecast capacity risk.",
       "workaround": "Use Prometheus + ACM observability.",
       "workaroundComplexity": "Medium",
       "technicalImpact": "Forecasting is custom."
     },
-    "VCF-07-F04": {
-      "parity": "Partial Parity",
+    "VCF-07-F03-FN02": {
+      "primaryComponent": "Prometheus",
+      "evidenceKey": "monitor",
+      "parity": "Full Parity",
+      "notes": "Capacity via metrics; less Aria planning. Functionality: Identify contention hotspots."
+    },
+    "VCF-07-F03-FN03": {
+      "primaryComponent": "Prometheus",
+      "evidenceKey": "monitor",
+      "parity": "No Parity",
+      "notes": "Capacity via metrics; less Aria planning. Functionality: Recommend rightsizing."
+    },
+    "VCF-07-F04-FN01": {
       "primaryComponent": "Compliance / Policy",
       "evidenceKey": "acm",
-      "notes": "Policy/compliance operators.",
+      "parity": "Partial Parity",
+      "notes": "Policy/compliance operators. Functionality: Detect drift from desired config.",
       "workaround": "Use Compliance Operator and ACM policies.",
       "workaroundComplexity": "Medium",
       "technicalImpact": "Content differs from Aria."
     },
-    "VCF-07-F05": {
-      "parity": "Partial Parity",
+    "VCF-07-F04-FN02": {
+      "primaryComponent": "Compliance / Policy",
+      "evidenceKey": "acm",
+      "parity": "Full Parity",
+      "notes": "Policy/compliance operators. Functionality: Assess compliance score."
+    },
+    "VCF-07-F04-FN03": {
+      "primaryComponent": "Compliance / Policy",
+      "evidenceKey": "acm",
+      "parity": "No Parity",
+      "notes": "Policy/compliance operators. Functionality: Track remediation status."
+    },
+    "VCF-07-F05-FN01": {
       "primaryComponent": "Service Mesh / labels",
       "evidenceKey": "ocp",
-      "notes": "App maps via mesh/ACM.",
+      "parity": "Partial Parity",
+      "notes": "App maps via mesh/ACM. Functionality: Map apps to infrastructure.",
       "workaround": "Use Service Mesh or ACM application topology.",
       "workaroundComplexity": "Medium",
       "technicalImpact": "Shallower than Aria."
     },
-    "VCF-07-F06": {
+    "VCF-07-F05-FN02": {
+      "primaryComponent": "Service Mesh / labels",
+      "evidenceKey": "ocp",
       "parity": "Full Parity",
+      "notes": "App maps via mesh/ACM. Functionality: Track service health."
+    },
+    "VCF-07-F05-FN03": {
+      "primaryComponent": "Service Mesh / labels",
+      "evidenceKey": "ocp",
+      "parity": "No Parity",
+      "notes": "App maps via mesh/ACM. Functionality: Correlate incidents to dependencies."
+    },
+    "VCF-07-F06-FN01": {
       "primaryComponent": "Alertmanager",
       "evidenceKey": "monitor",
-      "notes": "Alerting and receivers are standard."
+      "parity": "Full Parity",
+      "notes": "Alerting and receivers are standard. Functionality: Define alert policies."
     },
-    "VCF-07-F07": {
+    "VCF-07-F06-FN02": {
+      "primaryComponent": "Alertmanager",
+      "evidenceKey": "monitor",
+      "parity": "Full Parity",
+      "notes": "Alerting and receivers are standard. Functionality: Route notifications."
+    },
+    "VCF-07-F06-FN03": {
+      "primaryComponent": "Alertmanager",
+      "evidenceKey": "monitor",
       "parity": "Partial Parity",
+      "notes": "Alerting and receivers are standard. Functionality: Suppress noise/duplicates.",
+      "workaround": "Use platform-native equivalent for Suppress noise/duplicates.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Not a 1:1 VCF equivalent; operating model differs."
+    },
+    "VCF-07-F07-FN01": {
       "primaryComponent": "must-gather",
       "evidenceKey": "ocp",
-      "notes": "Evidence via must-gather and dashboards.",
+      "parity": "Partial Parity",
+      "notes": "Evidence via must-gather and dashboards. Functionality: Generate ops reports.",
       "workaround": "Collect must-gather and Grafana exports.",
       "workaroundComplexity": "Low",
       "technicalImpact": "Ops evidence packs differ."
     },
-    "VCF-08-F01": {
-      "parity": "Partial Parity",
+    "VCF-07-F07-FN02": {
+      "primaryComponent": "must-gather",
+      "evidenceKey": "ocp",
+      "parity": "Full Parity",
+      "notes": "Evidence via must-gather and dashboards. Functionality: Export evidence packs."
+    },
+    "VCF-07-F07-FN03": {
+      "primaryComponent": "must-gather",
+      "evidenceKey": "ocp",
+      "parity": "No Parity",
+      "notes": "Evidence via must-gather and dashboards. Functionality: Support incident retrospectives."
+    },
+    "VCF-08-F01-FN01": {
       "primaryComponent": "Developer catalog",
       "evidenceKey": "ocp",
-      "notes": "OperatorHub/catalog, not Aria catalog.",
+      "parity": "Partial Parity",
+      "notes": "OperatorHub/catalog, not Aria catalog. Functionality: Publish catalog items.",
       "workaround": "Publish Helm/Operators in catalog.",
       "workaroundComplexity": "Medium",
       "technicalImpact": "IaaS catalog differs."
     },
-    "VCF-08-F02": {
+    "VCF-08-F01-FN02": {
+      "primaryComponent": "Developer catalog",
+      "evidenceKey": "ocp",
       "parity": "Full Parity",
+      "notes": "OperatorHub/catalog, not Aria catalog. Functionality: Request services."
+    },
+    "VCF-08-F01-FN03": {
+      "primaryComponent": "Developer catalog",
+      "evidenceKey": "ocp",
+      "parity": "No Parity",
+      "notes": "OperatorHub/catalog, not Aria catalog. Functionality: Track request status."
+    },
+    "VCF-08-F02-FN01": {
       "primaryComponent": "GitOps / Helm / Templates",
       "evidenceKey": "gitops",
-      "notes": "Templates and GitOps are first-class."
+      "parity": "Full Parity",
+      "notes": "Templates and GitOps are first-class. Functionality: Define deployable templates."
     },
-    "VCF-08-F03": {
+    "VCF-08-F02-FN02": {
+      "primaryComponent": "GitOps / Helm / Templates",
+      "evidenceKey": "gitops",
+      "parity": "Full Parity",
+      "notes": "Templates and GitOps are first-class. Functionality: Parameterize deployments."
+    },
+    "VCF-08-F02-FN03": {
+      "primaryComponent": "GitOps / Helm / Templates",
+      "evidenceKey": "gitops",
       "parity": "Partial Parity",
+      "notes": "Templates and GitOps are first-class. Functionality: Version templates.",
+      "workaround": "Use platform-native equivalent for Version templates.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Not a 1:1 VCF equivalent; operating model differs."
+    },
+    "VCF-08-F03-FN01": {
       "primaryComponent": "Pipelines / ACM",
       "evidenceKey": "gitops",
-      "notes": "Approvals via Pipelines/ITSM.",
+      "parity": "Partial Parity",
+      "notes": "Approvals via Pipelines/ITSM. Functionality: Require approvals.",
       "workaround": "Use Tekton manual approval or ITSM gates.",
       "workaroundComplexity": "Medium",
       "technicalImpact": "Governance UX differs."
     },
-    "VCF-08-F04": {
+    "VCF-08-F03-FN02": {
+      "primaryComponent": "Pipelines / ACM",
+      "evidenceKey": "gitops",
       "parity": "Full Parity",
+      "notes": "Approvals via Pipelines/ITSM. Functionality: Enforce policy gates."
+    },
+    "VCF-08-F03-FN03": {
+      "primaryComponent": "Pipelines / ACM",
+      "evidenceKey": "gitops",
+      "parity": "No Parity",
+      "notes": "Approvals via Pipelines/ITSM. Functionality: Audit request decisions."
+    },
+    "VCF-08-F04-FN01": {
       "primaryComponent": "Operators / Jobs",
       "evidenceKey": "ocp",
-      "notes": "Day-2 via Operators, CronJobs, Ansible."
-    },
-    "VCF-08-F05": {
       "parity": "Full Parity",
+      "notes": "Day-2 via Operators, CronJobs, Ansible. Functionality: Scale services."
+    },
+    "VCF-08-F04-FN02": {
+      "primaryComponent": "Operators / Jobs",
+      "evidenceKey": "ocp",
+      "parity": "Full Parity",
+      "notes": "Day-2 via Operators, CronJobs, Ansible. Functionality: Run operational workflows."
+    },
+    "VCF-08-F04-FN03": {
+      "primaryComponent": "Operators / Jobs",
+      "evidenceKey": "ocp",
+      "parity": "Partial Parity",
+      "notes": "Day-2 via Operators, CronJobs, Ansible. Functionality: Decommission services.",
+      "workaround": "Use platform-native equivalent for Decommission services.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Not a 1:1 VCF equivalent; operating model differs."
+    },
+    "VCF-08-F05-FN01": {
       "primaryComponent": "Projects / RBAC",
       "evidenceKey": "ocp",
-      "notes": "Multi-tenancy via projects and quotas."
+      "parity": "Full Parity",
+      "notes": "Multi-tenancy via projects and quotas. Functionality: Entitle projects/tenants."
     },
-    "VCF-08-F06": {
+    "VCF-08-F05-FN02": {
+      "primaryComponent": "Projects / RBAC",
+      "evidenceKey": "ocp",
+      "parity": "Full Parity",
+      "notes": "Multi-tenancy via projects and quotas. Functionality: Scope visible catalog."
+    },
+    "VCF-08-F05-FN03": {
+      "primaryComponent": "Projects / RBAC",
+      "evidenceKey": "ocp",
       "parity": "Partial Parity",
+      "notes": "Multi-tenancy via projects and quotas. Functionality: Isolate tenant quotas.",
+      "workaround": "Use platform-native equivalent for Isolate tenant quotas.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Not a 1:1 VCF equivalent; operating model differs."
+    },
+    "VCF-08-F06-FN01": {
       "primaryComponent": "Webhooks / Pipelines",
       "evidenceKey": "gitops",
-      "notes": "ITSM via webhooks.",
+      "parity": "Partial Parity",
+      "notes": "ITSM via webhooks. Functionality: Trigger from external systems.",
       "workaround": "Integrate ServiceNow with Pipelines.",
       "workaroundComplexity": "Medium",
       "technicalImpact": "Connectors are DIY."
     },
-    "VCF-08-F07": {
+    "VCF-08-F06-FN02": {
+      "primaryComponent": "Webhooks / Pipelines",
+      "evidenceKey": "gitops",
       "parity": "Full Parity",
+      "notes": "ITSM via webhooks. Functionality: Sync ticket status."
+    },
+    "VCF-08-F06-FN03": {
+      "primaryComponent": "Webhooks / Pipelines",
+      "evidenceKey": "gitops",
+      "parity": "No Parity",
+      "notes": "ITSM via webhooks. Functionality: Emit automation events."
+    },
+    "VCF-08-F07-FN01": {
       "primaryComponent": "Kubernetes APIs",
       "evidenceKey": "ocp",
-      "notes": "Extensibility via CRDs, Operators, secrets."
-    },
-    "VCF-09-F01": {
       "parity": "Full Parity",
+      "notes": "Extensibility via CRDs, Operators, secrets. Functionality: Add custom actions/workflows."
+    },
+    "VCF-08-F07-FN02": {
+      "primaryComponent": "Kubernetes APIs",
+      "evidenceKey": "ocp",
+      "parity": "Full Parity",
+      "notes": "Extensibility via CRDs, Operators, secrets. Functionality: Use APIs/webhooks."
+    },
+    "VCF-08-F07-FN03": {
+      "primaryComponent": "Kubernetes APIs",
+      "evidenceKey": "ocp",
+      "parity": "Partial Parity",
+      "notes": "Extensibility via CRDs, Operators, secrets. Functionality: Manage credentials securely.",
+      "workaround": "Use platform-native equivalent for Manage credentials securely.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Not a 1:1 VCF equivalent; operating model differs."
+    },
+    "VCF-09-F01-FN01": {
       "primaryComponent": "OpenShift",
       "evidenceKey": "ocp",
-      "notes": "Kubernetes cluster lifecycle is the product."
-    },
-    "VCF-09-F02": {
       "parity": "Full Parity",
+      "notes": "Kubernetes cluster lifecycle is the product. Functionality: Create Kubernetes clusters."
+    },
+    "VCF-09-F01-FN02": {
+      "primaryComponent": "OpenShift",
+      "evidenceKey": "ocp",
+      "parity": "Full Parity",
+      "notes": "Kubernetes cluster lifecycle is the product. Functionality: Upgrade clusters."
+    },
+    "VCF-09-F01-FN03": {
+      "primaryComponent": "OpenShift",
+      "evidenceKey": "ocp",
+      "parity": "Partial Parity",
+      "notes": "Kubernetes cluster lifecycle is the product. Functionality: Delete/retire clusters.",
+      "workaround": "Use platform-native equivalent for Delete/retire clusters.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Not a 1:1 VCF equivalent; operating model differs."
+    },
+    "VCF-09-F02-FN01": {
       "primaryComponent": "Projects",
       "evidenceKey": "ocp",
-      "notes": "Namespaces/projects with quotas."
-    },
-    "VCF-09-F03": {
       "parity": "Full Parity",
+      "notes": "Namespaces/projects with quotas. Functionality: Create namespaces."
+    },
+    "VCF-09-F02-FN02": {
+      "primaryComponent": "Projects",
+      "evidenceKey": "ocp",
+      "parity": "Full Parity",
+      "notes": "Namespaces/projects with quotas. Functionality: Apply quota/limit ranges."
+    },
+    "VCF-09-F02-FN03": {
+      "primaryComponent": "Projects",
+      "evidenceKey": "ocp",
+      "parity": "Partial Parity",
+      "notes": "Namespaces/projects with quotas. Functionality: Isolate team access.",
+      "workaround": "Use platform-native equivalent for Isolate team access.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Not a 1:1 VCF equivalent; operating model differs."
+    },
+    "VCF-09-F03-FN01": {
       "primaryComponent": "OVN / Services",
       "evidenceKey": "ovn",
-      "notes": "Pod/Service/Ingress networking is native."
-    },
-    "VCF-09-F04": {
       "parity": "Full Parity",
+      "notes": "Pod/Service/Ingress networking is native. Functionality: Provide pod/service networking."
+    },
+    "VCF-09-F03-FN02": {
+      "primaryComponent": "OVN / Services",
+      "evidenceKey": "ovn",
+      "parity": "Full Parity",
+      "notes": "Pod/Service/Ingress networking is native. Functionality: Expose ingress/services."
+    },
+    "VCF-09-F03-FN03": {
+      "primaryComponent": "OVN / Services",
+      "evidenceKey": "ovn",
+      "parity": "Partial Parity",
+      "notes": "Pod/Service/Ingress networking is native. Functionality: Integrate with SDN controls.",
+      "workaround": "Use platform-native equivalent for Integrate with SDN controls.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Not a 1:1 VCF equivalent; operating model differs."
+    },
+    "VCF-09-F04-FN01": {
       "primaryComponent": "ODF / CSI",
       "evidenceKey": "odf",
-      "notes": "Persistent volumes via CSI/ODF."
-    },
-    "VCF-09-F05": {
       "parity": "Full Parity",
+      "notes": "Persistent volumes via CSI/ODF. Functionality: Provision persistent volumes."
+    },
+    "VCF-09-F04-FN02": {
+      "primaryComponent": "ODF / CSI",
+      "evidenceKey": "odf",
+      "parity": "Full Parity",
+      "notes": "Persistent volumes via CSI/ODF. Functionality: Apply storage classes/policies."
+    },
+    "VCF-09-F04-FN03": {
+      "primaryComponent": "ODF / CSI",
+      "evidenceKey": "odf",
+      "parity": "Partial Parity",
+      "notes": "Persistent volumes via CSI/ODF. Functionality: Protect stateful workloads.",
+      "workaround": "Use platform-native equivalent for Protect stateful workloads.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Not a 1:1 VCF equivalent; operating model differs."
+    },
+    "VCF-09-F05-FN01": {
       "primaryComponent": "OpenShift internal registry / Quay",
       "evidenceKey": "ocp",
-      "notes": "Integrated registry plus Quay option."
-    },
-    "VCF-09-F06": {
       "parity": "Full Parity",
+      "notes": "Integrated registry plus Quay option. Functionality: Host or integrate registry."
+    },
+    "VCF-09-F05-FN02": {
+      "primaryComponent": "OpenShift internal registry / Quay",
+      "evidenceKey": "ocp",
+      "parity": "Full Parity",
+      "notes": "Integrated registry plus Quay option. Functionality: Manage content trust basics."
+    },
+    "VCF-09-F05-FN03": {
+      "primaryComponent": "OpenShift internal registry / Quay",
+      "evidenceKey": "ocp",
+      "parity": "Partial Parity",
+      "notes": "Integrated registry plus Quay option. Functionality: Distribute packages/charts.",
+      "workaround": "Use platform-native equivalent for Distribute packages/charts.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Not a 1:1 VCF equivalent; operating model differs."
+    },
+    "VCF-09-F06-FN01": {
       "primaryComponent": "SCCs / PSA",
       "evidenceKey": "ocp",
-      "notes": "SCCs, PSA, secrets management."
-    },
-    "VCF-09-F07": {
       "parity": "Full Parity",
+      "notes": "SCCs, PSA, secrets management. Functionality: Enforce pod security baselines."
+    },
+    "VCF-09-F06-FN02": {
+      "primaryComponent": "SCCs / PSA",
+      "evidenceKey": "ocp",
+      "parity": "Full Parity",
+      "notes": "SCCs, PSA, secrets management. Functionality: Manage secrets."
+    },
+    "VCF-09-F06-FN03": {
+      "primaryComponent": "SCCs / PSA",
+      "evidenceKey": "ocp",
+      "parity": "Partial Parity",
+      "notes": "SCCs, PSA, secrets management. Functionality: Scan/admit workloads as designed.",
+      "workaround": "Use platform-native equivalent for Scan/admit workloads as designed.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Not a 1:1 VCF equivalent; operating model differs."
+    },
+    "VCF-09-F07-FN01": {
       "primaryComponent": "Developer console",
       "evidenceKey": "ocp",
-      "notes": "Strong developer self-service UX."
+      "parity": "Full Parity",
+      "notes": "Strong developer self-service UX. Functionality: Provide self-service cluster/namespace access."
     },
-    "VCF-10-F01": {
+    "VCF-09-F07-FN02": {
+      "primaryComponent": "Developer console",
+      "evidenceKey": "ocp",
+      "parity": "Full Parity",
+      "notes": "Strong developer self-service UX. Functionality: Support CI/CD consumption."
+    },
+    "VCF-09-F07-FN03": {
+      "primaryComponent": "Developer console",
+      "evidenceKey": "ocp",
       "parity": "Partial Parity",
+      "notes": "Strong developer self-service UX. Functionality: Expose APIs/CLI/UI.",
+      "workaround": "Use platform-native equivalent for Expose APIs/CLI/UI.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Not a 1:1 VCF equivalent; operating model differs."
+    },
+    "VCF-10-F01-FN01": {
       "primaryComponent": "MTV",
       "evidenceKey": "mtv",
-      "notes": "Migration Toolkit for Virtualization cold migrate.",
+      "parity": "Partial Parity",
+      "notes": "Migration Toolkit for Virtualization cold migrate. Functionality: Migrate powered-off workloads.",
       "workaround": "Use MTV for cold VM import to OpenShift Virt.",
       "workaroundComplexity": "Medium",
       "technicalImpact": "Not HCX."
     },
-    "VCF-10-F02": {
-      "parity": "Partial Parity",
+    "VCF-10-F01-FN02": {
+      "primaryComponent": "MTV",
+      "evidenceKey": "mtv",
+      "parity": "Full Parity",
+      "notes": "Migration Toolkit for Virtualization cold migrate. Functionality: Validate target readiness."
+    },
+    "VCF-10-F01-FN03": {
+      "primaryComponent": "MTV",
+      "evidenceKey": "mtv",
+      "parity": "No Parity",
+      "notes": "Migration Toolkit for Virtualization cold migrate. Functionality: Track migration batches."
+    },
+    "VCF-10-F02-FN01": {
       "primaryComponent": "MTV / live migration",
       "evidenceKey": "mtv",
-      "notes": "Limited live cross-platform vs HCX.",
+      "parity": "Partial Parity",
+      "notes": "Limited live cross-platform vs HCX. Functionality: Migrate running workloads.",
       "workaround": "Warm migrate with MTV where supported; intra-cluster live migrate after.",
       "workaroundComplexity": "High",
       "technicalImpact": "No HCX vMotion fabric."
     },
-    "VCF-10-F03": {
-      "parity": "Partial Parity",
+    "VCF-10-F02-FN02": {
+      "primaryComponent": "MTV / live migration",
+      "evidenceKey": "mtv",
+      "parity": "Full Parity",
+      "notes": "Limited live cross-platform vs HCX. Functionality: Maintain network continuity as designed."
+    },
+    "VCF-10-F02-FN03": {
+      "primaryComponent": "MTV / live migration",
+      "evidenceKey": "mtv",
+      "parity": "No Parity",
+      "notes": "Limited live cross-platform vs HCX. Functionality: Monitor live move health."
+    },
+    "VCF-10-F03-FN01": {
       "primaryComponent": "MTV warm migration",
       "evidenceKey": "mtv",
-      "notes": "Warm/replication-assisted MTV plans.",
+      "parity": "Partial Parity",
+      "notes": "Warm/replication-assisted MTV plans. Functionality: Seed replicas.",
       "workaround": "Use MTV warm migration.",
       "workaroundComplexity": "Medium",
       "technicalImpact": "Not HCX RAV."
     },
-    "VCF-10-F04": {
+    "VCF-10-F03-FN02": {
+      "primaryComponent": "MTV warm migration",
+      "evidenceKey": "mtv",
+      "parity": "Full Parity",
+      "notes": "Warm/replication-assisted MTV plans. Functionality: Cut over workloads."
+    },
+    "VCF-10-F03-FN03": {
+      "primaryComponent": "MTV warm migration",
+      "evidenceKey": "mtv",
       "parity": "No Parity",
+      "notes": "Warm/replication-assisted MTV plans. Functionality: Control RPO/switch windows."
+    },
+    "VCF-10-F04-FN01": {
       "primaryComponent": "N/A",
       "evidenceKey": "mtv",
-      "notes": "No HCX-class L2 extension."
+      "parity": "No Parity",
+      "notes": "No HCX-class L2 extension. Functionality: Extend L2 as designed."
     },
-    "VCF-10-F05": {
-      "parity": "Partial Parity",
+    "VCF-10-F04-FN02": {
+      "primaryComponent": "N/A",
+      "evidenceKey": "mtv",
+      "parity": "No Parity",
+      "notes": "No HCX-class L2 extension. Functionality: Manage stretch during migration."
+    },
+    "VCF-10-F04-FN03": {
+      "primaryComponent": "N/A",
+      "evidenceKey": "mtv",
+      "parity": "No Parity",
+      "notes": "No HCX-class L2 extension. Functionality: Tear down extensions safely."
+    },
+    "VCF-10-F05-FN01": {
       "primaryComponent": "MTV",
       "evidenceKey": "mtv",
-      "notes": "Import VMs; no VCF converge.",
+      "parity": "Partial Parity",
+      "notes": "Import VMs; no VCF converge. Functionality: Import existing environments.",
       "workaround": "Import existing VMs with MTV.",
       "workaroundComplexity": "High",
       "technicalImpact": "No VCF Import/Converge."
     },
-    "VCF-10-F06": {
-      "parity": "Partial Parity",
+    "VCF-10-F05-FN02": {
+      "primaryComponent": "MTV",
+      "evidenceKey": "mtv",
+      "parity": "Full Parity",
+      "notes": "Import VMs; no VCF converge. Functionality: Converge into managed topology."
+    },
+    "VCF-10-F05-FN03": {
+      "primaryComponent": "MTV",
+      "evidenceKey": "mtv",
+      "parity": "No Parity",
+      "notes": "Import VMs; no VCF converge. Functionality: Validate post-import state."
+    },
+    "VCF-10-F06-FN01": {
       "primaryComponent": "MTV plans",
       "evidenceKey": "mtv",
-      "notes": "Migration plans/waves in MTV.",
+      "parity": "Partial Parity",
+      "notes": "Migration plans/waves in MTV. Functionality: Group migration waves.",
       "workaround": "Group VMs in MTV plans.",
       "workaroundComplexity": "Medium",
       "technicalImpact": "Wave ops less HCX-like."
     },
-    "VCF-10-F07": {
-      "parity": "Partial Parity",
+    "VCF-10-F06-FN02": {
+      "primaryComponent": "MTV plans",
+      "evidenceKey": "mtv",
+      "parity": "Full Parity",
+      "notes": "Migration plans/waves in MTV. Functionality: Assess dependencies."
+    },
+    "VCF-10-F06-FN03": {
+      "primaryComponent": "MTV plans",
+      "evidenceKey": "mtv",
+      "parity": "No Parity",
+      "notes": "Migration plans/waves in MTV. Functionality: Report wave completion."
+    },
+    "VCF-10-F07-FN01": {
       "primaryComponent": "MTV",
       "evidenceKey": "mtv",
-      "notes": "Keep source until cutover.",
+      "parity": "Partial Parity",
+      "notes": "Keep source until cutover. Functionality: Define fallback points.",
       "workaround": "Define MTV cutover windows.",
       "workaroundComplexity": "Medium",
       "technicalImpact": "Rollback is process-driven."
     },
-    "VCF-11-F01": {
-      "parity": "Partial Parity",
+    "VCF-10-F07-FN02": {
+      "primaryComponent": "MTV",
+      "evidenceKey": "mtv",
+      "parity": "Full Parity",
+      "notes": "Keep source until cutover. Functionality: Execute controlled rollback where possible."
+    },
+    "VCF-10-F07-FN03": {
+      "primaryComponent": "MTV",
+      "evidenceKey": "mtv",
+      "parity": "No Parity",
+      "notes": "Keep source until cutover. Functionality: Capture mobility evidence."
+    },
+    "VCF-11-F01-FN01": {
       "primaryComponent": "OADP / partners",
       "evidenceKey": "odf",
-      "notes": "Backup via OADP/Velero/partners.",
+      "parity": "Partial Parity",
+      "notes": "Backup via OADP/Velero/partners. Functionality: Protect VMs/workloads.",
       "workaround": "Deploy OADP or certified backup partners.",
       "workaroundComplexity": "Medium",
       "technicalImpact": "Not a built-in VCF backup product."
     },
-    "VCF-11-F02": {
-      "parity": "Partial Parity",
+    "VCF-11-F01-FN02": {
+      "primaryComponent": "OADP / partners",
+      "evidenceKey": "odf",
+      "parity": "Full Parity",
+      "notes": "Backup via OADP/Velero/partners. Functionality: Schedule backup jobs."
+    },
+    "VCF-11-F01-FN03": {
+      "primaryComponent": "OADP / partners",
+      "evidenceKey": "odf",
+      "parity": "No Parity",
+      "notes": "Backup via OADP/Velero/partners. Functionality: Verify backup success."
+    },
+    "VCF-11-F02-FN01": {
       "primaryComponent": "OADP",
       "evidenceKey": "odf",
-      "notes": "Restore via OADP.",
+      "parity": "Partial Parity",
+      "notes": "Restore via OADP. Functionality: Restore full workloads.",
       "workaround": "Restore namespaces/VMs with OADP.",
       "workaroundComplexity": "Medium",
       "technicalImpact": "File-level restore depends on tool."
     },
-    "VCF-11-F03": {
-      "parity": "Partial Parity",
+    "VCF-11-F02-FN02": {
+      "primaryComponent": "OADP",
+      "evidenceKey": "odf",
+      "parity": "Full Parity",
+      "notes": "Restore via OADP. Functionality: Restore files/objects where supported."
+    },
+    "VCF-11-F02-FN03": {
+      "primaryComponent": "OADP",
+      "evidenceKey": "odf",
+      "parity": "No Parity",
+      "notes": "Restore via OADP. Functionality: Validate restore integrity."
+    },
+    "VCF-11-F03-FN01": {
       "primaryComponent": "ACM DR / ODF",
       "evidenceKey": "acm",
-      "notes": "Regional DR patterns.",
+      "parity": "Partial Parity",
+      "notes": "Regional DR patterns. Functionality: Replicate to recovery site.",
       "workaround": "Use Regional DR for apps/VMs where supported.",
       "workaroundComplexity": "High",
       "technicalImpact": "Not SRM identical."
     },
-    "VCF-11-F04": {
-      "parity": "Partial Parity",
+    "VCF-11-F03-FN02": {
+      "primaryComponent": "ACM DR / ODF",
+      "evidenceKey": "acm",
+      "parity": "Full Parity",
+      "notes": "Regional DR patterns. Functionality: Orchestrate failover plans."
+    },
+    "VCF-11-F03-FN03": {
+      "primaryComponent": "ACM DR / ODF",
+      "evidenceKey": "acm",
+      "parity": "No Parity",
+      "notes": "Regional DR patterns. Functionality: Run test failovers."
+    },
+    "VCF-11-F04-FN01": {
       "primaryComponent": "OADP schedules",
       "evidenceKey": "odf",
-      "notes": "RPO via backup schedules.",
+      "parity": "Partial Parity",
+      "notes": "RPO via backup schedules. Functionality: Define protection SLAs.",
       "workaround": "Define backup schedules and test restores.",
       "workaroundComplexity": "Medium",
       "technicalImpact": "SLA dashboards custom."
     },
-    "VCF-11-F05": {
-      "parity": "Partial Parity",
+    "VCF-11-F04-FN02": {
+      "primaryComponent": "OADP schedules",
+      "evidenceKey": "odf",
+      "parity": "Full Parity",
+      "notes": "RPO via backup schedules. Functionality: Monitor SLA compliance."
+    },
+    "VCF-11-F04-FN03": {
+      "primaryComponent": "OADP schedules",
+      "evidenceKey": "odf",
+      "parity": "No Parity",
+      "notes": "RPO via backup schedules. Functionality: Escalate missed targets."
+    },
+    "VCF-11-F05-FN01": {
       "primaryComponent": "Object lock / partners",
       "evidenceKey": "odf",
-      "notes": "Immutability via object storage lock.",
+      "parity": "Partial Parity",
+      "notes": "Immutability via object storage lock. Functionality: Apply immutability controls where available.",
       "workaround": "Use S3 object lock with OADP.",
       "workaroundComplexity": "High",
       "technicalImpact": "Cyber recovery is design-heavy."
     },
-    "VCF-11-F06": {
-      "parity": "Partial Parity",
+    "VCF-11-F05-FN02": {
+      "primaryComponent": "Object lock / partners",
+      "evidenceKey": "odf",
+      "parity": "Full Parity",
+      "notes": "Immutability via object storage lock. Functionality: Isolate recovery copies."
+    },
+    "VCF-11-F05-FN03": {
+      "primaryComponent": "Object lock / partners",
+      "evidenceKey": "odf",
+      "parity": "No Parity",
+      "notes": "Immutability via object storage lock. Functionality: Support clean-room recovery patterns."
+    },
+    "VCF-11-F06-FN01": {
       "primaryComponent": "CSI snapshots",
       "evidenceKey": "odf",
-      "notes": "App consistency via snapshots/hooks.",
+      "parity": "Partial Parity",
+      "notes": "App consistency via snapshots/hooks. Functionality: Coordinate app-aware backups.",
       "workaround": "Use freeze hooks and CSI snapshots.",
       "workaroundComplexity": "Medium",
       "technicalImpact": "DB agents are partner/DIY."
     },
-    "VCF-11-F07": {
-      "parity": "Partial Parity",
+    "VCF-11-F06-FN02": {
+      "primaryComponent": "CSI snapshots",
+      "evidenceKey": "odf",
+      "parity": "Full Parity",
+      "notes": "App consistency via snapshots/hooks. Functionality: Handle database/app agents as designed."
+    },
+    "VCF-11-F06-FN03": {
+      "primaryComponent": "CSI snapshots",
+      "evidenceKey": "odf",
+      "parity": "No Parity",
+      "notes": "App consistency via snapshots/hooks. Functionality: Validate consistency."
+    },
+    "VCF-11-F07-FN01": {
       "primaryComponent": "OADP / ACM",
       "evidenceKey": "acm",
-      "notes": "DR test evidence is operational.",
+      "parity": "Partial Parity",
+      "notes": "DR test evidence is operational. Functionality: Report protected vs unprotected estate.",
       "workaround": "Export backup/DR test logs.",
       "workaroundComplexity": "Medium",
       "technicalImpact": "Reporting is lighter."
     },
-    "VCF-12-F01": {
-      "parity": "Partial Parity",
+    "VCF-11-F07-FN02": {
+      "primaryComponent": "OADP / ACM",
+      "evidenceKey": "acm",
+      "parity": "Full Parity",
+      "notes": "DR test evidence is operational. Functionality: Export DR test evidence."
+    },
+    "VCF-11-F07-FN03": {
+      "primaryComponent": "OADP / ACM",
+      "evidenceKey": "acm",
+      "parity": "No Parity",
+      "notes": "DR test evidence is operational. Functionality: Track recovery metrics."
+    },
+    "VCF-12-F01-FN01": {
       "primaryComponent": "NVIDIA GPU Operator",
       "evidenceKey": "ocp",
-      "notes": "GPU enablement on OpenShift.",
+      "parity": "Partial Parity",
+      "notes": "GPU enablement on OpenShift. Functionality: Expose GPU resources.",
       "workaround": "Install GPU Operator and time-slicing/MIG.",
       "workaroundComplexity": "Medium",
       "technicalImpact": "Not VCF Private AI SKU."
     },
-    "VCF-12-F02": {
-      "parity": "Partial Parity",
+    "VCF-12-F01-FN02": {
+      "primaryComponent": "NVIDIA GPU Operator",
+      "evidenceKey": "ocp",
+      "parity": "Full Parity",
+      "notes": "GPU enablement on OpenShift. Functionality: Schedule accelerated workloads."
+    },
+    "VCF-12-F01-FN03": {
+      "primaryComponent": "NVIDIA GPU Operator",
+      "evidenceKey": "ocp",
+      "parity": "No Parity",
+      "notes": "GPU enablement on OpenShift. Functionality: Monitor accelerator health/utilization."
+    },
+    "VCF-12-F02-FN01": {
       "primaryComponent": "OpenShift AI",
       "evidenceKey": "rhoai",
-      "notes": "Model serving via OpenShift AI / KServe.",
+      "parity": "Partial Parity",
+      "notes": "Model serving via OpenShift AI / KServe. Functionality: Deploy model endpoints.",
       "workaround": "Deploy RHOAI model servers.",
       "workaroundComplexity": "Medium",
       "technicalImpact": "Packaging differs from VCF Private AI."
     },
-    "VCF-12-F03": {
-      "parity": "Partial Parity",
+    "VCF-12-F02-FN02": {
       "primaryComponent": "OpenShift AI",
       "evidenceKey": "rhoai",
-      "notes": "Data science pipelines / RAG assembled on platform.",
+      "parity": "Full Parity",
+      "notes": "Model serving via OpenShift AI / KServe. Functionality: Scale inference services."
+    },
+    "VCF-12-F02-FN03": {
+      "primaryComponent": "OpenShift AI",
+      "evidenceKey": "rhoai",
+      "parity": "No Parity",
+      "notes": "Model serving via OpenShift AI / KServe. Functionality: Secure endpoint access."
+    },
+    "VCF-12-F03-FN01": {
+      "primaryComponent": "OpenShift AI",
+      "evidenceKey": "rhoai",
+      "parity": "Partial Parity",
+      "notes": "Data science pipelines / RAG assembled on platform. Functionality: Ingest enterprise data sources.",
       "workaround": "Build RAG with RHOAI pipelines and vector DBs.",
       "workaroundComplexity": "High",
       "technicalImpact": "Not a single VCF Private AI product."
     },
-    "VCF-12-F04": {
-      "parity": "Partial Parity",
+    "VCF-12-F03-FN02": {
       "primaryComponent": "OpenShift AI",
       "evidenceKey": "rhoai",
-      "notes": "MLOps via RHOAI/KServe, not VCF Private AI Services.",
+      "parity": "Full Parity",
+      "notes": "Data science pipelines / RAG assembled on platform. Functionality: Index/retrieve context."
+    },
+    "VCF-12-F03-FN03": {
+      "primaryComponent": "OpenShift AI",
+      "evidenceKey": "rhoai",
+      "parity": "No Parity",
+      "notes": "Data science pipelines / RAG assembled on platform. Functionality: Control data residency path."
+    },
+    "VCF-12-F04-FN01": {
+      "primaryComponent": "OpenShift AI",
+      "evidenceKey": "rhoai",
+      "parity": "Partial Parity",
+      "notes": "MLOps via RHOAI/KServe, not VCF Private AI Services. Functionality: Version models.",
       "workaround": "Use RHOAI model versions and serving.",
       "workaroundComplexity": "Medium",
       "technicalImpact": "Lifecycle UX differs."
     },
-    "VCF-12-F05": {
-      "parity": "Partial Parity",
+    "VCF-12-F04-FN02": {
+      "primaryComponent": "OpenShift AI",
+      "evidenceKey": "rhoai",
+      "parity": "Full Parity",
+      "notes": "MLOps via RHOAI/KServe, not VCF Private AI Services. Functionality: Promote model stages."
+    },
+    "VCF-12-F04-FN03": {
+      "primaryComponent": "OpenShift AI",
+      "evidenceKey": "rhoai",
+      "parity": "No Parity",
+      "notes": "MLOps via RHOAI/KServe, not VCF Private AI Services. Functionality: Rollback model deployments."
+    },
+    "VCF-12-F05-FN01": {
       "primaryComponent": "Projects / RBAC",
       "evidenceKey": "ocp",
-      "notes": "Project RBAC for AI workspaces.",
+      "parity": "Partial Parity",
+      "notes": "Project RBAC for AI workspaces. Functionality: Entitle AI projects.",
       "workaround": "Isolate AI projects with quotas.",
       "workaroundComplexity": "Low",
       "technicalImpact": "AI-specific governance is limited."
     },
-    "VCF-12-F06": {
-      "parity": "Partial Parity",
+    "VCF-12-F05-FN02": {
+      "primaryComponent": "Projects / RBAC",
+      "evidenceKey": "ocp",
+      "parity": "Full Parity",
+      "notes": "Project RBAC for AI workspaces. Functionality: Audit AI resource usage."
+    },
+    "VCF-12-F05-FN03": {
+      "primaryComponent": "Projects / RBAC",
+      "evidenceKey": "ocp",
+      "parity": "No Parity",
+      "notes": "Project RBAC for AI workspaces. Functionality: Apply policy constraints."
+    },
+    "VCF-12-F06-FN01": {
       "primaryComponent": "OpenShift platform",
       "evidenceKey": "ocp",
-      "notes": "Uses platform identity/network/storage/monitoring.",
+      "parity": "Partial Parity",
+      "notes": "Uses platform identity/network/storage/monitoring. Functionality: Use platform identity.",
       "workaround": "Run AI on the same OCP stack.",
       "workaroundComplexity": "Low",
       "technicalImpact": "Integration is native K8s, not VCF services."
     },
-    "VCF-12-F07": {
-      "parity": "Partial Parity",
+    "VCF-12-F06-FN02": {
+      "primaryComponent": "OpenShift platform",
+      "evidenceKey": "ocp",
+      "parity": "Full Parity",
+      "notes": "Uses platform identity/network/storage/monitoring. Functionality: Use platform networking/storage."
+    },
+    "VCF-12-F06-FN03": {
+      "primaryComponent": "OpenShift platform",
+      "evidenceKey": "ocp",
+      "parity": "No Parity",
+      "notes": "Uses platform identity/network/storage/monitoring. Functionality: Observe AI services in ops tooling."
+    },
+    "VCF-12-F07-FN01": {
       "primaryComponent": "Disconnected OpenShift",
       "evidenceKey": "ocp",
-      "notes": "Air-gapped clusters support private inference.",
+      "parity": "Partial Parity",
+      "notes": "Air-gapped clusters support private inference. Functionality: Keep inference private as designed.",
       "workaround": "Disconnected install plus egress NetworkPolicy.",
       "workaroundComplexity": "Medium",
       "technicalImpact": "Sovereign design is operational."
+    },
+    "VCF-12-F07-FN02": {
+      "primaryComponent": "Disconnected OpenShift",
+      "evidenceKey": "ocp",
+      "parity": "Full Parity",
+      "notes": "Air-gapped clusters support private inference. Functionality: Restrict outbound model/data calls."
+    },
+    "VCF-12-F07-FN03": {
+      "primaryComponent": "Disconnected OpenShift",
+      "evidenceKey": "ocp",
+      "parity": "No Parity",
+      "notes": "Air-gapped clusters support private inference. Functionality: Evidence private processing posture."
     }
   }
 }

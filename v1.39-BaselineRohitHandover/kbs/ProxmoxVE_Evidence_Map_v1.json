@@ -37,666 +37,1702 @@
     "api": "https://pve.proxmox.com/wiki/Proxmox_VE_API"
   },
   "status": "evidence_backed_draft",
+  "scoringKey": "functionalityId",
   "features": {
-    "VCF-01-F01": {
-      "parity": "Partial Parity",
+    "VCF-01-F01-FN01": {
       "primaryComponent": "Proxmox datacenter view",
       "evidenceKey": "pve",
-      "notes": "Cluster/node inventory in PVE UI, not VCF fleet domains.",
+      "parity": "Partial Parity",
+      "notes": "Cluster/node inventory in PVE UI, not VCF fleet domains. Functionality: Discover hosts and clusters.",
       "workaround": "Use Datacenter/cluster tree.",
       "workaroundComplexity": "Low",
       "technicalImpact": "No workload-domain object."
     },
-    "VCF-01-F02": {
+    "VCF-01-F01-FN02": {
+      "primaryComponent": "Proxmox datacenter view",
+      "evidenceKey": "pve",
+      "parity": "Full Parity",
+      "notes": "Cluster/node inventory in PVE UI, not VCF fleet domains. Functionality: View domain membership."
+    },
+    "VCF-01-F01-FN03": {
+      "primaryComponent": "Proxmox datacenter view",
+      "evidenceKey": "pve",
       "parity": "No Parity",
+      "notes": "Cluster/node inventory in PVE UI, not VCF fleet domains. Functionality: Track capacity summary."
+    },
+    "VCF-01-F02-FN01": {
       "primaryComponent": "N/A",
       "evidenceKey": "pve",
-      "notes": "No VCF Workload Domain lifecycle."
+      "parity": "No Parity",
+      "notes": "No VCF Workload Domain lifecycle. Functionality: Create workload domain."
     },
-    "VCF-01-F03": {
-      "parity": "Full Parity",
+    "VCF-01-F02-FN02": {
+      "primaryComponent": "N/A",
+      "evidenceKey": "pve",
+      "parity": "No Parity",
+      "notes": "No VCF Workload Domain lifecycle. Functionality: Expand workload domain."
+    },
+    "VCF-01-F02-FN03": {
+      "primaryComponent": "N/A",
+      "evidenceKey": "pve",
+      "parity": "No Parity",
+      "notes": "No VCF Workload Domain lifecycle. Functionality: Delete/decommission domain."
+    },
+    "VCF-01-F03-FN01": {
       "primaryComponent": "pvecm",
       "evidenceKey": "pve",
-      "notes": "Add/remove cluster nodes is a core PVE operation."
+      "parity": "Full Parity",
+      "notes": "Add/remove cluster nodes is a core PVE operation. Functionality: Add hosts to cluster."
     },
-    "VCF-01-F04": {
-      "parity": "No Parity",
+    "VCF-01-F03-FN02": {
+      "primaryComponent": "pvecm",
+      "evidenceKey": "pve",
+      "parity": "Full Parity",
+      "notes": "Add/remove cluster nodes is a core PVE operation. Functionality: Remove hosts from cluster."
+    },
+    "VCF-01-F03-FN03": {
+      "primaryComponent": "pvecm",
+      "evidenceKey": "pve",
+      "parity": "Partial Parity",
+      "notes": "Add/remove cluster nodes is a core PVE operation. Functionality: Validate cluster readiness.",
+      "workaround": "Use platform-native equivalent for Validate cluster readiness.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Not a 1:1 VCF equivalent; operating model differs."
+    },
+    "VCF-01-F04-FN01": {
       "primaryComponent": "N/A",
       "evidenceKey": "pve",
-      "notes": "No principal vs workload domain separation product."
+      "parity": "No Parity",
+      "notes": "No principal vs workload domain separation product. Functionality: Maintain management domain isolation."
     },
-    "VCF-01-F05": {
-      "parity": "Partial Parity",
+    "VCF-01-F04-FN02": {
+      "primaryComponent": "N/A",
+      "evidenceKey": "pve",
+      "parity": "No Parity",
+      "notes": "No principal vs workload domain separation product. Functionality: Apply domain-specific policies."
+    },
+    "VCF-01-F04-FN03": {
+      "primaryComponent": "N/A",
+      "evidenceKey": "pve",
+      "parity": "No Parity",
+      "notes": "No principal vs workload domain separation product. Functionality: Audit cross-domain dependencies."
+    },
+    "VCF-01-F05-FN01": {
       "primaryComponent": "Debian / installer ISO",
       "evidenceKey": "pve",
-      "notes": "ISO install, not VCF commissioning.",
+      "parity": "Partial Parity",
+      "notes": "ISO install, not VCF commissioning. Functionality: Commission host.",
       "workaround": "Install nodes from PVE ISO and join cluster.",
       "workaroundComplexity": "Medium",
       "technicalImpact": "Hardware HCL process differs."
     },
-    "VCF-01-F06": {
-      "parity": "Partial Parity",
+    "VCF-01-F05-FN02": {
+      "primaryComponent": "Debian / installer ISO",
+      "evidenceKey": "pve",
+      "parity": "Full Parity",
+      "notes": "ISO install, not VCF commissioning. Functionality: Validate hardware compatibility."
+    },
+    "VCF-01-F05-FN03": {
+      "primaryComponent": "Debian / installer ISO",
+      "evidenceKey": "pve",
+      "parity": "No Parity",
+      "notes": "ISO install, not VCF commissioning. Functionality: Assign host to domain."
+    },
+    "VCF-01-F06-FN01": {
       "primaryComponent": "Config files",
       "evidenceKey": "pve",
-      "notes": "Baselines are file-based (/etc/pve).",
+      "parity": "Partial Parity",
+      "notes": "Baselines are file-based (/etc/pve). Functionality: Capture desired state baseline.",
       "workaround": "Version /etc/pve with Git; no SDDC baselines.",
       "workaroundComplexity": "High",
       "technicalImpact": "Drift tooling is DIY."
     },
-    "VCF-01-F07": {
-      "parity": "Partial Parity",
+    "VCF-01-F06-FN02": {
+      "primaryComponent": "Config files",
+      "evidenceKey": "pve",
+      "parity": "Full Parity",
+      "notes": "Baselines are file-based (/etc/pve). Functionality: Detect configuration drift."
+    },
+    "VCF-01-F06-FN03": {
+      "primaryComponent": "Config files",
+      "evidenceKey": "pve",
+      "parity": "No Parity",
+      "notes": "Baselines are file-based (/etc/pve). Functionality: Export baseline snapshot."
+    },
+    "VCF-01-F07-FN01": {
       "primaryComponent": "Ceph stretch / qdevice",
       "evidenceKey": "ceph",
-      "notes": "Multi-site via Ceph stretch or separate clusters.",
+      "parity": "Partial Parity",
+      "notes": "Multi-site via Ceph stretch or separate clusters. Functionality: Identify stretched topology.",
       "workaround": "Design Ceph stretch or dual clusters.",
       "workaroundComplexity": "High",
       "technicalImpact": "Not VCF stretch domains."
     },
-    "VCF-02-F01": {
-      "parity": "Partial Parity",
+    "VCF-01-F07-FN02": {
+      "primaryComponent": "Ceph stretch / qdevice",
+      "evidenceKey": "ceph",
+      "parity": "Full Parity",
+      "notes": "Multi-site via Ceph stretch or separate clusters. Functionality: Track site affinity."
+    },
+    "VCF-01-F07-FN03": {
+      "primaryComponent": "Ceph stretch / qdevice",
+      "evidenceKey": "ceph",
+      "parity": "No Parity",
+      "notes": "Multi-site via Ceph stretch or separate clusters. Functionality: Surface site failure domains."
+    },
+    "VCF-02-F01-FN01": {
       "primaryComponent": "PVE installer",
       "evidenceKey": "pve",
-      "notes": "Simple ISO installer, not VCF Installer.",
+      "parity": "Partial Parity",
+      "notes": "Simple ISO installer, not VCF Installer. Functionality: Run bring-up wizard.",
       "workaround": "Use PVE ISO bring-up.",
       "workaroundComplexity": "Low",
       "technicalImpact": "No VCF prerequisite engine."
     },
-    "VCF-02-F02": {
+    "VCF-02-F01-FN02": {
+      "primaryComponent": "PVE installer",
+      "evidenceKey": "pve",
+      "parity": "Full Parity",
+      "notes": "Simple ISO installer, not VCF Installer. Functionality: Validate prerequisites."
+    },
+    "VCF-02-F01-FN03": {
+      "primaryComponent": "PVE installer",
+      "evidenceKey": "pve",
       "parity": "No Parity",
+      "notes": "Simple ISO installer, not VCF Installer. Functionality: Apply initial configuration."
+    },
+    "VCF-02-F02-FN01": {
       "primaryComponent": "N/A",
       "evidenceKey": "pve",
-      "notes": "No SDDC Manager."
+      "parity": "No Parity",
+      "notes": "No SDDC Manager. Functionality: Coordinate component workflows."
     },
-    "VCF-02-F03": {
-      "parity": "Partial Parity",
+    "VCF-02-F02-FN02": {
+      "primaryComponent": "N/A",
+      "evidenceKey": "pve",
+      "parity": "No Parity",
+      "notes": "No SDDC Manager. Functionality: Track task progress."
+    },
+    "VCF-02-F02-FN03": {
+      "primaryComponent": "N/A",
+      "evidenceKey": "pve",
+      "parity": "No Parity",
+      "notes": "No SDDC Manager. Functionality: Retry failed tasks safely."
+    },
+    "VCF-02-F03-FN01": {
       "primaryComponent": "apt / enterprise repo",
       "evidenceKey": "pve",
-      "notes": "apt repositories, not VCF depot.",
+      "parity": "Partial Parity",
+      "notes": "apt repositories, not VCF depot. Functionality: Ingest update bundles.",
       "workaround": "Use enterprise apt repos or offline mirrors.",
       "workaroundComplexity": "Low",
       "technicalImpact": "No VCF bundle model."
     },
-    "VCF-02-F04": {
-      "parity": "Partial Parity",
+    "VCF-02-F03-FN02": {
+      "primaryComponent": "apt / enterprise repo",
+      "evidenceKey": "pve",
+      "parity": "Full Parity",
+      "notes": "apt repositories, not VCF depot. Functionality: Validate bundle integrity."
+    },
+    "VCF-02-F03-FN03": {
+      "primaryComponent": "apt / enterprise repo",
+      "evidenceKey": "pve",
+      "parity": "No Parity",
+      "notes": "apt repositories, not VCF depot. Functionality: Stage bundles for upgrade."
+    },
+    "VCF-02-F04-FN01": {
       "primaryComponent": "apt",
       "evidenceKey": "pve",
-      "notes": "Limited prechecks vs VCF.",
+      "parity": "Partial Parity",
+      "notes": "Limited prechecks vs VCF. Functionality: Run upgrade prechecks.",
       "workaround": "Test upgrades on a node; read release notes.",
       "workaroundComplexity": "Medium",
       "technicalImpact": "No structured precheck report."
     },
-    "VCF-02-F05": {
-      "parity": "Partial Parity",
+    "VCF-02-F04-FN02": {
+      "primaryComponent": "apt",
+      "evidenceKey": "pve",
+      "parity": "Full Parity",
+      "notes": "Limited prechecks vs VCF. Functionality: Identify blockers."
+    },
+    "VCF-02-F04-FN03": {
+      "primaryComponent": "apt",
+      "evidenceKey": "pve",
+      "parity": "No Parity",
+      "notes": "Limited prechecks vs VCF. Functionality: Produce upgrade readiness report."
+    },
+    "VCF-02-F05-FN01": {
       "primaryComponent": "apt + reboot",
       "evidenceKey": "pve",
-      "notes": "Rolling node upgrades, not VCF stack.",
+      "parity": "Partial Parity",
+      "notes": "Rolling node upgrades, not VCF stack. Functionality: Upgrade management components.",
       "workaround": "Upgrade nodes rolling with live migration.",
       "workaroundComplexity": "Medium",
       "technicalImpact": "No coordinated NSX/vSAN-class stack."
     },
-    "VCF-02-F06": {
-      "parity": "Partial Parity",
+    "VCF-02-F05-FN02": {
+      "primaryComponent": "apt + reboot",
+      "evidenceKey": "pve",
+      "parity": "Full Parity",
+      "notes": "Rolling node upgrades, not VCF stack. Functionality: Upgrade workload domain components."
+    },
+    "VCF-02-F05-FN03": {
+      "primaryComponent": "apt + reboot",
+      "evidenceKey": "pve",
+      "parity": "No Parity",
+      "notes": "Rolling node upgrades, not VCF stack. Functionality: Track upgrade checkpoints."
+    },
+    "VCF-02-F06-FN01": {
       "primaryComponent": "apt pinning",
       "evidenceKey": "pve",
-      "notes": "Selective packages via apt.",
+      "parity": "Partial Parity",
+      "notes": "Selective packages via apt. Functionality: Select update scope.",
       "workaround": "Hold packages; upgrade selected nodes.",
       "workaroundComplexity": "Medium",
       "technicalImpact": "Not VCF skip-level."
     },
-    "VCF-02-F07": {
-      "parity": "Partial Parity",
+    "VCF-02-F06-FN02": {
+      "primaryComponent": "apt pinning",
+      "evidenceKey": "pve",
+      "parity": "Full Parity",
+      "notes": "Selective packages via apt. Functionality: Defer non-critical updates."
+    },
+    "VCF-02-F06-FN03": {
+      "primaryComponent": "apt pinning",
+      "evidenceKey": "pve",
+      "parity": "No Parity",
+      "notes": "Selective packages via apt. Functionality: Record update exceptions."
+    },
+    "VCF-02-F07-FN01": {
       "primaryComponent": "apt history",
       "evidenceKey": "pve",
-      "notes": "Rollback often snapshot/reinstall.",
+      "parity": "Partial Parity",
+      "notes": "Rollback often snapshot/reinstall. Functionality: Retain upgrade history.",
       "workaround": "Snapshot boot disk before upgrade.",
       "workaroundComplexity": "High",
       "technicalImpact": "Limited rollback."
     },
-    "VCF-03-F01": {
+    "VCF-02-F07-FN02": {
+      "primaryComponent": "apt history",
+      "evidenceKey": "pve",
       "parity": "Full Parity",
+      "notes": "Rollback often snapshot/reinstall. Functionality: Document rollback constraints."
+    },
+    "VCF-02-F07-FN03": {
+      "primaryComponent": "apt history",
+      "evidenceKey": "pve",
+      "parity": "No Parity",
+      "notes": "Rollback often snapshot/reinstall. Functionality: Export lifecycle evidence."
+    },
+    "VCF-03-F01-FN01": {
       "primaryComponent": "KVM",
       "evidenceKey": "pve",
-      "notes": "KVM/QEMU VM compute is the product."
-    },
-    "VCF-03-F02": {
       "parity": "Full Parity",
+      "notes": "KVM/QEMU VM compute is the product. Functionality: Run virtual machines."
+    },
+    "VCF-03-F01-FN02": {
+      "primaryComponent": "KVM",
+      "evidenceKey": "pve",
+      "parity": "Full Parity",
+      "notes": "KVM/QEMU VM compute is the product. Functionality: Manage host services."
+    },
+    "VCF-03-F01-FN03": {
+      "primaryComponent": "KVM",
+      "evidenceKey": "pve",
+      "parity": "Partial Parity",
+      "notes": "KVM/QEMU VM compute is the product. Functionality: Apply host profiles/baselines.",
+      "workaround": "Use platform-native equivalent for Apply host profiles/baselines.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Not a 1:1 VCF equivalent; operating model differs."
+    },
+    "VCF-03-F02-FN01": {
       "primaryComponent": "Proxmox VE GUI/API",
       "evidenceKey": "pve",
-      "notes": "Central UI, RBAC, REST API."
+      "parity": "Full Parity",
+      "notes": "Central UI, RBAC, REST API. Functionality: Central inventory control."
     },
-    "VCF-03-F03": {
+    "VCF-03-F02-FN02": {
+      "primaryComponent": "Proxmox VE GUI/API",
+      "evidenceKey": "pve",
+      "parity": "Full Parity",
+      "notes": "Central UI, RBAC, REST API. Functionality: Role-based access for compute."
+    },
+    "VCF-03-F02-FN03": {
+      "primaryComponent": "Proxmox VE GUI/API",
+      "evidenceKey": "pve",
       "parity": "Partial Parity",
+      "notes": "Central UI, RBAC, REST API. Functionality: API/automation access.",
+      "workaround": "Use platform-native equivalent for API/automation access.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Not a 1:1 VCF equivalent; operating model differs."
+    },
+    "VCF-03-F03-FN01": {
       "primaryComponent": "HA groups / affinity",
       "evidenceKey": "pve",
-      "notes": "HA groups, not DRS.",
+      "parity": "Partial Parity",
+      "notes": "HA groups, not DRS. Functionality: Balance workloads.",
       "workaround": "Use HA groups and manual placement.",
       "workaroundComplexity": "Medium",
       "technicalImpact": "No automated load-balancing DRS."
     },
-    "VCF-03-F04": {
+    "VCF-03-F03-FN02": {
+      "primaryComponent": "HA groups / affinity",
+      "evidenceKey": "pve",
       "parity": "Full Parity",
+      "notes": "HA groups, not DRS. Functionality: Apply placement rules."
+    },
+    "VCF-03-F03-FN03": {
+      "primaryComponent": "HA groups / affinity",
+      "evidenceKey": "pve",
+      "parity": "No Parity",
+      "notes": "HA groups, not DRS. Functionality: Evacuate hosts for maintenance."
+    },
+    "VCF-03-F04-FN01": {
       "primaryComponent": "PVE HA",
       "evidenceKey": "pve",
-      "notes": "HA manager restarts VMs on node failure."
+      "parity": "Full Parity",
+      "notes": "HA manager restarts VMs on node failure. Functionality: Detect host failure."
     },
-    "VCF-03-F05": {
+    "VCF-03-F04-FN02": {
+      "primaryComponent": "PVE HA",
+      "evidenceKey": "pve",
+      "parity": "Full Parity",
+      "notes": "HA manager restarts VMs on node failure. Functionality: Restart impacted VMs."
+    },
+    "VCF-03-F04-FN03": {
+      "primaryComponent": "PVE HA",
+      "evidenceKey": "pve",
       "parity": "Partial Parity",
+      "notes": "HA manager restarts VMs on node failure. Functionality: Configure admission control.",
+      "workaround": "Use platform-native equivalent for Configure admission control.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Not a 1:1 VCF equivalent; operating model differs."
+    },
+    "VCF-03-F05-FN01": {
       "primaryComponent": "CPU/memory limits",
       "evidenceKey": "pve",
-      "notes": "VM resource limits, not resource pools.",
+      "parity": "Partial Parity",
+      "notes": "VM resource limits, not resource pools. Functionality: Create resource pools.",
       "workaround": "Set VM cpulimit/balloon and pools.",
       "workaroundComplexity": "Low",
       "technicalImpact": "Pool semantics differ."
     },
-    "VCF-03-F06": {
+    "VCF-03-F05-FN02": {
+      "primaryComponent": "CPU/memory limits",
+      "evidenceKey": "pve",
       "parity": "Full Parity",
+      "notes": "VM resource limits, not resource pools. Functionality: Set reservations/limits/shares."
+    },
+    "VCF-03-F05-FN03": {
+      "primaryComponent": "CPU/memory limits",
+      "evidenceKey": "pve",
+      "parity": "No Parity",
+      "notes": "VM resource limits, not resource pools. Functionality: Monitor pool contention."
+    },
+    "VCF-03-F06-FN01": {
       "primaryComponent": "QEMU",
       "evidenceKey": "pve",
-      "notes": "Create, clone, snapshot/rollback are core."
-    },
-    "VCF-03-F07": {
       "parity": "Full Parity",
+      "notes": "Create, clone, snapshot/rollback are core. Functionality: Provision VM."
+    },
+    "VCF-03-F06-FN02": {
+      "primaryComponent": "QEMU",
+      "evidenceKey": "pve",
+      "parity": "Full Parity",
+      "notes": "Create, clone, snapshot/rollback are core. Functionality: Clone/template deploy."
+    },
+    "VCF-03-F06-FN03": {
+      "primaryComponent": "QEMU",
+      "evidenceKey": "pve",
+      "parity": "Partial Parity",
+      "notes": "Create, clone, snapshot/rollback are core. Functionality: Snapshot and revert controls.",
+      "workaround": "Use platform-native equivalent for Snapshot and revert controls.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Not a 1:1 VCF equivalent; operating model differs."
+    },
+    "VCF-03-F07-FN01": {
       "primaryComponent": "Live migration",
       "evidenceKey": "pve",
-      "notes": "Maintenance via live migration."
-    },
-    "VCF-04-F01": {
       "parity": "Full Parity",
+      "notes": "Maintenance via live migration. Functionality: Enter maintenance mode."
+    },
+    "VCF-03-F07-FN02": {
+      "primaryComponent": "Live migration",
+      "evidenceKey": "pve",
+      "parity": "Full Parity",
+      "notes": "Maintenance via live migration. Functionality: Remediate host compliance."
+    },
+    "VCF-03-F07-FN03": {
+      "primaryComponent": "Live migration",
+      "evidenceKey": "pve",
+      "parity": "Partial Parity",
+      "notes": "Maintenance via live migration. Functionality: Coordinate live migration.",
+      "workaround": "Use platform-native equivalent for Coordinate live migration.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Not a 1:1 VCF equivalent; operating model differs."
+    },
+    "VCF-04-F01-FN01": {
       "primaryComponent": "Ceph / ZFS / LVM",
       "evidenceKey": "ceph",
-      "notes": "Shared or replicated storage for VMs (Ceph common)."
+      "parity": "Full Parity",
+      "notes": "Shared or replicated storage for VMs (Ceph common). Functionality: Provide shared datastore."
     },
-    "VCF-04-F02": {
+    "VCF-04-F01-FN02": {
+      "primaryComponent": "Ceph / ZFS / LVM",
+      "evidenceKey": "ceph",
+      "parity": "Full Parity",
+      "notes": "Shared or replicated storage for VMs (Ceph common). Functionality: Support VM storage provisioning."
+    },
+    "VCF-04-F01-FN03": {
+      "primaryComponent": "Ceph / ZFS / LVM",
+      "evidenceKey": "ceph",
       "parity": "Partial Parity",
+      "notes": "Shared or replicated storage for VMs (Ceph common). Functionality: Expose capacity health.",
+      "workaround": "Use platform-native equivalent for Expose capacity health.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Not a 1:1 VCF equivalent; operating model differs."
+    },
+    "VCF-04-F02-FN01": {
       "primaryComponent": "Storage classes in PVE",
       "evidenceKey": "pve",
-      "notes": "Storage definitions, not SPBM.",
+      "parity": "Partial Parity",
+      "notes": "Storage definitions, not SPBM. Functionality: Define storage policies.",
       "workaround": "Map policies to storage IDs (Ceph/ZFS).",
       "workaroundComplexity": "Medium",
       "technicalImpact": "No VM-level SPBM."
     },
-    "VCF-04-F03": {
-      "parity": "Partial Parity",
+    "VCF-04-F02-FN02": {
+      "primaryComponent": "Storage classes in PVE",
+      "evidenceKey": "pve",
+      "parity": "Full Parity",
+      "notes": "Storage definitions, not SPBM. Functionality: Apply policy to VMs/disks."
+    },
+    "VCF-04-F02-FN03": {
+      "primaryComponent": "Storage classes in PVE",
+      "evidenceKey": "pve",
+      "parity": "No Parity",
+      "notes": "Storage definitions, not SPBM. Functionality: Monitor policy compliance."
+    },
+    "VCF-04-F03-FN01": {
       "primaryComponent": "ZFS / Ceph",
       "evidenceKey": "ceph",
-      "notes": "Compression/dedup depend on backend.",
+      "parity": "Partial Parity",
+      "notes": "Compression/dedup depend on backend. Functionality: Enable space efficiency features.",
       "workaround": "Enable ZFS compression or Ceph features.",
       "workaroundComplexity": "Medium",
       "technicalImpact": "Not vSAN efficiency UI."
     },
-    "VCF-04-F04": {
-      "parity": "Partial Parity",
+    "VCF-04-F03-FN02": {
+      "primaryComponent": "ZFS / Ceph",
+      "evidenceKey": "ceph",
+      "parity": "Full Parity",
+      "notes": "Compression/dedup depend on backend. Functionality: Monitor savings."
+    },
+    "VCF-04-F03-FN03": {
+      "primaryComponent": "ZFS / Ceph",
+      "evidenceKey": "ceph",
+      "parity": "No Parity",
+      "notes": "Compression/dedup depend on backend. Functionality: Assess performance impact."
+    },
+    "VCF-04-F04-FN01": {
       "primaryComponent": "Ceph",
       "evidenceKey": "ceph",
-      "notes": "CRUSH/failure domains if Ceph used.",
+      "parity": "Partial Parity",
+      "notes": "CRUSH/failure domains if Ceph used. Functionality: Configure fault domains.",
       "workaround": "Configure Ceph CRUSH map.",
       "workaroundComplexity": "Medium",
       "technicalImpact": "Ops model differs from vSAN."
     },
-    "VCF-04-F05": {
-      "parity": "Partial Parity",
+    "VCF-04-F04-FN02": {
+      "primaryComponent": "Ceph",
+      "evidenceKey": "ceph",
+      "parity": "Full Parity",
+      "notes": "CRUSH/failure domains if Ceph used. Functionality: Tolerate host/site failures."
+    },
+    "VCF-04-F04-FN03": {
+      "primaryComponent": "Ceph",
+      "evidenceKey": "ceph",
+      "parity": "No Parity",
+      "notes": "CRUSH/failure domains if Ceph used. Functionality: Rebuild degraded objects."
+    },
+    "VCF-04-F05-FN01": {
       "primaryComponent": "Ceph stretch",
       "evidenceKey": "ceph",
-      "notes": "Stretch Ceph is advanced.",
+      "parity": "Partial Parity",
+      "notes": "Stretch Ceph is advanced. Functionality: Configure stretch cluster storage.",
       "workaround": "Design stretch Ceph with tie-breaker.",
       "workaroundComplexity": "High",
       "technicalImpact": "Not vSAN stretch wizard."
     },
-    "VCF-04-F06": {
-      "parity": "Partial Parity",
+    "VCF-04-F05-FN02": {
+      "primaryComponent": "Ceph stretch",
+      "evidenceKey": "ceph",
+      "parity": "Full Parity",
+      "notes": "Stretch Ceph is advanced. Functionality: Manage site affinity."
+    },
+    "VCF-04-F05-FN03": {
+      "primaryComponent": "Ceph stretch",
+      "evidenceKey": "ceph",
+      "parity": "No Parity",
+      "notes": "Stretch Ceph is advanced. Functionality: Handle site isolation behavior."
+    },
+    "VCF-04-F06-FN01": {
       "primaryComponent": "ZFS / NFS",
       "evidenceKey": "pve",
-      "notes": "File via NFS/CIFS storage.",
+      "parity": "Partial Parity",
+      "notes": "File via NFS/CIFS storage. Functionality: Provide file share services where applicable.",
       "workaround": "Add NFS or ZFS datasets as storage.",
       "workaroundComplexity": "Low",
       "technicalImpact": "Not vSAN File Services."
     },
-    "VCF-04-F07": {
-      "parity": "Partial Parity",
+    "VCF-04-F06-FN02": {
+      "primaryComponent": "ZFS / NFS",
+      "evidenceKey": "pve",
+      "parity": "Full Parity",
+      "notes": "File via NFS/CIFS storage. Functionality: Integrate supplemental storage."
+    },
+    "VCF-04-F06-FN03": {
+      "primaryComponent": "ZFS / NFS",
+      "evidenceKey": "pve",
+      "parity": "No Parity",
+      "notes": "File via NFS/CIFS storage. Functionality: Monitor service health."
+    },
+    "VCF-04-F07-FN01": {
       "primaryComponent": "Ceph dashboard / PVE",
       "evidenceKey": "ceph",
-      "notes": "Health in PVE/Ceph.",
+      "parity": "Partial Parity",
+      "notes": "Health in PVE/Ceph. Functionality: Run health checks.",
       "workaround": "Use PVE Ceph UI and ceph -s.",
       "workaroundComplexity": "Low",
       "technicalImpact": "Support bundles are logs."
     },
-    "VCF-05-F01": {
-      "parity": "Partial Parity",
+    "VCF-04-F07-FN02": {
+      "primaryComponent": "Ceph dashboard / PVE",
+      "evidenceKey": "ceph",
+      "parity": "Full Parity",
+      "notes": "Health in PVE/Ceph. Functionality: Collect support bundles."
+    },
+    "VCF-04-F07-FN03": {
+      "primaryComponent": "Ceph dashboard / PVE",
+      "evidenceKey": "ceph",
+      "parity": "No Parity",
+      "notes": "Health in PVE/Ceph. Functionality: Track resync/rebuild progress."
+    },
+    "VCF-05-F01-FN01": {
       "primaryComponent": "Linux bridges / SDN",
       "evidenceKey": "sdn",
-      "notes": "VNets/zones in PVE SDN; not NSX segments.",
+      "parity": "Partial Parity",
+      "notes": "VNets/zones in PVE SDN; not NSX segments. Functionality: Create network segments.",
       "workaround": "Use PVE SDN zones/VNets or VLANs.",
       "workaroundComplexity": "Medium",
       "technicalImpact": "Segment model simpler than NSX."
     },
-    "VCF-05-F02": {
-      "parity": "Partial Parity",
+    "VCF-05-F01-FN02": {
+      "primaryComponent": "Linux bridges / SDN",
+      "evidenceKey": "sdn",
+      "parity": "Full Parity",
+      "notes": "VNets/zones in PVE SDN; not NSX segments. Functionality: Attach workloads."
+    },
+    "VCF-05-F01-FN03": {
+      "primaryComponent": "Linux bridges / SDN",
+      "evidenceKey": "sdn",
+      "parity": "No Parity",
+      "notes": "VNets/zones in PVE SDN; not NSX segments. Functionality: Isolate broadcast domains."
+    },
+    "VCF-05-F02-FN01": {
       "primaryComponent": "FRR / SDN",
       "evidenceKey": "sdn",
-      "notes": "Simple routing via FRR EVPN optional.",
+      "parity": "Partial Parity",
+      "notes": "Simple routing via FRR EVPN optional. Functionality: Configure Tier-0/Tier-1 style routing.",
       "workaround": "Enable EVPN-VXLAN SDN if required.",
       "workaroundComplexity": "High",
       "technicalImpact": "No T0/T1."
     },
-    "VCF-05-F03": {
+    "VCF-05-F02-FN02": {
+      "primaryComponent": "FRR / SDN",
+      "evidenceKey": "sdn",
+      "parity": "Full Parity",
+      "notes": "Simple routing via FRR EVPN optional. Functionality: Advertise routes."
+    },
+    "VCF-05-F02-FN03": {
+      "primaryComponent": "FRR / SDN",
+      "evidenceKey": "sdn",
       "parity": "No Parity",
+      "notes": "Simple routing via FRR EVPN optional. Functionality: Control north-south traffic."
+    },
+    "VCF-05-F03-FN01": {
       "primaryComponent": "N/A",
       "evidenceKey": "sdn",
-      "notes": "No NSX Edge / advanced gateway services product."
+      "parity": "No Parity",
+      "notes": "No NSX Edge / advanced gateway services product. Functionality: Deploy edge nodes/gateways."
     },
-    "VCF-05-F04": {
-      "parity": "Partial Parity",
+    "VCF-05-F03-FN02": {
+      "primaryComponent": "N/A",
+      "evidenceKey": "sdn",
+      "parity": "No Parity",
+      "notes": "No NSX Edge / advanced gateway services product. Functionality: Provide NAT/load services as designed."
+    },
+    "VCF-05-F03-FN03": {
+      "primaryComponent": "N/A",
+      "evidenceKey": "sdn",
+      "parity": "No Parity",
+      "notes": "No NSX Edge / advanced gateway services product. Functionality: Monitor edge health."
+    },
+    "VCF-05-F04-FN01": {
       "primaryComponent": "SDN zones",
       "evidenceKey": "sdn",
-      "notes": "Limited multi-tenant SDN.",
+      "parity": "Partial Parity",
+      "notes": "Limited multi-tenant SDN. Functionality: Create tenant network contexts.",
       "workaround": "Isolate with VNets/VLANs.",
       "workaroundComplexity": "High",
       "technicalImpact": "Not NSX VPC."
     },
-    "VCF-05-F05": {
-      "parity": "Partial Parity",
+    "VCF-05-F04-FN02": {
+      "primaryComponent": "SDN zones",
+      "evidenceKey": "sdn",
+      "parity": "Full Parity",
+      "notes": "Limited multi-tenant SDN. Functionality: Isolate tenant routing."
+    },
+    "VCF-05-F04-FN03": {
+      "primaryComponent": "SDN zones",
+      "evidenceKey": "sdn",
+      "parity": "No Parity",
+      "notes": "Limited multi-tenant SDN. Functionality: Delegate network self-service bounds."
+    },
+    "VCF-05-F05-FN01": {
       "primaryComponent": "VXLAN/EVPN",
       "evidenceKey": "sdn",
-      "notes": "Optional overlay.",
+      "parity": "Partial Parity",
+      "notes": "Optional overlay. Functionality: Establish overlay transport.",
       "workaround": "Validate underlay if using VXLAN.",
       "workaroundComplexity": "High",
       "technicalImpact": "Optional and simpler than NSX."
     },
-    "VCF-05-F06": {
-      "parity": "Partial Parity",
+    "VCF-05-F05-FN02": {
+      "primaryComponent": "VXLAN/EVPN",
+      "evidenceKey": "sdn",
+      "parity": "Full Parity",
+      "notes": "Optional overlay. Functionality: Validate underlay MTU/connectivity."
+    },
+    "VCF-05-F05-FN03": {
+      "primaryComponent": "VXLAN/EVPN",
+      "evidenceKey": "sdn",
+      "parity": "No Parity",
+      "notes": "Optional overlay. Functionality: Troubleshoot tunnel health."
+    },
+    "VCF-05-F06-FN01": {
       "primaryComponent": "dnsmasq",
       "evidenceKey": "sdn",
-      "notes": "Simple IPAM/DHCP in SDN.",
+      "parity": "Partial Parity",
+      "notes": "Simple IPAM/DHCP in SDN. Functionality: Provide DHCP services.",
       "workaround": "Use PVE SDN IPAM or external DHCP.",
       "workaroundComplexity": "Low",
       "technicalImpact": "IPAM is basic."
     },
-    "VCF-05-F07": {
-      "parity": "Partial Parity",
+    "VCF-05-F06-FN02": {
+      "primaryComponent": "dnsmasq",
+      "evidenceKey": "sdn",
+      "parity": "Full Parity",
+      "notes": "Simple IPAM/DHCP in SDN. Functionality: Integrate DNS services."
+    },
+    "VCF-05-F06-FN03": {
+      "primaryComponent": "dnsmasq",
+      "evidenceKey": "sdn",
+      "parity": "No Parity",
+      "notes": "Simple IPAM/DHCP in SDN. Functionality: Manage IP address allocation."
+    },
+    "VCF-05-F07-FN01": {
       "primaryComponent": "PVE",
       "evidenceKey": "pve",
-      "notes": "Basic NIC/bridge status.",
+      "parity": "Partial Parity",
+      "notes": "Basic NIC/bridge status. Functionality: Trace logical paths.",
       "workaround": "Use tcpdump and PVE graphs.",
       "workaroundComplexity": "Medium",
       "technicalImpact": "No Traceflow."
     },
-    "VCF-06-F01": {
+    "VCF-05-F07-FN02": {
+      "primaryComponent": "PVE",
+      "evidenceKey": "pve",
+      "parity": "Full Parity",
+      "notes": "Basic NIC/bridge status. Functionality: Capture network topology view."
+    },
+    "VCF-05-F07-FN03": {
+      "primaryComponent": "PVE",
+      "evidenceKey": "pve",
       "parity": "No Parity",
+      "notes": "Basic NIC/bridge status. Functionality: Alert on network faults."
+    },
+    "VCF-06-F01-FN01": {
       "primaryComponent": "N/A",
       "evidenceKey": "pve",
-      "notes": "No distributed firewall equivalent to NSX DFW."
+      "parity": "No Parity",
+      "notes": "No distributed firewall equivalent to NSX DFW. Functionality: Define DFW policies."
     },
-    "VCF-06-F02": {
-      "parity": "Partial Parity",
+    "VCF-06-F01-FN02": {
+      "primaryComponent": "N/A",
+      "evidenceKey": "pve",
+      "parity": "No Parity",
+      "notes": "No distributed firewall equivalent to NSX DFW. Functionality: Enforce east-west controls."
+    },
+    "VCF-06-F01-FN03": {
+      "primaryComponent": "N/A",
+      "evidenceKey": "pve",
+      "parity": "No Parity",
+      "notes": "No distributed firewall equivalent to NSX DFW. Functionality: Log policy hits."
+    },
+    "VCF-06-F02-FN01": {
       "primaryComponent": "Host firewall",
       "evidenceKey": "pve",
-      "notes": "Datacenter/host firewall only.",
+      "parity": "Partial Parity",
+      "notes": "Datacenter/host firewall only. Functionality: Define gateway firewall rules.",
       "workaround": "Use PVE firewall plus external NGFW.",
       "workaroundComplexity": "High",
       "technicalImpact": "Not NSX gateway FW."
     },
-    "VCF-06-F03": {
-      "parity": "Partial Parity",
+    "VCF-06-F02-FN02": {
+      "primaryComponent": "Host firewall",
+      "evidenceKey": "pve",
+      "parity": "Full Parity",
+      "notes": "Datacenter/host firewall only. Functionality: Control north-south access."
+    },
+    "VCF-06-F02-FN03": {
+      "primaryComponent": "Host firewall",
+      "evidenceKey": "pve",
+      "parity": "No Parity",
+      "notes": "Datacenter/host firewall only. Functionality: Monitor rule effectiveness."
+    },
+    "VCF-06-F03-FN01": {
       "primaryComponent": "Firewall aliases",
       "evidenceKey": "pve",
-      "notes": "Aliases/IPSets, not dynamic NSX groups.",
+      "parity": "Partial Parity",
+      "notes": "Aliases/IPSets, not dynamic NSX groups. Functionality: Group workloads by tag/criteria.",
       "workaround": "Maintain IPSets/aliases.",
       "workaroundComplexity": "High",
       "technicalImpact": "No tag-based DFW groups."
     },
-    "VCF-06-F04": {
+    "VCF-06-F03-FN02": {
+      "primaryComponent": "Firewall aliases",
+      "evidenceKey": "pve",
+      "parity": "Full Parity",
+      "notes": "Aliases/IPSets, not dynamic NSX groups. Functionality: Auto-update membership."
+    },
+    "VCF-06-F03-FN03": {
+      "primaryComponent": "Firewall aliases",
+      "evidenceKey": "pve",
       "parity": "No Parity",
+      "notes": "Aliases/IPSets, not dynamic NSX groups. Functionality: Bind policies to groups."
+    },
+    "VCF-06-F04-FN01": {
       "primaryComponent": "N/A",
       "evidenceKey": "pve",
-      "notes": "No IDS/IPS product."
-    },
-    "VCF-06-F05": {
       "parity": "No Parity",
+      "notes": "No IDS/IPS product. Functionality: Enable detection/prevention features."
+    },
+    "VCF-06-F04-FN02": {
       "primaryComponent": "N/A",
       "evidenceKey": "pve",
-      "notes": "No identity-aware firewall."
+      "parity": "No Parity",
+      "notes": "No IDS/IPS product. Functionality: Tune signatures/profiles."
     },
-    "VCF-06-F06": {
-      "parity": "Partial Parity",
+    "VCF-06-F04-FN03": {
+      "primaryComponent": "N/A",
+      "evidenceKey": "pve",
+      "parity": "No Parity",
+      "notes": "No IDS/IPS product. Functionality: Review security events."
+    },
+    "VCF-06-F05-FN01": {
+      "primaryComponent": "N/A",
+      "evidenceKey": "pve",
+      "parity": "No Parity",
+      "notes": "No identity-aware firewall. Functionality: Use identity/context in rules where supported."
+    },
+    "VCF-06-F05-FN02": {
+      "primaryComponent": "N/A",
+      "evidenceKey": "pve",
+      "parity": "No Parity",
+      "notes": "No identity-aware firewall. Functionality: Map users/apps to policies."
+    },
+    "VCF-06-F05-FN03": {
+      "primaryComponent": "N/A",
+      "evidenceKey": "pve",
+      "parity": "No Parity",
+      "notes": "No identity-aware firewall. Functionality: Audit context-based decisions."
+    },
+    "VCF-06-F06-FN01": {
       "primaryComponent": "Cluster firewall options",
       "evidenceKey": "pve",
-      "notes": "Firewall config replication.",
+      "parity": "Partial Parity",
+      "notes": "Firewall config replication. Functionality: Stage policy changes.",
       "workaround": "Manage firewall via API/Git.",
       "workaroundComplexity": "Medium",
       "technicalImpact": "Limited change-control UX."
     },
-    "VCF-06-F07": {
+    "VCF-06-F06-FN02": {
+      "primaryComponent": "Cluster firewall options",
+      "evidenceKey": "pve",
+      "parity": "Full Parity",
+      "notes": "Firewall config replication. Functionality: Review before publish."
+    },
+    "VCF-06-F06-FN03": {
+      "primaryComponent": "Cluster firewall options",
+      "evidenceKey": "pve",
       "parity": "No Parity",
+      "notes": "Firewall config replication. Functionality: Rollback policy sets."
+    },
+    "VCF-06-F07-FN01": {
       "primaryComponent": "N/A",
       "evidenceKey": "pve",
-      "notes": "No NSX-class security posture reporting."
+      "parity": "No Parity",
+      "notes": "No NSX-class security posture reporting. Functionality: Export policy inventory."
     },
-    "VCF-07-F01": {
-      "parity": "Partial Parity",
+    "VCF-06-F07-FN02": {
+      "primaryComponent": "N/A",
+      "evidenceKey": "pve",
+      "parity": "No Parity",
+      "notes": "No NSX-class security posture reporting. Functionality: Report uncovered workloads."
+    },
+    "VCF-06-F07-FN03": {
+      "primaryComponent": "N/A",
+      "evidenceKey": "pve",
+      "parity": "No Parity",
+      "notes": "No NSX-class security posture reporting. Functionality: Evidence for compliance reviews."
+    },
+    "VCF-07-F01-FN01": {
       "primaryComponent": "PVE graphs / metrics",
       "evidenceKey": "pve",
-      "notes": "Built-in graphs; not Aria.",
+      "parity": "Partial Parity",
+      "notes": "Built-in graphs; not Aria. Functionality: Collect metrics from compute/storage/network.",
       "workaround": "Use PVE metrics or external Prometheus.",
       "workaroundComplexity": "Medium",
       "technicalImpact": "Monitoring depth is basic."
     },
-    "VCF-07-F02": {
-      "parity": "Partial Parity",
+    "VCF-07-F01-FN02": {
+      "primaryComponent": "PVE graphs / metrics",
+      "evidenceKey": "pve",
+      "parity": "Full Parity",
+      "notes": "Built-in graphs; not Aria. Functionality: Visualize health dashboards."
+    },
+    "VCF-07-F01-FN03": {
+      "primaryComponent": "PVE graphs / metrics",
+      "evidenceKey": "pve",
+      "parity": "No Parity",
+      "notes": "Built-in graphs; not Aria. Functionality: Alert on threshold breaches."
+    },
+    "VCF-07-F02-FN01": {
       "primaryComponent": "syslog",
       "evidenceKey": "pve",
-      "notes": "Syslog forwarding.",
+      "parity": "Partial Parity",
+      "notes": "Syslog forwarding. Functionality: Ingest component logs.",
       "workaround": "Forward syslog to SIEM.",
       "workaroundComplexity": "Medium",
       "technicalImpact": "No Aria Logs."
     },
-    "VCF-07-F03": {
-      "parity": "Partial Parity",
+    "VCF-07-F02-FN02": {
+      "primaryComponent": "syslog",
+      "evidenceKey": "pve",
+      "parity": "Full Parity",
+      "notes": "Syslog forwarding. Functionality: Search/correlate events."
+    },
+    "VCF-07-F02-FN03": {
+      "primaryComponent": "syslog",
+      "evidenceKey": "pve",
+      "parity": "No Parity",
+      "notes": "Syslog forwarding. Functionality: Retain logs per policy."
+    },
+    "VCF-07-F03-FN01": {
       "primaryComponent": "PVE",
       "evidenceKey": "pve",
-      "notes": "Capacity is operator-reviewed.",
+      "parity": "Partial Parity",
+      "notes": "Capacity is operator-reviewed. Functionality: Forecast capacity risk.",
       "workaround": "Export RRD/metrics; plan manually.",
       "workaroundComplexity": "High",
       "technicalImpact": "No Aria capacity engine."
     },
-    "VCF-07-F04": {
+    "VCF-07-F03-FN02": {
+      "primaryComponent": "PVE",
+      "evidenceKey": "pve",
+      "parity": "Full Parity",
+      "notes": "Capacity is operator-reviewed. Functionality: Identify contention hotspots."
+    },
+    "VCF-07-F03-FN03": {
+      "primaryComponent": "PVE",
+      "evidenceKey": "pve",
       "parity": "No Parity",
+      "notes": "Capacity is operator-reviewed. Functionality: Recommend rightsizing."
+    },
+    "VCF-07-F04-FN01": {
       "primaryComponent": "N/A",
       "evidenceKey": "pve",
-      "notes": "No configuration compliance product."
-    },
-    "VCF-07-F05": {
       "parity": "No Parity",
+      "notes": "No configuration compliance product. Functionality: Detect drift from desired config."
+    },
+    "VCF-07-F04-FN02": {
       "primaryComponent": "N/A",
       "evidenceKey": "pve",
-      "notes": "No application dependency mapping."
+      "parity": "No Parity",
+      "notes": "No configuration compliance product. Functionality: Assess compliance score."
     },
-    "VCF-07-F06": {
-      "parity": "Partial Parity",
+    "VCF-07-F04-FN03": {
+      "primaryComponent": "N/A",
+      "evidenceKey": "pve",
+      "parity": "No Parity",
+      "notes": "No configuration compliance product. Functionality: Track remediation status."
+    },
+    "VCF-07-F05-FN01": {
+      "primaryComponent": "N/A",
+      "evidenceKey": "pve",
+      "parity": "No Parity",
+      "notes": "No application dependency mapping. Functionality: Map apps to infrastructure."
+    },
+    "VCF-07-F05-FN02": {
+      "primaryComponent": "N/A",
+      "evidenceKey": "pve",
+      "parity": "No Parity",
+      "notes": "No application dependency mapping. Functionality: Track service health."
+    },
+    "VCF-07-F05-FN03": {
+      "primaryComponent": "N/A",
+      "evidenceKey": "pve",
+      "parity": "No Parity",
+      "notes": "No application dependency mapping. Functionality: Correlate incidents to dependencies."
+    },
+    "VCF-07-F06-FN01": {
       "primaryComponent": "email / gotify",
       "evidenceKey": "pve",
-      "notes": "Simple notifications.",
+      "parity": "Partial Parity",
+      "notes": "Simple notifications. Functionality: Define alert policies.",
       "workaround": "Configure notification targets.",
       "workaroundComplexity": "Low",
       "technicalImpact": "Limited routing/suppression."
     },
-    "VCF-07-F07": {
-      "parity": "Partial Parity",
+    "VCF-07-F06-FN02": {
+      "primaryComponent": "email / gotify",
+      "evidenceKey": "pve",
+      "parity": "Full Parity",
+      "notes": "Simple notifications. Functionality: Route notifications."
+    },
+    "VCF-07-F06-FN03": {
+      "primaryComponent": "email / gotify",
+      "evidenceKey": "pve",
+      "parity": "No Parity",
+      "notes": "Simple notifications. Functionality: Suppress noise/duplicates."
+    },
+    "VCF-07-F07-FN01": {
       "primaryComponent": "PVE",
       "evidenceKey": "pve",
-      "notes": "Basic task logs.",
+      "parity": "Partial Parity",
+      "notes": "Basic task logs. Functionality: Generate ops reports.",
       "workaround": "Export task/HA logs.",
       "workaroundComplexity": "Medium",
       "technicalImpact": "Evidence packs DIY."
     },
-    "VCF-08-F01": {
-      "parity": "Partial Parity",
+    "VCF-07-F07-FN02": {
+      "primaryComponent": "PVE",
+      "evidenceKey": "pve",
+      "parity": "Full Parity",
+      "notes": "Basic task logs. Functionality: Export evidence packs."
+    },
+    "VCF-07-F07-FN03": {
+      "primaryComponent": "PVE",
+      "evidenceKey": "pve",
+      "parity": "No Parity",
+      "notes": "Basic task logs. Functionality: Support incident retrospectives."
+    },
+    "VCF-08-F01-FN01": {
       "primaryComponent": "API / Terraform",
       "evidenceKey": "api",
-      "notes": "No Aria catalog; API/Terraform self-service.",
+      "parity": "Partial Parity",
+      "notes": "No Aria catalog; API/Terraform self-service. Functionality: Publish catalog items.",
       "workaround": "Expose Terraform/API to consumers.",
       "workaroundComplexity": "Medium",
       "technicalImpact": "No service catalog UI."
     },
-    "VCF-08-F02": {
-      "parity": "Partial Parity",
+    "VCF-08-F01-FN02": {
+      "primaryComponent": "API / Terraform",
+      "evidenceKey": "api",
+      "parity": "Full Parity",
+      "notes": "No Aria catalog; API/Terraform self-service. Functionality: Request services."
+    },
+    "VCF-08-F01-FN03": {
+      "primaryComponent": "API / Terraform",
+      "evidenceKey": "api",
+      "parity": "No Parity",
+      "notes": "No Aria catalog; API/Terraform self-service. Functionality: Track request status."
+    },
+    "VCF-08-F02-FN01": {
       "primaryComponent": "Terraform / snippets",
       "evidenceKey": "api",
-      "notes": "Cloud-init/snippets as templates.",
+      "parity": "Partial Parity",
+      "notes": "Cloud-init/snippets as templates. Functionality: Define deployable templates.",
       "workaround": "Use cloud-init and Terraform providers.",
       "workaroundComplexity": "Medium",
       "technicalImpact": "Weaker than Aria templates."
     },
-    "VCF-08-F03": {
+    "VCF-08-F02-FN02": {
+      "primaryComponent": "Terraform / snippets",
+      "evidenceKey": "api",
+      "parity": "Full Parity",
+      "notes": "Cloud-init/snippets as templates. Functionality: Parameterize deployments."
+    },
+    "VCF-08-F02-FN03": {
+      "primaryComponent": "Terraform / snippets",
+      "evidenceKey": "api",
       "parity": "No Parity",
+      "notes": "Cloud-init/snippets as templates. Functionality: Version templates."
+    },
+    "VCF-08-F03-FN01": {
       "primaryComponent": "N/A",
       "evidenceKey": "api",
-      "notes": "No native approval workflow product."
+      "parity": "No Parity",
+      "notes": "No native approval workflow product. Functionality: Require approvals."
     },
-    "VCF-08-F04": {
-      "parity": "Partial Parity",
+    "VCF-08-F03-FN02": {
+      "primaryComponent": "N/A",
+      "evidenceKey": "api",
+      "parity": "No Parity",
+      "notes": "No native approval workflow product. Functionality: Enforce policy gates."
+    },
+    "VCF-08-F03-FN03": {
+      "primaryComponent": "N/A",
+      "evidenceKey": "api",
+      "parity": "No Parity",
+      "notes": "No native approval workflow product. Functionality: Audit request decisions."
+    },
+    "VCF-08-F04-FN01": {
       "primaryComponent": "API / hooks",
       "evidenceKey": "api",
-      "notes": "Day-2 via API/hooks.",
+      "parity": "Partial Parity",
+      "notes": "Day-2 via API/hooks. Functionality: Scale services.",
       "workaround": "Script day-2 with API.",
       "workaroundComplexity": "Medium",
       "technicalImpact": "Not a catalog of day-2 actions."
     },
-    "VCF-08-F05": {
-      "parity": "Partial Parity",
+    "VCF-08-F04-FN02": {
+      "primaryComponent": "API / hooks",
+      "evidenceKey": "api",
+      "parity": "Full Parity",
+      "notes": "Day-2 via API/hooks. Functionality: Run operational workflows."
+    },
+    "VCF-08-F04-FN03": {
+      "primaryComponent": "API / hooks",
+      "evidenceKey": "api",
+      "parity": "No Parity",
+      "notes": "Day-2 via API/hooks. Functionality: Decommission services."
+    },
+    "VCF-08-F05-FN01": {
       "primaryComponent": "Pools / ACL",
       "evidenceKey": "pve",
-      "notes": "Pools and ACLs as tenancy.",
+      "parity": "Partial Parity",
+      "notes": "Pools and ACLs as tenancy. Functionality: Entitle projects/tenants.",
       "workaround": "Use pools plus user ACLs.",
       "workaroundComplexity": "Medium",
       "technicalImpact": "Weaker than Aria projects."
     },
-    "VCF-08-F06": {
-      "parity": "Partial Parity",
+    "VCF-08-F05-FN02": {
+      "primaryComponent": "Pools / ACL",
+      "evidenceKey": "pve",
+      "parity": "Full Parity",
+      "notes": "Pools and ACLs as tenancy. Functionality: Scope visible catalog."
+    },
+    "VCF-08-F05-FN03": {
+      "primaryComponent": "Pools / ACL",
+      "evidenceKey": "pve",
+      "parity": "No Parity",
+      "notes": "Pools and ACLs as tenancy. Functionality: Isolate tenant quotas."
+    },
+    "VCF-08-F06-FN01": {
       "primaryComponent": "API",
       "evidenceKey": "api",
-      "notes": "ITSM via API.",
+      "parity": "Partial Parity",
+      "notes": "ITSM via API. Functionality: Trigger from external systems.",
       "workaround": "Call PVE API from pipelines.",
       "workaroundComplexity": "Medium",
       "technicalImpact": "No native ITSM pack."
     },
-    "VCF-08-F07": {
-      "parity": "Partial Parity",
+    "VCF-08-F06-FN02": {
+      "primaryComponent": "API",
+      "evidenceKey": "api",
+      "parity": "Full Parity",
+      "notes": "ITSM via API. Functionality: Sync ticket status."
+    },
+    "VCF-08-F06-FN03": {
+      "primaryComponent": "API",
+      "evidenceKey": "api",
+      "parity": "No Parity",
+      "notes": "ITSM via API. Functionality: Emit automation events."
+    },
+    "VCF-08-F07-FN01": {
       "primaryComponent": "API tokens",
       "evidenceKey": "api",
-      "notes": "API tokens; secret management DIY.",
+      "parity": "Partial Parity",
+      "notes": "API tokens; secret management DIY. Functionality: Add custom actions/workflows.",
       "workaround": "Use API tokens and external vault.",
       "workaroundComplexity": "Medium",
       "technicalImpact": "Extensibility is API-level."
     },
-    "VCF-09-F01": {
+    "VCF-08-F07-FN02": {
+      "primaryComponent": "API tokens",
+      "evidenceKey": "api",
+      "parity": "Full Parity",
+      "notes": "API tokens; secret management DIY. Functionality: Use APIs/webhooks."
+    },
+    "VCF-08-F07-FN03": {
+      "primaryComponent": "API tokens",
+      "evidenceKey": "api",
       "parity": "No Parity",
+      "notes": "API tokens; secret management DIY. Functionality: Manage credentials securely."
+    },
+    "VCF-09-F01-FN01": {
       "primaryComponent": "N/A",
       "evidenceKey": "pve",
-      "notes": "No vSphere Kubernetes Service / Supervisor equivalent (LXC is not K8s lifecycle)."
-    },
-    "VCF-09-F02": {
       "parity": "No Parity",
+      "notes": "No vSphere Kubernetes Service / Supervisor equivalent (LXC is not K8s lifecycle). Functionality: Create Kubernetes clusters."
+    },
+    "VCF-09-F01-FN02": {
       "primaryComponent": "N/A",
       "evidenceKey": "pve",
-      "notes": "No Kubernetes namespace tenancy product."
-    },
-    "VCF-09-F03": {
       "parity": "No Parity",
+      "notes": "No vSphere Kubernetes Service / Supervisor equivalent (LXC is not K8s lifecycle). Functionality: Upgrade clusters."
+    },
+    "VCF-09-F01-FN03": {
       "primaryComponent": "N/A",
       "evidenceKey": "pve",
-      "notes": "No platform pod/service networking."
-    },
-    "VCF-09-F04": {
       "parity": "No Parity",
+      "notes": "No vSphere Kubernetes Service / Supervisor equivalent (LXC is not K8s lifecycle). Functionality: Delete/retire clusters."
+    },
+    "VCF-09-F02-FN01": {
       "primaryComponent": "N/A",
       "evidenceKey": "pve",
-      "notes": "No CSI platform for Supervisor-class K8s."
-    },
-    "VCF-09-F05": {
       "parity": "No Parity",
+      "notes": "No Kubernetes namespace tenancy product. Functionality: Create namespaces."
+    },
+    "VCF-09-F02-FN02": {
       "primaryComponent": "N/A",
       "evidenceKey": "pve",
-      "notes": "No integrated registry/content service."
-    },
-    "VCF-09-F06": {
       "parity": "No Parity",
+      "notes": "No Kubernetes namespace tenancy product. Functionality: Apply quota/limit ranges."
+    },
+    "VCF-09-F02-FN03": {
       "primaryComponent": "N/A",
       "evidenceKey": "pve",
-      "notes": "No K8s platform security controls."
-    },
-    "VCF-09-F07": {
       "parity": "No Parity",
+      "notes": "No Kubernetes namespace tenancy product. Functionality: Isolate team access."
+    },
+    "VCF-09-F03-FN01": {
       "primaryComponent": "N/A",
       "evidenceKey": "pve",
-      "notes": "No K8s developer self-service platform."
+      "parity": "No Parity",
+      "notes": "No platform pod/service networking. Functionality: Provide pod/service networking."
     },
-    "VCF-10-F01": {
-      "parity": "Partial Parity",
+    "VCF-09-F03-FN02": {
+      "primaryComponent": "N/A",
+      "evidenceKey": "pve",
+      "parity": "No Parity",
+      "notes": "No platform pod/service networking. Functionality: Expose ingress/services."
+    },
+    "VCF-09-F03-FN03": {
+      "primaryComponent": "N/A",
+      "evidenceKey": "pve",
+      "parity": "No Parity",
+      "notes": "No platform pod/service networking. Functionality: Integrate with SDN controls."
+    },
+    "VCF-09-F04-FN01": {
+      "primaryComponent": "N/A",
+      "evidenceKey": "pve",
+      "parity": "No Parity",
+      "notes": "No CSI platform for Supervisor-class K8s. Functionality: Provision persistent volumes."
+    },
+    "VCF-09-F04-FN02": {
+      "primaryComponent": "N/A",
+      "evidenceKey": "pve",
+      "parity": "No Parity",
+      "notes": "No CSI platform for Supervisor-class K8s. Functionality: Apply storage classes/policies."
+    },
+    "VCF-09-F04-FN03": {
+      "primaryComponent": "N/A",
+      "evidenceKey": "pve",
+      "parity": "No Parity",
+      "notes": "No CSI platform for Supervisor-class K8s. Functionality: Protect stateful workloads."
+    },
+    "VCF-09-F05-FN01": {
+      "primaryComponent": "N/A",
+      "evidenceKey": "pve",
+      "parity": "No Parity",
+      "notes": "No integrated registry/content service. Functionality: Host or integrate registry."
+    },
+    "VCF-09-F05-FN02": {
+      "primaryComponent": "N/A",
+      "evidenceKey": "pve",
+      "parity": "No Parity",
+      "notes": "No integrated registry/content service. Functionality: Manage content trust basics."
+    },
+    "VCF-09-F05-FN03": {
+      "primaryComponent": "N/A",
+      "evidenceKey": "pve",
+      "parity": "No Parity",
+      "notes": "No integrated registry/content service. Functionality: Distribute packages/charts."
+    },
+    "VCF-09-F06-FN01": {
+      "primaryComponent": "N/A",
+      "evidenceKey": "pve",
+      "parity": "No Parity",
+      "notes": "No K8s platform security controls. Functionality: Enforce pod security baselines."
+    },
+    "VCF-09-F06-FN02": {
+      "primaryComponent": "N/A",
+      "evidenceKey": "pve",
+      "parity": "No Parity",
+      "notes": "No K8s platform security controls. Functionality: Manage secrets."
+    },
+    "VCF-09-F06-FN03": {
+      "primaryComponent": "N/A",
+      "evidenceKey": "pve",
+      "parity": "No Parity",
+      "notes": "No K8s platform security controls. Functionality: Scan/admit workloads as designed."
+    },
+    "VCF-09-F07-FN01": {
+      "primaryComponent": "N/A",
+      "evidenceKey": "pve",
+      "parity": "No Parity",
+      "notes": "No K8s developer self-service platform. Functionality: Provide self-service cluster/namespace access."
+    },
+    "VCF-09-F07-FN02": {
+      "primaryComponent": "N/A",
+      "evidenceKey": "pve",
+      "parity": "No Parity",
+      "notes": "No K8s developer self-service platform. Functionality: Support CI/CD consumption."
+    },
+    "VCF-09-F07-FN03": {
+      "primaryComponent": "N/A",
+      "evidenceKey": "pve",
+      "parity": "No Parity",
+      "notes": "No K8s developer self-service platform. Functionality: Expose APIs/CLI/UI."
+    },
+    "VCF-10-F01-FN01": {
       "primaryComponent": "qm import",
       "evidenceKey": "pve",
-      "notes": "Import disks/OVA-like via qemu-img.",
+      "parity": "Partial Parity",
+      "notes": "Import disks/OVA-like via qemu-img. Functionality: Migrate powered-off workloads.",
       "workaround": "Convert and import VM disks.",
       "workaroundComplexity": "Medium",
       "technicalImpact": "Not HCX."
     },
-    "VCF-10-F02": {
-      "parity": "Partial Parity",
+    "VCF-10-F01-FN02": {
+      "primaryComponent": "qm import",
+      "evidenceKey": "pve",
+      "parity": "Full Parity",
+      "notes": "Import disks/OVA-like via qemu-img. Functionality: Validate target readiness."
+    },
+    "VCF-10-F01-FN03": {
+      "primaryComponent": "qm import",
+      "evidenceKey": "pve",
+      "parity": "No Parity",
+      "notes": "Import disks/OVA-like via qemu-img. Functionality: Track migration batches."
+    },
+    "VCF-10-F02-FN01": {
       "primaryComponent": "Live migration",
       "evidenceKey": "pve",
-      "notes": "Intra-cluster only.",
+      "parity": "Partial Parity",
+      "notes": "Intra-cluster only. Functionality: Migrate running workloads.",
       "workaround": "Live migrate within cluster; cross-platform cutover.",
       "workaroundComplexity": "High",
       "technicalImpact": "No HCX fabric."
     },
-    "VCF-10-F03": {
-      "parity": "Partial Parity",
+    "VCF-10-F02-FN02": {
+      "primaryComponent": "Live migration",
+      "evidenceKey": "pve",
+      "parity": "Full Parity",
+      "notes": "Intra-cluster only. Functionality: Maintain network continuity as designed."
+    },
+    "VCF-10-F02-FN03": {
+      "primaryComponent": "Live migration",
+      "evidenceKey": "pve",
+      "parity": "No Parity",
+      "notes": "Intra-cluster only. Functionality: Monitor live move health."
+    },
+    "VCF-10-F03-FN01": {
       "primaryComponent": "Replication",
       "evidenceKey": "pve",
-      "notes": "Async replication between nodes.",
+      "parity": "Partial Parity",
+      "notes": "Async replication between nodes. Functionality: Seed replicas.",
       "workaround": "Use PVE replication then cutover.",
       "workaroundComplexity": "Medium",
       "technicalImpact": "Not HCX RAV."
     },
-    "VCF-10-F04": {
+    "VCF-10-F03-FN02": {
+      "primaryComponent": "Replication",
+      "evidenceKey": "pve",
+      "parity": "Full Parity",
+      "notes": "Async replication between nodes. Functionality: Cut over workloads."
+    },
+    "VCF-10-F03-FN03": {
+      "primaryComponent": "Replication",
+      "evidenceKey": "pve",
       "parity": "No Parity",
+      "notes": "Async replication between nodes. Functionality: Control RPO/switch windows."
+    },
+    "VCF-10-F04-FN01": {
       "primaryComponent": "N/A",
       "evidenceKey": "pve",
-      "notes": "No L2 network extension product."
-    },
-    "VCF-10-F05": {
       "parity": "No Parity",
+      "notes": "No L2 network extension product. Functionality: Extend L2 as designed."
+    },
+    "VCF-10-F04-FN02": {
       "primaryComponent": "N/A",
       "evidenceKey": "pve",
-      "notes": "No VCF Import/Converge."
+      "parity": "No Parity",
+      "notes": "No L2 network extension product. Functionality: Manage stretch during migration."
     },
-    "VCF-10-F06": {
-      "parity": "Partial Parity",
+    "VCF-10-F04-FN03": {
+      "primaryComponent": "N/A",
+      "evidenceKey": "pve",
+      "parity": "No Parity",
+      "notes": "No L2 network extension product. Functionality: Tear down extensions safely."
+    },
+    "VCF-10-F05-FN01": {
+      "primaryComponent": "N/A",
+      "evidenceKey": "pve",
+      "parity": "No Parity",
+      "notes": "No VCF Import/Converge. Functionality: Import existing environments."
+    },
+    "VCF-10-F05-FN02": {
+      "primaryComponent": "N/A",
+      "evidenceKey": "pve",
+      "parity": "No Parity",
+      "notes": "No VCF Import/Converge. Functionality: Converge into managed topology."
+    },
+    "VCF-10-F05-FN03": {
+      "primaryComponent": "N/A",
+      "evidenceKey": "pve",
+      "parity": "No Parity",
+      "notes": "No VCF Import/Converge. Functionality: Validate post-import state."
+    },
+    "VCF-10-F06-FN01": {
       "primaryComponent": "Process",
       "evidenceKey": "pve",
-      "notes": "Waves are project-managed.",
+      "parity": "Partial Parity",
+      "notes": "Waves are project-managed. Functionality: Group migration waves.",
       "workaround": "Track migrations in a runbook.",
       "workaroundComplexity": "High",
       "technicalImpact": "No wave console."
     },
-    "VCF-10-F07": {
-      "parity": "Partial Parity",
+    "VCF-10-F06-FN02": {
+      "primaryComponent": "Process",
+      "evidenceKey": "pve",
+      "parity": "Full Parity",
+      "notes": "Waves are project-managed. Functionality: Assess dependencies."
+    },
+    "VCF-10-F06-FN03": {
+      "primaryComponent": "Process",
+      "evidenceKey": "pve",
+      "parity": "No Parity",
+      "notes": "Waves are project-managed. Functionality: Report wave completion."
+    },
+    "VCF-10-F07-FN01": {
       "primaryComponent": "Snapshots",
       "evidenceKey": "pve",
-      "notes": "Rollback via snapshots if pre-cutover.",
+      "parity": "Partial Parity",
+      "notes": "Rollback via snapshots if pre-cutover. Functionality: Define fallback points.",
       "workaround": "Snapshot before conversion; keep source.",
       "workaroundComplexity": "Medium",
       "technicalImpact": "Process-driven."
     },
-    "VCF-11-F01": {
+    "VCF-10-F07-FN02": {
+      "primaryComponent": "Snapshots",
+      "evidenceKey": "pve",
       "parity": "Full Parity",
+      "notes": "Rollback via snapshots if pre-cutover. Functionality: Execute controlled rollback where possible."
+    },
+    "VCF-10-F07-FN03": {
+      "primaryComponent": "Snapshots",
+      "evidenceKey": "pve",
+      "parity": "No Parity",
+      "notes": "Rollback via snapshots if pre-cutover. Functionality: Capture mobility evidence."
+    },
+    "VCF-11-F01-FN01": {
       "primaryComponent": "Proxmox Backup Server",
       "evidenceKey": "pbs",
-      "notes": "PBS provides VM/CT backup."
-    },
-    "VCF-11-F02": {
       "parity": "Full Parity",
+      "notes": "PBS provides VM/CT backup. Functionality: Protect VMs/workloads."
+    },
+    "VCF-11-F01-FN02": {
+      "primaryComponent": "Proxmox Backup Server",
+      "evidenceKey": "pbs",
+      "parity": "Full Parity",
+      "notes": "PBS provides VM/CT backup. Functionality: Schedule backup jobs."
+    },
+    "VCF-11-F01-FN03": {
+      "primaryComponent": "Proxmox Backup Server",
+      "evidenceKey": "pbs",
+      "parity": "Partial Parity",
+      "notes": "PBS provides VM/CT backup. Functionality: Verify backup success.",
+      "workaround": "Use platform-native equivalent for Verify backup success.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Not a 1:1 VCF equivalent; operating model differs."
+    },
+    "VCF-11-F02-FN01": {
       "primaryComponent": "PBS",
       "evidenceKey": "pbs",
-      "notes": "Restore VMs/files from PBS."
+      "parity": "Full Parity",
+      "notes": "Restore VMs/files from PBS. Functionality: Restore full workloads."
     },
-    "VCF-11-F03": {
+    "VCF-11-F02-FN02": {
+      "primaryComponent": "PBS",
+      "evidenceKey": "pbs",
+      "parity": "Full Parity",
+      "notes": "Restore VMs/files from PBS. Functionality: Restore files/objects where supported."
+    },
+    "VCF-11-F02-FN03": {
+      "primaryComponent": "PBS",
+      "evidenceKey": "pbs",
       "parity": "Partial Parity",
+      "notes": "Restore VMs/files from PBS. Functionality: Validate restore integrity.",
+      "workaround": "Use platform-native equivalent for Validate restore integrity.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Not a 1:1 VCF equivalent; operating model differs."
+    },
+    "VCF-11-F03-FN01": {
       "primaryComponent": "Replication / PBS offsite",
       "evidenceKey": "pbs",
-      "notes": "DR via offsite PBS/replication, not SRM.",
+      "parity": "Partial Parity",
+      "notes": "DR via offsite PBS/replication, not SRM. Functionality: Replicate to recovery site.",
       "workaround": "Replicate PBS datastore offsite; document failover.",
       "workaroundComplexity": "Medium",
       "technicalImpact": "No recovery-plan orchestrator."
     },
-    "VCF-11-F04": {
-      "parity": "Partial Parity",
+    "VCF-11-F03-FN02": {
+      "primaryComponent": "Replication / PBS offsite",
+      "evidenceKey": "pbs",
+      "parity": "Full Parity",
+      "notes": "DR via offsite PBS/replication, not SRM. Functionality: Orchestrate failover plans."
+    },
+    "VCF-11-F03-FN03": {
+      "primaryComponent": "Replication / PBS offsite",
+      "evidenceKey": "pbs",
+      "parity": "No Parity",
+      "notes": "DR via offsite PBS/replication, not SRM. Functionality: Run test failovers."
+    },
+    "VCF-11-F04-FN01": {
       "primaryComponent": "PBS schedules",
       "evidenceKey": "pbs",
-      "notes": "Backup jobs encode RPO.",
+      "parity": "Partial Parity",
+      "notes": "Backup jobs encode RPO. Functionality: Define protection SLAs.",
       "workaround": "Define job schedules and verify restores.",
       "workaroundComplexity": "Low",
       "technicalImpact": "RTO is operational."
     },
-    "VCF-11-F05": {
-      "parity": "Partial Parity",
+    "VCF-11-F04-FN02": {
+      "primaryComponent": "PBS schedules",
+      "evidenceKey": "pbs",
+      "parity": "Full Parity",
+      "notes": "Backup jobs encode RPO. Functionality: Monitor SLA compliance."
+    },
+    "VCF-11-F04-FN03": {
+      "primaryComponent": "PBS schedules",
+      "evidenceKey": "pbs",
+      "parity": "No Parity",
+      "notes": "Backup jobs encode RPO. Functionality: Escalate missed targets."
+    },
+    "VCF-11-F05-FN01": {
       "primaryComponent": "PBS prune/verify",
       "evidenceKey": "pbs",
-      "notes": "Limited immutability vs enterprise cyber vaults.",
+      "parity": "Partial Parity",
+      "notes": "Limited immutability vs enterprise cyber vaults. Functionality: Apply immutability controls where available.",
       "workaround": "Use PBS namespaces and offsite copies.",
       "workaroundComplexity": "High",
       "technicalImpact": "Cyber recovery is design-limited."
     },
-    "VCF-11-F06": {
-      "parity": "Partial Parity",
+    "VCF-11-F05-FN02": {
+      "primaryComponent": "PBS prune/verify",
+      "evidenceKey": "pbs",
+      "parity": "Full Parity",
+      "notes": "Limited immutability vs enterprise cyber vaults. Functionality: Isolate recovery copies."
+    },
+    "VCF-11-F05-FN03": {
+      "primaryComponent": "PBS prune/verify",
+      "evidenceKey": "pbs",
+      "parity": "No Parity",
+      "notes": "Limited immutability vs enterprise cyber vaults. Functionality: Support clean-room recovery patterns."
+    },
+    "VCF-11-F06-FN01": {
       "primaryComponent": "QEMU guest agent",
       "evidenceKey": "pve",
-      "notes": "fsfreeze via guest agent.",
+      "parity": "Partial Parity",
+      "notes": "fsfreeze via guest agent. Functionality: Coordinate app-aware backups.",
       "workaround": "Install QEMU guest agent for consistent snapshots.",
       "workaroundComplexity": "Low",
       "technicalImpact": "DB-aware agents limited."
     },
-    "VCF-11-F07": {
-      "parity": "Partial Parity",
+    "VCF-11-F06-FN02": {
+      "primaryComponent": "QEMU guest agent",
+      "evidenceKey": "pve",
+      "parity": "Full Parity",
+      "notes": "fsfreeze via guest agent. Functionality: Handle database/app agents as designed."
+    },
+    "VCF-11-F06-FN03": {
+      "primaryComponent": "QEMU guest agent",
+      "evidenceKey": "pve",
+      "parity": "No Parity",
+      "notes": "fsfreeze via guest agent. Functionality: Validate consistency."
+    },
+    "VCF-11-F07-FN01": {
       "primaryComponent": "PBS",
       "evidenceKey": "pbs",
-      "notes": "Job logs/verify tasks.",
+      "parity": "Partial Parity",
+      "notes": "Job logs/verify tasks. Functionality: Report protected vs unprotected estate.",
       "workaround": "Export PBS task logs as evidence.",
       "workaroundComplexity": "Low",
       "technicalImpact": "Reporting is basic."
     },
-    "VCF-12-F01": {
-      "parity": "Partial Parity",
+    "VCF-11-F07-FN02": {
+      "primaryComponent": "PBS",
+      "evidenceKey": "pbs",
+      "parity": "Full Parity",
+      "notes": "Job logs/verify tasks. Functionality: Export DR test evidence."
+    },
+    "VCF-11-F07-FN03": {
+      "primaryComponent": "PBS",
+      "evidenceKey": "pbs",
+      "parity": "No Parity",
+      "notes": "Job logs/verify tasks. Functionality: Track recovery metrics."
+    },
+    "VCF-12-F01-FN01": {
       "primaryComponent": "PCI passthrough",
       "evidenceKey": "pve",
-      "notes": "GPU passthrough supported.",
+      "parity": "Partial Parity",
+      "notes": "GPU passthrough supported. Functionality: Expose GPU resources.",
       "workaround": "Configure IOMMU and PCI passthrough.",
       "workaroundComplexity": "Medium",
       "technicalImpact": "Not VCF Private AI."
     },
-    "VCF-12-F02": {
+    "VCF-12-F01-FN02": {
+      "primaryComponent": "PCI passthrough",
+      "evidenceKey": "pve",
+      "parity": "Full Parity",
+      "notes": "GPU passthrough supported. Functionality: Schedule accelerated workloads."
+    },
+    "VCF-12-F01-FN03": {
+      "primaryComponent": "PCI passthrough",
+      "evidenceKey": "pve",
       "parity": "No Parity",
+      "notes": "GPU passthrough supported. Functionality: Monitor accelerator health/utilization."
+    },
+    "VCF-12-F02-FN01": {
       "primaryComponent": "N/A",
       "evidenceKey": "pve",
-      "notes": "No model-serving platform product."
-    },
-    "VCF-12-F03": {
       "parity": "No Parity",
+      "notes": "No model-serving platform product. Functionality: Deploy model endpoints."
+    },
+    "VCF-12-F02-FN02": {
       "primaryComponent": "N/A",
       "evidenceKey": "pve",
-      "notes": "No RAG platform."
-    },
-    "VCF-12-F04": {
       "parity": "No Parity",
+      "notes": "No model-serving platform product. Functionality: Scale inference services."
+    },
+    "VCF-12-F02-FN03": {
       "primaryComponent": "N/A",
       "evidenceKey": "pve",
-      "notes": "No MLOps product."
+      "parity": "No Parity",
+      "notes": "No model-serving platform product. Functionality: Secure endpoint access."
     },
-    "VCF-12-F05": {
-      "parity": "Partial Parity",
+    "VCF-12-F03-FN01": {
+      "primaryComponent": "N/A",
+      "evidenceKey": "pve",
+      "parity": "No Parity",
+      "notes": "No RAG platform. Functionality: Ingest enterprise data sources."
+    },
+    "VCF-12-F03-FN02": {
+      "primaryComponent": "N/A",
+      "evidenceKey": "pve",
+      "parity": "No Parity",
+      "notes": "No RAG platform. Functionality: Index/retrieve context."
+    },
+    "VCF-12-F03-FN03": {
+      "primaryComponent": "N/A",
+      "evidenceKey": "pve",
+      "parity": "No Parity",
+      "notes": "No RAG platform. Functionality: Control data residency path."
+    },
+    "VCF-12-F04-FN01": {
+      "primaryComponent": "N/A",
+      "evidenceKey": "pve",
+      "parity": "No Parity",
+      "notes": "No MLOps product. Functionality: Version models."
+    },
+    "VCF-12-F04-FN02": {
+      "primaryComponent": "N/A",
+      "evidenceKey": "pve",
+      "parity": "No Parity",
+      "notes": "No MLOps product. Functionality: Promote model stages."
+    },
+    "VCF-12-F04-FN03": {
+      "primaryComponent": "N/A",
+      "evidenceKey": "pve",
+      "parity": "No Parity",
+      "notes": "No MLOps product. Functionality: Rollback model deployments."
+    },
+    "VCF-12-F05-FN01": {
       "primaryComponent": "PVE ACL",
       "evidenceKey": "pve",
-      "notes": "Generic ACL only.",
+      "parity": "Partial Parity",
+      "notes": "Generic ACL only. Functionality: Entitle AI projects.",
       "workaround": "Restrict GPU VMs with ACLs.",
       "workaroundComplexity": "Low",
       "technicalImpact": "No AI governance."
     },
-    "VCF-12-F06": {
-      "parity": "Partial Parity",
+    "VCF-12-F05-FN02": {
+      "primaryComponent": "PVE ACL",
+      "evidenceKey": "pve",
+      "parity": "Full Parity",
+      "notes": "Generic ACL only. Functionality: Audit AI resource usage."
+    },
+    "VCF-12-F05-FN03": {
+      "primaryComponent": "PVE ACL",
+      "evidenceKey": "pve",
+      "parity": "No Parity",
+      "notes": "Generic ACL only. Functionality: Apply policy constraints."
+    },
+    "VCF-12-F06-FN01": {
       "primaryComponent": "PVE",
       "evidenceKey": "pve",
-      "notes": "AI VMs use KVM/storage/network.",
+      "parity": "Partial Parity",
+      "notes": "AI VMs use KVM/storage/network. Functionality: Use platform identity.",
       "workaround": "Run GPU VMs on PVE.",
       "workaroundComplexity": "Medium",
       "technicalImpact": "DIY."
     },
-    "VCF-12-F07": {
-      "parity": "Partial Parity",
+    "VCF-12-F06-FN02": {
+      "primaryComponent": "PVE",
+      "evidenceKey": "pve",
+      "parity": "Full Parity",
+      "notes": "AI VMs use KVM/storage/network. Functionality: Use platform networking/storage."
+    },
+    "VCF-12-F06-FN03": {
+      "primaryComponent": "PVE",
+      "evidenceKey": "pve",
+      "parity": "No Parity",
+      "notes": "AI VMs use KVM/storage/network. Functionality: Observe AI services in ops tooling."
+    },
+    "VCF-12-F07-FN01": {
       "primaryComponent": "On-prem PVE",
       "evidenceKey": "pve",
-      "notes": "On-prem by default.",
+      "parity": "Partial Parity",
+      "notes": "On-prem by default. Functionality: Keep inference private as designed.",
       "workaround": "Keep inference local; firewall egress.",
       "workaroundComplexity": "Low",
       "technicalImpact": "Sovereign by architecture, not a product."
+    },
+    "VCF-12-F07-FN02": {
+      "primaryComponent": "On-prem PVE",
+      "evidenceKey": "pve",
+      "parity": "Full Parity",
+      "notes": "On-prem by default. Functionality: Restrict outbound model/data calls."
+    },
+    "VCF-12-F07-FN03": {
+      "primaryComponent": "On-prem PVE",
+      "evidenceKey": "pve",
+      "parity": "No Parity",
+      "notes": "On-prem by default. Functionality: Evidence private processing posture."
     }
   }
 }

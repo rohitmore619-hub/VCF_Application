@@ -105,7 +105,7 @@
     "functionalityIdPattern": "VCF-NN-Fnn-FNnn",
     "stabilityRule": "Do not renumber IDs silently; publish migration notes on breaking ID changes.",
     "scoringMustUse": "functionalityId",
-    "currentAppGap": "v1.39 scores/matches largely on FeatureID; migrate to functionalityId after CN gate passes and ingestion is implemented.",
+    "currentAppGap": "v1.41 scores on functionalityId and rolls up Feature/Domain; rules JSON is session-configurable.",
     "domainIdPattern": "VCF-DNN",
     "capabilityIdPattern": "VCF-CNN"
   },
