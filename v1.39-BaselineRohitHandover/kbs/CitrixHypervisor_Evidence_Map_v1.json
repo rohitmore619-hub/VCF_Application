@@ -1,0 +1,627 @@
+{
+  "platformKey": "CitrixHypervisor",
+  "platformName": "Citrix Hypervisor / XenServer",
+  "comparatorType": "Extended Comparator",
+  "evaluationBasisType": "ProductVersion",
+  "evaluatedBaseline": "XenServer / Citrix Hypervisor public documentation baseline (2026-09)",
+  "evidenceSource": "XenServer / Citrix Hypervisor public docs",
+  "supportingComponents": [
+    "Xen",
+    "XenCenter",
+    "SR types"
+  ],
+  "solutionComponents": [
+    {
+      "Component": "XenServer",
+      "Role": "Xen hypervisor"
+    },
+    {
+      "Component": "XenCenter",
+      "Role": "Management UI"
+    }
+  ],
+  "disclaimer": "Commercial XenServer/Citrix Hypervisor map. Distinct from XCP-ng. Evidence-Backed Draft. Not advisory-ready.",
+  "evidenceCatalog": {
+    "xenserver": "https://docs.xenserver.com/"
+  },
+  "status": "evidence_backed_draft",
+  "features": {
+    "VCF-01-F01": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Citrix Hypervisor / XenServer",
+      "evidenceKey": "xenserver",
+      "notes": "XenServer can approach Fleet inventory and topology visibility with Xen tools/XenCenter, not NSX/VCF domains.",
+      "workaround": "Use XenCenter/xe CLI and Xen storage/network for Fleet inventory and topology visibility.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Xen operational model differs from vSphere/VCF."
+    },
+    "VCF-01-F02": {
+      "parity": "Full Parity",
+      "primaryComponent": "Citrix Hypervisor / XenServer",
+      "evidenceKey": "xenserver",
+      "notes": "Citrix Hypervisor (XenServer) provides Workload domain lifecycle for Xen VM operations."
+    },
+    "VCF-01-F03": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Citrix Hypervisor / XenServer",
+      "evidenceKey": "xenserver",
+      "notes": "XenServer can approach Cluster composition controls with Xen tools/XenCenter, not NSX/VCF domains.",
+      "workaround": "Use XenCenter/xe CLI and Xen storage/network for Cluster composition controls.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Xen operational model differs from vSphere/VCF."
+    },
+    "VCF-01-F04": {
+      "parity": "No Parity",
+      "primaryComponent": "N/A",
+      "evidenceKey": "xenserver",
+      "notes": "No Citrix Hypervisor equivalent for VCF Principal vs workload domain separation (NSX DFW, Supervisor K8s, SDDC Manager)."
+    },
+    "VCF-01-F05": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Citrix Hypervisor / XenServer",
+      "evidenceKey": "xenserver",
+      "notes": "XenServer can approach Commissioning and host bring-up with Xen tools/XenCenter, not NSX/VCF domains.",
+      "workaround": "Use XenCenter/xe CLI and Xen storage/network for Commissioning and host bring-up.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Xen operational model differs from vSphere/VCF."
+    },
+    "VCF-01-F06": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Citrix Hypervisor / XenServer",
+      "evidenceKey": "xenserver",
+      "notes": "XenServer can approach Platform configuration baselines with Xen tools/XenCenter, not NSX/VCF domains.",
+      "workaround": "Use XenCenter/xe CLI and Xen storage/network for Platform configuration baselines.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Xen operational model differs from vSphere/VCF."
+    },
+    "VCF-01-F07": {
+      "parity": "No Parity",
+      "primaryComponent": "N/A",
+      "evidenceKey": "xenserver",
+      "notes": "No Citrix Hypervisor equivalent for VCF Multi-site / stretch awareness (NSX DFW, Supervisor K8s, SDDC Manager)."
+    },
+    "VCF-02-F01": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Citrix Hypervisor / XenServer",
+      "evidenceKey": "xenserver",
+      "notes": "XenServer can approach Initial bring-up / installer workflow with Xen tools/XenCenter, not NSX/VCF domains.",
+      "workaround": "Use XenCenter/xe CLI and Xen storage/network for Initial bring-up / installer workflow.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Xen operational model differs from vSphere/VCF."
+    },
+    "VCF-02-F02": {
+      "parity": "No Parity",
+      "primaryComponent": "N/A",
+      "evidenceKey": "xenserver",
+      "notes": "No Citrix Hypervisor equivalent for VCF SDDC Manager orchestration (NSX DFW, Supervisor K8s, SDDC Manager)."
+    },
+    "VCF-02-F03": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Citrix Hypervisor / XenServer",
+      "evidenceKey": "xenserver",
+      "notes": "XenServer can approach Bundle / depot management with Xen tools/XenCenter, not NSX/VCF domains.",
+      "workaround": "Use XenCenter/xe CLI and Xen storage/network for Bundle / depot management.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Xen operational model differs from vSphere/VCF."
+    },
+    "VCF-02-F04": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Citrix Hypervisor / XenServer",
+      "evidenceKey": "xenserver",
+      "notes": "XenServer can approach Upgrade planning and prechecks with Xen tools/XenCenter, not NSX/VCF domains.",
+      "workaround": "Use XenCenter/xe CLI and Xen storage/network for Upgrade planning and prechecks.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Xen operational model differs from vSphere/VCF."
+    },
+    "VCF-02-F05": {
+      "parity": "No Parity",
+      "primaryComponent": "N/A",
+      "evidenceKey": "xenserver",
+      "notes": "No Citrix Hypervisor equivalent for VCF Coordinated stack upgrade (NSX DFW, Supervisor K8s, SDDC Manager)."
+    },
+    "VCF-02-F06": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Citrix Hypervisor / XenServer",
+      "evidenceKey": "xenserver",
+      "notes": "XenServer can approach Skip-level / selective update controls with Xen tools/XenCenter, not NSX/VCF domains.",
+      "workaround": "Use XenCenter/xe CLI and Xen storage/network for Skip-level / selective update controls.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Xen operational model differs from vSphere/VCF."
+    },
+    "VCF-02-F07": {
+      "parity": "No Parity",
+      "primaryComponent": "N/A",
+      "evidenceKey": "xenserver",
+      "notes": "No Citrix Hypervisor equivalent for VCF Lifecycle audit and rollback posture (NSX DFW, Supervisor K8s, SDDC Manager)."
+    },
+    "VCF-03-F01": {
+      "parity": "Full Parity",
+      "primaryComponent": "Citrix Hypervisor / XenServer",
+      "evidenceKey": "xenserver",
+      "notes": "Citrix Hypervisor (XenServer) provides ESXi host compute services for Xen VM operations."
+    },
+    "VCF-03-F02": {
+      "parity": "Full Parity",
+      "primaryComponent": "Citrix Hypervisor / XenServer",
+      "evidenceKey": "xenserver",
+      "notes": "Citrix Hypervisor (XenServer) provides vCenter management plane for Xen VM operations."
+    },
+    "VCF-03-F03": {
+      "parity": "Full Parity",
+      "primaryComponent": "Citrix Hypervisor / XenServer",
+      "evidenceKey": "xenserver",
+      "notes": "Citrix Hypervisor (XenServer) provides DRS / placement optimization for Xen VM operations."
+    },
+    "VCF-03-F04": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Citrix Hypervisor / XenServer",
+      "evidenceKey": "xenserver",
+      "notes": "XenServer can approach HA and restart protection with Xen tools/XenCenter, not NSX/VCF domains.",
+      "workaround": "Use XenCenter/xe CLI and Xen storage/network for HA and restart protection.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Xen operational model differs from vSphere/VCF."
+    },
+    "VCF-03-F05": {
+      "parity": "Full Parity",
+      "primaryComponent": "Citrix Hypervisor / XenServer",
+      "evidenceKey": "xenserver",
+      "notes": "Citrix Hypervisor (XenServer) provides Resource pools and controls for Xen VM operations."
+    },
+    "VCF-03-F06": {
+      "parity": "Full Parity",
+      "primaryComponent": "Citrix Hypervisor / XenServer",
+      "evidenceKey": "xenserver",
+      "notes": "Citrix Hypervisor (XenServer) provides VM lifecycle operations for Xen VM operations."
+    },
+    "VCF-03-F07": {
+      "parity": "Full Parity",
+      "primaryComponent": "Citrix Hypervisor / XenServer",
+      "evidenceKey": "xenserver",
+      "notes": "Citrix Hypervisor (XenServer) provides Maintenance and remediation for Xen VM operations."
+    },
+    "VCF-04-F01": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Citrix Hypervisor / XenServer",
+      "evidenceKey": "xenserver",
+      "notes": "XenServer can approach vSAN datastore services with Xen tools/XenCenter, not NSX/VCF domains.",
+      "workaround": "Use XenCenter/xe CLI and Xen storage/network for vSAN datastore services.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Xen operational model differs from vSphere/VCF."
+    },
+    "VCF-04-F02": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Citrix Hypervisor / XenServer",
+      "evidenceKey": "xenserver",
+      "notes": "XenServer can approach Storage policy based management with Xen tools/XenCenter, not NSX/VCF domains.",
+      "workaround": "Use XenCenter/xe CLI and Xen storage/network for Storage policy based management.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Xen operational model differs from vSphere/VCF."
+    },
+    "VCF-04-F03": {
+      "parity": "No Parity",
+      "primaryComponent": "N/A",
+      "evidenceKey": "xenserver",
+      "notes": "No Citrix Hypervisor equivalent for VCF Dedup / compression / efficiency (NSX DFW, Supervisor K8s, SDDC Manager)."
+    },
+    "VCF-04-F04": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Citrix Hypervisor / XenServer",
+      "evidenceKey": "xenserver",
+      "notes": "XenServer can approach Fault domains and resilience with Xen tools/XenCenter, not NSX/VCF domains.",
+      "workaround": "Use XenCenter/xe CLI and Xen storage/network for Fault domains and resilience.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Xen operational model differs from vSphere/VCF."
+    },
+    "VCF-04-F05": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Citrix Hypervisor / XenServer",
+      "evidenceKey": "xenserver",
+      "notes": "XenServer can approach Stretched / dual-site storage with Xen tools/XenCenter, not NSX/VCF domains.",
+      "workaround": "Use XenCenter/xe CLI and Xen storage/network for Stretched / dual-site storage.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Xen operational model differs from vSphere/VCF."
+    },
+    "VCF-04-F06": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Citrix Hypervisor / XenServer",
+      "evidenceKey": "xenserver",
+      "notes": "XenServer can approach File and supplemental services with Xen tools/XenCenter, not NSX/VCF domains.",
+      "workaround": "Use XenCenter/xe CLI and Xen storage/network for File and supplemental services.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Xen operational model differs from vSphere/VCF."
+    },
+    "VCF-04-F07": {
+      "parity": "No Parity",
+      "primaryComponent": "N/A",
+      "evidenceKey": "xenserver",
+      "notes": "No Citrix Hypervisor equivalent for VCF Storage operations and supportability (NSX DFW, Supervisor K8s, SDDC Manager)."
+    },
+    "VCF-05-F01": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Citrix Hypervisor / XenServer",
+      "evidenceKey": "xenserver",
+      "notes": "XenServer can approach Logical switching / segments with Xen tools/XenCenter, not NSX/VCF domains.",
+      "workaround": "Use XenCenter/xe CLI and Xen storage/network for Logical switching / segments.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Xen operational model differs from vSphere/VCF."
+    },
+    "VCF-05-F02": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Citrix Hypervisor / XenServer",
+      "evidenceKey": "xenserver",
+      "notes": "XenServer can approach Logical routing / Tier services with Xen tools/XenCenter, not NSX/VCF domains.",
+      "workaround": "Use XenCenter/xe CLI and Xen storage/network for Logical routing / Tier services.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Xen operational model differs from vSphere/VCF."
+    },
+    "VCF-05-F03": {
+      "parity": "No Parity",
+      "primaryComponent": "N/A",
+      "evidenceKey": "xenserver",
+      "notes": "No Citrix Hypervisor equivalent for VCF Edge services and gateways (NSX DFW, Supervisor K8s, SDDC Manager)."
+    },
+    "VCF-05-F04": {
+      "parity": "No Parity",
+      "primaryComponent": "N/A",
+      "evidenceKey": "xenserver",
+      "notes": "No Citrix Hypervisor equivalent for VCF VPC / multi-tenancy networking (NSX DFW, Supervisor K8s, SDDC Manager)."
+    },
+    "VCF-05-F05": {
+      "parity": "No Parity",
+      "primaryComponent": "N/A",
+      "evidenceKey": "xenserver",
+      "notes": "No Citrix Hypervisor equivalent for VCF Overlay and underlay integration (NSX DFW, Supervisor K8s, SDDC Manager)."
+    },
+    "VCF-05-F06": {
+      "parity": "No Parity",
+      "primaryComponent": "N/A",
+      "evidenceKey": "xenserver",
+      "notes": "No Citrix Hypervisor equivalent for VCF DNS / DHCP / network services (NSX DFW, Supervisor K8s, SDDC Manager)."
+    },
+    "VCF-05-F07": {
+      "parity": "No Parity",
+      "primaryComponent": "N/A",
+      "evidenceKey": "xenserver",
+      "notes": "No Citrix Hypervisor equivalent for VCF Network observability basics (NSX DFW, Supervisor K8s, SDDC Manager)."
+    },
+    "VCF-06-F01": {
+      "parity": "No Parity",
+      "primaryComponent": "N/A",
+      "evidenceKey": "xenserver",
+      "notes": "No Citrix Hypervisor equivalent for VCF Distributed firewall (NSX DFW, Supervisor K8s, SDDC Manager)."
+    },
+    "VCF-06-F02": {
+      "parity": "No Parity",
+      "primaryComponent": "N/A",
+      "evidenceKey": "xenserver",
+      "notes": "No Citrix Hypervisor equivalent for VCF Gateway firewall (NSX DFW, Supervisor K8s, SDDC Manager)."
+    },
+    "VCF-06-F03": {
+      "parity": "No Parity",
+      "primaryComponent": "N/A",
+      "evidenceKey": "xenserver",
+      "notes": "No Citrix Hypervisor equivalent for VCF Security groups / dynamic membership (NSX DFW, Supervisor K8s, SDDC Manager)."
+    },
+    "VCF-06-F04": {
+      "parity": "No Parity",
+      "primaryComponent": "N/A",
+      "evidenceKey": "xenserver",
+      "notes": "No Citrix Hypervisor equivalent for VCF IDS/IPS or advanced threat controls (NSX DFW, Supervisor K8s, SDDC Manager)."
+    },
+    "VCF-06-F05": {
+      "parity": "No Parity",
+      "primaryComponent": "N/A",
+      "evidenceKey": "xenserver",
+      "notes": "No Citrix Hypervisor equivalent for VCF Identity / context-aware controls (NSX DFW, Supervisor K8s, SDDC Manager)."
+    },
+    "VCF-06-F06": {
+      "parity": "No Parity",
+      "primaryComponent": "N/A",
+      "evidenceKey": "xenserver",
+      "notes": "No Citrix Hypervisor equivalent for VCF Policy lifecycle and change control (NSX DFW, Supervisor K8s, SDDC Manager)."
+    },
+    "VCF-06-F07": {
+      "parity": "No Parity",
+      "primaryComponent": "N/A",
+      "evidenceKey": "xenserver",
+      "notes": "No Citrix Hypervisor equivalent for VCF Security posture reporting (NSX DFW, Supervisor K8s, SDDC Manager)."
+    },
+    "VCF-07-F01": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Citrix Hypervisor / XenServer",
+      "evidenceKey": "xenserver",
+      "notes": "XenServer can approach Infrastructure monitoring with Xen tools/XenCenter, not NSX/VCF domains.",
+      "workaround": "Use XenCenter/xe CLI and Xen storage/network for Infrastructure monitoring.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Xen operational model differs from vSphere/VCF."
+    },
+    "VCF-07-F02": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Citrix Hypervisor / XenServer",
+      "evidenceKey": "xenserver",
+      "notes": "XenServer can approach Log collection and analysis with Xen tools/XenCenter, not NSX/VCF domains.",
+      "workaround": "Use XenCenter/xe CLI and Xen storage/network for Log collection and analysis.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Xen operational model differs from vSphere/VCF."
+    },
+    "VCF-07-F03": {
+      "parity": "No Parity",
+      "primaryComponent": "N/A",
+      "evidenceKey": "xenserver",
+      "notes": "No Citrix Hypervisor equivalent for VCF Capacity and performance planning (NSX DFW, Supervisor K8s, SDDC Manager)."
+    },
+    "VCF-07-F04": {
+      "parity": "No Parity",
+      "primaryComponent": "N/A",
+      "evidenceKey": "xenserver",
+      "notes": "No Citrix Hypervisor equivalent for VCF Configuration and compliance monitoring (NSX DFW, Supervisor K8s, SDDC Manager)."
+    },
+    "VCF-07-F05": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Citrix Hypervisor / XenServer",
+      "evidenceKey": "xenserver",
+      "notes": "XenServer can approach Service/application awareness with Xen tools/XenCenter, not NSX/VCF domains.",
+      "workaround": "Use XenCenter/xe CLI and Xen storage/network for Service/application awareness.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Xen operational model differs from vSphere/VCF."
+    },
+    "VCF-07-F06": {
+      "parity": "No Parity",
+      "primaryComponent": "N/A",
+      "evidenceKey": "xenserver",
+      "notes": "No Citrix Hypervisor equivalent for VCF Alerting and notification routing (NSX DFW, Supervisor K8s, SDDC Manager)."
+    },
+    "VCF-07-F07": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Citrix Hypervisor / XenServer",
+      "evidenceKey": "xenserver",
+      "notes": "XenServer can approach Operational reporting and evidence with Xen tools/XenCenter, not NSX/VCF domains.",
+      "workaround": "Use XenCenter/xe CLI and Xen storage/network for Operational reporting and evidence.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Xen operational model differs from vSphere/VCF."
+    },
+    "VCF-08-F01": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Citrix Hypervisor / XenServer",
+      "evidenceKey": "xenserver",
+      "notes": "XenServer can approach Service catalog / self-service requests with Xen tools/XenCenter, not NSX/VCF domains.",
+      "workaround": "Use XenCenter/xe CLI and Xen storage/network for Service catalog / self-service requests.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Xen operational model differs from vSphere/VCF."
+    },
+    "VCF-08-F02": {
+      "parity": "No Parity",
+      "primaryComponent": "N/A",
+      "evidenceKey": "xenserver",
+      "notes": "No Citrix Hypervisor equivalent for VCF Infrastructure as code / templates (NSX DFW, Supervisor K8s, SDDC Manager)."
+    },
+    "VCF-08-F03": {
+      "parity": "No Parity",
+      "primaryComponent": "N/A",
+      "evidenceKey": "xenserver",
+      "notes": "No Citrix Hypervisor equivalent for VCF Approval and governance workflows (NSX DFW, Supervisor K8s, SDDC Manager)."
+    },
+    "VCF-08-F04": {
+      "parity": "No Parity",
+      "primaryComponent": "N/A",
+      "evidenceKey": "xenserver",
+      "notes": "No Citrix Hypervisor equivalent for VCF Day-2 automation actions (NSX DFW, Supervisor K8s, SDDC Manager)."
+    },
+    "VCF-08-F05": {
+      "parity": "No Parity",
+      "primaryComponent": "N/A",
+      "evidenceKey": "xenserver",
+      "notes": "No Citrix Hypervisor equivalent for VCF Multi-tenancy and entitlement (NSX DFW, Supervisor K8s, SDDC Manager)."
+    },
+    "VCF-08-F06": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Citrix Hypervisor / XenServer",
+      "evidenceKey": "xenserver",
+      "notes": "XenServer can approach Integrations to ITSM / pipelines with Xen tools/XenCenter, not NSX/VCF domains.",
+      "workaround": "Use XenCenter/xe CLI and Xen storage/network for Integrations to ITSM / pipelines.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Xen operational model differs from vSphere/VCF."
+    },
+    "VCF-08-F07": {
+      "parity": "No Parity",
+      "primaryComponent": "N/A",
+      "evidenceKey": "xenserver",
+      "notes": "No Citrix Hypervisor equivalent for VCF Automation extensibility (NSX DFW, Supervisor K8s, SDDC Manager)."
+    },
+    "VCF-09-F01": {
+      "parity": "No Parity",
+      "primaryComponent": "N/A",
+      "evidenceKey": "xenserver",
+      "notes": "No Citrix Hypervisor equivalent for VCF Supervisor / cluster lifecycle (NSX DFW, Supervisor K8s, SDDC Manager)."
+    },
+    "VCF-09-F02": {
+      "parity": "No Parity",
+      "primaryComponent": "N/A",
+      "evidenceKey": "xenserver",
+      "notes": "No Citrix Hypervisor equivalent for VCF Workload tenancy and namespaces (NSX DFW, Supervisor K8s, SDDC Manager)."
+    },
+    "VCF-09-F03": {
+      "parity": "No Parity",
+      "primaryComponent": "N/A",
+      "evidenceKey": "xenserver",
+      "notes": "No Citrix Hypervisor equivalent for VCF Container networking & services (NSX DFW, Supervisor K8s, SDDC Manager)."
+    },
+    "VCF-09-F04": {
+      "parity": "No Parity",
+      "primaryComponent": "N/A",
+      "evidenceKey": "xenserver",
+      "notes": "No Citrix Hypervisor equivalent for VCF Persistent storage for containers (NSX DFW, Supervisor K8s, SDDC Manager)."
+    },
+    "VCF-09-F05": {
+      "parity": "No Parity",
+      "primaryComponent": "N/A",
+      "evidenceKey": "xenserver",
+      "notes": "No Citrix Hypervisor equivalent for VCF Registry / package / content services (NSX DFW, Supervisor K8s, SDDC Manager)."
+    },
+    "VCF-09-F06": {
+      "parity": "No Parity",
+      "primaryComponent": "N/A",
+      "evidenceKey": "xenserver",
+      "notes": "No Citrix Hypervisor equivalent for VCF Platform security controls (NSX DFW, Supervisor K8s, SDDC Manager)."
+    },
+    "VCF-09-F07": {
+      "parity": "No Parity",
+      "primaryComponent": "N/A",
+      "evidenceKey": "xenserver",
+      "notes": "No Citrix Hypervisor equivalent for VCF Developer self-service experience (NSX DFW, Supervisor K8s, SDDC Manager)."
+    },
+    "VCF-10-F01": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Citrix Hypervisor / XenServer",
+      "evidenceKey": "xenserver",
+      "notes": "XenServer can approach Bulk / cold migration with Xen tools/XenCenter, not NSX/VCF domains.",
+      "workaround": "Use XenCenter/xe CLI and Xen storage/network for Bulk / cold migration.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Xen operational model differs from vSphere/VCF."
+    },
+    "VCF-10-F02": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Citrix Hypervisor / XenServer",
+      "evidenceKey": "xenserver",
+      "notes": "XenServer can approach Live / vMotion-style mobility with Xen tools/XenCenter, not NSX/VCF domains.",
+      "workaround": "Use XenCenter/xe CLI and Xen storage/network for Live / vMotion-style mobility.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Xen operational model differs from vSphere/VCF."
+    },
+    "VCF-10-F03": {
+      "parity": "No Parity",
+      "primaryComponent": "N/A",
+      "evidenceKey": "xenserver",
+      "notes": "No Citrix Hypervisor equivalent for VCF Replication-assisted migration (NSX DFW, Supervisor K8s, SDDC Manager)."
+    },
+    "VCF-10-F04": {
+      "parity": "No Parity",
+      "primaryComponent": "N/A",
+      "evidenceKey": "xenserver",
+      "notes": "No Citrix Hypervisor equivalent for VCF Network extension / mobility bridging (NSX DFW, Supervisor K8s, SDDC Manager)."
+    },
+    "VCF-10-F05": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Citrix Hypervisor / XenServer",
+      "evidenceKey": "xenserver",
+      "notes": "XenServer can approach Import / converge workflows with Xen tools/XenCenter, not NSX/VCF domains.",
+      "workaround": "Use XenCenter/xe CLI and Xen storage/network for Import / converge workflows.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Xen operational model differs from vSphere/VCF."
+    },
+    "VCF-10-F06": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Citrix Hypervisor / XenServer",
+      "evidenceKey": "xenserver",
+      "notes": "XenServer can approach Mobility planning and wave ops with Xen tools/XenCenter, not NSX/VCF domains.",
+      "workaround": "Use XenCenter/xe CLI and Xen storage/network for Mobility planning and wave ops.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Xen operational model differs from vSphere/VCF."
+    },
+    "VCF-10-F07": {
+      "parity": "No Parity",
+      "primaryComponent": "N/A",
+      "evidenceKey": "xenserver",
+      "notes": "No Citrix Hypervisor equivalent for VCF Rollback and fallback posture (NSX DFW, Supervisor K8s, SDDC Manager)."
+    },
+    "VCF-11-F01": {
+      "parity": "Full Parity",
+      "primaryComponent": "Citrix Hypervisor / XenServer",
+      "evidenceKey": "xenserver",
+      "notes": "Citrix Hypervisor (XenServer) provides Backup protection for Xen VM operations."
+    },
+    "VCF-11-F02": {
+      "parity": "Full Parity",
+      "primaryComponent": "Citrix Hypervisor / XenServer",
+      "evidenceKey": "xenserver",
+      "notes": "Citrix Hypervisor (XenServer) provides Restore and recovery for Xen VM operations."
+    },
+    "VCF-11-F03": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Citrix Hypervisor / XenServer",
+      "evidenceKey": "xenserver",
+      "notes": "XenServer can approach Replication / DR orchestration with Xen tools/XenCenter, not NSX/VCF domains.",
+      "workaround": "Use XenCenter/xe CLI and Xen storage/network for Replication / DR orchestration.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Xen operational model differs from vSphere/VCF."
+    },
+    "VCF-11-F04": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Citrix Hypervisor / XenServer",
+      "evidenceKey": "xenserver",
+      "notes": "XenServer can approach RPO/RTO policy alignment with Xen tools/XenCenter, not NSX/VCF domains.",
+      "workaround": "Use XenCenter/xe CLI and Xen storage/network for RPO/RTO policy alignment.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Xen operational model differs from vSphere/VCF."
+    },
+    "VCF-11-F05": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Citrix Hypervisor / XenServer",
+      "evidenceKey": "xenserver",
+      "notes": "XenServer can approach Cyber recovery / immutable posture with Xen tools/XenCenter, not NSX/VCF domains.",
+      "workaround": "Use XenCenter/xe CLI and Xen storage/network for Cyber recovery / immutable posture.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Xen operational model differs from vSphere/VCF."
+    },
+    "VCF-11-F06": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Citrix Hypervisor / XenServer",
+      "evidenceKey": "xenserver",
+      "notes": "XenServer can approach Application-consistent protection with Xen tools/XenCenter, not NSX/VCF domains.",
+      "workaround": "Use XenCenter/xe CLI and Xen storage/network for Application-consistent protection.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Xen operational model differs from vSphere/VCF."
+    },
+    "VCF-11-F07": {
+      "parity": "No Parity",
+      "primaryComponent": "N/A",
+      "evidenceKey": "xenserver",
+      "notes": "No Citrix Hypervisor equivalent for VCF Resilience reporting and evidence (NSX DFW, Supervisor K8s, SDDC Manager)."
+    },
+    "VCF-12-F01": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Citrix Hypervisor / XenServer",
+      "evidenceKey": "xenserver",
+      "notes": "XenServer can approach GPU / accelerator enablement with Xen tools/XenCenter, not NSX/VCF domains.",
+      "workaround": "Use XenCenter/xe CLI and Xen storage/network for GPU / accelerator enablement.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Xen operational model differs from vSphere/VCF."
+    },
+    "VCF-12-F02": {
+      "parity": "No Parity",
+      "primaryComponent": "N/A",
+      "evidenceKey": "xenserver",
+      "notes": "No Citrix Hypervisor equivalent for VCF Model hosting / serving (NSX DFW, Supervisor K8s, SDDC Manager)."
+    },
+    "VCF-12-F03": {
+      "parity": "No Parity",
+      "primaryComponent": "N/A",
+      "evidenceKey": "xenserver",
+      "notes": "No Citrix Hypervisor equivalent for VCF Data pipeline / RAG foundations (NSX DFW, Supervisor K8s, SDDC Manager)."
+    },
+    "VCF-12-F04": {
+      "parity": "No Parity",
+      "primaryComponent": "N/A",
+      "evidenceKey": "xenserver",
+      "notes": "No Citrix Hypervisor equivalent for VCF AI lifecycle / MLOps basics (NSX DFW, Supervisor K8s, SDDC Manager)."
+    },
+    "VCF-12-F05": {
+      "parity": "No Parity",
+      "primaryComponent": "N/A",
+      "evidenceKey": "xenserver",
+      "notes": "No Citrix Hypervisor equivalent for VCF Governance and access control for AI (NSX DFW, Supervisor K8s, SDDC Manager)."
+    },
+    "VCF-12-F06": {
+      "parity": "No Parity",
+      "primaryComponent": "N/A",
+      "evidenceKey": "xenserver",
+      "notes": "No Citrix Hypervisor equivalent for VCF Integration with VCF platform services (NSX DFW, Supervisor K8s, SDDC Manager)."
+    },
+    "VCF-12-F07": {
+      "parity": "No Parity",
+      "primaryComponent": "N/A",
+      "evidenceKey": "xenserver",
+      "notes": "No Citrix Hypervisor equivalent for VCF Sovereign / private AI controls (NSX DFW, Supervisor K8s, SDDC Manager)."
+    }
+  }
+}
