@@ -1,0 +1,98 @@
+{
+  "schemaVersion": "1.0",
+  "rulesetId": "VCF-AFA_Rules_v1",
+  "scoringKey": "functionalityId",
+  "cnVersion": "v0.3",
+  "compatibleAppBaseline": "VCF-AFA v1.41+",
+  "description": "Default feasibility rules for functionalityId scoring. Public-docs workshop defaults; not portal-pinned.",
+  "ratingWeights": {
+    "Required": 4,
+    "Important": 3,
+    "Nice To Have": 2,
+    "Not Required": 0,
+    "Unknown": 1
+  },
+  "parityScores": {
+    "Full Parity": 1,
+    "Partial Parity": 0.55,
+    "No Parity": 0,
+    "Unknown": 0
+  },
+  "defaultTechnicalWeight": 80,
+  "defaultDecisionWeight": 20,
+  "feasibility": {
+    "feasibleMinOverall": 75,
+    "requiredNoParityIsBlocker": true,
+    "requiredOrImportantPartialIsRisk": true
+  },
+  "heat": {
+    "requiredNoParity": 5,
+    "requiredOrImportantPartial": 4,
+    "importantNoParity": 4,
+    "otherNoParity": 3,
+    "partial": 2,
+    "full": 1
+  },
+  "businessCriteria": [
+    {
+      "id": "commercial",
+      "name": "Commercial / cost fit",
+      "desc": "Cost model, license posture, commercial attractiveness.",
+      "importance": "Important"
+    },
+    {
+      "id": "licensing",
+      "name": "Licensing model fit",
+      "desc": "License portability, subscription model, entitlement clarity.",
+      "importance": "Important"
+    },
+    {
+      "id": "support",
+      "name": "Support model confidence",
+      "desc": "Supportability, escalation path, operational support model.",
+      "importance": "Required"
+    },
+    {
+      "id": "skills",
+      "name": "Skills and operating model fit",
+      "desc": "Internal skills, partner ecosystem, Day-2 operating model.",
+      "importance": "Important"
+    },
+    {
+      "id": "migration",
+      "name": "Migration complexity tolerance",
+      "desc": "Tolerance for replatforming, tooling, outage window, migration risk.",
+      "importance": "Required"
+    },
+    {
+      "id": "sovereignty",
+      "name": "Sovereignty / regulatory alignment",
+      "desc": "Control over data placement, routing, access, configuration, keys.",
+      "importance": "Required"
+    },
+    {
+      "id": "ecosystem",
+      "name": "Ecosystem and integration fit",
+      "desc": "Backup, monitoring, automation, security tooling compatibility.",
+      "importance": "Important"
+    },
+    {
+      "id": "strategy",
+      "name": "Vendor strategy alignment",
+      "desc": "Strategic fit, roadmap confidence, vendor relationship.",
+      "importance": "Nice To Have"
+    },
+    {
+      "id": "timevalue",
+      "name": "Time-to-value",
+      "desc": "Expected implementation speed and workshop-to-decision acceleration.",
+      "importance": "Important"
+    },
+    {
+      "id": "exit",
+      "name": "Exit strategy / reversibility",
+      "desc": "Ability to avoid lock-in and retain migration optionality.",
+      "importance": "Nice To Have"
+    }
+  ]
+}
