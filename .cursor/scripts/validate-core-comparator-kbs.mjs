@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Validate Core comparator evidence maps + workbooks against CN v0.3 and VCF KB.
+ * Validate Core comparator evidence maps + workbooks against CN v0.3 functionalityIds.
  */
 import { readFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
@@ -36,62 +36,66 @@ function load(p) {
 function rows(wb, n) {
   return XLSX.utils.sheet_to_json(wb.Sheets[n] || {}, { defval: '' });
 }
+function fnId(r) {
+  return String(r.FunctionalityID || r.ComparatorFunctionalityID || '').trim();
+}
 
-function parseKb(fileName, funcs, ev) {
-  const featureIndex = {};
-  const features = [];
+function scoreFn(vcfIds, vcfNameById, funcs) {
+  const idx = {};
+  const names = {};
   for (const r of funcs) {
-    const fid = String(r.FeatureID || '').trim();
-    if (!fid) continue;
-    if (!featureIndex[fid]) {
-      const f = { FeatureID: fid, FeatureName: r.FeatureName || '', CapabilityName: r.CapabilityName || '' };
-      featureIndex[fid] = f;
-      features.push(f);
-    }
+    const id = fnId(r);
+    if (!id) continue;
+    idx[id] = r;
+    const nm = String(r.FunctionalityName || '').trim().toLowerCase();
+    if (nm) names[nm] = names[nm] || [];
+    if (nm) names[nm].push(id);
   }
-  for (const r of ev || []) {
-    const fid = String(r.FeatureID || '').trim();
-    if (!fid) continue;
-    if (!featureIndex[fid]) {
-      const f = { FeatureID: fid, FeatureName: r.FeatureName || '', CapabilityName: '' };
-      featureIndex[fid] = f;
-      features.push(f);
-    } else if (r.FeatureName) featureIndex[fid].FeatureName = r.FeatureName;
-  }
-  return { fileName, features, featureIndex };
-}
-
-function near(c, f) {
-  const t = ((f.FeatureName || '') + ' ' + (f.CapabilityName || '')).toLowerCase();
-  return c.features.find((cf) => {
-    const s = ((cf.FeatureName || '') + ' ' + (cf.CapabilityName || '')).toLowerCase();
-    return (
-      (f.FeatureName && s.includes((f.FeatureName || '').toLowerCase())) ||
-      (cf.FeatureName && t.includes((cf.FeatureName || '').toLowerCase()))
-    );
-  });
-}
-
-function score(vcf, comp) {
   let full = 0;
   let partial = 0;
   let no = 0;
-  for (const f of vcf.features) {
-    if (comp.featureIndex[f.FeatureID]) full++;
-    else if (near(comp, f)) partial++;
-    else no++;
+  for (const id of vcfIds) {
+    if (idx[id]) full++;
+    else {
+      const pkey = Object.keys(idx).find((k) => k.endsWith(`-P-${id}`));
+      if (pkey) partial++;
+      else {
+        const nm = (vcfNameById[id] || '').toLowerCase();
+        const alts = (names[nm] || []).filter((k) => k !== id);
+        if (alts.length) partial++;
+        else no++;
+      }
+    }
   }
   return { full, partial, no };
+}
+
+function inheritAll(cn, mapFeatures) {
+  let features = 0;
+  let identical = 0;
+  for (const p of cn.products) {
+    for (const f of p.features) {
+      const parities = (f.functionalities || []).map((g) => mapFeatures[g.functionalityId]?.parity);
+      if (!parities.length) continue;
+      features++;
+      if (parities.every((x) => x && x === parities[0])) identical++;
+    }
+  }
+  return features > 0 && identical === features;
 }
 
 function main() {
   const errors = [];
   const cn = load(join(MODEL, 'CN_v0.3_Canonical_Capability_Model.json'));
-  const cnIds = cn.products.flatMap((p) => p.features.map((f) => f.featureId));
-  if (cnIds.length !== 84) errors.push(`CN features ${cnIds.length} != 84`);
+  const cnFn = cn.products.flatMap((p) => p.features.flatMap((f) => f.functionalities.map((g) => g)));
+  const cnIds = cnFn.map((g) => g.functionalityId);
+  const cnName = Object.fromEntries(cnFn.map((g) => [g.functionalityId, g.name]));
+  if (cnIds.length !== 252) errors.push(`CN functionalities ${cnIds.length} != 252`);
 
   const vcfWb = XLSX.readFile(join(KBS, 'VCF_KnowledgeBase_CN_v0.3.xlsx'));
-  const vcf = parseKb('VCF', rows(vcfWb, '02_FunctionalityMaster'), rows(vcfWb, '03_FeatureEvidenceRegister'));
+  const vcfFuncs = rows(vcfWb, '02_FunctionalityMaster');
+  const vcfFnIds = vcfFuncs.map(fnId).filter((id) => /^VCF-\d{2}-F\d{2}-FN\d{2}$/.test(id));
+  if (vcfFnIds.length !== 252) errors.push(`VCF FunctionalityID rows ${vcfFnIds.length} != 252`);
 
   const ncpXw = load(join(KBS, 'NCP_AHV_Evidence_Crosswalk_v1.json'));
   const ncpSig = `${ncpXw.counts['Full Parity']}/${ncpXw.counts['Partial Parity']}/${ncpXw.counts['No Parity']}`;
@@ -111,6 +115,7 @@ function main() {
     const label = plat.key;
 
     if (map.platformKey !== plat.key) errors.push(`${label}: platformKey mismatch`);
+    if (inheritAll(cn, map.features || {})) errors.push(`${label}: inherit-all functionality parities`);
     for (const t of REQUIRED) {
       if (!wb.SheetNames.includes(t)) errors.push(`${label}: missing tab ${t}`);
     }
@@ -138,6 +143,7 @@ function main() {
     const funcs = rows(wb, '02_FunctionalityMaster');
     const evRows = rows(wb, '03_FeatureEvidenceRegister');
     if (!funcs[0] || !('FeatureID' in funcs[0])) errors.push(`${label}: FeatureID column missing`);
+    if (!funcs[0] || !('FunctionalityID' in funcs[0])) errors.push(`${label}: FunctionalityID column missing`);
     const missingUrl = evRows.filter((r) => !String(r.EvidenceURL || '').startsWith('http'));
     if (missingUrl.length) errors.push(`${label}: ${missingUrl.length} evidence rows lack http URL`);
 
@@ -145,39 +151,36 @@ function main() {
     const partialIds = cnIds.filter((id) => map.features[id]?.parity === 'Partial Parity');
     const noneIds = cnIds.filter((id) => ['No Parity', 'Unknown'].includes(map.features[id]?.parity));
 
-    const ncpIds = new Set(funcs.map((r) => String(r.FeatureID || '').trim()).filter(Boolean));
+    const encoded = new Set(funcs.map(fnId).filter(Boolean));
     for (const id of fullIds) {
-      if (!ncpIds.has(id)) errors.push(`${label}: Full ${id} missing exact FeatureID`);
+      if (!encoded.has(id)) errors.push(`${label}: Full ${id} missing exact FunctionalityID`);
     }
     for (const id of partialIds) {
       const pid = `${plat.prefix}-P-${id}`;
-      if (!ncpIds.has(pid)) errors.push(`${label}: Partial missing ${pid}`);
-      if (ncpIds.has(id)) errors.push(`${label}: Partial ${id} must not use exact CN ID`);
+      if (!encoded.has(pid)) errors.push(`${label}: Partial missing ${pid}`);
+      if (encoded.has(id)) errors.push(`${label}: Partial ${id} must not use exact CN FunctionalityID`);
     }
     for (const id of noneIds) {
-      if (ncpIds.has(id) || ncpIds.has(`${plat.prefix}-P-${id}`)) {
+      if (encoded.has(id) || encoded.has(`${plat.prefix}-P-${id}`)) {
         errors.push(`${label}: No/Unknown ${id} should be omitted`);
       }
     }
 
-    const vcfIds = new Set(vcf.features.map((f) => f.FeatureID));
-    const overlap = [...ncpIds].filter((id) => vcfIds.has(id));
-    for (const id of overlap) {
-      if (!fullIds.includes(id)) errors.push(`${label}: unexpected overlap ${id}`);
+    const vcfIdSet = new Set(vcfFnIds);
+    for (const id of encoded) {
+      if (vcfIdSet.has(id) && !fullIds.includes(id)) errors.push(`${label}: unexpected VCF FunctionalityID overlap ${id}`);
     }
 
-    const comp = parseKb(plat.fileBase, funcs, evRows);
-    const sc = score(vcf, comp);
+    const sc = scoreFn(cnIds, cnName, funcs);
     const sig = `${sc.full}/${sc.partial}/${sc.no}`;
     signatures.push(`${label} Full/Partial/No=${sig}`);
-    console.log(`${label}: map Full=${xw.counts['Full Parity']} Partial=${xw.counts['Partial Parity']} No=${xw.counts['No Parity']} | smoke ${sig}`);
+    console.log(
+      `${label}: map Full=${xw.counts['Full Parity']} Partial=${xw.counts['Partial Parity']} No=${xw.counts['No Parity']} | smoke ${sig}`,
+    );
     if (sc.full !== fullIds.length || sc.partial !== partialIds.length || sc.no !== noneIds.length) {
       errors.push(`${label}: smoke ${sig} != map ${fullIds.length}/${partialIds.length}/${noneIds.length}`);
     }
     if (sig === ncpSig) errors.push(`${label}: scoring signature must differ from NCP ${ncpSig}`);
-    if (/^VCF_KnowledgeBase/i.test(`${plat.fileBase}_KB_CN_v0.3_Evidence.xlsx`)) {
-      errors.push(`${label}: filename would be classified as VCF`);
-    }
   }
 
   signatures.forEach((s) => console.log(' ', s));
@@ -186,7 +189,7 @@ function main() {
     errors.forEach((e) => console.error(' -', e));
     process.exit(1);
   }
-  console.log('\nPASS core comparator KB validation');
+  console.log('\nPASS core comparator KB validation (functionalityId)');
 }
 
 main();

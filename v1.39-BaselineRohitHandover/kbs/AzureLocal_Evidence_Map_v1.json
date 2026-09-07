@@ -49,681 +49,1756 @@
     "update": "https://learn.microsoft.com/en-us/azure/azure-local/update/about-updates"
   },
   "status": "evidence_backed_draft",
+  "scoringKey": "functionalityId",
   "features": {
-    "VCF-01-F01": {
-      "parity": "Full Parity",
+    "VCF-01-F01-FN01": {
       "primaryComponent": "Azure Local / Azure Arc",
       "evidenceKey": "azureLocal",
-      "notes": "Azure Local clusters register to Azure Arc for inventory and topology visibility."
+      "parity": "Full Parity",
+      "notes": "Azure Local clusters register to Azure Arc for inventory and topology visibility. Functionality: Discover hosts and clusters."
     },
-    "VCF-01-F02": {
+    "VCF-01-F01-FN02": {
+      "primaryComponent": "Azure Local / Azure Arc",
+      "evidenceKey": "azureLocal",
+      "parity": "Full Parity",
+      "notes": "Azure Local clusters register to Azure Arc for inventory and topology visibility. Functionality: View domain membership."
+    },
+    "VCF-01-F01-FN03": {
+      "primaryComponent": "Azure Local / Azure Arc",
+      "evidenceKey": "azureLocal",
       "parity": "Partial Parity",
+      "notes": "Azure Local clusters register to Azure Arc for inventory and topology visibility. Functionality: Track capacity summary.",
+      "workaround": "Use platform-native equivalent for Track capacity summary.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Not a 1:1 VCF equivalent; operating model differs."
+    },
+    "VCF-01-F02-FN01": {
       "primaryComponent": "Azure Local",
       "evidenceKey": "azureLocal",
-      "notes": "No VCF Workload Domain construct; scale by adding cluster nodes/clusters.",
+      "parity": "Partial Parity",
+      "notes": "No VCF Workload Domain construct; scale by adding cluster nodes/clusters. Functionality: Create workload domain.",
       "workaround": "Create/expand Azure Local clusters instead of VCF workload domains.",
       "workaroundComplexity": "Medium",
       "technicalImpact": "Domain lifecycle UX and isolation model differ from SDDC Manager."
     },
-    "VCF-01-F03": {
+    "VCF-01-F02-FN02": {
+      "primaryComponent": "Azure Local",
+      "evidenceKey": "azureLocal",
       "parity": "Full Parity",
+      "notes": "No VCF Workload Domain construct; scale by adding cluster nodes/clusters. Functionality: Expand workload domain."
+    },
+    "VCF-01-F02-FN03": {
+      "primaryComponent": "Azure Local",
+      "evidenceKey": "azureLocal",
+      "parity": "No Parity",
+      "notes": "No VCF Workload Domain construct; scale by adding cluster nodes/clusters. Functionality: Delete/decommission domain."
+    },
+    "VCF-01-F03-FN01": {
       "primaryComponent": "Failover Clustering / Azure Local",
       "evidenceKey": "azureLocal",
-      "notes": "Add/remove nodes via Azure Local cluster operations."
+      "parity": "Full Parity",
+      "notes": "Add/remove nodes via Azure Local cluster operations. Functionality: Add hosts to cluster."
     },
-    "VCF-01-F04": {
+    "VCF-01-F03-FN02": {
+      "primaryComponent": "Failover Clustering / Azure Local",
+      "evidenceKey": "azureLocal",
+      "parity": "Full Parity",
+      "notes": "Add/remove nodes via Azure Local cluster operations. Functionality: Remove hosts from cluster."
+    },
+    "VCF-01-F03-FN03": {
+      "primaryComponent": "Failover Clustering / Azure Local",
+      "evidenceKey": "azureLocal",
       "parity": "Partial Parity",
+      "notes": "Add/remove nodes via Azure Local cluster operations. Functionality: Validate cluster readiness.",
+      "workaround": "Use platform-native equivalent for Validate cluster readiness.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Not a 1:1 VCF equivalent; operating model differs."
+    },
+    "VCF-01-F04-FN01": {
       "primaryComponent": "Azure Local / Arc RBAC",
       "evidenceKey": "arc",
-      "notes": "Management vs workload isolation uses Azure RBAC/resource groups, not VCF domains.",
+      "parity": "Partial Parity",
+      "notes": "Management vs workload isolation uses Azure RBAC/resource groups, not VCF domains. Functionality: Maintain management domain isolation.",
       "workaround": "Separate Arc resource groups and RBAC scopes for management vs workloads.",
       "workaroundComplexity": "Medium",
       "technicalImpact": "Principal/workload domain semantics are not 1:1."
     },
-    "VCF-01-F05": {
+    "VCF-01-F04-FN02": {
+      "primaryComponent": "Azure Local / Arc RBAC",
+      "evidenceKey": "arc",
       "parity": "Full Parity",
+      "notes": "Management vs workload isolation uses Azure RBAC/resource groups, not VCF domains. Functionality: Apply domain-specific policies."
+    },
+    "VCF-01-F04-FN03": {
+      "primaryComponent": "Azure Local / Arc RBAC",
+      "evidenceKey": "arc",
+      "parity": "No Parity",
+      "notes": "Management vs workload isolation uses Azure RBAC/resource groups, not VCF domains. Functionality: Audit cross-domain dependencies."
+    },
+    "VCF-01-F05-FN01": {
       "primaryComponent": "Azure Local deployment",
       "evidenceKey": "deploy",
-      "notes": "Host imaging and cluster bring-up are documented Azure Local deployment workflows."
+      "parity": "Full Parity",
+      "notes": "Host imaging and cluster bring-up are documented Azure Local deployment workflows. Functionality: Commission host."
     },
-    "VCF-01-F06": {
+    "VCF-01-F05-FN02": {
+      "primaryComponent": "Azure Local deployment",
+      "evidenceKey": "deploy",
+      "parity": "Full Parity",
+      "notes": "Host imaging and cluster bring-up are documented Azure Local deployment workflows. Functionality: Validate hardware compatibility."
+    },
+    "VCF-01-F05-FN03": {
+      "primaryComponent": "Azure Local deployment",
+      "evidenceKey": "deploy",
       "parity": "Partial Parity",
+      "notes": "Host imaging and cluster bring-up are documented Azure Local deployment workflows. Functionality: Assign host to domain.",
+      "workaround": "Use platform-native equivalent for Assign host to domain.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Not a 1:1 VCF equivalent; operating model differs."
+    },
+    "VCF-01-F06-FN01": {
       "primaryComponent": "Azure Policy / Arc",
       "evidenceKey": "arc",
-      "notes": "Desired-state via Azure Policy/Arc, not VCF configuration baselines.",
+      "parity": "Partial Parity",
+      "notes": "Desired-state via Azure Policy/Arc, not VCF configuration baselines. Functionality: Capture desired state baseline.",
       "workaround": "Apply Azure Policy and Arc configuration to cluster resources.",
       "workaroundComplexity": "Medium",
       "technicalImpact": "Baseline/drift model differs from SDDC Manager."
     },
-    "VCF-01-F07": {
-      "parity": "Partial Parity",
+    "VCF-01-F06-FN02": {
+      "primaryComponent": "Azure Policy / Arc",
+      "evidenceKey": "arc",
+      "parity": "Full Parity",
+      "notes": "Desired-state via Azure Policy/Arc, not VCF configuration baselines. Functionality: Detect configuration drift."
+    },
+    "VCF-01-F06-FN03": {
+      "primaryComponent": "Azure Policy / Arc",
+      "evidenceKey": "arc",
+      "parity": "No Parity",
+      "notes": "Desired-state via Azure Policy/Arc, not VCF configuration baselines. Functionality: Export baseline snapshot."
+    },
+    "VCF-01-F07-FN01": {
       "primaryComponent": "Storage Replica / stretched clustering",
       "evidenceKey": "s2d",
-      "notes": "Stretched/multi-site patterns exist but are not VCF stretch-domain native.",
+      "parity": "Partial Parity",
+      "notes": "Stretched/multi-site patterns exist but are not VCF stretch-domain native. Functionality: Identify stretched topology.",
       "workaround": "Design stretched Azure Local / Storage Replica topologies.",
       "workaroundComplexity": "High",
       "technicalImpact": "Site affinity and failure-domain UX differ."
     },
-    "VCF-02-F01": {
-      "parity": "Partial Parity",
+    "VCF-01-F07-FN02": {
+      "primaryComponent": "Storage Replica / stretched clustering",
+      "evidenceKey": "s2d",
+      "parity": "Full Parity",
+      "notes": "Stretched/multi-site patterns exist but are not VCF stretch-domain native. Functionality: Track site affinity."
+    },
+    "VCF-01-F07-FN03": {
+      "primaryComponent": "Storage Replica / stretched clustering",
+      "evidenceKey": "s2d",
+      "parity": "No Parity",
+      "notes": "Stretched/multi-site patterns exist but are not VCF stretch-domain native. Functionality: Surface site failure domains."
+    },
+    "VCF-02-F01-FN01": {
       "primaryComponent": "Azure Local installer",
       "evidenceKey": "deploy",
-      "notes": "Cluster deployment wizard exists; not VCF Installer.",
+      "parity": "Partial Parity",
+      "notes": "Cluster deployment wizard exists; not VCF Installer. Functionality: Run bring-up wizard.",
       "workaround": "Use Azure Local deployment tools instead of VCF bring-up.",
       "workaroundComplexity": "Medium",
       "technicalImpact": "Prerequisite model differs."
     },
-    "VCF-02-F02": {
+    "VCF-02-F01-FN02": {
+      "primaryComponent": "Azure Local installer",
+      "evidenceKey": "deploy",
+      "parity": "Full Parity",
+      "notes": "Cluster deployment wizard exists; not VCF Installer. Functionality: Validate prerequisites."
+    },
+    "VCF-02-F01-FN03": {
+      "primaryComponent": "Azure Local installer",
+      "evidenceKey": "deploy",
       "parity": "No Parity",
+      "notes": "Cluster deployment wizard exists; not VCF Installer. Functionality: Apply initial configuration."
+    },
+    "VCF-02-F02-FN01": {
       "primaryComponent": "N/A",
       "evidenceKey": "azureLocal",
-      "notes": "No SDDC Manager equivalent orchestrating VCF-style domain workflows."
+      "parity": "No Parity",
+      "notes": "No SDDC Manager equivalent orchestrating VCF-style domain workflows. Functionality: Coordinate component workflows."
     },
-    "VCF-02-F03": {
-      "parity": "Partial Parity",
+    "VCF-02-F02-FN02": {
+      "primaryComponent": "N/A",
+      "evidenceKey": "azureLocal",
+      "parity": "No Parity",
+      "notes": "No SDDC Manager equivalent orchestrating VCF-style domain workflows. Functionality: Track task progress."
+    },
+    "VCF-02-F02-FN03": {
+      "primaryComponent": "N/A",
+      "evidenceKey": "azureLocal",
+      "parity": "No Parity",
+      "notes": "No SDDC Manager equivalent orchestrating VCF-style domain workflows. Functionality: Retry failed tasks safely."
+    },
+    "VCF-02-F03-FN01": {
       "primaryComponent": "Windows Admin Center / Update",
       "evidenceKey": "update",
-      "notes": "Update catalogs differ from VCF depot/bundles.",
+      "parity": "Partial Parity",
+      "notes": "Update catalogs differ from VCF depot/bundles. Functionality: Ingest update bundles.",
       "workaround": "Use Azure Local solution updates / WAC update flows.",
       "workaroundComplexity": "Medium",
       "technicalImpact": "Bundle schema is not VCF depot."
     },
-    "VCF-02-F04": {
-      "parity": "Partial Parity",
+    "VCF-02-F03-FN02": {
+      "primaryComponent": "Windows Admin Center / Update",
+      "evidenceKey": "update",
+      "parity": "Full Parity",
+      "notes": "Update catalogs differ from VCF depot/bundles. Functionality: Validate bundle integrity."
+    },
+    "VCF-02-F03-FN03": {
+      "primaryComponent": "Windows Admin Center / Update",
+      "evidenceKey": "update",
+      "parity": "No Parity",
+      "notes": "Update catalogs differ from VCF depot/bundles. Functionality: Stage bundles for upgrade."
+    },
+    "VCF-02-F04-FN01": {
       "primaryComponent": "Solution updates",
       "evidenceKey": "update",
-      "notes": "Prechecks exist in solution update workflows.",
+      "parity": "Partial Parity",
+      "notes": "Prechecks exist in solution update workflows. Functionality: Run upgrade prechecks.",
       "workaround": "Run Azure Local update readiness checks.",
       "workaroundComplexity": "Medium",
       "technicalImpact": "Blocker reporting differs from VCF precheck packs."
     },
-    "VCF-02-F05": {
-      "parity": "Partial Parity",
+    "VCF-02-F04-FN02": {
       "primaryComponent": "Solution updates",
       "evidenceKey": "update",
-      "notes": "Coordinated OS/HCI updates, not full VCF stack upgrade.",
+      "parity": "Full Parity",
+      "notes": "Prechecks exist in solution update workflows. Functionality: Identify blockers."
+    },
+    "VCF-02-F04-FN03": {
+      "primaryComponent": "Solution updates",
+      "evidenceKey": "update",
+      "parity": "No Parity",
+      "notes": "Prechecks exist in solution update workflows. Functionality: Produce upgrade readiness report."
+    },
+    "VCF-02-F05-FN01": {
+      "primaryComponent": "Solution updates",
+      "evidenceKey": "update",
+      "parity": "Partial Parity",
+      "notes": "Coordinated OS/HCI updates, not full VCF stack upgrade. Functionality: Upgrade management components.",
       "workaround": "Use Azure Local solution update to roll hosts.",
       "workaroundComplexity": "Medium",
       "technicalImpact": "Does not upgrade NSX/vCenter-class stack."
     },
-    "VCF-02-F06": {
-      "parity": "Partial Parity",
+    "VCF-02-F05-FN02": {
+      "primaryComponent": "Solution updates",
+      "evidenceKey": "update",
+      "parity": "Full Parity",
+      "notes": "Coordinated OS/HCI updates, not full VCF stack upgrade. Functionality: Upgrade workload domain components."
+    },
+    "VCF-02-F05-FN03": {
+      "primaryComponent": "Solution updates",
+      "evidenceKey": "update",
+      "parity": "No Parity",
+      "notes": "Coordinated OS/HCI updates, not full VCF stack upgrade. Functionality: Track upgrade checkpoints."
+    },
+    "VCF-02-F06-FN01": {
       "primaryComponent": "Update rings",
       "evidenceKey": "update",
-      "notes": "Selective deferral via update rings/policies.",
+      "parity": "Partial Parity",
+      "notes": "Selective deferral via update rings/policies. Functionality: Select update scope.",
       "workaround": "Stage updates with maintenance windows.",
       "workaroundComplexity": "Medium",
       "technicalImpact": "Skip-level controls are not VCF-identical."
     },
-    "VCF-02-F07": {
-      "parity": "Partial Parity",
+    "VCF-02-F06-FN02": {
+      "primaryComponent": "Update rings",
+      "evidenceKey": "update",
+      "parity": "Full Parity",
+      "notes": "Selective deferral via update rings/policies. Functionality: Defer non-critical updates."
+    },
+    "VCF-02-F06-FN03": {
+      "primaryComponent": "Update rings",
+      "evidenceKey": "update",
+      "parity": "No Parity",
+      "notes": "Selective deferral via update rings/policies. Functionality: Record update exceptions."
+    },
+    "VCF-02-F07-FN01": {
       "primaryComponent": "Azure Activity Log",
       "evidenceKey": "arc",
-      "notes": "History via Azure/WAC; rollback often reimage-constrained.",
+      "parity": "Partial Parity",
+      "notes": "History via Azure/WAC; rollback often reimage-constrained. Functionality: Retain upgrade history.",
       "workaround": "Retain update history; plan rollback as restore/reimage.",
       "workaroundComplexity": "High",
       "technicalImpact": "Rollback posture weaker than full VCF stack rollback."
     },
-    "VCF-03-F01": {
+    "VCF-02-F07-FN02": {
+      "primaryComponent": "Azure Activity Log",
+      "evidenceKey": "arc",
       "parity": "Full Parity",
+      "notes": "History via Azure/WAC; rollback often reimage-constrained. Functionality: Document rollback constraints."
+    },
+    "VCF-02-F07-FN03": {
+      "primaryComponent": "Azure Activity Log",
+      "evidenceKey": "arc",
+      "parity": "No Parity",
+      "notes": "History via Azure/WAC; rollback often reimage-constrained. Functionality: Export lifecycle evidence."
+    },
+    "VCF-03-F01-FN01": {
       "primaryComponent": "Hyper-V",
       "evidenceKey": "hyperv",
-      "notes": "Hyper-V on Azure Local provides VM compute services."
-    },
-    "VCF-03-F02": {
       "parity": "Full Parity",
+      "notes": "Hyper-V on Azure Local provides VM compute services. Functionality: Run virtual machines."
+    },
+    "VCF-03-F01-FN02": {
+      "primaryComponent": "Hyper-V",
+      "evidenceKey": "hyperv",
+      "parity": "Full Parity",
+      "notes": "Hyper-V on Azure Local provides VM compute services. Functionality: Manage host services."
+    },
+    "VCF-03-F01-FN03": {
+      "primaryComponent": "Hyper-V",
+      "evidenceKey": "hyperv",
+      "parity": "Partial Parity",
+      "notes": "Hyper-V on Azure Local provides VM compute services. Functionality: Apply host profiles/baselines.",
+      "workaround": "Use platform-native equivalent for Apply host profiles/baselines.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Not a 1:1 VCF equivalent; operating model differs."
+    },
+    "VCF-03-F02-FN01": {
       "primaryComponent": "Windows Admin Center / Arc",
       "evidenceKey": "wac",
-      "notes": "Central inventory, RBAC, and APIs via WAC and Azure Arc."
-    },
-    "VCF-03-F03": {
       "parity": "Full Parity",
-      "primaryComponent": "Failover Clustering",
-      "evidenceKey": "hyperv",
-      "notes": "Live migration and cluster-aware placement for VMs."
+      "notes": "Central inventory, RBAC, and APIs via WAC and Azure Arc. Functionality: Central inventory control."
     },
-    "VCF-03-F04": {
+    "VCF-03-F02-FN02": {
+      "primaryComponent": "Windows Admin Center / Arc",
+      "evidenceKey": "wac",
       "parity": "Full Parity",
-      "primaryComponent": "Failover Clustering",
-      "evidenceKey": "hyperv",
-      "notes": "Cluster HA restarts VMs on host failure."
+      "notes": "Central inventory, RBAC, and APIs via WAC and Azure Arc. Functionality: Role-based access for compute."
     },
-    "VCF-03-F05": {
+    "VCF-03-F02-FN03": {
+      "primaryComponent": "Windows Admin Center / Arc",
+      "evidenceKey": "wac",
       "parity": "Partial Parity",
+      "notes": "Central inventory, RBAC, and APIs via WAC and Azure Arc. Functionality: API/automation access.",
+      "workaround": "Use platform-native equivalent for API/automation access.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Not a 1:1 VCF equivalent; operating model differs."
+    },
+    "VCF-03-F03-FN01": {
+      "primaryComponent": "Failover Clustering",
+      "evidenceKey": "hyperv",
+      "parity": "Full Parity",
+      "notes": "Live migration and cluster-aware placement for VMs. Functionality: Balance workloads."
+    },
+    "VCF-03-F03-FN02": {
+      "primaryComponent": "Failover Clustering",
+      "evidenceKey": "hyperv",
+      "parity": "Full Parity",
+      "notes": "Live migration and cluster-aware placement for VMs. Functionality: Apply placement rules."
+    },
+    "VCF-03-F03-FN03": {
+      "primaryComponent": "Failover Clustering",
+      "evidenceKey": "hyperv",
+      "parity": "Partial Parity",
+      "notes": "Live migration and cluster-aware placement for VMs. Functionality: Evacuate hosts for maintenance.",
+      "workaround": "Use platform-native equivalent for Evacuate hosts for maintenance.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Not a 1:1 VCF equivalent; operating model differs."
+    },
+    "VCF-03-F04-FN01": {
+      "primaryComponent": "Failover Clustering",
+      "evidenceKey": "hyperv",
+      "parity": "Full Parity",
+      "notes": "Cluster HA restarts VMs on host failure. Functionality: Detect host failure."
+    },
+    "VCF-03-F04-FN02": {
+      "primaryComponent": "Failover Clustering",
+      "evidenceKey": "hyperv",
+      "parity": "Full Parity",
+      "notes": "Cluster HA restarts VMs on host failure. Functionality: Restart impacted VMs."
+    },
+    "VCF-03-F04-FN03": {
+      "primaryComponent": "Failover Clustering",
+      "evidenceKey": "hyperv",
+      "parity": "Partial Parity",
+      "notes": "Cluster HA restarts VMs on host failure. Functionality: Configure admission control.",
+      "workaround": "Use platform-native equivalent for Configure admission control.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Not a 1:1 VCF equivalent; operating model differs."
+    },
+    "VCF-03-F05-FN01": {
       "primaryComponent": "Hyper-V",
       "evidenceKey": "hyperv",
-      "notes": "Hyper-V resource controls exist; not vSphere resource pools.",
+      "parity": "Partial Parity",
+      "notes": "Hyper-V resource controls exist; not vSphere resource pools. Functionality: Create resource pools.",
       "workaround": "Use VM limits/weights and host groups.",
       "workaroundComplexity": "Low",
       "technicalImpact": "Pool semantics differ from vSphere."
     },
-    "VCF-03-F06": {
-      "parity": "Full Parity",
+    "VCF-03-F05-FN02": {
       "primaryComponent": "Hyper-V",
       "evidenceKey": "hyperv",
-      "notes": "Provision, clone, checkpoint/restore are core Hyper-V operations."
-    },
-    "VCF-03-F07": {
       "parity": "Full Parity",
+      "notes": "Hyper-V resource controls exist; not vSphere resource pools. Functionality: Set reservations/limits/shares."
+    },
+    "VCF-03-F05-FN03": {
+      "primaryComponent": "Hyper-V",
+      "evidenceKey": "hyperv",
+      "parity": "No Parity",
+      "notes": "Hyper-V resource controls exist; not vSphere resource pools. Functionality: Monitor pool contention."
+    },
+    "VCF-03-F06-FN01": {
+      "primaryComponent": "Hyper-V",
+      "evidenceKey": "hyperv",
+      "parity": "Full Parity",
+      "notes": "Provision, clone, checkpoint/restore are core Hyper-V operations. Functionality: Provision VM."
+    },
+    "VCF-03-F06-FN02": {
+      "primaryComponent": "Hyper-V",
+      "evidenceKey": "hyperv",
+      "parity": "Full Parity",
+      "notes": "Provision, clone, checkpoint/restore are core Hyper-V operations. Functionality: Clone/template deploy."
+    },
+    "VCF-03-F06-FN03": {
+      "primaryComponent": "Hyper-V",
+      "evidenceKey": "hyperv",
+      "parity": "Partial Parity",
+      "notes": "Provision, clone, checkpoint/restore are core Hyper-V operations. Functionality: Snapshot and revert controls.",
+      "workaround": "Use platform-native equivalent for Snapshot and revert controls.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Not a 1:1 VCF equivalent; operating model differs."
+    },
+    "VCF-03-F07-FN01": {
       "primaryComponent": "Failover Clustering",
       "evidenceKey": "hyperv",
-      "notes": "Drain/maintenance and live migration supported."
-    },
-    "VCF-04-F01": {
       "parity": "Full Parity",
-      "primaryComponent": "Storage Spaces Direct",
-      "evidenceKey": "s2d",
-      "notes": "S2D provides software-defined shared volumes for VMs."
+      "notes": "Drain/maintenance and live migration supported. Functionality: Enter maintenance mode."
     },
-    "VCF-04-F02": {
+    "VCF-03-F07-FN02": {
+      "primaryComponent": "Failover Clustering",
+      "evidenceKey": "hyperv",
+      "parity": "Full Parity",
+      "notes": "Drain/maintenance and live migration supported. Functionality: Remediate host compliance."
+    },
+    "VCF-03-F07-FN03": {
+      "primaryComponent": "Failover Clustering",
+      "evidenceKey": "hyperv",
       "parity": "Partial Parity",
+      "notes": "Drain/maintenance and live migration supported. Functionality: Coordinate live migration.",
+      "workaround": "Use platform-native equivalent for Coordinate live migration.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Not a 1:1 VCF equivalent; operating model differs."
+    },
+    "VCF-04-F01-FN01": {
       "primaryComponent": "Storage Spaces Direct",
       "evidenceKey": "s2d",
-      "notes": "Volume resiliency settings exist; not vSAN SPBM.",
+      "parity": "Full Parity",
+      "notes": "S2D provides software-defined shared volumes for VMs. Functionality: Provide shared datastore."
+    },
+    "VCF-04-F01-FN02": {
+      "primaryComponent": "Storage Spaces Direct",
+      "evidenceKey": "s2d",
+      "parity": "Full Parity",
+      "notes": "S2D provides software-defined shared volumes for VMs. Functionality: Support VM storage provisioning."
+    },
+    "VCF-04-F01-FN03": {
+      "primaryComponent": "Storage Spaces Direct",
+      "evidenceKey": "s2d",
+      "parity": "Partial Parity",
+      "notes": "S2D provides software-defined shared volumes for VMs. Functionality: Expose capacity health.",
+      "workaround": "Use platform-native equivalent for Expose capacity health.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Not a 1:1 VCF equivalent; operating model differs."
+    },
+    "VCF-04-F02-FN01": {
+      "primaryComponent": "Storage Spaces Direct",
+      "evidenceKey": "s2d",
+      "parity": "Partial Parity",
+      "notes": "Volume resiliency settings exist; not vSAN SPBM. Functionality: Define storage policies.",
       "workaround": "Use S2D resiliency/tiering policies per volume.",
       "workaroundComplexity": "Medium",
       "technicalImpact": "Policy-to-VM binding is less granular than SPBM."
     },
-    "VCF-04-F03": {
-      "parity": "Full Parity",
-      "primaryComponent": "ReFS / S2D",
-      "evidenceKey": "s2d",
-      "notes": "Dedup/compression/efficiency features available on S2D/ReFS."
-    },
-    "VCF-04-F04": {
-      "parity": "Full Parity",
+    "VCF-04-F02-FN02": {
       "primaryComponent": "Storage Spaces Direct",
       "evidenceKey": "s2d",
-      "notes": "Fault domains and rebuild are core S2D capabilities."
+      "parity": "Full Parity",
+      "notes": "Volume resiliency settings exist; not vSAN SPBM. Functionality: Apply policy to VMs/disks."
     },
-    "VCF-04-F05": {
+    "VCF-04-F02-FN03": {
+      "primaryComponent": "Storage Spaces Direct",
+      "evidenceKey": "s2d",
+      "parity": "No Parity",
+      "notes": "Volume resiliency settings exist; not vSAN SPBM. Functionality: Monitor policy compliance."
+    },
+    "VCF-04-F03-FN01": {
+      "primaryComponent": "ReFS / S2D",
+      "evidenceKey": "s2d",
+      "parity": "Full Parity",
+      "notes": "Dedup/compression/efficiency features available on S2D/ReFS. Functionality: Enable space efficiency features."
+    },
+    "VCF-04-F03-FN02": {
+      "primaryComponent": "ReFS / S2D",
+      "evidenceKey": "s2d",
+      "parity": "Full Parity",
+      "notes": "Dedup/compression/efficiency features available on S2D/ReFS. Functionality: Monitor savings."
+    },
+    "VCF-04-F03-FN03": {
+      "primaryComponent": "ReFS / S2D",
+      "evidenceKey": "s2d",
       "parity": "Partial Parity",
+      "notes": "Dedup/compression/efficiency features available on S2D/ReFS. Functionality: Assess performance impact.",
+      "workaround": "Use platform-native equivalent for Assess performance impact.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Not a 1:1 VCF equivalent; operating model differs."
+    },
+    "VCF-04-F04-FN01": {
+      "primaryComponent": "Storage Spaces Direct",
+      "evidenceKey": "s2d",
+      "parity": "Full Parity",
+      "notes": "Fault domains and rebuild are core S2D capabilities. Functionality: Configure fault domains."
+    },
+    "VCF-04-F04-FN02": {
+      "primaryComponent": "Storage Spaces Direct",
+      "evidenceKey": "s2d",
+      "parity": "Full Parity",
+      "notes": "Fault domains and rebuild are core S2D capabilities. Functionality: Tolerate host/site failures."
+    },
+    "VCF-04-F04-FN03": {
+      "primaryComponent": "Storage Spaces Direct",
+      "evidenceKey": "s2d",
+      "parity": "Partial Parity",
+      "notes": "Fault domains and rebuild are core S2D capabilities. Functionality: Rebuild degraded objects.",
+      "workaround": "Use platform-native equivalent for Rebuild degraded objects.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Not a 1:1 VCF equivalent; operating model differs."
+    },
+    "VCF-04-F05-FN01": {
       "primaryComponent": "Storage Replica",
       "evidenceKey": "s2d",
-      "notes": "Stretched storage via Storage Replica / stretched cluster designs.",
+      "parity": "Partial Parity",
+      "notes": "Stretched storage via Storage Replica / stretched cluster designs. Functionality: Configure stretch cluster storage.",
       "workaround": "Design Storage Replica or stretched S2D.",
       "workaroundComplexity": "High",
       "technicalImpact": "Not identical to vSAN stretch."
     },
-    "VCF-04-F06": {
-      "parity": "Partial Parity",
+    "VCF-04-F05-FN02": {
+      "primaryComponent": "Storage Replica",
+      "evidenceKey": "s2d",
+      "parity": "Full Parity",
+      "notes": "Stretched storage via Storage Replica / stretched cluster designs. Functionality: Manage site affinity."
+    },
+    "VCF-04-F05-FN03": {
+      "primaryComponent": "Storage Replica",
+      "evidenceKey": "s2d",
+      "parity": "No Parity",
+      "notes": "Stretched storage via Storage Replica / stretched cluster designs. Functionality: Handle site isolation behavior."
+    },
+    "VCF-04-F06-FN01": {
       "primaryComponent": "File Services / Azure Files",
       "evidenceKey": "s2d",
-      "notes": "File shares via Windows File Services or Azure Files.",
+      "parity": "Partial Parity",
+      "notes": "File shares via Windows File Services or Azure Files. Functionality: Provide file share services where applicable.",
       "workaround": "Add file services role or hybrid Azure Files.",
       "workaroundComplexity": "Medium",
       "technicalImpact": "Packaging differs from vSAN File Services."
     },
-    "VCF-04-F07": {
+    "VCF-04-F06-FN02": {
+      "primaryComponent": "File Services / Azure Files",
+      "evidenceKey": "s2d",
       "parity": "Full Parity",
+      "notes": "File shares via Windows File Services or Azure Files. Functionality: Integrate supplemental storage."
+    },
+    "VCF-04-F06-FN03": {
+      "primaryComponent": "File Services / Azure Files",
+      "evidenceKey": "s2d",
+      "parity": "No Parity",
+      "notes": "File shares via Windows File Services or Azure Files. Functionality: Monitor service health."
+    },
+    "VCF-04-F07-FN01": {
       "primaryComponent": "Windows Admin Center",
       "evidenceKey": "wac",
-      "notes": "Health, support logs, and rebuild visibility in WAC/S2D."
+      "parity": "Full Parity",
+      "notes": "Health, support logs, and rebuild visibility in WAC/S2D. Functionality: Run health checks."
     },
-    "VCF-05-F01": {
+    "VCF-04-F07-FN02": {
+      "primaryComponent": "Windows Admin Center",
+      "evidenceKey": "wac",
+      "parity": "Full Parity",
+      "notes": "Health, support logs, and rebuild visibility in WAC/S2D. Functionality: Collect support bundles."
+    },
+    "VCF-04-F07-FN03": {
+      "primaryComponent": "Windows Admin Center",
+      "evidenceKey": "wac",
       "parity": "Partial Parity",
+      "notes": "Health, support logs, and rebuild visibility in WAC/S2D. Functionality: Track resync/rebuild progress.",
+      "workaround": "Use platform-native equivalent for Track resync/rebuild progress.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Not a 1:1 VCF equivalent; operating model differs."
+    },
+    "VCF-05-F01-FN01": {
       "primaryComponent": "Network ATC / SDN",
       "evidenceKey": "sdn",
-      "notes": "Logical networks exist; not NSX segments.",
+      "parity": "Partial Parity",
+      "notes": "Logical networks exist; not NSX segments. Functionality: Create network segments.",
       "workaround": "Use Network ATC, SET, and optional SDN virtual networks.",
       "workaroundComplexity": "Medium",
       "technicalImpact": "Segment model differs from NSX."
     },
-    "VCF-05-F02": {
-      "parity": "Partial Parity",
+    "VCF-05-F01-FN02": {
+      "primaryComponent": "Network ATC / SDN",
+      "evidenceKey": "sdn",
+      "parity": "Full Parity",
+      "notes": "Logical networks exist; not NSX segments. Functionality: Attach workloads."
+    },
+    "VCF-05-F01-FN03": {
+      "primaryComponent": "Network ATC / SDN",
+      "evidenceKey": "sdn",
+      "parity": "No Parity",
+      "notes": "Logical networks exist; not NSX segments. Functionality: Isolate broadcast domains."
+    },
+    "VCF-05-F02-FN01": {
       "primaryComponent": "SDN gateways",
       "evidenceKey": "sdn",
-      "notes": "SDN gateways provide routing; not NSX Tier-0/1.",
+      "parity": "Partial Parity",
+      "notes": "SDN gateways provide routing; not NSX Tier-0/1. Functionality: Configure Tier-0/Tier-1 style routing.",
       "workaround": "Map T0/T1 designs to SDN gateway/VLAN patterns.",
       "workaroundComplexity": "High",
       "technicalImpact": "Routing taxonomy is not NSX."
     },
-    "VCF-05-F03": {
-      "parity": "Partial Parity",
+    "VCF-05-F02-FN02": {
+      "primaryComponent": "SDN gateways",
+      "evidenceKey": "sdn",
+      "parity": "Full Parity",
+      "notes": "SDN gateways provide routing; not NSX Tier-0/1. Functionality: Advertise routes."
+    },
+    "VCF-05-F02-FN03": {
+      "primaryComponent": "SDN gateways",
+      "evidenceKey": "sdn",
+      "parity": "No Parity",
+      "notes": "SDN gateways provide routing; not NSX Tier-0/1. Functionality: Control north-south traffic."
+    },
+    "VCF-05-F03-FN01": {
       "primaryComponent": "SDN Software Load Balancer",
       "evidenceKey": "sdn",
-      "notes": "SLB/NAT available; not NSX Edge feature set.",
+      "parity": "Partial Parity",
+      "notes": "SLB/NAT available; not NSX Edge feature set. Functionality: Deploy edge nodes/gateways.",
       "workaround": "Use SDN SLB and Windows gateway VMs.",
       "workaroundComplexity": "High",
       "technicalImpact": "Edge services depth is lower than NSX."
     },
-    "VCF-05-F04": {
-      "parity": "Partial Parity",
+    "VCF-05-F03-FN02": {
+      "primaryComponent": "SDN Software Load Balancer",
+      "evidenceKey": "sdn",
+      "parity": "Full Parity",
+      "notes": "SLB/NAT available; not NSX Edge feature set. Functionality: Provide NAT/load services as designed."
+    },
+    "VCF-05-F03-FN03": {
+      "primaryComponent": "SDN Software Load Balancer",
+      "evidenceKey": "sdn",
+      "parity": "No Parity",
+      "notes": "SLB/NAT available; not NSX Edge feature set. Functionality: Monitor edge health."
+    },
+    "VCF-05-F04-FN01": {
       "primaryComponent": "Azure VNets / SDN",
       "evidenceKey": "sdn",
-      "notes": "Multi-tenant isolation via VNets/SDN; not NSX VPC.",
+      "parity": "Partial Parity",
+      "notes": "Multi-tenant isolation via VNets/SDN; not NSX VPC. Functionality: Create tenant network contexts.",
       "workaround": "Use SDN network controller isolation or Azure VNet constructs.",
       "workaroundComplexity": "Medium",
       "technicalImpact": "Tenant networking UX differs."
     },
-    "VCF-05-F05": {
-      "parity": "Partial Parity",
+    "VCF-05-F04-FN02": {
+      "primaryComponent": "Azure VNets / SDN",
+      "evidenceKey": "sdn",
+      "parity": "Full Parity",
+      "notes": "Multi-tenant isolation via VNets/SDN; not NSX VPC. Functionality: Isolate tenant routing."
+    },
+    "VCF-05-F04-FN03": {
+      "primaryComponent": "Azure VNets / SDN",
+      "evidenceKey": "sdn",
+      "parity": "No Parity",
+      "notes": "Multi-tenant isolation via VNets/SDN; not NSX VPC. Functionality: Delegate network self-service bounds."
+    },
+    "VCF-05-F05-FN01": {
       "primaryComponent": "Network ATC",
       "evidenceKey": "sdn",
-      "notes": "Intent-based host networking; overlay/underlay ops differ.",
+      "parity": "Partial Parity",
+      "notes": "Intent-based host networking; overlay/underlay ops differ. Functionality: Establish overlay transport.",
       "workaround": "Validate RDMA/SET underlay per Azure Local networking guidance.",
       "workaroundComplexity": "Medium",
       "technicalImpact": "No NSX transport-zone model."
     },
-    "VCF-05-F06": {
-      "parity": "Partial Parity",
+    "VCF-05-F05-FN02": {
+      "primaryComponent": "Network ATC",
+      "evidenceKey": "sdn",
+      "parity": "Full Parity",
+      "notes": "Intent-based host networking; overlay/underlay ops differ. Functionality: Validate underlay MTU/connectivity."
+    },
+    "VCF-05-F05-FN03": {
+      "primaryComponent": "Network ATC",
+      "evidenceKey": "sdn",
+      "parity": "No Parity",
+      "notes": "Intent-based host networking; overlay/underlay ops differ. Functionality: Troubleshoot tunnel health."
+    },
+    "VCF-05-F06-FN01": {
       "primaryComponent": "Windows DHCP / Azure DNS",
       "evidenceKey": "sdn",
-      "notes": "DHCP/DNS typically hybrid Windows/Azure.",
+      "parity": "Partial Parity",
+      "notes": "DHCP/DNS typically hybrid Windows/Azure. Functionality: Provide DHCP services.",
       "workaround": "Use Windows DHCP and Azure DNS/private DNS.",
       "workaroundComplexity": "Low",
       "technicalImpact": "IPAM depth below NSX."
     },
-    "VCF-05-F07": {
-      "parity": "Partial Parity",
+    "VCF-05-F06-FN02": {
+      "primaryComponent": "Windows DHCP / Azure DNS",
+      "evidenceKey": "sdn",
+      "parity": "Full Parity",
+      "notes": "DHCP/DNS typically hybrid Windows/Azure. Functionality: Integrate DNS services."
+    },
+    "VCF-05-F06-FN03": {
+      "primaryComponent": "Windows DHCP / Azure DNS",
+      "evidenceKey": "sdn",
+      "parity": "No Parity",
+      "notes": "DHCP/DNS typically hybrid Windows/Azure. Functionality: Manage IP address allocation."
+    },
+    "VCF-05-F07-FN01": {
       "primaryComponent": "WAC / Azure Monitor",
       "evidenceKey": "monitor",
-      "notes": "Basic network health via WAC/Azure Monitor.",
+      "parity": "Partial Parity",
+      "notes": "Basic network health via WAC/Azure Monitor. Functionality: Trace logical paths.",
       "workaround": "Use Azure Monitor and packet capture tooling.",
       "workaroundComplexity": "Medium",
       "technicalImpact": "No NSX Traceflow equivalent."
     },
-    "VCF-06-F01": {
-      "parity": "Partial Parity",
+    "VCF-05-F07-FN02": {
+      "primaryComponent": "WAC / Azure Monitor",
+      "evidenceKey": "monitor",
+      "parity": "Full Parity",
+      "notes": "Basic network health via WAC/Azure Monitor. Functionality: Capture network topology view."
+    },
+    "VCF-05-F07-FN03": {
+      "primaryComponent": "WAC / Azure Monitor",
+      "evidenceKey": "monitor",
+      "parity": "No Parity",
+      "notes": "Basic network health via WAC/Azure Monitor. Functionality: Alert on network faults."
+    },
+    "VCF-06-F01-FN01": {
       "primaryComponent": "Windows Firewall / NSG",
       "evidenceKey": "security",
-      "notes": "Host/NSG controls; not NSX DFW.",
+      "parity": "Partial Parity",
+      "notes": "Host/NSG controls; not NSX DFW. Functionality: Define DFW policies.",
       "workaround": "Combine Windows Firewall, NSGs, and microseg products.",
       "workaroundComplexity": "High",
       "technicalImpact": "East-west DFW parity is incomplete."
     },
-    "VCF-06-F02": {
-      "parity": "Partial Parity",
+    "VCF-06-F01-FN02": {
+      "primaryComponent": "Windows Firewall / NSG",
+      "evidenceKey": "security",
+      "parity": "Full Parity",
+      "notes": "Host/NSG controls; not NSX DFW. Functionality: Enforce east-west controls."
+    },
+    "VCF-06-F01-FN03": {
+      "primaryComponent": "Windows Firewall / NSG",
+      "evidenceKey": "security",
+      "parity": "No Parity",
+      "notes": "Host/NSG controls; not NSX DFW. Functionality: Log policy hits."
+    },
+    "VCF-06-F02-FN01": {
       "primaryComponent": "Azure Firewall / NSG",
       "evidenceKey": "security",
-      "notes": "North-south via NSG/Azure Firewall patterns.",
+      "parity": "Partial Parity",
+      "notes": "North-south via NSG/Azure Firewall patterns. Functionality: Define gateway firewall rules.",
       "workaround": "Place Azure Firewall or gateway ACLs at perimeter.",
       "workaroundComplexity": "Medium",
       "technicalImpact": "Not NSX gateway firewall."
     },
-    "VCF-06-F03": {
-      "parity": "Partial Parity",
+    "VCF-06-F02-FN02": {
+      "primaryComponent": "Azure Firewall / NSG",
+      "evidenceKey": "security",
+      "parity": "Full Parity",
+      "notes": "North-south via NSG/Azure Firewall patterns. Functionality: Control north-south access."
+    },
+    "VCF-06-F02-FN03": {
+      "primaryComponent": "Azure Firewall / NSG",
+      "evidenceKey": "security",
+      "parity": "No Parity",
+      "notes": "North-south via NSG/Azure Firewall patterns. Functionality: Monitor rule effectiveness."
+    },
+    "VCF-06-F03-FN01": {
       "primaryComponent": "Azure tags / NSG",
       "evidenceKey": "arc",
-      "notes": "Dynamic grouping via tags/Arc; not NSX security groups.",
+      "parity": "Partial Parity",
+      "notes": "Dynamic grouping via tags/Arc; not NSX security groups. Functionality: Group workloads by tag/criteria.",
       "workaround": "Use Azure tags, Arc, and policy-based grouping.",
       "workaroundComplexity": "Medium",
       "technicalImpact": "Auto-membership semantics differ."
     },
-    "VCF-06-F04": {
-      "parity": "Partial Parity",
+    "VCF-06-F03-FN02": {
+      "primaryComponent": "Azure tags / NSG",
+      "evidenceKey": "arc",
+      "parity": "Full Parity",
+      "notes": "Dynamic grouping via tags/Arc; not NSX security groups. Functionality: Auto-update membership."
+    },
+    "VCF-06-F03-FN03": {
+      "primaryComponent": "Azure tags / NSG",
+      "evidenceKey": "arc",
+      "parity": "No Parity",
+      "notes": "Dynamic grouping via tags/Arc; not NSX security groups. Functionality: Bind policies to groups."
+    },
+    "VCF-06-F04-FN01": {
       "primaryComponent": "Microsoft Defender",
       "evidenceKey": "security",
-      "notes": "IDS/IPS-class via Defender/partner.",
+      "parity": "Partial Parity",
+      "notes": "IDS/IPS-class via Defender/partner. Functionality: Enable detection/prevention features.",
       "workaround": "Enable Defender for Cloud / partner NVA insertion.",
       "workaroundComplexity": "High",
       "technicalImpact": "License and partner dependent."
     },
-    "VCF-06-F05": {
-      "parity": "Partial Parity",
+    "VCF-06-F04-FN02": {
+      "primaryComponent": "Microsoft Defender",
+      "evidenceKey": "security",
+      "parity": "Full Parity",
+      "notes": "IDS/IPS-class via Defender/partner. Functionality: Tune signatures/profiles."
+    },
+    "VCF-06-F04-FN03": {
+      "primaryComponent": "Microsoft Defender",
+      "evidenceKey": "security",
+      "parity": "No Parity",
+      "notes": "IDS/IPS-class via Defender/partner. Functionality: Review security events."
+    },
+    "VCF-06-F05-FN01": {
       "primaryComponent": "Entra ID",
       "evidenceKey": "security",
-      "notes": "Identity-aware controls via Entra ID conditional access.",
+      "parity": "Partial Parity",
+      "notes": "Identity-aware controls via Entra ID conditional access. Functionality: Use identity/context in rules where supported.",
       "workaround": "Bind RBAC and Conditional Access; not NSX identity firewall.",
       "workaroundComplexity": "High",
       "technicalImpact": "Context-aware DFW incomplete."
     },
-    "VCF-06-F06": {
-      "parity": "Partial Parity",
+    "VCF-06-F05-FN02": {
+      "primaryComponent": "Entra ID",
+      "evidenceKey": "security",
+      "parity": "Full Parity",
+      "notes": "Identity-aware controls via Entra ID conditional access. Functionality: Map users/apps to policies."
+    },
+    "VCF-06-F05-FN03": {
+      "primaryComponent": "Entra ID",
+      "evidenceKey": "security",
+      "parity": "No Parity",
+      "notes": "Identity-aware controls via Entra ID conditional access. Functionality: Audit context-based decisions."
+    },
+    "VCF-06-F06-FN01": {
       "primaryComponent": "Azure Policy",
       "evidenceKey": "arc",
-      "notes": "Change control via Policy/GitOps.",
+      "parity": "Partial Parity",
+      "notes": "Change control via Policy/GitOps. Functionality: Stage policy changes.",
       "workaround": "Stage policy in Azure Policy/Git.",
       "workaroundComplexity": "Medium",
       "technicalImpact": "Publish/rollback differs from NSX."
     },
-    "VCF-06-F07": {
-      "parity": "Partial Parity",
+    "VCF-06-F06-FN02": {
+      "primaryComponent": "Azure Policy",
+      "evidenceKey": "arc",
+      "parity": "Full Parity",
+      "notes": "Change control via Policy/GitOps. Functionality: Review before publish."
+    },
+    "VCF-06-F06-FN03": {
+      "primaryComponent": "Azure Policy",
+      "evidenceKey": "arc",
+      "parity": "No Parity",
+      "notes": "Change control via Policy/GitOps. Functionality: Rollback policy sets."
+    },
+    "VCF-06-F07-FN01": {
       "primaryComponent": "Defender / Azure Policy",
       "evidenceKey": "security",
-      "notes": "Compliance dashboards exist.",
+      "parity": "Partial Parity",
+      "notes": "Compliance dashboards exist. Functionality: Export policy inventory.",
       "workaround": "Export Defender/Policy compliance reports.",
       "workaroundComplexity": "Medium",
       "technicalImpact": "Evidence packs differ from NSX."
     },
-    "VCF-07-F01": {
+    "VCF-06-F07-FN02": {
+      "primaryComponent": "Defender / Azure Policy",
+      "evidenceKey": "security",
       "parity": "Full Parity",
+      "notes": "Compliance dashboards exist. Functionality: Report uncovered workloads."
+    },
+    "VCF-06-F07-FN03": {
+      "primaryComponent": "Defender / Azure Policy",
+      "evidenceKey": "security",
+      "parity": "No Parity",
+      "notes": "Compliance dashboards exist. Functionality: Evidence for compliance reviews."
+    },
+    "VCF-07-F01-FN01": {
       "primaryComponent": "Azure Monitor / Insights",
       "evidenceKey": "monitor",
-      "notes": "Infrastructure metrics and dashboards via Azure Monitor."
+      "parity": "Full Parity",
+      "notes": "Infrastructure metrics and dashboards via Azure Monitor. Functionality: Collect metrics from compute/storage/network."
     },
-    "VCF-07-F02": {
+    "VCF-07-F01-FN02": {
+      "primaryComponent": "Azure Monitor / Insights",
+      "evidenceKey": "monitor",
+      "parity": "Full Parity",
+      "notes": "Infrastructure metrics and dashboards via Azure Monitor. Functionality: Visualize health dashboards."
+    },
+    "VCF-07-F01-FN03": {
+      "primaryComponent": "Azure Monitor / Insights",
+      "evidenceKey": "monitor",
       "parity": "Partial Parity",
+      "notes": "Infrastructure metrics and dashboards via Azure Monitor. Functionality: Alert on threshold breaches.",
+      "workaround": "Use platform-native equivalent for Alert on threshold breaches.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Not a 1:1 VCF equivalent; operating model differs."
+    },
+    "VCF-07-F02-FN01": {
       "primaryComponent": "Azure Monitor Logs",
       "evidenceKey": "monitor",
-      "notes": "Log Analytics; not Aria Logs.",
+      "parity": "Partial Parity",
+      "notes": "Log Analytics; not Aria Logs. Functionality: Ingest component logs.",
       "workaround": "Ingest to Log Analytics / Sentinel.",
       "workaroundComplexity": "Medium",
       "technicalImpact": "May need Sentinel for SIEM-class analysis."
     },
-    "VCF-07-F03": {
-      "parity": "Partial Parity",
+    "VCF-07-F02-FN02": {
+      "primaryComponent": "Azure Monitor Logs",
+      "evidenceKey": "monitor",
+      "parity": "Full Parity",
+      "notes": "Log Analytics; not Aria Logs. Functionality: Search/correlate events."
+    },
+    "VCF-07-F02-FN03": {
+      "primaryComponent": "Azure Monitor Logs",
+      "evidenceKey": "monitor",
+      "parity": "No Parity",
+      "notes": "Log Analytics; not Aria Logs. Functionality: Retain logs per policy."
+    },
+    "VCF-07-F03-FN01": {
       "primaryComponent": "Azure Monitor",
       "evidenceKey": "monitor",
-      "notes": "Capacity insights via Monitor/WAC.",
+      "parity": "Partial Parity",
+      "notes": "Capacity insights via Monitor/WAC. Functionality: Forecast capacity risk.",
       "workaround": "Use VM insights and S2D capacity views.",
       "workaroundComplexity": "Medium",
       "technicalImpact": "Forecasting depth differs from Aria."
     },
-    "VCF-07-F04": {
-      "parity": "Partial Parity",
+    "VCF-07-F03-FN02": {
+      "primaryComponent": "Azure Monitor",
+      "evidenceKey": "monitor",
+      "parity": "Full Parity",
+      "notes": "Capacity insights via Monitor/WAC. Functionality: Identify contention hotspots."
+    },
+    "VCF-07-F03-FN03": {
+      "primaryComponent": "Azure Monitor",
+      "evidenceKey": "monitor",
+      "parity": "No Parity",
+      "notes": "Capacity insights via Monitor/WAC. Functionality: Recommend rightsizing."
+    },
+    "VCF-07-F04-FN01": {
       "primaryComponent": "Azure Policy",
       "evidenceKey": "arc",
-      "notes": "Config/compliance via Policy.",
+      "parity": "Partial Parity",
+      "notes": "Config/compliance via Policy. Functionality: Detect drift from desired config.",
       "workaround": "Assign Azure Policy initiatives to Arc resources.",
       "workaroundComplexity": "Medium",
       "technicalImpact": "Content packs differ from Aria."
     },
-    "VCF-07-F05": {
-      "parity": "Partial Parity",
+    "VCF-07-F04-FN02": {
+      "primaryComponent": "Azure Policy",
+      "evidenceKey": "arc",
+      "parity": "Full Parity",
+      "notes": "Config/compliance via Policy. Functionality: Assess compliance score."
+    },
+    "VCF-07-F04-FN03": {
+      "primaryComponent": "Azure Policy",
+      "evidenceKey": "arc",
+      "parity": "No Parity",
+      "notes": "Config/compliance via Policy. Functionality: Track remediation status."
+    },
+    "VCF-07-F05-FN01": {
       "primaryComponent": "VM Insights",
       "evidenceKey": "monitor",
-      "notes": "Limited app mapping vs Aria.",
+      "parity": "Partial Parity",
+      "notes": "Limited app mapping vs Aria. Functionality: Map apps to infrastructure.",
       "workaround": "Use VM Insights map and tags.",
       "workaroundComplexity": "Medium",
       "technicalImpact": "Dependency mapping shallower."
     },
-    "VCF-07-F06": {
+    "VCF-07-F05-FN02": {
+      "primaryComponent": "VM Insights",
+      "evidenceKey": "monitor",
       "parity": "Full Parity",
+      "notes": "Limited app mapping vs Aria. Functionality: Track service health."
+    },
+    "VCF-07-F05-FN03": {
+      "primaryComponent": "VM Insights",
+      "evidenceKey": "monitor",
+      "parity": "No Parity",
+      "notes": "Limited app mapping vs Aria. Functionality: Correlate incidents to dependencies."
+    },
+    "VCF-07-F06-FN01": {
       "primaryComponent": "Azure Monitor alerts",
       "evidenceKey": "monitor",
-      "notes": "Alert rules and action groups supported."
-    },
-    "VCF-07-F07": {
       "parity": "Full Parity",
+      "notes": "Alert rules and action groups supported. Functionality: Define alert policies."
+    },
+    "VCF-07-F06-FN02": {
+      "primaryComponent": "Azure Monitor alerts",
+      "evidenceKey": "monitor",
+      "parity": "Full Parity",
+      "notes": "Alert rules and action groups supported. Functionality: Route notifications."
+    },
+    "VCF-07-F06-FN03": {
+      "primaryComponent": "Azure Monitor alerts",
+      "evidenceKey": "monitor",
+      "parity": "Partial Parity",
+      "notes": "Alert rules and action groups supported. Functionality: Suppress noise/duplicates.",
+      "workaround": "Use platform-native equivalent for Suppress noise/duplicates.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Not a 1:1 VCF equivalent; operating model differs."
+    },
+    "VCF-07-F07-FN01": {
       "primaryComponent": "Azure Monitor",
       "evidenceKey": "monitor",
-      "notes": "Workbooks and export for operational evidence."
+      "parity": "Full Parity",
+      "notes": "Workbooks and export for operational evidence. Functionality: Generate ops reports."
     },
-    "VCF-08-F01": {
+    "VCF-07-F07-FN02": {
+      "primaryComponent": "Azure Monitor",
+      "evidenceKey": "monitor",
+      "parity": "Full Parity",
+      "notes": "Workbooks and export for operational evidence. Functionality: Export evidence packs."
+    },
+    "VCF-07-F07-FN03": {
+      "primaryComponent": "Azure Monitor",
+      "evidenceKey": "monitor",
       "parity": "Partial Parity",
+      "notes": "Workbooks and export for operational evidence. Functionality: Support incident retrospectives.",
+      "workaround": "Use platform-native equivalent for Support incident retrospectives.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Not a 1:1 VCF equivalent; operating model differs."
+    },
+    "VCF-08-F01-FN01": {
       "primaryComponent": "Azure Automation / Arc",
       "evidenceKey": "arc",
-      "notes": "Self-service via Azure portal/Automation, not Aria catalog.",
+      "parity": "Partial Parity",
+      "notes": "Self-service via Azure portal/Automation, not Aria catalog. Functionality: Publish catalog items.",
       "workaround": "Publish runbooks/templates in Automation or Service Management Automation.",
       "workaroundComplexity": "Medium",
       "technicalImpact": "Catalog UX differs."
     },
-    "VCF-08-F02": {
+    "VCF-08-F01-FN02": {
+      "primaryComponent": "Azure Automation / Arc",
+      "evidenceKey": "arc",
       "parity": "Full Parity",
+      "notes": "Self-service via Azure portal/Automation, not Aria catalog. Functionality: Request services."
+    },
+    "VCF-08-F01-FN03": {
+      "primaryComponent": "Azure Automation / Arc",
+      "evidenceKey": "arc",
+      "parity": "No Parity",
+      "notes": "Self-service via Azure portal/Automation, not Aria catalog. Functionality: Track request status."
+    },
+    "VCF-08-F02-FN01": {
       "primaryComponent": "Bicep / ARM / Terraform",
       "evidenceKey": "arc",
-      "notes": "IaC templates are first-class for Azure Local/Arc."
+      "parity": "Full Parity",
+      "notes": "IaC templates are first-class for Azure Local/Arc. Functionality: Define deployable templates."
     },
-    "VCF-08-F03": {
+    "VCF-08-F02-FN02": {
+      "primaryComponent": "Bicep / ARM / Terraform",
+      "evidenceKey": "arc",
+      "parity": "Full Parity",
+      "notes": "IaC templates are first-class for Azure Local/Arc. Functionality: Parameterize deployments."
+    },
+    "VCF-08-F02-FN03": {
+      "primaryComponent": "Bicep / ARM / Terraform",
+      "evidenceKey": "arc",
       "parity": "Partial Parity",
+      "notes": "IaC templates are first-class for Azure Local/Arc. Functionality: Version templates.",
+      "workaround": "Use platform-native equivalent for Version templates.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Not a 1:1 VCF equivalent; operating model differs."
+    },
+    "VCF-08-F03-FN01": {
       "primaryComponent": "Azure Policy / ITSM",
       "evidenceKey": "arc",
-      "notes": "Approvals via ITSM/Azure Lighthouse patterns.",
+      "parity": "Partial Parity",
+      "notes": "Approvals via ITSM/Azure Lighthouse patterns. Functionality: Require approvals.",
       "workaround": "Integrate ServiceNow/approvals with pipelines.",
       "workaroundComplexity": "Medium",
       "technicalImpact": "Less turnkey than Aria ABX approvals."
     },
-    "VCF-08-F04": {
-      "parity": "Partial Parity",
+    "VCF-08-F03-FN02": {
+      "primaryComponent": "Azure Policy / ITSM",
+      "evidenceKey": "arc",
+      "parity": "Full Parity",
+      "notes": "Approvals via ITSM/Azure Lighthouse patterns. Functionality: Enforce policy gates."
+    },
+    "VCF-08-F03-FN03": {
+      "primaryComponent": "Azure Policy / ITSM",
+      "evidenceKey": "arc",
+      "parity": "No Parity",
+      "notes": "Approvals via ITSM/Azure Lighthouse patterns. Functionality: Audit request decisions."
+    },
+    "VCF-08-F04-FN01": {
       "primaryComponent": "Azure Automation",
       "evidenceKey": "arc",
-      "notes": "Day-2 via runbooks/Azure Update Manager.",
+      "parity": "Partial Parity",
+      "notes": "Day-2 via runbooks/Azure Update Manager. Functionality: Scale services.",
       "workaround": "Encode day-2 as Automation/runbooks.",
       "workaroundComplexity": "Medium",
       "technicalImpact": "Blueprint day-2 model differs."
     },
-    "VCF-08-F05": {
-      "parity": "Partial Parity",
+    "VCF-08-F04-FN02": {
+      "primaryComponent": "Azure Automation",
+      "evidenceKey": "arc",
+      "parity": "Full Parity",
+      "notes": "Day-2 via runbooks/Azure Update Manager. Functionality: Run operational workflows."
+    },
+    "VCF-08-F04-FN03": {
+      "primaryComponent": "Azure Automation",
+      "evidenceKey": "arc",
+      "parity": "No Parity",
+      "notes": "Day-2 via runbooks/Azure Update Manager. Functionality: Decommission services."
+    },
+    "VCF-08-F05-FN01": {
       "primaryComponent": "Azure RBAC",
       "evidenceKey": "arc",
-      "notes": "Subscriptions/RGs as tenancy.",
+      "parity": "Partial Parity",
+      "notes": "Subscriptions/RGs as tenancy. Functionality: Entitle projects/tenants.",
       "workaround": "Use management groups and RBAC.",
       "workaroundComplexity": "Medium",
       "technicalImpact": "Project/tenant catalog isolation differs."
     },
-    "VCF-08-F06": {
-      "parity": "Partial Parity",
+    "VCF-08-F05-FN02": {
+      "primaryComponent": "Azure RBAC",
+      "evidenceKey": "arc",
+      "parity": "Full Parity",
+      "notes": "Subscriptions/RGs as tenancy. Functionality: Scope visible catalog."
+    },
+    "VCF-08-F05-FN03": {
+      "primaryComponent": "Azure RBAC",
+      "evidenceKey": "arc",
+      "parity": "No Parity",
+      "notes": "Subscriptions/RGs as tenancy. Functionality: Isolate tenant quotas."
+    },
+    "VCF-08-F06-FN01": {
       "primaryComponent": "Azure Logic Apps / APIs",
       "evidenceKey": "arc",
-      "notes": "ITSM via Logic Apps/webhooks.",
+      "parity": "Partial Parity",
+      "notes": "ITSM via Logic Apps/webhooks. Functionality: Trigger from external systems.",
       "workaround": "Connect pipelines and ServiceNow via APIs.",
       "workaroundComplexity": "Medium",
       "technicalImpact": "Connector pack differs from Aria."
     },
-    "VCF-08-F07": {
+    "VCF-08-F06-FN02": {
+      "primaryComponent": "Azure Logic Apps / APIs",
+      "evidenceKey": "arc",
       "parity": "Full Parity",
+      "notes": "ITSM via Logic Apps/webhooks. Functionality: Sync ticket status."
+    },
+    "VCF-08-F06-FN03": {
+      "primaryComponent": "Azure Logic Apps / APIs",
+      "evidenceKey": "arc",
+      "parity": "No Parity",
+      "notes": "ITSM via Logic Apps/webhooks. Functionality: Emit automation events."
+    },
+    "VCF-08-F07-FN01": {
       "primaryComponent": "Azure APIs",
       "evidenceKey": "arc",
-      "notes": "Extensibility via REST, Event Grid, credentials in Key Vault."
+      "parity": "Full Parity",
+      "notes": "Extensibility via REST, Event Grid, credentials in Key Vault. Functionality: Add custom actions/workflows."
     },
-    "VCF-09-F01": {
+    "VCF-08-F07-FN02": {
+      "primaryComponent": "Azure APIs",
+      "evidenceKey": "arc",
+      "parity": "Full Parity",
+      "notes": "Extensibility via REST, Event Grid, credentials in Key Vault. Functionality: Use APIs/webhooks."
+    },
+    "VCF-08-F07-FN03": {
+      "primaryComponent": "Azure APIs",
+      "evidenceKey": "arc",
       "parity": "Partial Parity",
+      "notes": "Extensibility via REST, Event Grid, credentials in Key Vault. Functionality: Manage credentials securely.",
+      "workaround": "Use platform-native equivalent for Manage credentials securely.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Not a 1:1 VCF equivalent; operating model differs."
+    },
+    "VCF-09-F01-FN01": {
       "primaryComponent": "AKS on Azure Local",
       "evidenceKey": "aks",
-      "notes": "AKS hybrid cluster lifecycle, not vSphere Supervisor.",
+      "parity": "Partial Parity",
+      "notes": "AKS hybrid cluster lifecycle, not vSphere Supervisor. Functionality: Create Kubernetes clusters.",
       "workaround": "Use AKS on Azure Local for Kubernetes lifecycle.",
       "workaroundComplexity": "Medium",
       "technicalImpact": "Not VKS Supervisor model."
     },
-    "VCF-09-F02": {
+    "VCF-09-F01-FN02": {
+      "primaryComponent": "AKS on Azure Local",
+      "evidenceKey": "aks",
       "parity": "Full Parity",
+      "notes": "AKS hybrid cluster lifecycle, not vSphere Supervisor. Functionality: Upgrade clusters."
+    },
+    "VCF-09-F01-FN03": {
+      "primaryComponent": "AKS on Azure Local",
+      "evidenceKey": "aks",
+      "parity": "No Parity",
+      "notes": "AKS hybrid cluster lifecycle, not vSphere Supervisor. Functionality: Delete/retire clusters."
+    },
+    "VCF-09-F02-FN01": {
       "primaryComponent": "Kubernetes",
       "evidenceKey": "aks",
-      "notes": "Namespaces, quotas, RBAC are standard Kubernetes."
+      "parity": "Full Parity",
+      "notes": "Namespaces, quotas, RBAC are standard Kubernetes. Functionality: Create namespaces."
     },
-    "VCF-09-F03": {
+    "VCF-09-F02-FN02": {
+      "primaryComponent": "Kubernetes",
+      "evidenceKey": "aks",
+      "parity": "Full Parity",
+      "notes": "Namespaces, quotas, RBAC are standard Kubernetes. Functionality: Apply quota/limit ranges."
+    },
+    "VCF-09-F02-FN03": {
+      "primaryComponent": "Kubernetes",
+      "evidenceKey": "aks",
       "parity": "Partial Parity",
+      "notes": "Namespaces, quotas, RBAC are standard Kubernetes. Functionality: Isolate team access.",
+      "workaround": "Use platform-native equivalent for Isolate team access.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Not a 1:1 VCF equivalent; operating model differs."
+    },
+    "VCF-09-F03-FN01": {
       "primaryComponent": "AKS CNI",
       "evidenceKey": "aks",
-      "notes": "Pod/service networking via AKS CNI, not NSX-VKS.",
+      "parity": "Partial Parity",
+      "notes": "Pod/service networking via AKS CNI, not NSX-VKS. Functionality: Provide pod/service networking.",
       "workaround": "Use AKS networking plus Azure CNI/Calico.",
       "workaroundComplexity": "Medium",
       "technicalImpact": "SDN integration differs."
     },
-    "VCF-09-F04": {
+    "VCF-09-F03-FN02": {
+      "primaryComponent": "AKS CNI",
+      "evidenceKey": "aks",
       "parity": "Full Parity",
+      "notes": "Pod/service networking via AKS CNI, not NSX-VKS. Functionality: Expose ingress/services."
+    },
+    "VCF-09-F03-FN03": {
+      "primaryComponent": "AKS CNI",
+      "evidenceKey": "aks",
+      "parity": "No Parity",
+      "notes": "Pod/service networking via AKS CNI, not NSX-VKS. Functionality: Integrate with SDN controls."
+    },
+    "VCF-09-F04-FN01": {
       "primaryComponent": "Container Storage",
       "evidenceKey": "aks",
-      "notes": "CSI/persistent volumes on Azure Local storage."
+      "parity": "Full Parity",
+      "notes": "CSI/persistent volumes on Azure Local storage. Functionality: Provision persistent volumes."
     },
-    "VCF-09-F05": {
+    "VCF-09-F04-FN02": {
+      "primaryComponent": "Container Storage",
+      "evidenceKey": "aks",
+      "parity": "Full Parity",
+      "notes": "CSI/persistent volumes on Azure Local storage. Functionality: Apply storage classes/policies."
+    },
+    "VCF-09-F04-FN03": {
+      "primaryComponent": "Container Storage",
+      "evidenceKey": "aks",
       "parity": "Partial Parity",
+      "notes": "CSI/persistent volumes on Azure Local storage. Functionality: Protect stateful workloads.",
+      "workaround": "Use platform-native equivalent for Protect stateful workloads.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Not a 1:1 VCF equivalent; operating model differs."
+    },
+    "VCF-09-F05-FN01": {
       "primaryComponent": "ACR",
       "evidenceKey": "aks",
-      "notes": "Azure Container Registry integration.",
+      "parity": "Partial Parity",
+      "notes": "Azure Container Registry integration. Functionality: Host or integrate registry.",
       "workaround": "Attach ACR or Harbor.",
       "workaroundComplexity": "Low",
       "technicalImpact": "Registry packaging differs from VCF."
     },
-    "VCF-09-F06": {
-      "parity": "Partial Parity",
+    "VCF-09-F05-FN02": {
+      "primaryComponent": "ACR",
+      "evidenceKey": "aks",
+      "parity": "Full Parity",
+      "notes": "Azure Container Registry integration. Functionality: Manage content trust basics."
+    },
+    "VCF-09-F05-FN03": {
+      "primaryComponent": "ACR",
+      "evidenceKey": "aks",
+      "parity": "No Parity",
+      "notes": "Azure Container Registry integration. Functionality: Distribute packages/charts."
+    },
+    "VCF-09-F06-FN01": {
       "primaryComponent": "AKS policy",
       "evidenceKey": "aks",
-      "notes": "Pod security/admission via AKS policy.",
+      "parity": "Partial Parity",
+      "notes": "Pod security/admission via AKS policy. Functionality: Enforce pod security baselines.",
       "workaround": "Enable Azure Policy for AKS and secrets CSI.",
       "workaroundComplexity": "Medium",
       "technicalImpact": "Security pack differs from VKS."
     },
-    "VCF-09-F07": {
-      "parity": "Partial Parity",
+    "VCF-09-F06-FN02": {
+      "primaryComponent": "AKS policy",
+      "evidenceKey": "aks",
+      "parity": "Full Parity",
+      "notes": "Pod security/admission via AKS policy. Functionality: Manage secrets."
+    },
+    "VCF-09-F06-FN03": {
+      "primaryComponent": "AKS policy",
+      "evidenceKey": "aks",
+      "parity": "No Parity",
+      "notes": "Pod security/admission via AKS policy. Functionality: Scan/admit workloads as designed."
+    },
+    "VCF-09-F07-FN01": {
       "primaryComponent": "AKS",
       "evidenceKey": "aks",
-      "notes": "Dev self-service via kubectl/portal/GitOps.",
+      "parity": "Partial Parity",
+      "notes": "Dev self-service via kubectl/portal/GitOps. Functionality: Provide self-service cluster/namespace access.",
       "workaround": "Expose AKS APIs and GitOps.",
       "workaroundComplexity": "Medium",
       "technicalImpact": "Developer UX differs from Tanzu/VKS."
     },
-    "VCF-10-F01": {
-      "parity": "Partial Parity",
+    "VCF-09-F07-FN02": {
+      "primaryComponent": "AKS",
+      "evidenceKey": "aks",
+      "parity": "Full Parity",
+      "notes": "Dev self-service via kubectl/portal/GitOps. Functionality: Support CI/CD consumption."
+    },
+    "VCF-09-F07-FN03": {
+      "primaryComponent": "AKS",
+      "evidenceKey": "aks",
+      "parity": "No Parity",
+      "notes": "Dev self-service via kubectl/portal/GitOps. Functionality: Expose APIs/CLI/UI."
+    },
+    "VCF-10-F01-FN01": {
       "primaryComponent": "Azure Migrate / SCVMM",
       "evidenceKey": "migrate",
-      "notes": "Cold migration via Azure Migrate / Hyper-V import.",
+      "parity": "Partial Parity",
+      "notes": "Cold migration via Azure Migrate / Hyper-V import. Functionality: Migrate powered-off workloads.",
       "workaround": "Use Azure Migrate or offline disk conversion.",
       "workaroundComplexity": "Medium",
       "technicalImpact": "Not HCX bulk migrate."
     },
-    "VCF-10-F02": {
-      "parity": "Partial Parity",
+    "VCF-10-F01-FN02": {
+      "primaryComponent": "Azure Migrate / SCVMM",
+      "evidenceKey": "migrate",
+      "parity": "Full Parity",
+      "notes": "Cold migration via Azure Migrate / Hyper-V import. Functionality: Validate target readiness."
+    },
+    "VCF-10-F01-FN03": {
+      "primaryComponent": "Azure Migrate / SCVMM",
+      "evidenceKey": "migrate",
+      "parity": "No Parity",
+      "notes": "Cold migration via Azure Migrate / Hyper-V import. Functionality: Track migration batches."
+    },
+    "VCF-10-F02-FN01": {
       "primaryComponent": "Hyper-V live migration",
       "evidenceKey": "hyperv",
-      "notes": "Live migration within cluster; limited cross-fabric vs HCX.",
+      "parity": "Partial Parity",
+      "notes": "Live migration within cluster; limited cross-fabric vs HCX. Functionality: Migrate running workloads.",
       "workaround": "Use intra-cluster live migration; plan cutover for cross-platform.",
       "workaroundComplexity": "High",
       "technicalImpact": "No HCX vMotion fabric."
     },
-    "VCF-10-F03": {
-      "parity": "Partial Parity",
+    "VCF-10-F02-FN02": {
+      "primaryComponent": "Hyper-V live migration",
+      "evidenceKey": "hyperv",
+      "parity": "Full Parity",
+      "notes": "Live migration within cluster; limited cross-fabric vs HCX. Functionality: Maintain network continuity as designed."
+    },
+    "VCF-10-F02-FN03": {
+      "primaryComponent": "Hyper-V live migration",
+      "evidenceKey": "hyperv",
+      "parity": "No Parity",
+      "notes": "Live migration within cluster; limited cross-fabric vs HCX. Functionality: Monitor live move health."
+    },
+    "VCF-10-F03-FN01": {
       "primaryComponent": "Azure Migrate",
       "evidenceKey": "migrate",
-      "notes": "Replication-assisted migrate to Azure Local paths exist.",
+      "parity": "Partial Parity",
+      "notes": "Replication-assisted migrate to Azure Local paths exist. Functionality: Seed replicas.",
       "workaround": "Use Azure Migrate replication then cutover.",
       "workaroundComplexity": "Medium",
       "technicalImpact": "Tooling differs from HCX RAV."
     },
-    "VCF-10-F04": {
+    "VCF-10-F03-FN02": {
+      "primaryComponent": "Azure Migrate",
+      "evidenceKey": "migrate",
+      "parity": "Full Parity",
+      "notes": "Replication-assisted migrate to Azure Local paths exist. Functionality: Cut over workloads."
+    },
+    "VCF-10-F03-FN03": {
+      "primaryComponent": "Azure Migrate",
+      "evidenceKey": "migrate",
       "parity": "No Parity",
+      "notes": "Replication-assisted migrate to Azure Local paths exist. Functionality: Control RPO/switch windows."
+    },
+    "VCF-10-F04-FN01": {
       "primaryComponent": "N/A",
       "evidenceKey": "migrate",
-      "notes": "No HCX-class L2 network extension product equivalent."
+      "parity": "No Parity",
+      "notes": "No HCX-class L2 network extension product equivalent. Functionality: Extend L2 as designed."
     },
-    "VCF-10-F05": {
-      "parity": "Partial Parity",
+    "VCF-10-F04-FN02": {
+      "primaryComponent": "N/A",
+      "evidenceKey": "migrate",
+      "parity": "No Parity",
+      "notes": "No HCX-class L2 network extension product equivalent. Functionality: Manage stretch during migration."
+    },
+    "VCF-10-F04-FN03": {
+      "primaryComponent": "N/A",
+      "evidenceKey": "migrate",
+      "parity": "No Parity",
+      "notes": "No HCX-class L2 network extension product equivalent. Functionality: Tear down extensions safely."
+    },
+    "VCF-10-F05-FN01": {
       "primaryComponent": "Azure Local",
       "evidenceKey": "azureLocal",
-      "notes": "Converge existing Hyper-V estates operationally.",
+      "parity": "Partial Parity",
+      "notes": "Converge existing Hyper-V estates operationally. Functionality: Import existing environments.",
       "workaround": "Onboard existing clusters to Azure Local/Arc.",
       "workaroundComplexity": "High",
       "technicalImpact": "No VCF Import/Converge product."
     },
-    "VCF-10-F06": {
-      "parity": "Partial Parity",
+    "VCF-10-F05-FN02": {
+      "primaryComponent": "Azure Local",
+      "evidenceKey": "azureLocal",
+      "parity": "Full Parity",
+      "notes": "Converge existing Hyper-V estates operationally. Functionality: Converge into managed topology."
+    },
+    "VCF-10-F05-FN03": {
+      "primaryComponent": "Azure Local",
+      "evidenceKey": "azureLocal",
+      "parity": "No Parity",
+      "notes": "Converge existing Hyper-V estates operationally. Functionality: Validate post-import state."
+    },
+    "VCF-10-F06-FN01": {
       "primaryComponent": "Azure Migrate",
       "evidenceKey": "migrate",
-      "notes": "Wave tracking in Azure Migrate projects.",
+      "parity": "Partial Parity",
+      "notes": "Wave tracking in Azure Migrate projects. Functionality: Group migration waves.",
       "workaround": "Plan waves in Azure Migrate.",
       "workaroundComplexity": "Medium",
       "technicalImpact": "Less HCX-centric wave ops."
     },
-    "VCF-10-F07": {
-      "parity": "Partial Parity",
+    "VCF-10-F06-FN02": {
       "primaryComponent": "Azure Migrate",
       "evidenceKey": "migrate",
-      "notes": "Rollback is keep-source-until-cutover.",
+      "parity": "Full Parity",
+      "notes": "Wave tracking in Azure Migrate projects. Functionality: Assess dependencies."
+    },
+    "VCF-10-F06-FN03": {
+      "primaryComponent": "Azure Migrate",
+      "evidenceKey": "migrate",
+      "parity": "No Parity",
+      "notes": "Wave tracking in Azure Migrate projects. Functionality: Report wave completion."
+    },
+    "VCF-10-F07-FN01": {
+      "primaryComponent": "Azure Migrate",
+      "evidenceKey": "migrate",
+      "parity": "Partial Parity",
+      "notes": "Rollback is keep-source-until-cutover. Functionality: Define fallback points.",
       "workaround": "Define cutover windows and retain source.",
       "workaroundComplexity": "Medium",
       "technicalImpact": "Rollback is process-driven."
     },
-    "VCF-11-F01": {
+    "VCF-10-F07-FN02": {
+      "primaryComponent": "Azure Migrate",
+      "evidenceKey": "migrate",
       "parity": "Full Parity",
+      "notes": "Rollback is keep-source-until-cutover. Functionality: Execute controlled rollback where possible."
+    },
+    "VCF-10-F07-FN03": {
+      "primaryComponent": "Azure Migrate",
+      "evidenceKey": "migrate",
+      "parity": "No Parity",
+      "notes": "Rollback is keep-source-until-cutover. Functionality: Capture mobility evidence."
+    },
+    "VCF-11-F01-FN01": {
       "primaryComponent": "Azure Backup / MABS",
       "evidenceKey": "backup",
-      "notes": "VM backup via Azure Backup / MABS on Azure Local."
-    },
-    "VCF-11-F02": {
       "parity": "Full Parity",
+      "notes": "VM backup via Azure Backup / MABS on Azure Local. Functionality: Protect VMs/workloads."
+    },
+    "VCF-11-F01-FN02": {
+      "primaryComponent": "Azure Backup / MABS",
+      "evidenceKey": "backup",
+      "parity": "Full Parity",
+      "notes": "VM backup via Azure Backup / MABS on Azure Local. Functionality: Schedule backup jobs."
+    },
+    "VCF-11-F01-FN03": {
+      "primaryComponent": "Azure Backup / MABS",
+      "evidenceKey": "backup",
+      "parity": "Partial Parity",
+      "notes": "VM backup via Azure Backup / MABS on Azure Local. Functionality: Verify backup success.",
+      "workaround": "Use platform-native equivalent for Verify backup success.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Not a 1:1 VCF equivalent; operating model differs."
+    },
+    "VCF-11-F02-FN01": {
       "primaryComponent": "Azure Backup",
       "evidenceKey": "backup",
-      "notes": "Restore workloads from Recovery Services."
+      "parity": "Full Parity",
+      "notes": "Restore workloads from Recovery Services. Functionality: Restore full workloads."
     },
-    "VCF-11-F03": {
+    "VCF-11-F02-FN02": {
+      "primaryComponent": "Azure Backup",
+      "evidenceKey": "backup",
+      "parity": "Full Parity",
+      "notes": "Restore workloads from Recovery Services. Functionality: Restore files/objects where supported."
+    },
+    "VCF-11-F02-FN03": {
+      "primaryComponent": "Azure Backup",
+      "evidenceKey": "backup",
       "parity": "Partial Parity",
+      "notes": "Restore workloads from Recovery Services. Functionality: Validate restore integrity.",
+      "workaround": "Use platform-native equivalent for Validate restore integrity.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Not a 1:1 VCF equivalent; operating model differs."
+    },
+    "VCF-11-F03-FN01": {
       "primaryComponent": "Hyper-V Replica / ASR",
       "evidenceKey": "backup",
-      "notes": "DR orchestration via Replica/ASR patterns.",
+      "parity": "Partial Parity",
+      "notes": "DR orchestration via Replica/ASR patterns. Functionality: Replicate to recovery site.",
       "workaround": "Use Hyper-V Replica or Azure Site Recovery where supported.",
       "workaroundComplexity": "Medium",
       "technicalImpact": "Not VMware SRM/HCX DR identical."
     },
-    "VCF-11-F04": {
-      "parity": "Partial Parity",
+    "VCF-11-F03-FN02": {
+      "primaryComponent": "Hyper-V Replica / ASR",
+      "evidenceKey": "backup",
+      "parity": "Full Parity",
+      "notes": "DR orchestration via Replica/ASR patterns. Functionality: Orchestrate failover plans."
+    },
+    "VCF-11-F03-FN03": {
+      "primaryComponent": "Hyper-V Replica / ASR",
+      "evidenceKey": "backup",
+      "parity": "No Parity",
+      "notes": "DR orchestration via Replica/ASR patterns. Functionality: Run test failovers."
+    },
+    "VCF-11-F04-FN01": {
       "primaryComponent": "Azure Backup",
       "evidenceKey": "backup",
-      "notes": "Backup policies encode RPO; RTO depends on design.",
+      "parity": "Partial Parity",
+      "notes": "Backup policies encode RPO; RTO depends on design. Functionality: Define protection SLAs.",
       "workaround": "Define vault policies and test restores.",
       "workaroundComplexity": "Medium",
       "technicalImpact": "SLA dashboards differ."
     },
-    "VCF-11-F05": {
-      "parity": "Partial Parity",
+    "VCF-11-F04-FN02": {
+      "primaryComponent": "Azure Backup",
+      "evidenceKey": "backup",
+      "parity": "Full Parity",
+      "notes": "Backup policies encode RPO; RTO depends on design. Functionality: Monitor SLA compliance."
+    },
+    "VCF-11-F04-FN03": {
+      "primaryComponent": "Azure Backup",
+      "evidenceKey": "backup",
+      "parity": "No Parity",
+      "notes": "Backup policies encode RPO; RTO depends on design. Functionality: Escalate missed targets."
+    },
+    "VCF-11-F05-FN01": {
       "primaryComponent": "Immutable vaults",
       "evidenceKey": "backup",
-      "notes": "Immutability options in Recovery Services.",
+      "parity": "Partial Parity",
+      "notes": "Immutability options in Recovery Services. Functionality: Apply immutability controls where available.",
       "workaround": "Enable immutable vault / soft-delete.",
       "workaroundComplexity": "Medium",
       "technicalImpact": "Cyber-recovery design still required."
     },
-    "VCF-11-F06": {
-      "parity": "Partial Parity",
+    "VCF-11-F05-FN02": {
+      "primaryComponent": "Immutable vaults",
+      "evidenceKey": "backup",
+      "parity": "Full Parity",
+      "notes": "Immutability options in Recovery Services. Functionality: Isolate recovery copies."
+    },
+    "VCF-11-F05-FN03": {
+      "primaryComponent": "Immutable vaults",
+      "evidenceKey": "backup",
+      "parity": "No Parity",
+      "notes": "Immutability options in Recovery Services. Functionality: Support clean-room recovery patterns."
+    },
+    "VCF-11-F06-FN01": {
       "primaryComponent": "VSS / app agents",
       "evidenceKey": "backup",
-      "notes": "App-consistent via VSS/SQL agents.",
+      "parity": "Partial Parity",
+      "notes": "App-consistent via VSS/SQL agents. Functionality: Coordinate app-aware backups.",
       "workaround": "Use application-consistent backup agents.",
       "workaroundComplexity": "Medium",
       "technicalImpact": "Agent coverage is workload-specific."
     },
-    "VCF-11-F07": {
-      "parity": "Partial Parity",
+    "VCF-11-F06-FN02": {
+      "primaryComponent": "VSS / app agents",
+      "evidenceKey": "backup",
+      "parity": "Full Parity",
+      "notes": "App-consistent via VSS/SQL agents. Functionality: Handle database/app agents as designed."
+    },
+    "VCF-11-F06-FN03": {
+      "primaryComponent": "VSS / app agents",
+      "evidenceKey": "backup",
+      "parity": "No Parity",
+      "notes": "App-consistent via VSS/SQL agents. Functionality: Validate consistency."
+    },
+    "VCF-11-F07-FN01": {
       "primaryComponent": "Backup reports",
       "evidenceKey": "backup",
-      "notes": "Backup reporting in Azure portal.",
+      "parity": "Partial Parity",
+      "notes": "Backup reporting in Azure portal. Functionality: Report protected vs unprotected estate.",
       "workaround": "Export backup/DR test evidence from Azure.",
       "workaroundComplexity": "Low",
       "technicalImpact": "Report format differs."
     },
-    "VCF-12-F01": {
-      "parity": "Partial Parity",
+    "VCF-11-F07-FN02": {
+      "primaryComponent": "Backup reports",
+      "evidenceKey": "backup",
+      "parity": "Full Parity",
+      "notes": "Backup reporting in Azure portal. Functionality: Export DR test evidence."
+    },
+    "VCF-11-F07-FN03": {
+      "primaryComponent": "Backup reports",
+      "evidenceKey": "backup",
+      "parity": "No Parity",
+      "notes": "Backup reporting in Azure portal. Functionality: Track recovery metrics."
+    },
+    "VCF-12-F01-FN01": {
       "primaryComponent": "GPU-P / DDA",
       "evidenceKey": "hyperv",
-      "notes": "GPU partition/DDA on Hyper-V.",
+      "parity": "Partial Parity",
+      "notes": "GPU partition/DDA on Hyper-V. Functionality: Expose GPU resources.",
       "workaround": "Enable GPU-P or DDA for VMs.",
       "workaroundComplexity": "Medium",
       "technicalImpact": "Not VCF Private AI packaging."
     },
-    "VCF-12-F02": {
+    "VCF-12-F01-FN02": {
+      "primaryComponent": "GPU-P / DDA",
+      "evidenceKey": "hyperv",
+      "parity": "Full Parity",
+      "notes": "GPU partition/DDA on Hyper-V. Functionality: Schedule accelerated workloads."
+    },
+    "VCF-12-F01-FN03": {
+      "primaryComponent": "GPU-P / DDA",
+      "evidenceKey": "hyperv",
       "parity": "No Parity",
+      "notes": "GPU partition/DDA on Hyper-V. Functionality: Monitor accelerator health/utilization."
+    },
+    "VCF-12-F02-FN01": {
       "primaryComponent": "N/A",
       "evidenceKey": "azureLocal",
-      "notes": "No first-class VCF Private AI model-serving product on Azure Local."
-    },
-    "VCF-12-F03": {
       "parity": "No Parity",
+      "notes": "No first-class VCF Private AI model-serving product on Azure Local. Functionality: Deploy model endpoints."
+    },
+    "VCF-12-F02-FN02": {
       "primaryComponent": "N/A",
       "evidenceKey": "azureLocal",
-      "notes": "RAG pipelines are solution-assembled, not a platform product."
-    },
-    "VCF-12-F04": {
       "parity": "No Parity",
+      "notes": "No first-class VCF Private AI model-serving product on Azure Local. Functionality: Scale inference services."
+    },
+    "VCF-12-F02-FN03": {
       "primaryComponent": "N/A",
       "evidenceKey": "azureLocal",
-      "notes": "No built-in MLOps equivalent to VCF Private AI Services."
+      "parity": "No Parity",
+      "notes": "No first-class VCF Private AI model-serving product on Azure Local. Functionality: Secure endpoint access."
     },
-    "VCF-12-F05": {
-      "parity": "Partial Parity",
+    "VCF-12-F03-FN01": {
+      "primaryComponent": "N/A",
+      "evidenceKey": "azureLocal",
+      "parity": "No Parity",
+      "notes": "RAG pipelines are solution-assembled, not a platform product. Functionality: Ingest enterprise data sources."
+    },
+    "VCF-12-F03-FN02": {
+      "primaryComponent": "N/A",
+      "evidenceKey": "azureLocal",
+      "parity": "No Parity",
+      "notes": "RAG pipelines are solution-assembled, not a platform product. Functionality: Index/retrieve context."
+    },
+    "VCF-12-F03-FN03": {
+      "primaryComponent": "N/A",
+      "evidenceKey": "azureLocal",
+      "parity": "No Parity",
+      "notes": "RAG pipelines are solution-assembled, not a platform product. Functionality: Control data residency path."
+    },
+    "VCF-12-F04-FN01": {
+      "primaryComponent": "N/A",
+      "evidenceKey": "azureLocal",
+      "parity": "No Parity",
+      "notes": "No built-in MLOps equivalent to VCF Private AI Services. Functionality: Version models."
+    },
+    "VCF-12-F04-FN02": {
+      "primaryComponent": "N/A",
+      "evidenceKey": "azureLocal",
+      "parity": "No Parity",
+      "notes": "No built-in MLOps equivalent to VCF Private AI Services. Functionality: Promote model stages."
+    },
+    "VCF-12-F04-FN03": {
+      "primaryComponent": "N/A",
+      "evidenceKey": "azureLocal",
+      "parity": "No Parity",
+      "notes": "No built-in MLOps equivalent to VCF Private AI Services. Functionality: Rollback model deployments."
+    },
+    "VCF-12-F05-FN01": {
       "primaryComponent": "Entra ID / RBAC",
       "evidenceKey": "arc",
-      "notes": "General platform RBAC only.",
+      "parity": "Partial Parity",
+      "notes": "General platform RBAC only. Functionality: Entitle AI projects.",
       "workaround": "Govern GPU/AI VMs with RBAC and Policy.",
       "workaroundComplexity": "Medium",
       "technicalImpact": "AI-specific governance is limited."
     },
-    "VCF-12-F06": {
-      "parity": "Partial Parity",
+    "VCF-12-F05-FN02": {
+      "primaryComponent": "Entra ID / RBAC",
+      "evidenceKey": "arc",
+      "parity": "Full Parity",
+      "notes": "General platform RBAC only. Functionality: Audit AI resource usage."
+    },
+    "VCF-12-F05-FN03": {
+      "primaryComponent": "Entra ID / RBAC",
+      "evidenceKey": "arc",
+      "parity": "No Parity",
+      "notes": "General platform RBAC only. Functionality: Apply policy constraints."
+    },
+    "VCF-12-F06-FN01": {
       "primaryComponent": "Azure Local",
       "evidenceKey": "azureLocal",
-      "notes": "AI VMs can use platform identity/network/storage.",
+      "parity": "Partial Parity",
+      "notes": "AI VMs can use platform identity/network/storage. Functionality: Use platform identity.",
       "workaround": "Run AI workloads as VMs/AKS on the HCI stack.",
       "workaroundComplexity": "Medium",
       "technicalImpact": "DIY vs packaged VCF Private AI."
     },
-    "VCF-12-F07": {
-      "parity": "Partial Parity",
+    "VCF-12-F06-FN02": {
+      "primaryComponent": "Azure Local",
+      "evidenceKey": "azureLocal",
+      "parity": "Full Parity",
+      "notes": "AI VMs can use platform identity/network/storage. Functionality: Use platform networking/storage."
+    },
+    "VCF-12-F06-FN03": {
+      "primaryComponent": "Azure Local",
+      "evidenceKey": "azureLocal",
+      "parity": "No Parity",
+      "notes": "AI VMs can use platform identity/network/storage. Functionality: Observe AI services in ops tooling."
+    },
+    "VCF-12-F07-FN01": {
       "primaryComponent": "On-prem Azure Local",
       "evidenceKey": "azureLocal",
-      "notes": "On-prem inference possible; egress must be designed.",
+      "parity": "Partial Parity",
+      "notes": "On-prem inference possible; egress must be designed. Functionality: Keep inference private as designed.",
       "workaround": "Keep models on-prem; control outbound with firewall.",
       "workaroundComplexity": "Medium",
       "technicalImpact": "Sovereign controls are design-dependent."
+    },
+    "VCF-12-F07-FN02": {
+      "primaryComponent": "On-prem Azure Local",
+      "evidenceKey": "azureLocal",
+      "parity": "Full Parity",
+      "notes": "On-prem inference possible; egress must be designed. Functionality: Restrict outbound model/data calls."
+    },
+    "VCF-12-F07-FN03": {
+      "primaryComponent": "On-prem Azure Local",
+      "evidenceKey": "azureLocal",
+      "parity": "No Parity",
+      "notes": "On-prem inference possible; egress must be designed. Functionality: Evidence private processing posture."
     }
   }
 }

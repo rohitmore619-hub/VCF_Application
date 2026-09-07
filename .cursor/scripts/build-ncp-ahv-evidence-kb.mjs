@@ -39,79 +39,87 @@ function buildNcpKb(cn, map) {
 
   for (const p of cn.products || []) {
     for (const f of p.features || []) {
-      const ev = features[f.featureId];
-      if (!ev) {
-        counts.Unknown++;
-        crosswalk.push({
-          featureId: f.featureId,
-          featureName: f.name,
-          parity: 'Unknown',
-          included: false,
-          reason: 'Missing from evidence map',
-        });
-        continue;
-      }
-      const parity = ev.parity || 'Unknown';
-      counts[parity] = (counts[parity] || 0) + 1;
-      const url = catalog[ev.evidenceKey] || '';
+      for (const g of f.functionalities || []) {
+        const ev = features[g.functionalityId] || features[f.featureId];
+        if (!ev) {
+          counts.Unknown++;
+          crosswalk.push({
+            featureId: f.featureId,
+            functionalityId: g.functionalityId,
+            functionalityName: g.name,
+            parity: 'Unknown',
+            included: false,
+            reason: 'Missing from evidence map',
+          });
+          continue;
+        }
+        const parity = ev.parity || 'Unknown';
+        counts[parity] = (counts[parity] || 0) + 1;
+        const url = catalog[ev.evidenceKey] || '';
 
-      if (parity === 'No Parity' || parity === 'Unknown') {
+        if (parity === 'No Parity' || parity === 'Unknown') {
+          crosswalk.push({
+            featureId: f.featureId,
+            functionalityId: g.functionalityId,
+            functionalityName: g.name,
+            parity,
+            included: false,
+            evidenceUrl: url,
+            notes: ev.notes || '',
+          });
+          continue;
+        }
+
+        const encodedFnId = parity === 'Full Parity' ? g.functionalityId : `NCP-P-${g.functionalityId}`;
         crosswalk.push({
           featureId: f.featureId,
-          featureName: f.name,
+          functionalityId: g.functionalityId,
+          functionalityName: g.name,
           parity,
-          included: false,
+          included: true,
+          encodedFunctionalityId: encodedFnId,
+          ncpFeatureId: encodedFnId,
           evidenceUrl: url,
+          primaryComponent: ev.primaryComponent || '',
+          workaround: ev.workaround || '',
+          workaroundComplexity: ev.workaroundComplexity || '',
+          technicalImpact: ev.technicalImpact || '',
           notes: ev.notes || '',
         });
-        continue;
-      }
 
-      const ncpFeatureId = parity === 'Full Parity' ? f.featureId : `NCP-P-${f.featureId}`;
-      crosswalk.push({
-        featureId: f.featureId,
-        featureName: f.name,
-        parity,
-        included: true,
-        ncpFeatureId,
-        evidenceUrl: url,
-        primaryComponent: ev.primaryComponent || '',
-        workaround: ev.workaround || '',
-        workaroundComplexity: ev.workaroundComplexity || '',
-        technicalImpact: ev.technicalImpact || '',
-        notes: ev.notes || '',
-      });
+        if (!seen.has(encodedFnId)) {
+          seen.add(encodedFnId);
+          ncpEvidenceRows.push({
+            FeatureID: f.featureId,
+            FeatureName: f.name,
+            FunctionalityID: encodedFnId,
+            FunctionalityName: g.name,
+            CapabilityID: p.capabilityId,
+            DomainID: p.domainId,
+            EvidenceURL: url,
+            EvidenceSource: 'Nutanix public product documentation',
+            EvidenceVersion: map.evaluatedBaseline,
+            EvidenceDate: '2026-08-31',
+            EvidenceStatus: parity === 'Full Parity' ? 'Evidence-Backed' : 'Evidence-Backed-Partial',
+            EvidenceNotes: [
+              ev.notes || '',
+              ev.workaround ? `Workaround: ${ev.workaround}` : '',
+              ev.workaroundComplexity ? `Complexity: ${ev.workaroundComplexity}` : '',
+              ev.technicalImpact ? `TechnicalImpact: ${ev.technicalImpact}` : '',
+              `CN featureId=${f.featureId}`,
+              `CN functionalityId=${g.functionalityId}`,
+            ]
+              .filter(Boolean)
+              .join(' | '),
+          });
+        }
 
-      if (!seen.has(ncpFeatureId)) {
-        seen.add(ncpFeatureId);
-        ncpEvidenceRows.push({
-          FeatureID: ncpFeatureId,
-          FeatureName: f.name,
-          CapabilityID: p.capabilityId,
-          DomainID: p.domainId,
-          EvidenceURL: url,
-          EvidenceSource: 'Nutanix public product documentation',
-          EvidenceVersion: map.evaluatedBaseline,
-          EvidenceDate: '2026-08-31',
-          EvidenceStatus: parity === 'Full Parity' ? 'Evidence-Backed' : 'Evidence-Backed-Partial',
-          EvidenceNotes: [
-            ev.notes || '',
-            ev.workaround ? `Workaround: ${ev.workaround}` : '',
-            ev.workaroundComplexity ? `Complexity: ${ev.workaroundComplexity}` : '',
-            ev.technicalImpact ? `TechnicalImpact: ${ev.technicalImpact}` : '',
-            `CN featureId=${f.featureId}`,
-          ]
-            .filter(Boolean)
-            .join(' | '),
-        });
-      }
-
-      for (const g of f.functionalities || []) {
         ncpFuncRows.push({
-          ComparatorFunctionalityID: `NCP-${g.functionalityId}`,
+          FunctionalityID: encodedFnId,
+          ComparatorFunctionalityID: encodedFnId,
           FunctionalityName: g.name,
           Description: `${ev.notes || g.description || g.name}`,
-          FeatureID: ncpFeatureId,
+          FeatureID: f.featureId,
           FeatureName: f.name,
           DomainName: p.domainName,
           CapabilityName: p.capabilityName,
@@ -127,6 +135,7 @@ function buildNcpKb(cn, map) {
             `parity=${parity}`,
             `cnFeatureId=${f.featureId}`,
             `cnFunctionalityId=${g.functionalityId}`,
+            `scoringKey=functionalityId`,
             url ? `evidence=${url}` : '',
             ev.workaround ? `workaround=${ev.workaround}` : '',
           ]
@@ -142,9 +151,10 @@ function buildNcpKb(cn, map) {
     wb,
     '00_ReadMe',
     sheetPairs([
-      ['Purpose', 'Evidence-backed NCP_AHV comparator KB aligned to CN v0.3 FeatureIDs'],
+      ['Purpose', 'Evidence-backed NCP_AHV comparator KB aligned to CN v0.3 functionalityIds'],
       ['CustomerUse', 'Workshop dry-run / advisory prep — confirm portal point releases before sign-off'],
-      ['Encoding', 'Full=exact FeatureID; Partial=NCP-P-{FeatureID}+same name; No=omitted'],
+      ['ScoringKey', 'functionalityId'],
+      ['Encoding', 'Full=exact FunctionalityID; Partial=NCP-P-{functionalityId}+same FunctionalityName; No=omitted'],
       ['EvidenceMap', 'NCP_AHV_Evidence_Map_v1.json'],
       ['PairedVcfKb', 'VCF_KnowledgeBase_CN_v0.3.xlsx'],
       ['Disclaimer', map.disclaimer],
@@ -164,7 +174,8 @@ function buildNcpKb(cn, map) {
       ['EvidenceStatus', 'PublicDocsValidated'],
       ['EvaluatedVersion', map.evaluatedBaseline],
       ['EvaluatedVersionStatus', 'Public documentation validated; portal point-release confirmation pending'],
-      ['FeatureCount', String(seen.size)],
+      ['ScoringKey', 'functionalityId'],
+      ['FeatureCount', String(new Set(ncpFuncRows.map((r) => r.FeatureID)).size)],
       ['FunctionalityCount', String(ncpFuncRows.length)],
       ['GeneratedOn', '2026-08-31'],
       ['FullParityFeatures', String(counts['Full Parity'] || 0)],
@@ -253,7 +264,10 @@ function buildCustomerProfile(cn, map) {
     else if (importantProducts.has(p.productId)) rating = 'Important';
     else if (niceProducts.has(p.productId)) rating = 'Nice To Have';
     else if (notRequired.has(p.productId)) rating = 'Not Required';
-    for (const f of p.features) requirements[f.featureId] = rating;
+    for (const f of p.features) {
+      requirements[f.featureId] = rating;
+      for (const g of f.functionalities || []) requirements[g.functionalityId] = rating;
+    }
   }
 
   // Customer-specific overrides (blockers they care about most)
@@ -268,7 +282,7 @@ function buildCustomerProfile(cn, map) {
 
   const now = new Date().toISOString();
   return {
-    applicationVersion: 'v1.40',
+    applicationVersion: 'v1.41',
     exportedOn: now,
     profile: {
       assessmentStartDate: '2026-08-31',
@@ -321,7 +335,9 @@ function buildCustomerProfile(cn, map) {
       technicalWeight: 80,
       strategicWeight: 20,
       reportAudience: 'CIO / Architecture Board',
-      applicationVersion: 'v1.40',
+      applicationVersion: 'v1.41',
+      cnScoringKey: 'functionalityId',
+      rulesetId: 'VCF-AFA_Rules_v1',
       scopeAndPriorities: {
         technicalWeight: 80,
         strategicWeight: 20,
