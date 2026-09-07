@@ -1,0 +1,685 @@
+{
+  "platformKey": "HyperV",
+  "platformName": "Microsoft Windows Server Hyper-V (standalone)",
+  "comparatorType": "Extended Comparator",
+  "evaluationBasisType": "ProductVersion",
+  "evaluatedBaseline": "Windows Server Hyper-V / Failover Clustering public Microsoft Learn baseline (2026-09) \u2014 not Azure Local",
+  "evidenceSource": "Microsoft Learn Hyper-V documentation",
+  "supportingComponents": [
+    "Hyper-V",
+    "Failover Clustering",
+    "SCVMM optional"
+  ],
+  "solutionComponents": [
+    {
+      "Component": "Hyper-V",
+      "Role": "Hypervisor"
+    },
+    {
+      "Component": "Failover Clustering",
+      "Role": "HA / live migration"
+    },
+    {
+      "Component": "Hyper-V Replica",
+      "Role": "Replication / DR"
+    }
+  ],
+  "disclaimer": "Standalone Hyper-V only. Distinct from Azure Local Core KB. Evidence-Backed Draft. Not advisory-ready.",
+  "evidenceCatalog": {
+    "hyperv": "https://learn.microsoft.com/en-us/windows-server/virtualization/hyper-v/hyper-v-on-windows-server",
+    "csv": "https://learn.microsoft.com/en-us/windows-server/failover-clustering/failover-clustering-overview",
+    "scvmm": "https://learn.microsoft.com/en-us/system-center/vmm/overview",
+    "replica": "https://learn.microsoft.com/en-us/windows-server/virtualization/hyper-v/manage/set-up-hyper-v-replica"
+  },
+  "status": "evidence_backed_draft",
+  "features": {
+    "VCF-01-F01": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Windows Server Hyper-V / Failover Clustering",
+      "evidenceKey": "hyperv",
+      "notes": "Standalone Hyper-V addresses Fleet inventory and topology visibility via Failover Clustering, SCVMM, or Windows tooling \u2014 not Azure Local or NSX.",
+      "workaround": "Use Hyper-V Manager, Failover Cluster Manager, or SCVMM for Fleet inventory and topology visibility.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Standalone Hyper-V is not Azure Local; SDN/K8s/VCF lifecycle remain gaps."
+    },
+    "VCF-01-F02": {
+      "parity": "Full Parity",
+      "primaryComponent": "Windows Server Hyper-V / Failover Clustering",
+      "evidenceKey": "hyperv",
+      "notes": "Standalone Hyper-V / Failover Clustering provides Workload domain lifecycle without Azure Local/Arc packaging."
+    },
+    "VCF-01-F03": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Windows Server Hyper-V / Failover Clustering",
+      "evidenceKey": "hyperv",
+      "notes": "Standalone Hyper-V addresses Cluster composition controls via Failover Clustering, SCVMM, or Windows tooling \u2014 not Azure Local or NSX.",
+      "workaround": "Use Hyper-V Manager, Failover Cluster Manager, or SCVMM for Cluster composition controls.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Standalone Hyper-V is not Azure Local; SDN/K8s/VCF lifecycle remain gaps."
+    },
+    "VCF-01-F04": {
+      "parity": "No Parity",
+      "primaryComponent": "N/A",
+      "evidenceKey": "hyperv",
+      "notes": "No VCF-equivalent Principal vs workload domain separation on standalone Hyper-V (no NSX, no Supervisor K8s, no VCF installer)."
+    },
+    "VCF-01-F05": {
+      "parity": "Full Parity",
+      "primaryComponent": "Windows Server Hyper-V / Failover Clustering",
+      "evidenceKey": "hyperv",
+      "notes": "Standalone Hyper-V / Failover Clustering provides Commissioning and host bring-up without Azure Local/Arc packaging."
+    },
+    "VCF-01-F06": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Windows Server Hyper-V / Failover Clustering",
+      "evidenceKey": "hyperv",
+      "notes": "Standalone Hyper-V addresses Platform configuration baselines via Failover Clustering, SCVMM, or Windows tooling \u2014 not Azure Local or NSX.",
+      "workaround": "Use Hyper-V Manager, Failover Cluster Manager, or SCVMM for Platform configuration baselines.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Standalone Hyper-V is not Azure Local; SDN/K8s/VCF lifecycle remain gaps."
+    },
+    "VCF-01-F07": {
+      "parity": "No Parity",
+      "primaryComponent": "N/A",
+      "evidenceKey": "hyperv",
+      "notes": "No VCF-equivalent Multi-site / stretch awareness on standalone Hyper-V (no NSX, no Supervisor K8s, no VCF installer)."
+    },
+    "VCF-02-F01": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Windows Server Hyper-V / Failover Clustering",
+      "evidenceKey": "hyperv",
+      "notes": "Standalone Hyper-V addresses Initial bring-up / installer workflow via Failover Clustering, SCVMM, or Windows tooling \u2014 not Azure Local or NSX.",
+      "workaround": "Use Hyper-V Manager, Failover Cluster Manager, or SCVMM for Initial bring-up / installer workflow.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Standalone Hyper-V is not Azure Local; SDN/K8s/VCF lifecycle remain gaps."
+    },
+    "VCF-02-F02": {
+      "parity": "No Parity",
+      "primaryComponent": "N/A",
+      "evidenceKey": "hyperv",
+      "notes": "No VCF-equivalent SDDC Manager orchestration on standalone Hyper-V (no NSX, no Supervisor K8s, no VCF installer)."
+    },
+    "VCF-02-F03": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Windows Server Hyper-V / Failover Clustering",
+      "evidenceKey": "hyperv",
+      "notes": "Standalone Hyper-V addresses Bundle / depot management via Failover Clustering, SCVMM, or Windows tooling \u2014 not Azure Local or NSX.",
+      "workaround": "Use Hyper-V Manager, Failover Cluster Manager, or SCVMM for Bundle / depot management.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Standalone Hyper-V is not Azure Local; SDN/K8s/VCF lifecycle remain gaps."
+    },
+    "VCF-02-F04": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Windows Server Hyper-V / Failover Clustering",
+      "evidenceKey": "hyperv",
+      "notes": "Standalone Hyper-V addresses Upgrade planning and prechecks via Failover Clustering, SCVMM, or Windows tooling \u2014 not Azure Local or NSX.",
+      "workaround": "Use Hyper-V Manager, Failover Cluster Manager, or SCVMM for Upgrade planning and prechecks.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Standalone Hyper-V is not Azure Local; SDN/K8s/VCF lifecycle remain gaps."
+    },
+    "VCF-02-F05": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Windows Server Hyper-V / Failover Clustering",
+      "evidenceKey": "hyperv",
+      "notes": "Standalone Hyper-V addresses Coordinated stack upgrade via Failover Clustering, SCVMM, or Windows tooling \u2014 not Azure Local or NSX.",
+      "workaround": "Use Hyper-V Manager, Failover Cluster Manager, or SCVMM for Coordinated stack upgrade.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Standalone Hyper-V is not Azure Local; SDN/K8s/VCF lifecycle remain gaps."
+    },
+    "VCF-02-F06": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Windows Server Hyper-V / Failover Clustering",
+      "evidenceKey": "hyperv",
+      "notes": "Standalone Hyper-V addresses Skip-level / selective update controls via Failover Clustering, SCVMM, or Windows tooling \u2014 not Azure Local or NSX.",
+      "workaround": "Use Hyper-V Manager, Failover Cluster Manager, or SCVMM for Skip-level / selective update controls.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Standalone Hyper-V is not Azure Local; SDN/K8s/VCF lifecycle remain gaps."
+    },
+    "VCF-02-F07": {
+      "parity": "No Parity",
+      "primaryComponent": "N/A",
+      "evidenceKey": "hyperv",
+      "notes": "No VCF-equivalent Lifecycle audit and rollback posture on standalone Hyper-V (no NSX, no Supervisor K8s, no VCF installer)."
+    },
+    "VCF-03-F01": {
+      "parity": "Full Parity",
+      "primaryComponent": "Windows Server Hyper-V / Failover Clustering",
+      "evidenceKey": "hyperv",
+      "notes": "Standalone Hyper-V / Failover Clustering provides ESXi host compute services without Azure Local/Arc packaging."
+    },
+    "VCF-03-F02": {
+      "parity": "Full Parity",
+      "primaryComponent": "Windows Server Hyper-V / Failover Clustering",
+      "evidenceKey": "hyperv",
+      "notes": "Standalone Hyper-V / Failover Clustering provides vCenter management plane without Azure Local/Arc packaging."
+    },
+    "VCF-03-F03": {
+      "parity": "Full Parity",
+      "primaryComponent": "Windows Server Hyper-V / Failover Clustering",
+      "evidenceKey": "hyperv",
+      "notes": "Standalone Hyper-V / Failover Clustering provides DRS / placement optimization without Azure Local/Arc packaging."
+    },
+    "VCF-03-F04": {
+      "parity": "Full Parity",
+      "primaryComponent": "Windows Server Hyper-V / Failover Clustering",
+      "evidenceKey": "hyperv",
+      "notes": "Standalone Hyper-V / Failover Clustering provides HA and restart protection without Azure Local/Arc packaging."
+    },
+    "VCF-03-F05": {
+      "parity": "Full Parity",
+      "primaryComponent": "Windows Server Hyper-V / Failover Clustering",
+      "evidenceKey": "hyperv",
+      "notes": "Standalone Hyper-V / Failover Clustering provides Resource pools and controls without Azure Local/Arc packaging."
+    },
+    "VCF-03-F06": {
+      "parity": "Full Parity",
+      "primaryComponent": "Windows Server Hyper-V / Failover Clustering",
+      "evidenceKey": "hyperv",
+      "notes": "Standalone Hyper-V / Failover Clustering provides VM lifecycle operations without Azure Local/Arc packaging."
+    },
+    "VCF-03-F07": {
+      "parity": "Full Parity",
+      "primaryComponent": "Windows Server Hyper-V / Failover Clustering",
+      "evidenceKey": "hyperv",
+      "notes": "Standalone Hyper-V / Failover Clustering provides Maintenance and remediation without Azure Local/Arc packaging."
+    },
+    "VCF-04-F01": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Windows Server Hyper-V / Failover Clustering",
+      "evidenceKey": "csv",
+      "notes": "Standalone Hyper-V addresses vSAN datastore services via Failover Clustering, SCVMM, or Windows tooling \u2014 not Azure Local or NSX.",
+      "workaround": "Use Hyper-V Manager, Failover Cluster Manager, or SCVMM for vSAN datastore services.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Standalone Hyper-V is not Azure Local; SDN/K8s/VCF lifecycle remain gaps."
+    },
+    "VCF-04-F02": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Windows Server Hyper-V / Failover Clustering",
+      "evidenceKey": "csv",
+      "notes": "Standalone Hyper-V addresses Storage policy based management via Failover Clustering, SCVMM, or Windows tooling \u2014 not Azure Local or NSX.",
+      "workaround": "Use Hyper-V Manager, Failover Cluster Manager, or SCVMM for Storage policy based management.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Standalone Hyper-V is not Azure Local; SDN/K8s/VCF lifecycle remain gaps."
+    },
+    "VCF-04-F03": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Windows Server Hyper-V / Failover Clustering",
+      "evidenceKey": "csv",
+      "notes": "Standalone Hyper-V addresses Dedup / compression / efficiency via Failover Clustering, SCVMM, or Windows tooling \u2014 not Azure Local or NSX.",
+      "workaround": "Use Hyper-V Manager, Failover Cluster Manager, or SCVMM for Dedup / compression / efficiency.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Standalone Hyper-V is not Azure Local; SDN/K8s/VCF lifecycle remain gaps."
+    },
+    "VCF-04-F04": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Windows Server Hyper-V / Failover Clustering",
+      "evidenceKey": "csv",
+      "notes": "Standalone Hyper-V addresses Fault domains and resilience via Failover Clustering, SCVMM, or Windows tooling \u2014 not Azure Local or NSX.",
+      "workaround": "Use Hyper-V Manager, Failover Cluster Manager, or SCVMM for Fault domains and resilience.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Standalone Hyper-V is not Azure Local; SDN/K8s/VCF lifecycle remain gaps."
+    },
+    "VCF-04-F05": {
+      "parity": "No Parity",
+      "primaryComponent": "N/A",
+      "evidenceKey": "csv",
+      "notes": "No VCF-equivalent Stretched / dual-site storage on standalone Hyper-V (no NSX, no Supervisor K8s, no VCF installer)."
+    },
+    "VCF-04-F06": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Windows Server Hyper-V / Failover Clustering",
+      "evidenceKey": "csv",
+      "notes": "Standalone Hyper-V addresses File and supplemental services via Failover Clustering, SCVMM, or Windows tooling \u2014 not Azure Local or NSX.",
+      "workaround": "Use Hyper-V Manager, Failover Cluster Manager, or SCVMM for File and supplemental services.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Standalone Hyper-V is not Azure Local; SDN/K8s/VCF lifecycle remain gaps."
+    },
+    "VCF-04-F07": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Windows Server Hyper-V / Failover Clustering",
+      "evidenceKey": "csv",
+      "notes": "Standalone Hyper-V addresses Storage operations and supportability via Failover Clustering, SCVMM, or Windows tooling \u2014 not Azure Local or NSX.",
+      "workaround": "Use Hyper-V Manager, Failover Cluster Manager, or SCVMM for Storage operations and supportability.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Standalone Hyper-V is not Azure Local; SDN/K8s/VCF lifecycle remain gaps."
+    },
+    "VCF-05-F01": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Windows Server Hyper-V / Failover Clustering",
+      "evidenceKey": "hyperv",
+      "notes": "Standalone Hyper-V addresses Logical switching / segments via Failover Clustering, SCVMM, or Windows tooling \u2014 not Azure Local or NSX.",
+      "workaround": "Use Hyper-V Manager, Failover Cluster Manager, or SCVMM for Logical switching / segments.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Standalone Hyper-V is not Azure Local; SDN/K8s/VCF lifecycle remain gaps."
+    },
+    "VCF-05-F02": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Windows Server Hyper-V / Failover Clustering",
+      "evidenceKey": "hyperv",
+      "notes": "Standalone Hyper-V addresses Logical routing / Tier services via Failover Clustering, SCVMM, or Windows tooling \u2014 not Azure Local or NSX.",
+      "workaround": "Use Hyper-V Manager, Failover Cluster Manager, or SCVMM for Logical routing / Tier services.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Standalone Hyper-V is not Azure Local; SDN/K8s/VCF lifecycle remain gaps."
+    },
+    "VCF-05-F03": {
+      "parity": "No Parity",
+      "primaryComponent": "N/A",
+      "evidenceKey": "hyperv",
+      "notes": "No VCF-equivalent Edge services and gateways on standalone Hyper-V (no NSX, no Supervisor K8s, no VCF installer)."
+    },
+    "VCF-05-F04": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Windows Server Hyper-V / Failover Clustering",
+      "evidenceKey": "hyperv",
+      "notes": "Standalone Hyper-V addresses VPC / multi-tenancy networking via Failover Clustering, SCVMM, or Windows tooling \u2014 not Azure Local or NSX.",
+      "workaround": "Use Hyper-V Manager, Failover Cluster Manager, or SCVMM for VPC / multi-tenancy networking.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Standalone Hyper-V is not Azure Local; SDN/K8s/VCF lifecycle remain gaps."
+    },
+    "VCF-05-F05": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Windows Server Hyper-V / Failover Clustering",
+      "evidenceKey": "hyperv",
+      "notes": "Standalone Hyper-V addresses Overlay and underlay integration via Failover Clustering, SCVMM, or Windows tooling \u2014 not Azure Local or NSX.",
+      "workaround": "Use Hyper-V Manager, Failover Cluster Manager, or SCVMM for Overlay and underlay integration.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Standalone Hyper-V is not Azure Local; SDN/K8s/VCF lifecycle remain gaps."
+    },
+    "VCF-05-F06": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Windows Server Hyper-V / Failover Clustering",
+      "evidenceKey": "hyperv",
+      "notes": "Standalone Hyper-V addresses DNS / DHCP / network services via Failover Clustering, SCVMM, or Windows tooling \u2014 not Azure Local or NSX.",
+      "workaround": "Use Hyper-V Manager, Failover Cluster Manager, or SCVMM for DNS / DHCP / network services.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Standalone Hyper-V is not Azure Local; SDN/K8s/VCF lifecycle remain gaps."
+    },
+    "VCF-05-F07": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Windows Server Hyper-V / Failover Clustering",
+      "evidenceKey": "hyperv",
+      "notes": "Standalone Hyper-V addresses Network observability basics via Failover Clustering, SCVMM, or Windows tooling \u2014 not Azure Local or NSX.",
+      "workaround": "Use Hyper-V Manager, Failover Cluster Manager, or SCVMM for Network observability basics.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Standalone Hyper-V is not Azure Local; SDN/K8s/VCF lifecycle remain gaps."
+    },
+    "VCF-06-F01": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Windows Server Hyper-V / Failover Clustering",
+      "evidenceKey": "hyperv",
+      "notes": "Standalone Hyper-V addresses Distributed firewall via Failover Clustering, SCVMM, or Windows tooling \u2014 not Azure Local or NSX.",
+      "workaround": "Use Hyper-V Manager, Failover Cluster Manager, or SCVMM for Distributed firewall.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Standalone Hyper-V is not Azure Local; SDN/K8s/VCF lifecycle remain gaps."
+    },
+    "VCF-06-F02": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Windows Server Hyper-V / Failover Clustering",
+      "evidenceKey": "hyperv",
+      "notes": "Standalone Hyper-V addresses Gateway firewall via Failover Clustering, SCVMM, or Windows tooling \u2014 not Azure Local or NSX.",
+      "workaround": "Use Hyper-V Manager, Failover Cluster Manager, or SCVMM for Gateway firewall.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Standalone Hyper-V is not Azure Local; SDN/K8s/VCF lifecycle remain gaps."
+    },
+    "VCF-06-F03": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Windows Server Hyper-V / Failover Clustering",
+      "evidenceKey": "hyperv",
+      "notes": "Standalone Hyper-V addresses Security groups / dynamic membership via Failover Clustering, SCVMM, or Windows tooling \u2014 not Azure Local or NSX.",
+      "workaround": "Use Hyper-V Manager, Failover Cluster Manager, or SCVMM for Security groups / dynamic membership.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Standalone Hyper-V is not Azure Local; SDN/K8s/VCF lifecycle remain gaps."
+    },
+    "VCF-06-F04": {
+      "parity": "No Parity",
+      "primaryComponent": "N/A",
+      "evidenceKey": "hyperv",
+      "notes": "No VCF-equivalent IDS/IPS or advanced threat controls on standalone Hyper-V (no NSX, no Supervisor K8s, no VCF installer)."
+    },
+    "VCF-06-F05": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Windows Server Hyper-V / Failover Clustering",
+      "evidenceKey": "hyperv",
+      "notes": "Standalone Hyper-V addresses Identity / context-aware controls via Failover Clustering, SCVMM, or Windows tooling \u2014 not Azure Local or NSX.",
+      "workaround": "Use Hyper-V Manager, Failover Cluster Manager, or SCVMM for Identity / context-aware controls.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Standalone Hyper-V is not Azure Local; SDN/K8s/VCF lifecycle remain gaps."
+    },
+    "VCF-06-F06": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Windows Server Hyper-V / Failover Clustering",
+      "evidenceKey": "hyperv",
+      "notes": "Standalone Hyper-V addresses Policy lifecycle and change control via Failover Clustering, SCVMM, or Windows tooling \u2014 not Azure Local or NSX.",
+      "workaround": "Use Hyper-V Manager, Failover Cluster Manager, or SCVMM for Policy lifecycle and change control.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Standalone Hyper-V is not Azure Local; SDN/K8s/VCF lifecycle remain gaps."
+    },
+    "VCF-06-F07": {
+      "parity": "No Parity",
+      "primaryComponent": "N/A",
+      "evidenceKey": "hyperv",
+      "notes": "No VCF-equivalent Security posture reporting on standalone Hyper-V (no NSX, no Supervisor K8s, no VCF installer)."
+    },
+    "VCF-07-F01": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Windows Server Hyper-V / Failover Clustering",
+      "evidenceKey": "scvmm",
+      "notes": "Standalone Hyper-V addresses Infrastructure monitoring via Failover Clustering, SCVMM, or Windows tooling \u2014 not Azure Local or NSX.",
+      "workaround": "Use Hyper-V Manager, Failover Cluster Manager, or SCVMM for Infrastructure monitoring.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Standalone Hyper-V is not Azure Local; SDN/K8s/VCF lifecycle remain gaps."
+    },
+    "VCF-07-F02": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Windows Server Hyper-V / Failover Clustering",
+      "evidenceKey": "scvmm",
+      "notes": "Standalone Hyper-V addresses Log collection and analysis via Failover Clustering, SCVMM, or Windows tooling \u2014 not Azure Local or NSX.",
+      "workaround": "Use Hyper-V Manager, Failover Cluster Manager, or SCVMM for Log collection and analysis.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Standalone Hyper-V is not Azure Local; SDN/K8s/VCF lifecycle remain gaps."
+    },
+    "VCF-07-F03": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Windows Server Hyper-V / Failover Clustering",
+      "evidenceKey": "scvmm",
+      "notes": "Standalone Hyper-V addresses Capacity and performance planning via Failover Clustering, SCVMM, or Windows tooling \u2014 not Azure Local or NSX.",
+      "workaround": "Use Hyper-V Manager, Failover Cluster Manager, or SCVMM for Capacity and performance planning.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Standalone Hyper-V is not Azure Local; SDN/K8s/VCF lifecycle remain gaps."
+    },
+    "VCF-07-F04": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Windows Server Hyper-V / Failover Clustering",
+      "evidenceKey": "scvmm",
+      "notes": "Standalone Hyper-V addresses Configuration and compliance monitoring via Failover Clustering, SCVMM, or Windows tooling \u2014 not Azure Local or NSX.",
+      "workaround": "Use Hyper-V Manager, Failover Cluster Manager, or SCVMM for Configuration and compliance monitoring.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Standalone Hyper-V is not Azure Local; SDN/K8s/VCF lifecycle remain gaps."
+    },
+    "VCF-07-F05": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Windows Server Hyper-V / Failover Clustering",
+      "evidenceKey": "scvmm",
+      "notes": "Standalone Hyper-V addresses Service/application awareness via Failover Clustering, SCVMM, or Windows tooling \u2014 not Azure Local or NSX.",
+      "workaround": "Use Hyper-V Manager, Failover Cluster Manager, or SCVMM for Service/application awareness.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Standalone Hyper-V is not Azure Local; SDN/K8s/VCF lifecycle remain gaps."
+    },
+    "VCF-07-F06": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Windows Server Hyper-V / Failover Clustering",
+      "evidenceKey": "scvmm",
+      "notes": "Standalone Hyper-V addresses Alerting and notification routing via Failover Clustering, SCVMM, or Windows tooling \u2014 not Azure Local or NSX.",
+      "workaround": "Use Hyper-V Manager, Failover Cluster Manager, or SCVMM for Alerting and notification routing.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Standalone Hyper-V is not Azure Local; SDN/K8s/VCF lifecycle remain gaps."
+    },
+    "VCF-07-F07": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Windows Server Hyper-V / Failover Clustering",
+      "evidenceKey": "scvmm",
+      "notes": "Standalone Hyper-V addresses Operational reporting and evidence via Failover Clustering, SCVMM, or Windows tooling \u2014 not Azure Local or NSX.",
+      "workaround": "Use Hyper-V Manager, Failover Cluster Manager, or SCVMM for Operational reporting and evidence.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Standalone Hyper-V is not Azure Local; SDN/K8s/VCF lifecycle remain gaps."
+    },
+    "VCF-08-F01": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Windows Server Hyper-V / Failover Clustering",
+      "evidenceKey": "scvmm",
+      "notes": "Standalone Hyper-V addresses Service catalog / self-service requests via Failover Clustering, SCVMM, or Windows tooling \u2014 not Azure Local or NSX.",
+      "workaround": "Use Hyper-V Manager, Failover Cluster Manager, or SCVMM for Service catalog / self-service requests.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Standalone Hyper-V is not Azure Local; SDN/K8s/VCF lifecycle remain gaps."
+    },
+    "VCF-08-F02": {
+      "parity": "Full Parity",
+      "primaryComponent": "Windows Server Hyper-V / Failover Clustering",
+      "evidenceKey": "scvmm",
+      "notes": "Standalone Hyper-V / Failover Clustering provides Infrastructure as code / templates without Azure Local/Arc packaging."
+    },
+    "VCF-08-F03": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Windows Server Hyper-V / Failover Clustering",
+      "evidenceKey": "scvmm",
+      "notes": "Standalone Hyper-V addresses Approval and governance workflows via Failover Clustering, SCVMM, or Windows tooling \u2014 not Azure Local or NSX.",
+      "workaround": "Use Hyper-V Manager, Failover Cluster Manager, or SCVMM for Approval and governance workflows.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Standalone Hyper-V is not Azure Local; SDN/K8s/VCF lifecycle remain gaps."
+    },
+    "VCF-08-F04": {
+      "parity": "No Parity",
+      "primaryComponent": "N/A",
+      "evidenceKey": "scvmm",
+      "notes": "No VCF-equivalent Day-2 automation actions on standalone Hyper-V (no NSX, no Supervisor K8s, no VCF installer)."
+    },
+    "VCF-08-F05": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Windows Server Hyper-V / Failover Clustering",
+      "evidenceKey": "scvmm",
+      "notes": "Standalone Hyper-V addresses Multi-tenancy and entitlement via Failover Clustering, SCVMM, or Windows tooling \u2014 not Azure Local or NSX.",
+      "workaround": "Use Hyper-V Manager, Failover Cluster Manager, or SCVMM for Multi-tenancy and entitlement.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Standalone Hyper-V is not Azure Local; SDN/K8s/VCF lifecycle remain gaps."
+    },
+    "VCF-08-F06": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Windows Server Hyper-V / Failover Clustering",
+      "evidenceKey": "scvmm",
+      "notes": "Standalone Hyper-V addresses Integrations to ITSM / pipelines via Failover Clustering, SCVMM, or Windows tooling \u2014 not Azure Local or NSX.",
+      "workaround": "Use Hyper-V Manager, Failover Cluster Manager, or SCVMM for Integrations to ITSM / pipelines.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Standalone Hyper-V is not Azure Local; SDN/K8s/VCF lifecycle remain gaps."
+    },
+    "VCF-08-F07": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Windows Server Hyper-V / Failover Clustering",
+      "evidenceKey": "scvmm",
+      "notes": "Standalone Hyper-V addresses Automation extensibility via Failover Clustering, SCVMM, or Windows tooling \u2014 not Azure Local or NSX.",
+      "workaround": "Use Hyper-V Manager, Failover Cluster Manager, or SCVMM for Automation extensibility.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Standalone Hyper-V is not Azure Local; SDN/K8s/VCF lifecycle remain gaps."
+    },
+    "VCF-09-F01": {
+      "parity": "No Parity",
+      "primaryComponent": "N/A",
+      "evidenceKey": "hyperv",
+      "notes": "No VCF-equivalent Supervisor / cluster lifecycle on standalone Hyper-V (no NSX, no Supervisor K8s, no VCF installer)."
+    },
+    "VCF-09-F02": {
+      "parity": "No Parity",
+      "primaryComponent": "N/A",
+      "evidenceKey": "hyperv",
+      "notes": "No VCF-equivalent Workload tenancy and namespaces on standalone Hyper-V (no NSX, no Supervisor K8s, no VCF installer)."
+    },
+    "VCF-09-F03": {
+      "parity": "No Parity",
+      "primaryComponent": "N/A",
+      "evidenceKey": "hyperv",
+      "notes": "No VCF-equivalent Container networking & services on standalone Hyper-V (no NSX, no Supervisor K8s, no VCF installer)."
+    },
+    "VCF-09-F04": {
+      "parity": "No Parity",
+      "primaryComponent": "N/A",
+      "evidenceKey": "hyperv",
+      "notes": "No VCF-equivalent Persistent storage for containers on standalone Hyper-V (no NSX, no Supervisor K8s, no VCF installer)."
+    },
+    "VCF-09-F05": {
+      "parity": "No Parity",
+      "primaryComponent": "N/A",
+      "evidenceKey": "hyperv",
+      "notes": "No VCF-equivalent Registry / package / content services on standalone Hyper-V (no NSX, no Supervisor K8s, no VCF installer)."
+    },
+    "VCF-09-F06": {
+      "parity": "No Parity",
+      "primaryComponent": "N/A",
+      "evidenceKey": "hyperv",
+      "notes": "No VCF-equivalent Platform security controls on standalone Hyper-V (no NSX, no Supervisor K8s, no VCF installer)."
+    },
+    "VCF-09-F07": {
+      "parity": "No Parity",
+      "primaryComponent": "N/A",
+      "evidenceKey": "hyperv",
+      "notes": "No VCF-equivalent Developer self-service experience on standalone Hyper-V (no NSX, no Supervisor K8s, no VCF installer)."
+    },
+    "VCF-10-F01": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Windows Server Hyper-V / Failover Clustering",
+      "evidenceKey": "replica",
+      "notes": "Standalone Hyper-V addresses Bulk / cold migration via Failover Clustering, SCVMM, or Windows tooling \u2014 not Azure Local or NSX.",
+      "workaround": "Use Hyper-V Manager, Failover Cluster Manager, or SCVMM for Bulk / cold migration.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Standalone Hyper-V is not Azure Local; SDN/K8s/VCF lifecycle remain gaps."
+    },
+    "VCF-10-F02": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Windows Server Hyper-V / Failover Clustering",
+      "evidenceKey": "replica",
+      "notes": "Standalone Hyper-V addresses Live / vMotion-style mobility via Failover Clustering, SCVMM, or Windows tooling \u2014 not Azure Local or NSX.",
+      "workaround": "Use Hyper-V Manager, Failover Cluster Manager, or SCVMM for Live / vMotion-style mobility.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Standalone Hyper-V is not Azure Local; SDN/K8s/VCF lifecycle remain gaps."
+    },
+    "VCF-10-F03": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Windows Server Hyper-V / Failover Clustering",
+      "evidenceKey": "replica",
+      "notes": "Standalone Hyper-V addresses Replication-assisted migration via Failover Clustering, SCVMM, or Windows tooling \u2014 not Azure Local or NSX.",
+      "workaround": "Use Hyper-V Manager, Failover Cluster Manager, or SCVMM for Replication-assisted migration.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Standalone Hyper-V is not Azure Local; SDN/K8s/VCF lifecycle remain gaps."
+    },
+    "VCF-10-F04": {
+      "parity": "No Parity",
+      "primaryComponent": "N/A",
+      "evidenceKey": "replica",
+      "notes": "No VCF-equivalent Network extension / mobility bridging on standalone Hyper-V (no NSX, no Supervisor K8s, no VCF installer)."
+    },
+    "VCF-10-F05": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Windows Server Hyper-V / Failover Clustering",
+      "evidenceKey": "replica",
+      "notes": "Standalone Hyper-V addresses Import / converge workflows via Failover Clustering, SCVMM, or Windows tooling \u2014 not Azure Local or NSX.",
+      "workaround": "Use Hyper-V Manager, Failover Cluster Manager, or SCVMM for Import / converge workflows.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Standalone Hyper-V is not Azure Local; SDN/K8s/VCF lifecycle remain gaps."
+    },
+    "VCF-10-F06": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Windows Server Hyper-V / Failover Clustering",
+      "evidenceKey": "replica",
+      "notes": "Standalone Hyper-V addresses Mobility planning and wave ops via Failover Clustering, SCVMM, or Windows tooling \u2014 not Azure Local or NSX.",
+      "workaround": "Use Hyper-V Manager, Failover Cluster Manager, or SCVMM for Mobility planning and wave ops.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Standalone Hyper-V is not Azure Local; SDN/K8s/VCF lifecycle remain gaps."
+    },
+    "VCF-10-F07": {
+      "parity": "No Parity",
+      "primaryComponent": "N/A",
+      "evidenceKey": "replica",
+      "notes": "No VCF-equivalent Rollback and fallback posture on standalone Hyper-V (no NSX, no Supervisor K8s, no VCF installer)."
+    },
+    "VCF-11-F01": {
+      "parity": "Full Parity",
+      "primaryComponent": "Windows Server Hyper-V / Failover Clustering",
+      "evidenceKey": "replica",
+      "notes": "Standalone Hyper-V / Failover Clustering provides Backup protection without Azure Local/Arc packaging."
+    },
+    "VCF-11-F02": {
+      "parity": "Full Parity",
+      "primaryComponent": "Windows Server Hyper-V / Failover Clustering",
+      "evidenceKey": "replica",
+      "notes": "Standalone Hyper-V / Failover Clustering provides Restore and recovery without Azure Local/Arc packaging."
+    },
+    "VCF-11-F03": {
+      "parity": "Full Parity",
+      "primaryComponent": "Windows Server Hyper-V / Failover Clustering",
+      "evidenceKey": "replica",
+      "notes": "Standalone Hyper-V / Failover Clustering provides Replication / DR orchestration without Azure Local/Arc packaging."
+    },
+    "VCF-11-F04": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Windows Server Hyper-V / Failover Clustering",
+      "evidenceKey": "replica",
+      "notes": "Standalone Hyper-V addresses RPO/RTO policy alignment via Failover Clustering, SCVMM, or Windows tooling \u2014 not Azure Local or NSX.",
+      "workaround": "Use Hyper-V Manager, Failover Cluster Manager, or SCVMM for RPO/RTO policy alignment.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Standalone Hyper-V is not Azure Local; SDN/K8s/VCF lifecycle remain gaps."
+    },
+    "VCF-11-F05": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Windows Server Hyper-V / Failover Clustering",
+      "evidenceKey": "replica",
+      "notes": "Standalone Hyper-V addresses Cyber recovery / immutable posture via Failover Clustering, SCVMM, or Windows tooling \u2014 not Azure Local or NSX.",
+      "workaround": "Use Hyper-V Manager, Failover Cluster Manager, or SCVMM for Cyber recovery / immutable posture.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Standalone Hyper-V is not Azure Local; SDN/K8s/VCF lifecycle remain gaps."
+    },
+    "VCF-11-F06": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Windows Server Hyper-V / Failover Clustering",
+      "evidenceKey": "replica",
+      "notes": "Standalone Hyper-V addresses Application-consistent protection via Failover Clustering, SCVMM, or Windows tooling \u2014 not Azure Local or NSX.",
+      "workaround": "Use Hyper-V Manager, Failover Cluster Manager, or SCVMM for Application-consistent protection.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Standalone Hyper-V is not Azure Local; SDN/K8s/VCF lifecycle remain gaps."
+    },
+    "VCF-11-F07": {
+      "parity": "Full Parity",
+      "primaryComponent": "Windows Server Hyper-V / Failover Clustering",
+      "evidenceKey": "replica",
+      "notes": "Standalone Hyper-V / Failover Clustering provides Resilience reporting and evidence without Azure Local/Arc packaging."
+    },
+    "VCF-12-F01": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Windows Server Hyper-V / Failover Clustering",
+      "evidenceKey": "hyperv",
+      "notes": "Standalone Hyper-V addresses GPU / accelerator enablement via Failover Clustering, SCVMM, or Windows tooling \u2014 not Azure Local or NSX.",
+      "workaround": "Use Hyper-V Manager, Failover Cluster Manager, or SCVMM for GPU / accelerator enablement.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Standalone Hyper-V is not Azure Local; SDN/K8s/VCF lifecycle remain gaps."
+    },
+    "VCF-12-F02": {
+      "parity": "No Parity",
+      "primaryComponent": "N/A",
+      "evidenceKey": "hyperv",
+      "notes": "No VCF-equivalent Model hosting / serving on standalone Hyper-V (no NSX, no Supervisor K8s, no VCF installer)."
+    },
+    "VCF-12-F03": {
+      "parity": "No Parity",
+      "primaryComponent": "N/A",
+      "evidenceKey": "hyperv",
+      "notes": "No VCF-equivalent Data pipeline / RAG foundations on standalone Hyper-V (no NSX, no Supervisor K8s, no VCF installer)."
+    },
+    "VCF-12-F04": {
+      "parity": "No Parity",
+      "primaryComponent": "N/A",
+      "evidenceKey": "hyperv",
+      "notes": "No VCF-equivalent AI lifecycle / MLOps basics on standalone Hyper-V (no NSX, no Supervisor K8s, no VCF installer)."
+    },
+    "VCF-12-F05": {
+      "parity": "No Parity",
+      "primaryComponent": "N/A",
+      "evidenceKey": "hyperv",
+      "notes": "No VCF-equivalent Governance and access control for AI on standalone Hyper-V (no NSX, no Supervisor K8s, no VCF installer)."
+    },
+    "VCF-12-F06": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Windows Server Hyper-V / Failover Clustering",
+      "evidenceKey": "hyperv",
+      "notes": "Standalone Hyper-V addresses Integration with VCF platform services via Failover Clustering, SCVMM, or Windows tooling \u2014 not Azure Local or NSX.",
+      "workaround": "Use Hyper-V Manager, Failover Cluster Manager, or SCVMM for Integration with VCF platform services.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Standalone Hyper-V is not Azure Local; SDN/K8s/VCF lifecycle remain gaps."
+    },
+    "VCF-12-F07": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Windows Server Hyper-V / Failover Clustering",
+      "evidenceKey": "hyperv",
+      "notes": "Standalone Hyper-V addresses Sovereign / private AI controls via Failover Clustering, SCVMM, or Windows tooling \u2014 not Azure Local or NSX.",
+      "workaround": "Use Hyper-V Manager, Failover Cluster Manager, or SCVMM for Sovereign / private AI controls.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Standalone Hyper-V is not Azure Local; SDN/K8s/VCF lifecycle remain gaps."
+    }
+  }
+}
