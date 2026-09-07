@@ -1,0 +1,759 @@
+{
+  "platformKey": "OpenStackKVM",
+  "platformName": "OpenStack on KVM (composite)",
+  "evaluationBasisType": "CompositePeriod",
+  "evaluatedBaseline": "OpenStackKVM Composite \u2014 Evaluation Basis: Q3-2026 (Nova/Cinder/Neutron/KVM public docs; distro-agnostic)",
+  "evidenceSource": "OpenStack official documentation (docs.openstack.org)",
+  "supportingComponents": [
+    "Nova",
+    "Cinder",
+    "Neutron",
+    "Keystone",
+    "Horizon",
+    "KVM/libvirt"
+  ],
+  "solutionComponents": [
+    {
+      "Component": "Nova",
+      "Role": "Compute"
+    },
+    {
+      "Component": "Cinder",
+      "Role": "Block storage"
+    },
+    {
+      "Component": "Neutron",
+      "Role": "Networking"
+    },
+    {
+      "Component": "Keystone",
+      "Role": "Identity"
+    },
+    {
+      "Component": "Horizon",
+      "Role": "Dashboard"
+    },
+    {
+      "Component": "Heat",
+      "Role": "Orchestration"
+    }
+  ],
+  "disclaimer": "Composite evaluation-period mapping of public OpenStack project docs to CN v0.3. Not a single product version. Distro (Red Hat, Canonical, vanilla) must be confirmed before advisory sign-off.",
+  "evidenceCatalog": {
+    "docs": "https://docs.openstack.org/",
+    "nova": "https://docs.openstack.org/nova/latest/",
+    "cinder": "https://docs.openstack.org/cinder/latest/",
+    "neutron": "https://docs.openstack.org/neutron/latest/",
+    "keystone": "https://docs.openstack.org/keystone/latest/",
+    "horizon": "https://docs.openstack.org/horizon/latest/",
+    "heat": "https://docs.openstack.org/heat/latest/",
+    "glance": "https://docs.openstack.org/glance/latest/",
+    "ironic": "https://docs.openstack.org/ironic/latest/",
+    "octavia": "https://docs.openstack.org/octavia/latest/",
+    "manila": "https://docs.openstack.org/manila/latest/",
+    "magnum": "https://docs.openstack.org/magnum/latest/",
+    "telemetry": "https://docs.openstack.org/ceilometer/latest/"
+  },
+  "status": "evidence_backed_draft",
+  "features": {
+    "VCF-01-F01": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Horizon / Placement",
+      "evidenceKey": "nova",
+      "notes": "Host/aggregate inventory, not VCF fleet domains.",
+      "workaround": "Use Horizon/Placement and host aggregates.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "No workload-domain object."
+    },
+    "VCF-01-F02": {
+      "parity": "No Parity",
+      "primaryComponent": "N/A",
+      "evidenceKey": "nova",
+      "notes": "No VCF Workload Domain lifecycle."
+    },
+    "VCF-01-F03": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Nova",
+      "evidenceKey": "nova",
+      "notes": "Compute node add/remove is operational, not VCF cluster composition UI.",
+      "workaround": "Scale compute hosts and aggregates.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Cluster composition is DIY."
+    },
+    "VCF-01-F04": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Keystone / cells",
+      "evidenceKey": "keystone",
+      "notes": "Isolation via projects/cells, not VCF domains.",
+      "workaround": "Separate service projects and cells.",
+      "workaroundComplexity": "High",
+      "technicalImpact": "Management domain analogue is weak."
+    },
+    "VCF-01-F05": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Ironic / distro installer",
+      "evidenceKey": "ironic",
+      "notes": "Bare metal via Ironic or distro tools.",
+      "workaround": "Commission with Ironic or vendor installer.",
+      "workaroundComplexity": "High",
+      "technicalImpact": "Not VCF commissioning."
+    },
+    "VCF-01-F06": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Config management",
+      "evidenceKey": "heat",
+      "notes": "Baselines via Ansible/Heat, not VCF.",
+      "workaround": "Enforce desired state with Ansible.",
+      "workaroundComplexity": "High",
+      "technicalImpact": "No SDDC Manager baselines."
+    },
+    "VCF-01-F07": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Availability zones",
+      "evidenceKey": "nova",
+      "notes": "AZs/regions, not stretch domains.",
+      "workaround": "Model sites as AZs/regions.",
+      "workaroundComplexity": "High",
+      "technicalImpact": "Stretch semantics differ."
+    },
+    "VCF-02-F01": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Distro installer",
+      "evidenceKey": "docs",
+      "notes": "Bring-up is distro-specific (kolla/OSA/tripleo-class).",
+      "workaround": "Use chosen OpenStack distro installer.",
+      "workaroundComplexity": "High",
+      "technicalImpact": "Not VCF Installer."
+    },
+    "VCF-02-F02": {
+      "parity": "No Parity",
+      "primaryComponent": "N/A",
+      "evidenceKey": "docs",
+      "notes": "No SDDC Manager."
+    },
+    "VCF-02-F03": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Distro repos",
+      "evidenceKey": "docs",
+      "notes": "Package repos, not VCF depot.",
+      "workaround": "Mirror distro/OpenStack repos.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "No VCF bundle integrity model."
+    },
+    "VCF-02-F04": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Distro tooling",
+      "evidenceKey": "docs",
+      "notes": "Upgrade prechecks are distro-specific.",
+      "workaround": "Follow distro upgrade validation guides.",
+      "workaroundComplexity": "High",
+      "technicalImpact": "No standard VCF precheck pack."
+    },
+    "VCF-02-F05": {
+      "parity": "No Parity",
+      "primaryComponent": "N/A",
+      "evidenceKey": "docs",
+      "notes": "No coordinated VCF-style full-stack upgrade product."
+    },
+    "VCF-02-F06": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Distro",
+      "evidenceKey": "docs",
+      "notes": "Selective service upgrades with high risk.",
+      "workaround": "Upgrade services per distro skip-level guidance.",
+      "workaroundComplexity": "High",
+      "technicalImpact": "Skip-level is operator-owned."
+    },
+    "VCF-02-F07": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Distro",
+      "evidenceKey": "docs",
+      "notes": "Rollback is restore/reinstall.",
+      "workaround": "Snapshot control plane; document rollback limits.",
+      "workaroundComplexity": "High",
+      "technicalImpact": "Weak rollback posture."
+    },
+    "VCF-03-F01": {
+      "parity": "Full Parity",
+      "primaryComponent": "Nova / KVM / libvirt",
+      "evidenceKey": "nova",
+      "notes": "Nova on KVM provides VM compute."
+    },
+    "VCF-03-F02": {
+      "parity": "Full Parity",
+      "primaryComponent": "Horizon / APIs",
+      "evidenceKey": "horizon",
+      "notes": "Central inventory, Keystone RBAC, REST APIs."
+    },
+    "VCF-03-F03": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Nova scheduler / Watcher",
+      "evidenceKey": "nova",
+      "notes": "Scheduler filters, not DRS.",
+      "workaround": "Tune scheduler filters/weights; optional Watcher.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "No DRS equivalent."
+    },
+    "VCF-03-F04": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Nova HA / masakari",
+      "evidenceKey": "nova",
+      "notes": "Instance HA via masakari/design.",
+      "workaround": "Deploy masakari or pacemaker instance HA.",
+      "workaroundComplexity": "High",
+      "technicalImpact": "Not vSphere HA."
+    },
+    "VCF-03-F05": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Nova quotas",
+      "evidenceKey": "nova",
+      "notes": "Project quotas, not resource pools.",
+      "workaround": "Use project quotas and flavors.",
+      "workaroundComplexity": "Low",
+      "technicalImpact": "Pool model differs."
+    },
+    "VCF-03-F06": {
+      "parity": "Full Parity",
+      "primaryComponent": "Nova",
+      "evidenceKey": "nova",
+      "notes": "Boot, snapshot, image-based clone are core."
+    },
+    "VCF-03-F07": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Nova live migration",
+      "evidenceKey": "nova",
+      "notes": "Live migration/maintenance; host remediation DIY.",
+      "workaround": "Use live migration and disable-compute.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Remediation is less automated."
+    },
+    "VCF-04-F01": {
+      "parity": "Full Parity",
+      "primaryComponent": "Cinder",
+      "evidenceKey": "cinder",
+      "notes": "Block storage volumes for instances."
+    },
+    "VCF-04-F02": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Cinder types",
+      "evidenceKey": "cinder",
+      "notes": "Volume types vs SPBM.",
+      "workaround": "Map extra-specs to volume types.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "VM-disk policy UX differs."
+    },
+    "VCF-04-F03": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Backend",
+      "evidenceKey": "cinder",
+      "notes": "Efficiency depends on Ceph/backend.",
+      "workaround": "Use Ceph compression/EC if backend supports.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Not vSAN efficiency UI."
+    },
+    "VCF-04-F04": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Ceph / backend",
+      "evidenceKey": "cinder",
+      "notes": "Resilience is backend-specific.",
+      "workaround": "Design Ceph CRUSH/failure domains.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Not vSAN fault domains UI."
+    },
+    "VCF-04-F05": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Ceph stretch / Cinder replication",
+      "evidenceKey": "cinder",
+      "notes": "Stretch is design-heavy.",
+      "workaround": "Use Ceph stretch or volume replication.",
+      "workaroundComplexity": "High",
+      "technicalImpact": "Not vSAN stretch."
+    },
+    "VCF-04-F06": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Manila",
+      "evidenceKey": "manila",
+      "notes": "Shared file via Manila.",
+      "workaround": "Deploy Manila with NFS/CephFS.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Add-on vs integrated vSAN File."
+    },
+    "VCF-04-F07": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Backend tooling",
+      "evidenceKey": "cinder",
+      "notes": "Health via Ceph/cinder logs.",
+      "workaround": "Use Ceph dashboard and cinder service status.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Support bundles are DIY."
+    },
+    "VCF-05-F01": {
+      "parity": "Full Parity",
+      "primaryComponent": "Neutron",
+      "evidenceKey": "neutron",
+      "notes": "Networks/ports/security groups."
+    },
+    "VCF-05-F02": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Neutron routers",
+      "evidenceKey": "neutron",
+      "notes": "Neutron routers, not NSX T0/T1.",
+      "workaround": "Map T0/T1 to Neutron routers/provider nets.",
+      "workaroundComplexity": "High",
+      "technicalImpact": "Taxonomy differs."
+    },
+    "VCF-05-F03": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Octavia / Neutron",
+      "evidenceKey": "octavia",
+      "notes": "LB via Octavia; NAT via Neutron.",
+      "workaround": "Deploy Octavia and floating IPs.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Not NSX Edge."
+    },
+    "VCF-05-F04": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Neutron RBAC",
+      "evidenceKey": "neutron",
+      "notes": "Project networks as tenancy.",
+      "workaround": "Use project networks and RBAC shares.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Not NSX VPC."
+    },
+    "VCF-05-F05": {
+      "parity": "Partial Parity",
+      "primaryComponent": "ML2/OVS/OVN",
+      "evidenceKey": "neutron",
+      "notes": "Overlay via Geneve/VXLAN.",
+      "workaround": "Validate underlay MTU for Geneve/VXLAN.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Ops model differs from NSX."
+    },
+    "VCF-05-F06": {
+      "parity": "Full Parity",
+      "primaryComponent": "Neutron DHCP / Designate",
+      "evidenceKey": "neutron",
+      "notes": "DHCP built-in; DNS via Designate."
+    },
+    "VCF-05-F07": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Neutron logs",
+      "evidenceKey": "neutron",
+      "notes": "Basic observability; tracing DIY.",
+      "workaround": "Use Neutron logging and TAP services.",
+      "workaroundComplexity": "High",
+      "technicalImpact": "No NSX Traceflow."
+    },
+    "VCF-06-F01": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Security groups",
+      "evidenceKey": "neutron",
+      "notes": "Security groups are L3/L4, not NSX DFW.",
+      "workaround": "Use SG plus optional FWaaS/OVN ACLs.",
+      "workaroundComplexity": "High",
+      "technicalImpact": "East-west DFW incomplete."
+    },
+    "VCF-06-F02": {
+      "parity": "Partial Parity",
+      "primaryComponent": "FWaaS / SG",
+      "evidenceKey": "neutron",
+      "notes": "North-south via FWaaS/router ACLs.",
+      "workaround": "Enable FWaaS or perimeter NVA.",
+      "workaroundComplexity": "High",
+      "technicalImpact": "Not NSX gateway firewall."
+    },
+    "VCF-06-F03": {
+      "parity": "Partial Parity",
+      "primaryComponent": "SG / tags",
+      "evidenceKey": "neutron",
+      "notes": "Limited dynamic grouping.",
+      "workaround": "Use port tags and automation to sync SGs.",
+      "workaroundComplexity": "High",
+      "technicalImpact": "Weaker than NSX groups."
+    },
+    "VCF-06-F04": {
+      "parity": "No Parity",
+      "primaryComponent": "N/A",
+      "evidenceKey": "neutron",
+      "notes": "No native IDS/IPS product in core OpenStack."
+    },
+    "VCF-06-F05": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Keystone",
+      "evidenceKey": "keystone",
+      "notes": "Identity for APIs, not packet identity firewall.",
+      "workaround": "Combine Keystone with SG automation.",
+      "workaroundComplexity": "High",
+      "technicalImpact": "Not NSX identity firewall."
+    },
+    "VCF-06-F06": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Heat / Ansible",
+      "evidenceKey": "heat",
+      "notes": "Policy as automation.",
+      "workaround": "Manage SG/FWaaS via IaC.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "No NSX publish/rollback UI."
+    },
+    "VCF-06-F07": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Barbican / audit",
+      "evidenceKey": "keystone",
+      "notes": "Audit via CADF/logs.",
+      "workaround": "Export CADF and Neutron logs.",
+      "workaroundComplexity": "High",
+      "technicalImpact": "Compliance reporting is DIY."
+    },
+    "VCF-07-F01": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Ceilometer / Prometheus",
+      "evidenceKey": "telemetry",
+      "notes": "Telemetry stack is composed.",
+      "workaround": "Deploy Prometheus/Ceilometer as designed.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Not Aria out of box."
+    },
+    "VCF-07-F02": {
+      "parity": "Partial Parity",
+      "primaryComponent": "ELK / distro logging",
+      "evidenceKey": "telemetry",
+      "notes": "Logs via distro ELK.",
+      "workaround": "Centralize service logs in ELK/Loki.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Not Aria Logs."
+    },
+    "VCF-07-F03": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Watcher / Gnocchi",
+      "evidenceKey": "telemetry",
+      "notes": "Capacity via Watcher/custom.",
+      "workaround": "Use Watcher or custom capacity jobs.",
+      "workaroundComplexity": "High",
+      "technicalImpact": "Planning maturity varies."
+    },
+    "VCF-07-F04": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Ansible / Inspector",
+      "evidenceKey": "ironic",
+      "notes": "Compliance DIY.",
+      "workaround": "Scan with OpenSCAP/Inspector.",
+      "workaroundComplexity": "High",
+      "technicalImpact": "No Aria compliance packs."
+    },
+    "VCF-07-F05": {
+      "parity": "No Parity",
+      "primaryComponent": "N/A",
+      "evidenceKey": "telemetry",
+      "notes": "No first-class app dependency mapping product."
+    },
+    "VCF-07-F06": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Aodh / Alertmanager",
+      "evidenceKey": "telemetry",
+      "notes": "Alerting composed.",
+      "workaround": "Wire Aodh or Alertmanager.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Routing is custom."
+    },
+    "VCF-07-F07": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Horizon",
+      "evidenceKey": "horizon",
+      "notes": "Basic reports; evidence DIY.",
+      "workaround": "Export Horizon/usage data.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Ops evidence packs are custom."
+    },
+    "VCF-08-F01": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Horizon / Heat",
+      "evidenceKey": "heat",
+      "notes": "Self-service via Horizon, not Aria catalog.",
+      "workaround": "Publish Heat/Trove templates in Horizon.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Catalog UX differs."
+    },
+    "VCF-08-F02": {
+      "parity": "Full Parity",
+      "primaryComponent": "Heat / Terraform",
+      "evidenceKey": "heat",
+      "notes": "Templates are first-class."
+    },
+    "VCF-08-F03": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Keystone / ITSM",
+      "evidenceKey": "keystone",
+      "notes": "Approvals via ITSM outside OpenStack.",
+      "workaround": "Gate Heat stacks with ITSM.",
+      "workaroundComplexity": "High",
+      "technicalImpact": "No native approval engine."
+    },
+    "VCF-08-F04": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Heat / Mistral",
+      "evidenceKey": "heat",
+      "notes": "Day-2 via Heat update/Mistral.",
+      "workaround": "Encode day-2 as Heat/Mistral/Ansible.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Less packaged than Aria."
+    },
+    "VCF-08-F05": {
+      "parity": "Full Parity",
+      "primaryComponent": "Keystone projects",
+      "evidenceKey": "keystone",
+      "notes": "Multi-tenancy is core."
+    },
+    "VCF-08-F06": {
+      "parity": "Partial Parity",
+      "primaryComponent": "APIs",
+      "evidenceKey": "horizon",
+      "notes": "ITSM via APIs.",
+      "workaround": "Integrate via REST/webhooks.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Connectors DIY."
+    },
+    "VCF-08-F07": {
+      "parity": "Full Parity",
+      "primaryComponent": "REST APIs",
+      "evidenceKey": "horizon",
+      "notes": "Extensible APIs and credential stores (Barbican)."
+    },
+    "VCF-09-F01": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Magnum / external K8s",
+      "evidenceKey": "magnum",
+      "notes": "Magnum COE optional; often external Kubernetes.",
+      "workaround": "Use Magnum or attach external K8s.",
+      "workaroundComplexity": "High",
+      "technicalImpact": "Not vSphere Supervisor."
+    },
+    "VCF-09-F02": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Kubernetes",
+      "evidenceKey": "magnum",
+      "notes": "Namespaces if K8s is present.",
+      "workaround": "Operate namespaces on Magnum/external K8s.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Depends on Magnum adoption."
+    },
+    "VCF-09-F03": {
+      "parity": "Partial Parity",
+      "primaryComponent": "K8s CNI",
+      "evidenceKey": "magnum",
+      "notes": "CNI chosen by K8s distro.",
+      "workaround": "Use Calico/OVN on the K8s layer.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Not NSX-VKS."
+    },
+    "VCF-09-F04": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Cinder CSI",
+      "evidenceKey": "cinder",
+      "notes": "CSI to Cinder if K8s present.",
+      "workaround": "Install Cinder CSI.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Depends on K8s being in scope."
+    },
+    "VCF-09-F05": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Glance / external registry",
+      "evidenceKey": "glance",
+      "notes": "Images in Glance; container registry external.",
+      "workaround": "Deploy Harbor/Quay alongside.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Not integrated VCF registry."
+    },
+    "VCF-09-F06": {
+      "parity": "Partial Parity",
+      "primaryComponent": "K8s PSS",
+      "evidenceKey": "magnum",
+      "notes": "Pod security if K8s present.",
+      "workaround": "Apply PSS/OPA on the K8s cluster.",
+      "workaroundComplexity": "High",
+      "technicalImpact": "Not a platform default."
+    },
+    "VCF-09-F07": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Horizon",
+      "evidenceKey": "horizon",
+      "notes": "Limited developer K8s UX vs OpenShift.",
+      "workaround": "Expose kubectl via Magnum certs.",
+      "workaroundComplexity": "High",
+      "technicalImpact": "Developer experience is weaker."
+    },
+    "VCF-10-F01": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Glance / virt-v2v",
+      "evidenceKey": "glance",
+      "notes": "Import images/cold migrate.",
+      "workaround": "Convert disks with virt-v2v into Glance.",
+      "workaroundComplexity": "High",
+      "technicalImpact": "Not HCX."
+    },
+    "VCF-10-F02": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Nova live migration",
+      "evidenceKey": "nova",
+      "notes": "Live migrate within cloud only.",
+      "workaround": "Live migrate intra-cloud; cross-platform is cutover.",
+      "workaroundComplexity": "High",
+      "technicalImpact": "No HCX fabric."
+    },
+    "VCF-10-F03": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Cinder replication",
+      "evidenceKey": "cinder",
+      "notes": "Replication-assisted if backend supports.",
+      "workaround": "Use volume replication then rebuild instance.",
+      "workaroundComplexity": "High",
+      "technicalImpact": "Not HCX RAV."
+    },
+    "VCF-10-F04": {
+      "parity": "No Parity",
+      "primaryComponent": "N/A",
+      "evidenceKey": "neutron",
+      "notes": "No HCX L2 extension product."
+    },
+    "VCF-10-F05": {
+      "parity": "No Parity",
+      "primaryComponent": "N/A",
+      "evidenceKey": "docs",
+      "notes": "No VCF Import/Converge."
+    },
+    "VCF-10-F06": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Process",
+      "evidenceKey": "docs",
+      "notes": "Wave ops are project-managed.",
+      "workaround": "Track waves outside the platform.",
+      "workaroundComplexity": "High",
+      "technicalImpact": "No HCX wave console."
+    },
+    "VCF-10-F07": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Process",
+      "evidenceKey": "docs",
+      "notes": "Keep source until cutover.",
+      "workaround": "Define rollback windows operationally.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Process-driven."
+    },
+    "VCF-11-F01": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Freezer / distro backup",
+      "evidenceKey": "cinder",
+      "notes": "Backup via Freezer/partners/Ceph RBD mirror.",
+      "workaround": "Deploy backup project or Ceph RBD mirror.",
+      "workaroundComplexity": "High",
+      "technicalImpact": "Not a unified VCF backup product."
+    },
+    "VCF-11-F02": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Cinder backup",
+      "evidenceKey": "cinder",
+      "notes": "Volume backup/restore.",
+      "workaround": "Use cinder-backup to object store.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "File-level restore limited."
+    },
+    "VCF-11-F03": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Cinder / Masakari",
+      "evidenceKey": "cinder",
+      "notes": "DR is designed, not a product suite.",
+      "workaround": "Orchestrate failover with Heat/Ansible.",
+      "workaroundComplexity": "High",
+      "technicalImpact": "Not SRM."
+    },
+    "VCF-11-F04": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Backend RPO",
+      "evidenceKey": "cinder",
+      "notes": "RPO depends on backend.",
+      "workaround": "Document backend RPO/RTO.",
+      "workaroundComplexity": "High",
+      "technicalImpact": "No native SLA console."
+    },
+    "VCF-11-F05": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Object lock",
+      "evidenceKey": "cinder",
+      "notes": "Immutability if object store supports it.",
+      "workaround": "Use S3 object lock for backups.",
+      "workaroundComplexity": "High",
+      "technicalImpact": "Cyber recovery DIY."
+    },
+    "VCF-11-F06": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Guest agents",
+      "evidenceKey": "nova",
+      "notes": "App-consistent via guest fsfreeze/QEMU guest agent.",
+      "workaround": "Use guest agent freeze plus volume backup.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "DB agents DIY."
+    },
+    "VCF-11-F07": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Process",
+      "evidenceKey": "horizon",
+      "notes": "Reporting DIY.",
+      "workaround": "Export backup job logs.",
+      "workaroundComplexity": "High",
+      "technicalImpact": "Evidence packs custom."
+    },
+    "VCF-12-F01": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Nova PCI passthrough",
+      "evidenceKey": "nova",
+      "notes": "GPU passthrough/vGPU if configured.",
+      "workaround": "Enable PCI alias / vGPU types.",
+      "workaroundComplexity": "High",
+      "technicalImpact": "Not VCF Private AI."
+    },
+    "VCF-12-F02": {
+      "parity": "No Parity",
+      "primaryComponent": "N/A",
+      "evidenceKey": "docs",
+      "notes": "No first-class model serving product."
+    },
+    "VCF-12-F03": {
+      "parity": "No Parity",
+      "primaryComponent": "N/A",
+      "evidenceKey": "docs",
+      "notes": "No RAG platform product."
+    },
+    "VCF-12-F04": {
+      "parity": "No Parity",
+      "primaryComponent": "N/A",
+      "evidenceKey": "docs",
+      "notes": "No MLOps product."
+    },
+    "VCF-12-F05": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Keystone",
+      "evidenceKey": "keystone",
+      "notes": "Generic project RBAC only.",
+      "workaround": "Isolate GPU flavors by project.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "No AI governance product."
+    },
+    "VCF-12-F06": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Nova/Cinder/Neutron",
+      "evidenceKey": "nova",
+      "notes": "AI VMs use core IaaS.",
+      "workaround": "Run GPU instances on KVM.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "DIY vs VCF Private AI."
+    },
+    "VCF-12-F07": {
+      "parity": "Partial Parity",
+      "primaryComponent": "On-prem cloud",
+      "evidenceKey": "docs",
+      "notes": "On-prem possible; egress operator-owned.",
+      "workaround": "Keep inference on-prem; restrict Neutron egress.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Sovereign controls are design-only."
+    }
+  }
+}

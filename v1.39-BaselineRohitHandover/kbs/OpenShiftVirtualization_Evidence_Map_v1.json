@@ -1,0 +1,743 @@
+{
+  "platformKey": "OpenShiftVirtualization",
+  "platformName": "Red Hat OpenShift Virtualization",
+  "evaluationBasisType": "ProductVersion",
+  "evaluatedBaseline": "OpenShift Virtualization on OpenShift Container Platform (public Red Hat docs baseline, 2026-09)",
+  "evidenceSource": "Red Hat OpenShift / OpenShift Virtualization public documentation",
+  "supportingComponents": [
+    "OpenShift Container Platform",
+    "KubeVirt",
+    "OVN-Kubernetes",
+    "OpenShift Data Foundation"
+  ],
+  "solutionComponents": [
+    {
+      "Component": "OpenShift Virtualization",
+      "Role": "KubeVirt VM platform"
+    },
+    {
+      "Component": "OpenShift Container Platform",
+      "Role": "Kubernetes control plane"
+    },
+    {
+      "Component": "OVN-Kubernetes",
+      "Role": "Cluster networking"
+    },
+    {
+      "Component": "OpenShift Data Foundation",
+      "Role": "Persistent storage"
+    },
+    {
+      "Component": "Migration Toolkit for Virtualization",
+      "Role": "VM migration"
+    }
+  ],
+  "disclaimer": "SME mapping of public Red Hat OpenShift Virtualization documentation to CN v0.3 FeatureIDs. Evidence-Backed Draft only. Confirm OCP/Virt versions before advisory sign-off.",
+  "evidenceCatalog": {
+    "virt": "https://docs.redhat.com/en/documentation/openshift_container_platform/latest/html/virtualization/about-openshift-virtualization",
+    "ocp": "https://docs.redhat.com/en/documentation/openshift_container_platform/latest",
+    "install": "https://docs.redhat.com/en/documentation/openshift_container_platform/latest/html/installing",
+    "upgrade": "https://docs.redhat.com/en/documentation/openshift_container_platform/latest/html/updating_clusters",
+    "ovn": "https://docs.redhat.com/en/documentation/openshift_container_platform/latest/html/networking",
+    "odf": "https://docs.redhat.com/en/documentation/red_hat_openshift_data_foundation",
+    "acm": "https://docs.redhat.com/en/documentation/red_hat_advanced_cluster_management_for_kubernetes",
+    "gitops": "https://docs.redhat.com/en/documentation/red_hat_openshift_gitops",
+    "monitor": "https://docs.redhat.com/en/documentation/openshift_container_platform/latest/html/monitoring",
+    "acs": "https://docs.redhat.com/en/documentation/red_hat_advanced_cluster_security_for_kubernetes",
+    "mtv": "https://docs.redhat.com/en/documentation/migration_toolkit_for_virtualization",
+    "rhoai": "https://docs.redhat.com/en/documentation/red_hat_openshift_ai"
+  },
+  "status": "evidence_backed_draft",
+  "features": {
+    "VCF-01-F01": {
+      "parity": "Partial Parity",
+      "primaryComponent": "OpenShift web console",
+      "evidenceKey": "ocp",
+      "notes": "Cluster/node inventory exists; not VCF fleet/workload domains.",
+      "workaround": "Use OpenShift console and ACM for multi-cluster inventory.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "No VCF domain topology."
+    },
+    "VCF-01-F02": {
+      "parity": "No Parity",
+      "primaryComponent": "N/A",
+      "evidenceKey": "ocp",
+      "notes": "No VCF Workload Domain lifecycle."
+    },
+    "VCF-01-F03": {
+      "parity": "Partial Parity",
+      "primaryComponent": "MachineSets",
+      "evidenceKey": "ocp",
+      "notes": "Node add/remove via Machine API, not VCF cluster composition.",
+      "workaround": "Scale MachineSets / host scaling.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Host model is Kubernetes Machines, not ESXi clusters."
+    },
+    "VCF-01-F04": {
+      "parity": "Partial Parity",
+      "primaryComponent": "ACM / Hive",
+      "evidenceKey": "acm",
+      "notes": "Hub vs spoke isolation via ACM, not VCF management domain.",
+      "workaround": "Use ACM hub cluster plus managed clusters.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Isolation model differs."
+    },
+    "VCF-01-F05": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Assisted Installer / IPI",
+      "evidenceKey": "install",
+      "notes": "Node bring-up via Assisted Installer/IPI.",
+      "workaround": "Commission hosts with Assisted Installer.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Not VCF host commissioning."
+    },
+    "VCF-01-F06": {
+      "parity": "Partial Parity",
+      "primaryComponent": "GitOps / Policy",
+      "evidenceKey": "gitops",
+      "notes": "Desired state via GitOps, not VCF baselines.",
+      "workaround": "Enforce cluster desired state with ACM policies/GitOps.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Drift tooling differs."
+    },
+    "VCF-01-F07": {
+      "parity": "Partial Parity",
+      "primaryComponent": "ACM",
+      "evidenceKey": "acm",
+      "notes": "Multi-site as multiple clusters.",
+      "workaround": "Model sites as ACM-managed clusters.",
+      "workaroundComplexity": "High",
+      "technicalImpact": "No VCF stretch-domain object."
+    },
+    "VCF-02-F01": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Assisted Installer",
+      "evidenceKey": "install",
+      "notes": "OpenShift install, not VCF Installer.",
+      "workaround": "Use Assisted Installer / Agent-based installer.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Bring-up UX differs."
+    },
+    "VCF-02-F02": {
+      "parity": "No Parity",
+      "primaryComponent": "N/A",
+      "evidenceKey": "ocp",
+      "notes": "No SDDC Manager orchestration of VCF components."
+    },
+    "VCF-02-F03": {
+      "parity": "Partial Parity",
+      "primaryComponent": "OSUS / oc-mirror",
+      "evidenceKey": "upgrade",
+      "notes": "Release images via OSUS/oc-mirror, not VCF depot.",
+      "workaround": "Mirror release payloads for disconnected upgrades.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Bundle format differs."
+    },
+    "VCF-02-F04": {
+      "parity": "Full Parity",
+      "primaryComponent": "Cluster Version Operator",
+      "evidenceKey": "upgrade",
+      "notes": "Upgrade prechecks via CVO/health operators."
+    },
+    "VCF-02-F05": {
+      "parity": "Partial Parity",
+      "primaryComponent": "CVO",
+      "evidenceKey": "upgrade",
+      "notes": "Coordinates OCP upgrades, not VCF full stack (NSX/vSAN/vCenter).",
+      "workaround": "Upgrade OpenShift + OLM operators as a set.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Does not upgrade a VCF-equivalent stack."
+    },
+    "VCF-02-F06": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Channel / paused operators",
+      "evidenceKey": "upgrade",
+      "notes": "Channels and paused operator updates.",
+      "workaround": "Select upgrade channel; pause non-critical operators.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Not VCF skip-level controls."
+    },
+    "VCF-02-F07": {
+      "parity": "Partial Parity",
+      "primaryComponent": "CVO history",
+      "evidenceKey": "upgrade",
+      "notes": "Upgrade history in cluster version; rollback constrained.",
+      "workaround": "Retain CVO history; rollback via restore/reinstall patterns.",
+      "workaroundComplexity": "High",
+      "technicalImpact": "Full stack rollback is limited."
+    },
+    "VCF-03-F01": {
+      "parity": "Full Parity",
+      "primaryComponent": "OpenShift Virtualization / KubeVirt",
+      "evidenceKey": "virt",
+      "notes": "KubeVirt runs VMs as first-class workloads on OpenShift."
+    },
+    "VCF-03-F02": {
+      "parity": "Full Parity",
+      "primaryComponent": "OpenShift API / console",
+      "evidenceKey": "ocp",
+      "notes": "Central inventory, RBAC, and APIs for VMs and cluster."
+    },
+    "VCF-03-F03": {
+      "parity": "Partial Parity",
+      "primaryComponent": "KubeVirt live migration",
+      "evidenceKey": "virt",
+      "notes": "Live migration exists; not DRS.",
+      "workaround": "Use live migration and node placement/taints.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "No vSphere DRS equivalent."
+    },
+    "VCF-03-F04": {
+      "parity": "Partial Parity",
+      "primaryComponent": "KubeVirt + node HA",
+      "evidenceKey": "virt",
+      "notes": "VM restart depends on node/machine health; not vSphere HA.",
+      "workaround": "Combine MachineHealthChecks with VM runStrategy.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Admission control differs from vSphere HA."
+    },
+    "VCF-03-F05": {
+      "parity": "Partial Parity",
+      "primaryComponent": "ResourceQuotas",
+      "evidenceKey": "ocp",
+      "notes": "Namespaces quotas, not resource pools.",
+      "workaround": "Use namespace quotas and LimitRanges.",
+      "workaroundComplexity": "Low",
+      "technicalImpact": "Pool model differs."
+    },
+    "VCF-03-F06": {
+      "parity": "Full Parity",
+      "primaryComponent": "VirtualMachine CRs",
+      "evidenceKey": "virt",
+      "notes": "VM create, clone, snapshot (with CSI) supported."
+    },
+    "VCF-03-F07": {
+      "parity": "Full Parity",
+      "primaryComponent": "Live migration",
+      "evidenceKey": "virt",
+      "notes": "Evacuate nodes via live migration / drain."
+    },
+    "VCF-04-F01": {
+      "parity": "Partial Parity",
+      "primaryComponent": "ODF / CSI",
+      "evidenceKey": "odf",
+      "notes": "Shared storage via ODF/CSI, not vSAN datastore.",
+      "workaround": "Provide RWX/RWO via ODF or certified CSI.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Datastore abstraction differs."
+    },
+    "VCF-04-F02": {
+      "parity": "Partial Parity",
+      "primaryComponent": "StorageClasses",
+      "evidenceKey": "odf",
+      "notes": "StorageClasses vs SPBM.",
+      "workaround": "Map policies to StorageClasses/volume modes.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "VM disk policy UX differs."
+    },
+    "VCF-04-F03": {
+      "parity": "Partial Parity",
+      "primaryComponent": "ODF",
+      "evidenceKey": "odf",
+      "notes": "Efficiency depends on ODF/Ceph features.",
+      "workaround": "Enable ODF compression/encoding where licensed.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Not vSAN efficiency UI."
+    },
+    "VCF-04-F04": {
+      "parity": "Partial Parity",
+      "primaryComponent": "ODF / Ceph",
+      "evidenceKey": "odf",
+      "notes": "Replication/rebuild via Ceph.",
+      "workaround": "Configure ODF failure domains.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Fault-domain model differs from vSAN."
+    },
+    "VCF-04-F05": {
+      "parity": "Partial Parity",
+      "primaryComponent": "ODF DR",
+      "evidenceKey": "odf",
+      "notes": "Regional DR patterns, not vSAN stretch.",
+      "workaround": "Use Regional DR / mirroring where supported.",
+      "workaroundComplexity": "High",
+      "technicalImpact": "Stretch design is different."
+    },
+    "VCF-04-F06": {
+      "parity": "Partial Parity",
+      "primaryComponent": "NFS / ODF",
+      "evidenceKey": "odf",
+      "notes": "File via NFS CSI or ODF file.",
+      "workaround": "Deploy NFS provisioner or ODF file.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Supplemental file services are add-on."
+    },
+    "VCF-04-F07": {
+      "parity": "Partial Parity",
+      "primaryComponent": "ODF must-gather",
+      "evidenceKey": "odf",
+      "notes": "must-gather/health, not vSAN support bundles.",
+      "workaround": "Use must-gather and ODF dashboards.",
+      "workaroundComplexity": "Low",
+      "technicalImpact": "Supportability tooling differs."
+    },
+    "VCF-05-F01": {
+      "parity": "Partial Parity",
+      "primaryComponent": "OVN-Kubernetes / NAD",
+      "evidenceKey": "ovn",
+      "notes": "NAD/localnet/OVN; not NSX segments.",
+      "workaround": "Use NetworkAttachmentDefinitions and OVN overlay.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Segment model differs."
+    },
+    "VCF-05-F02": {
+      "parity": "Partial Parity",
+      "primaryComponent": "OVN",
+      "evidenceKey": "ovn",
+      "notes": "OVN routing, not NSX T0/T1.",
+      "workaround": "Design OVN logical routers / UDN.",
+      "workaroundComplexity": "High",
+      "technicalImpact": "No Tier-0/1 construct."
+    },
+    "VCF-05-F03": {
+      "parity": "Partial Parity",
+      "primaryComponent": "MetalLB / Ingress",
+      "evidenceKey": "ovn",
+      "notes": "LB via MetalLB/Ingress, not NSX Edge.",
+      "workaround": "Deploy MetalLB or cloud LB plus ingress.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Edge services are composed."
+    },
+    "VCF-05-F04": {
+      "parity": "Partial Parity",
+      "primaryComponent": "UDN / projects",
+      "evidenceKey": "ovn",
+      "notes": "Project/UDN isolation, not NSX VPC.",
+      "workaround": "Use projects and User Defined Networks.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Tenant networking differs."
+    },
+    "VCF-05-F05": {
+      "parity": "Partial Parity",
+      "primaryComponent": "OVN",
+      "evidenceKey": "ovn",
+      "notes": "Geneve overlay; underlay is admin-owned.",
+      "workaround": "Validate MTU/Geneve per OpenShift networking.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "No NSX TZ operational model."
+    },
+    "VCF-05-F06": {
+      "parity": "Partial Parity",
+      "primaryComponent": "CoreDNS / NMState",
+      "evidenceKey": "ocp",
+      "notes": "CoreDNS and NMState DHCP patterns.",
+      "workaround": "Use CoreDNS and NMState for host networking.",
+      "workaroundComplexity": "Low",
+      "technicalImpact": "IPAM is less NSX-like."
+    },
+    "VCF-05-F07": {
+      "parity": "Partial Parity",
+      "primaryComponent": "OVN tracing",
+      "evidenceKey": "ovn",
+      "notes": "ovn-trace / Network Observability operator.",
+      "workaround": "Install Network Observability operator.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Traceflow-class UX is different."
+    },
+    "VCF-06-F01": {
+      "parity": "Partial Parity",
+      "primaryComponent": "NetworkPolicy / AdminNetworkPolicy",
+      "evidenceKey": "ovn",
+      "notes": "K8s NetworkPolicy, not NSX DFW.",
+      "workaround": "Use AdminNetworkPolicy and baseline deny.",
+      "workaroundComplexity": "High",
+      "technicalImpact": "L4/L7 DFW depth lower than NSX."
+    },
+    "VCF-06-F02": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Ingress / egress firewall",
+      "evidenceKey": "ovn",
+      "notes": "EgressFirewall / Ingress controls.",
+      "workaround": "Configure EgressFirewall and ingress ACLs.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Not NSX gateway firewall."
+    },
+    "VCF-06-F03": {
+      "parity": "Full Parity",
+      "primaryComponent": "Labels / selectors",
+      "evidenceKey": "ocp",
+      "notes": "Dynamic grouping via labels is native."
+    },
+    "VCF-06-F04": {
+      "parity": "Partial Parity",
+      "primaryComponent": "ACS",
+      "evidenceKey": "acs",
+      "notes": "Advanced Cluster Security for threat/policy.",
+      "workaround": "Deploy RHACS for runtime/vulnerability controls.",
+      "workaroundComplexity": "High",
+      "technicalImpact": "IDS/IPS-class depends on ACS."
+    },
+    "VCF-06-F05": {
+      "parity": "Partial Parity",
+      "primaryComponent": "SSO / ACS",
+      "evidenceKey": "ocp",
+      "notes": "Identity via SSO; limited identity firewall.",
+      "workaround": "Bind SSO groups to NetworkPolicies/ACS.",
+      "workaroundComplexity": "High",
+      "technicalImpact": "Not NSX identity firewall."
+    },
+    "VCF-06-F06": {
+      "parity": "Partial Parity",
+      "primaryComponent": "GitOps",
+      "evidenceKey": "gitops",
+      "notes": "Policy as code.",
+      "workaround": "Stage NetworkPolicy via GitOps PRs.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Rollback is Git revert."
+    },
+    "VCF-06-F07": {
+      "parity": "Partial Parity",
+      "primaryComponent": "ACS / Compliance operator",
+      "evidenceKey": "acs",
+      "notes": "Compliance reports via ACS/Compliance operator.",
+      "workaround": "Export ACS compliance evidence.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Format differs from NSX."
+    },
+    "VCF-07-F01": {
+      "parity": "Full Parity",
+      "primaryComponent": "Monitoring stack",
+      "evidenceKey": "monitor",
+      "notes": "Prometheus/Grafana in-cluster monitoring."
+    },
+    "VCF-07-F02": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Logging operator",
+      "evidenceKey": "monitor",
+      "notes": "Cluster logging; often Loki/ES.",
+      "workaround": "Install OpenShift Logging / Loki.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Not Aria Logs."
+    },
+    "VCF-07-F03": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Prometheus",
+      "evidenceKey": "monitor",
+      "notes": "Capacity via metrics; less Aria planning.",
+      "workaround": "Use Prometheus + ACM observability.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Forecasting is custom."
+    },
+    "VCF-07-F04": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Compliance / Policy",
+      "evidenceKey": "acm",
+      "notes": "Policy/compliance operators.",
+      "workaround": "Use Compliance Operator and ACM policies.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Content differs from Aria."
+    },
+    "VCF-07-F05": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Service Mesh / labels",
+      "evidenceKey": "ocp",
+      "notes": "App maps via mesh/ACM.",
+      "workaround": "Use Service Mesh or ACM application topology.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Shallower than Aria."
+    },
+    "VCF-07-F06": {
+      "parity": "Full Parity",
+      "primaryComponent": "Alertmanager",
+      "evidenceKey": "monitor",
+      "notes": "Alerting and receivers are standard."
+    },
+    "VCF-07-F07": {
+      "parity": "Partial Parity",
+      "primaryComponent": "must-gather",
+      "evidenceKey": "ocp",
+      "notes": "Evidence via must-gather and dashboards.",
+      "workaround": "Collect must-gather and Grafana exports.",
+      "workaroundComplexity": "Low",
+      "technicalImpact": "Ops evidence packs differ."
+    },
+    "VCF-08-F01": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Developer catalog",
+      "evidenceKey": "ocp",
+      "notes": "OperatorHub/catalog, not Aria catalog.",
+      "workaround": "Publish Helm/Operators in catalog.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "IaaS catalog differs."
+    },
+    "VCF-08-F02": {
+      "parity": "Full Parity",
+      "primaryComponent": "GitOps / Helm / Templates",
+      "evidenceKey": "gitops",
+      "notes": "Templates and GitOps are first-class."
+    },
+    "VCF-08-F03": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Pipelines / ACM",
+      "evidenceKey": "gitops",
+      "notes": "Approvals via Pipelines/ITSM.",
+      "workaround": "Use Tekton manual approval or ITSM gates.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Governance UX differs."
+    },
+    "VCF-08-F04": {
+      "parity": "Full Parity",
+      "primaryComponent": "Operators / Jobs",
+      "evidenceKey": "ocp",
+      "notes": "Day-2 via Operators, CronJobs, Ansible."
+    },
+    "VCF-08-F05": {
+      "parity": "Full Parity",
+      "primaryComponent": "Projects / RBAC",
+      "evidenceKey": "ocp",
+      "notes": "Multi-tenancy via projects and quotas."
+    },
+    "VCF-08-F06": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Webhooks / Pipelines",
+      "evidenceKey": "gitops",
+      "notes": "ITSM via webhooks.",
+      "workaround": "Integrate ServiceNow with Pipelines.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Connectors are DIY."
+    },
+    "VCF-08-F07": {
+      "parity": "Full Parity",
+      "primaryComponent": "Kubernetes APIs",
+      "evidenceKey": "ocp",
+      "notes": "Extensibility via CRDs, Operators, secrets."
+    },
+    "VCF-09-F01": {
+      "parity": "Full Parity",
+      "primaryComponent": "OpenShift",
+      "evidenceKey": "ocp",
+      "notes": "Kubernetes cluster lifecycle is the product."
+    },
+    "VCF-09-F02": {
+      "parity": "Full Parity",
+      "primaryComponent": "Projects",
+      "evidenceKey": "ocp",
+      "notes": "Namespaces/projects with quotas."
+    },
+    "VCF-09-F03": {
+      "parity": "Full Parity",
+      "primaryComponent": "OVN / Services",
+      "evidenceKey": "ovn",
+      "notes": "Pod/Service/Ingress networking is native."
+    },
+    "VCF-09-F04": {
+      "parity": "Full Parity",
+      "primaryComponent": "ODF / CSI",
+      "evidenceKey": "odf",
+      "notes": "Persistent volumes via CSI/ODF."
+    },
+    "VCF-09-F05": {
+      "parity": "Full Parity",
+      "primaryComponent": "OpenShift internal registry / Quay",
+      "evidenceKey": "ocp",
+      "notes": "Integrated registry plus Quay option."
+    },
+    "VCF-09-F06": {
+      "parity": "Full Parity",
+      "primaryComponent": "SCCs / PSA",
+      "evidenceKey": "ocp",
+      "notes": "SCCs, PSA, secrets management."
+    },
+    "VCF-09-F07": {
+      "parity": "Full Parity",
+      "primaryComponent": "Developer console",
+      "evidenceKey": "ocp",
+      "notes": "Strong developer self-service UX."
+    },
+    "VCF-10-F01": {
+      "parity": "Partial Parity",
+      "primaryComponent": "MTV",
+      "evidenceKey": "mtv",
+      "notes": "Migration Toolkit for Virtualization cold migrate.",
+      "workaround": "Use MTV for cold VM import to OpenShift Virt.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Not HCX."
+    },
+    "VCF-10-F02": {
+      "parity": "Partial Parity",
+      "primaryComponent": "MTV / live migration",
+      "evidenceKey": "mtv",
+      "notes": "Limited live cross-platform vs HCX.",
+      "workaround": "Warm migrate with MTV where supported; intra-cluster live migrate after.",
+      "workaroundComplexity": "High",
+      "technicalImpact": "No HCX vMotion fabric."
+    },
+    "VCF-10-F03": {
+      "parity": "Partial Parity",
+      "primaryComponent": "MTV warm migration",
+      "evidenceKey": "mtv",
+      "notes": "Warm/replication-assisted MTV plans.",
+      "workaround": "Use MTV warm migration.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Not HCX RAV."
+    },
+    "VCF-10-F04": {
+      "parity": "No Parity",
+      "primaryComponent": "N/A",
+      "evidenceKey": "mtv",
+      "notes": "No HCX-class L2 extension."
+    },
+    "VCF-10-F05": {
+      "parity": "Partial Parity",
+      "primaryComponent": "MTV",
+      "evidenceKey": "mtv",
+      "notes": "Import VMs; no VCF converge.",
+      "workaround": "Import existing VMs with MTV.",
+      "workaroundComplexity": "High",
+      "technicalImpact": "No VCF Import/Converge."
+    },
+    "VCF-10-F06": {
+      "parity": "Partial Parity",
+      "primaryComponent": "MTV plans",
+      "evidenceKey": "mtv",
+      "notes": "Migration plans/waves in MTV.",
+      "workaround": "Group VMs in MTV plans.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Wave ops less HCX-like."
+    },
+    "VCF-10-F07": {
+      "parity": "Partial Parity",
+      "primaryComponent": "MTV",
+      "evidenceKey": "mtv",
+      "notes": "Keep source until cutover.",
+      "workaround": "Define MTV cutover windows.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Rollback is process-driven."
+    },
+    "VCF-11-F01": {
+      "parity": "Partial Parity",
+      "primaryComponent": "OADP / partners",
+      "evidenceKey": "odf",
+      "notes": "Backup via OADP/Velero/partners.",
+      "workaround": "Deploy OADP or certified backup partners.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Not a built-in VCF backup product."
+    },
+    "VCF-11-F02": {
+      "parity": "Partial Parity",
+      "primaryComponent": "OADP",
+      "evidenceKey": "odf",
+      "notes": "Restore via OADP.",
+      "workaround": "Restore namespaces/VMs with OADP.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "File-level restore depends on tool."
+    },
+    "VCF-11-F03": {
+      "parity": "Partial Parity",
+      "primaryComponent": "ACM DR / ODF",
+      "evidenceKey": "acm",
+      "notes": "Regional DR patterns.",
+      "workaround": "Use Regional DR for apps/VMs where supported.",
+      "workaroundComplexity": "High",
+      "technicalImpact": "Not SRM identical."
+    },
+    "VCF-11-F04": {
+      "parity": "Partial Parity",
+      "primaryComponent": "OADP schedules",
+      "evidenceKey": "odf",
+      "notes": "RPO via backup schedules.",
+      "workaround": "Define backup schedules and test restores.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "SLA dashboards custom."
+    },
+    "VCF-11-F05": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Object lock / partners",
+      "evidenceKey": "odf",
+      "notes": "Immutability via object storage lock.",
+      "workaround": "Use S3 object lock with OADP.",
+      "workaroundComplexity": "High",
+      "technicalImpact": "Cyber recovery is design-heavy."
+    },
+    "VCF-11-F06": {
+      "parity": "Partial Parity",
+      "primaryComponent": "CSI snapshots",
+      "evidenceKey": "odf",
+      "notes": "App consistency via snapshots/hooks.",
+      "workaround": "Use freeze hooks and CSI snapshots.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "DB agents are partner/DIY."
+    },
+    "VCF-11-F07": {
+      "parity": "Partial Parity",
+      "primaryComponent": "OADP / ACM",
+      "evidenceKey": "acm",
+      "notes": "DR test evidence is operational.",
+      "workaround": "Export backup/DR test logs.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Reporting is lighter."
+    },
+    "VCF-12-F01": {
+      "parity": "Partial Parity",
+      "primaryComponent": "NVIDIA GPU Operator",
+      "evidenceKey": "ocp",
+      "notes": "GPU enablement on OpenShift.",
+      "workaround": "Install GPU Operator and time-slicing/MIG.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Not VCF Private AI SKU."
+    },
+    "VCF-12-F02": {
+      "parity": "Partial Parity",
+      "primaryComponent": "OpenShift AI",
+      "evidenceKey": "rhoai",
+      "notes": "Model serving via OpenShift AI / KServe.",
+      "workaround": "Deploy RHOAI model servers.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Packaging differs from VCF Private AI."
+    },
+    "VCF-12-F03": {
+      "parity": "Partial Parity",
+      "primaryComponent": "OpenShift AI",
+      "evidenceKey": "rhoai",
+      "notes": "Data science pipelines / RAG assembled on platform.",
+      "workaround": "Build RAG with RHOAI pipelines and vector DBs.",
+      "workaroundComplexity": "High",
+      "technicalImpact": "Not a single VCF Private AI product."
+    },
+    "VCF-12-F04": {
+      "parity": "Partial Parity",
+      "primaryComponent": "OpenShift AI",
+      "evidenceKey": "rhoai",
+      "notes": "MLOps via RHOAI/KServe, not VCF Private AI Services.",
+      "workaround": "Use RHOAI model versions and serving.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Lifecycle UX differs."
+    },
+    "VCF-12-F05": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Projects / RBAC",
+      "evidenceKey": "ocp",
+      "notes": "Project RBAC for AI workspaces.",
+      "workaround": "Isolate AI projects with quotas.",
+      "workaroundComplexity": "Low",
+      "technicalImpact": "AI-specific governance is limited."
+    },
+    "VCF-12-F06": {
+      "parity": "Partial Parity",
+      "primaryComponent": "OpenShift platform",
+      "evidenceKey": "ocp",
+      "notes": "Uses platform identity/network/storage/monitoring.",
+      "workaround": "Run AI on the same OCP stack.",
+      "workaroundComplexity": "Low",
+      "technicalImpact": "Integration is native K8s, not VCF services."
+    },
+    "VCF-12-F07": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Disconnected OpenShift",
+      "evidenceKey": "ocp",
+      "notes": "Air-gapped clusters support private inference.",
+      "workaround": "Disconnected install plus egress NetworkPolicy.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Sovereign design is operational."
+    }
+  }
+}
