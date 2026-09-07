@@ -1,0 +1,685 @@
+{
+  "status": "evidence_backed_draft",
+  "platformKey": "NCP_AHV",
+  "platformName": "Nutanix Cloud Platform / AHV",
+  "evaluatedBaseline": "NCI + Prism Central + LCM + Flow + NCM/Self-Service + Move + NKP + Nutanix DR (public product capability baseline, 2026-08)",
+  "disclaimer": "Parity judgments are SME-style mappings of public Nutanix product capabilities to CN v0.3 FeatureIDs for workshop dry-run. Evidence URLs are public product/docs pages. Exact AOS/AHV/Prism point releases still require customer portal validation. Partial rows include workaround notes.",
+  "evidenceCatalog": {
+    "prism": "https://www.nutanix.com/products/prism",
+    "ahv": "https://www.nutanix.com/products/ahv",
+    "aos": "https://www.nutanix.com/products/cloud-infrastructure",
+    "lcm": "https://www.nutanix.com/products/life-cycle-manager",
+    "lcmDatasheet": "https://www.nutanix.com/library/datasheets/nutanix-life-cycle-manager",
+    "flowNetworking": "https://www.nutanix.com/products/flow/networking",
+    "flowSecurity": "https://www.nutanix.com/products/flow",
+    "ncm": "https://www.nutanix.com/products/cloud-manager",
+    "move": "https://www.nutanix.com/products/move",
+    "dr": "https://www.nutanix.com/products/disaster-recovery",
+    "drBlog": "https://www.nutanix.com/tech-center/blog/inside-nutanix-cloud-infrastructure-7-6-disaster-recovery",
+    "nkp": "https://www.nutanix.com/products/kubernetes-platform",
+    "foundation": "https://www.nutanix.com/products/cloud-infrastructure",
+    "files": "https://www.nutanix.com/products/files",
+    "gpt": "https://www.nutanix.com/products/gpt-in-a-box"
+  },
+  "features": {
+    "VCF-01-F01": {
+      "parity": "Full Parity",
+      "primaryComponent": "Prism Central",
+      "evidenceKey": "prism",
+      "notes": "Prism Central provides multi-cluster inventory, topology, and capacity visibility across registered clusters."
+    },
+    "VCF-01-F02": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Prism / Foundation",
+      "evidenceKey": "prism",
+      "workaround": "Use cluster create/expand/destroy workflows instead of VCF Workload Domains.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "No 1:1 Workload Domain construct; operational model differs from SDDC Manager domains.",
+      "notes": "Nutanix manages clusters, not VCF-style workload domains."
+    },
+    "VCF-01-F03": {
+      "parity": "Full Parity",
+      "primaryComponent": "AOS / Prism",
+      "evidenceKey": "aos",
+      "notes": "Cluster expand/contract and node add/remove are core NCI operations."
+    },
+    "VCF-01-F04": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Prism Element / Prism Central",
+      "evidenceKey": "prism",
+      "workaround": "Separate management via Prism Element vs Prism Central and RBAC/projects; not identical to VCF management domain.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Isolation model differs; governance must be redesigned.",
+      "notes": "PE/PC separation is analogous but not equivalent to VCF principal/workload domains."
+    },
+    "VCF-01-F05": {
+      "parity": "Full Parity",
+      "primaryComponent": "Foundation / LCM",
+      "evidenceKey": "foundation",
+      "notes": "Host imaging/commissioning via Foundation and lifecycle tooling."
+    },
+    "VCF-01-F06": {
+      "parity": "Partial Parity",
+      "primaryComponent": "NCM / Prism",
+      "evidenceKey": "ncm",
+      "workaround": "Use NCM configuration/ops policies and Prism desired configuration where licensed.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Baseline/drift semantics differ from VCF configuration baselines.",
+      "notes": "Configuration governance available but not SDDC Manager baseline parity."
+    },
+    "VCF-01-F07": {
+      "parity": "Partial Parity",
+      "primaryComponent": "AOS Metro / DR",
+      "evidenceKey": "dr",
+      "workaround": "Use AHV Metro / stretch and site-aware DR constructs.",
+      "workaroundComplexity": "High",
+      "technicalImpact": "Site affinity and failure-domain UX differs from VCF stretch domain model.",
+      "notes": "Metro/stretch supported; topology semantics differ."
+    },
+
+    "VCF-02-F01": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Foundation",
+      "evidenceKey": "foundation",
+      "workaround": "Use Foundation bring-up instead of VCF Installer wizard.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Different bring-up UX and prerequisite model.",
+      "notes": "Initial cluster bring-up exists; not VCF Installer."
+    },
+    "VCF-02-F02": {
+      "parity": "No Parity",
+      "primaryComponent": "N/A",
+      "evidenceKey": "lcm",
+      "notes": "No SDDC Manager equivalent. LCM upgrades components but does not orchestrate VCF-style domain workflows."
+    },
+    "VCF-02-F03": {
+      "parity": "Partial Parity",
+      "primaryComponent": "LCM",
+      "evidenceKey": "lcmDatasheet",
+      "workaround": "Use LCM inventory/depot and dark-site bundle workflows.",
+      "workaroundComplexity": "Low",
+      "technicalImpact": "Bundle formats and depot model differ from VCF depot.",
+      "notes": "LCM manages update inventory; not VCF bundle schema."
+    },
+    "VCF-02-F04": {
+      "parity": "Full Parity",
+      "primaryComponent": "LCM",
+      "evidenceKey": "lcm",
+      "notes": "LCM performs upgrade prechecks and dependency handling."
+    },
+    "VCF-02-F05": {
+      "parity": "Full Parity",
+      "primaryComponent": "LCM",
+      "evidenceKey": "lcmDatasheet",
+      "notes": "LCM coordinates one-click software/firmware upgrades across cluster nodes."
+    },
+    "VCF-02-F06": {
+      "parity": "Partial Parity",
+      "primaryComponent": "LCM",
+      "evidenceKey": "lcm",
+      "workaround": "Select component update sets in LCM; selective deferral depends on LCM recommendations.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Skip-level policy model differs from VCF selective update controls.",
+      "notes": "Selective updates possible but not VCF skip-level controls."
+    },
+    "VCF-02-F07": {
+      "parity": "Partial Parity",
+      "primaryComponent": "LCM / Prism",
+      "evidenceKey": "lcm",
+      "workaround": "Retain LCM/Prism upgrade history; rollback is often re-image/reinstall constrained.",
+      "workaroundComplexity": "High",
+      "technicalImpact": "Rollback posture typically weaker than customer expectation for full stack rollback.",
+      "notes": "History available; rollback constraints must be documented per release."
+    },
+
+    "VCF-03-F01": {
+      "parity": "Full Parity",
+      "primaryComponent": "AHV",
+      "evidenceKey": "ahv",
+      "notes": "AHV provides enterprise VM compute services."
+    },
+    "VCF-03-F02": {
+      "parity": "Full Parity",
+      "primaryComponent": "Prism Central",
+      "evidenceKey": "prism",
+      "notes": "Prism Central is the multi-cluster management plane with RBAC and APIs."
+    },
+    "VCF-03-F03": {
+      "parity": "Full Parity",
+      "primaryComponent": "AHV / ADS",
+      "evidenceKey": "ahv",
+      "notes": "AHV Dynamic Scheduling / placement and maintenance evacuation are supported."
+    },
+    "VCF-03-F04": {
+      "parity": "Full Parity",
+      "primaryComponent": "AHV HA",
+      "evidenceKey": "ahv",
+      "notes": "AHV HA restarts VMs on host failure."
+    },
+    "VCF-03-F05": {
+      "parity": "Partial Parity",
+      "primaryComponent": "AHV / Prism",
+      "evidenceKey": "ahv",
+      "workaround": "Use VM/categories/project quotas and scheduling policies instead of classic vSphere resource pools.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Resource-pool semantics are not identical to vSphere.",
+      "notes": "Controls exist via categories/projects; not 1:1 resource pools."
+    },
+    "VCF-03-F06": {
+      "parity": "Full Parity",
+      "primaryComponent": "AHV / Prism",
+      "evidenceKey": "ahv",
+      "notes": "VM provision, clone, snapshot/revert are core AHV operations."
+    },
+    "VCF-03-F07": {
+      "parity": "Full Parity",
+      "primaryComponent": "AHV",
+      "evidenceKey": "ahv",
+      "notes": "Maintenance mode and live migration (AHV) supported."
+    },
+
+    "VCF-04-F01": {
+      "parity": "Full Parity",
+      "primaryComponent": "AOS Storage",
+      "evidenceKey": "aos",
+      "notes": "AOS provides distributed shared storage containers for VMs."
+    },
+    "VCF-04-F02": {
+      "parity": "Full Parity",
+      "primaryComponent": "AOS Storage Policies",
+      "evidenceKey": "aos",
+      "notes": "Storage policies/RF and container policies map to SPBM-like intent."
+    },
+    "VCF-04-F03": {
+      "parity": "Full Parity",
+      "primaryComponent": "AOS",
+      "evidenceKey": "aos",
+      "notes": "Compression/dedup/erasure coding efficiency features available on AOS."
+    },
+    "VCF-04-F04": {
+      "parity": "Full Parity",
+      "primaryComponent": "AOS",
+      "evidenceKey": "aos",
+      "notes": "Replication Factor / fault tolerance and rebuild are core AOS capabilities."
+    },
+    "VCF-04-F05": {
+      "parity": "Partial Parity",
+      "primaryComponent": "AHV Metro / Sync Rep",
+      "evidenceKey": "dr",
+      "workaround": "Use Metro Availability / synchronous replication with witness.",
+      "workaroundComplexity": "High",
+      "technicalImpact": "Stretch design and witness requirements differ from vSAN stretch.",
+      "notes": "Metro supported with specific topology requirements."
+    },
+    "VCF-04-F06": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Nutanix Files / Volumes",
+      "evidenceKey": "files",
+      "workaround": "Add Nutanix Files and/or Volumes for file/block supplemental services.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Separate product packaging vs integrated vSAN File Services.",
+      "notes": "File services via Files product; not identical to vSAN File Services."
+    },
+    "VCF-04-F07": {
+      "parity": "Full Parity",
+      "primaryComponent": "Prism / NCC",
+      "evidenceKey": "prism",
+      "notes": "Health checks, support bundles, and rebuild/resync visibility available."
+    },
+
+    "VCF-05-F01": {
+      "parity": "Full Parity",
+      "primaryComponent": "Flow Virtual Networking / AHV networking",
+      "evidenceKey": "flowNetworking",
+      "notes": "Managed subnets/segments and VPC constructs available with Flow Virtual Networking."
+    },
+    "VCF-05-F02": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Flow Virtual Networking",
+      "evidenceKey": "flowNetworking",
+      "workaround": "Use VPC routing/NAT/VPN constructs; map Tier-0/1 designs to Flow VPC model.",
+      "workaroundComplexity": "High",
+      "technicalImpact": "No NSX Tier-0/Tier-1 identical model.",
+      "notes": "SDN routing exists; taxonomy differs from NSX."
+    },
+    "VCF-05-F03": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Flow Virtual Networking",
+      "evidenceKey": "flowNetworking",
+      "workaround": "Use Flow gateways/NAT and partner service insertion for advanced edge services.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Edge node model not identical to NSX Edge.",
+      "notes": "Gateway/NAT/VPN style services available; advanced LB may need partners."
+    },
+    "VCF-05-F04": {
+      "parity": "Full Parity",
+      "primaryComponent": "Flow Virtual Networking",
+      "evidenceKey": "flowNetworking",
+      "notes": "VPC multi-tenancy networking is a primary Flow Virtual Networking capability."
+    },
+    "VCF-05-F05": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Flow / AHV",
+      "evidenceKey": "flowNetworking",
+      "workaround": "Validate underlay with Nutanix networking best practices; overlay via Flow VPC.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Overlay/underlay troubleshooting model differs from NSX transport zones.",
+      "notes": "Overlay supported; operational tooling differs."
+    },
+    "VCF-05-F06": {
+      "parity": "Partial Parity",
+      "primaryComponent": "AHV / Flow",
+      "evidenceKey": "flowNetworking",
+      "workaround": "Use managed DHCP in AHV/Flow; DNS often external or integrated services.",
+      "workaroundComplexity": "Low",
+      "technicalImpact": "DNS/IPAM depth may be less than NSX.",
+      "notes": "DHCP available; DNS/IPAM often hybrid."
+    },
+    "VCF-05-F07": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Prism / Flow",
+      "evidenceKey": "prism",
+      "workaround": "Use Prism/Flow topology and alerts; advanced path tracing may need packet capture tooling.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Observability depth below mature NSX Traceflow in some scenarios.",
+      "notes": "Basic network observability present."
+    },
+
+    "VCF-06-F01": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Flow Network Security",
+      "evidenceKey": "flowSecurity",
+      "workaround": "Implement microsegmentation with Flow Network Security policies/categories.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Policy model differs from NSX Distributed Firewall.",
+      "notes": "Microsegmentation available; not NSX DFW feature parity."
+    },
+    "VCF-06-F02": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Flow / VPC gateway",
+      "evidenceKey": "flowNetworking",
+      "workaround": "Use VPC/gateway security policies and perimeter controls.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "North-south controls exist but differ from NSX gateway firewall.",
+      "notes": "Gateway/perimeter controls available via Flow/VPC."
+    },
+    "VCF-06-F03": {
+      "parity": "Full Parity",
+      "primaryComponent": "Prism Categories / Flow",
+      "evidenceKey": "flowSecurity",
+      "notes": "Categories/dynamic grouping are a core Nutanix policy construct."
+    },
+    "VCF-06-F04": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Flow / partner security",
+      "evidenceKey": "flowSecurity",
+      "workaround": "Use Flow advanced security options and/or service insertion with partners for IDS/IPS-class controls.",
+      "workaroundComplexity": "High",
+      "technicalImpact": "May require partner stack for NSX IDS/IPS equivalent.",
+      "notes": "Native advanced threat depth varies by license/partner."
+    },
+    "VCF-06-F05": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Flow / IAM",
+      "evidenceKey": "flowSecurity",
+      "workaround": "Combine identity sources with categories/RBAC; context-aware depth may be limited.",
+      "workaroundComplexity": "High",
+      "technicalImpact": "Identity-aware firewall parity incomplete vs NSX.",
+      "notes": "Some context controls; not full NSX identity firewall."
+    },
+    "VCF-06-F06": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Flow / Prism",
+      "evidenceKey": "flowSecurity",
+      "workaround": "Use change control process + policy versioning practices in Prism/Flow.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Publish/rollback workflow differs.",
+      "notes": "Policy lifecycle exists with operational process differences."
+    },
+    "VCF-06-F07": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Flow / NCM",
+      "evidenceKey": "ncm",
+      "workaround": "Export policy inventories and compliance reports from Flow/NCM.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Compliance evidence packs differ from NSX reporting.",
+      "notes": "Reporting available; format differs."
+    },
+
+    "VCF-07-F01": {
+      "parity": "Full Parity",
+      "primaryComponent": "Prism / NCM",
+      "evidenceKey": "prism",
+      "notes": "Infrastructure metrics, dashboards, and alerts are core Prism capabilities."
+    },
+    "VCF-07-F02": {
+      "parity": "Partial Parity",
+      "primaryComponent": "NCM / external logging",
+      "evidenceKey": "ncm",
+      "workaround": "Use NCM ops/logging integrations or SIEM (Splunk/ELK) for deep log analytics.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "May need external log platform vs Aria Operations for Logs.",
+      "notes": "Log analysis often hybrid with external SIEM."
+    },
+    "VCF-07-F03": {
+      "parity": "Full Parity",
+      "primaryComponent": "NCM / Prism",
+      "evidenceKey": "ncm",
+      "notes": "Capacity planning and what-if style insights available in NCM/Prism."
+    },
+    "VCF-07-F04": {
+      "parity": "Partial Parity",
+      "primaryComponent": "NCM",
+      "evidenceKey": "ncm",
+      "workaround": "Use NCM security/config compliance features where licensed.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Compliance content packs differ from Aria.",
+      "notes": "Configuration/compliance monitoring available with licensing caveats."
+    },
+    "VCF-07-F05": {
+      "parity": "Partial Parity",
+      "primaryComponent": "NCM",
+      "evidenceKey": "ncm",
+      "workaround": "Map apps via categories/projects and NCM app discovery where available.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "App dependency mapping may be less deep than Aria.",
+      "notes": "Service awareness partial."
+    },
+    "VCF-07-F06": {
+      "parity": "Full Parity",
+      "primaryComponent": "Prism / NCM",
+      "evidenceKey": "prism",
+      "notes": "Alert policies and notification routing supported."
+    },
+    "VCF-07-F07": {
+      "parity": "Full Parity",
+      "primaryComponent": "Prism / NCM",
+      "evidenceKey": "ncm",
+      "notes": "Operational reporting and export supported."
+    },
+
+    "VCF-08-F01": {
+      "parity": "Partial Parity",
+      "primaryComponent": "NCM Self-Service / Calm",
+      "evidenceKey": "ncm",
+      "workaround": "Publish blueprints/catalog in NCM Self-Service.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Catalog UX and governance differ from Aria Automation.",
+      "notes": "Self-service catalog available with NCM."
+    },
+    "VCF-08-F02": {
+      "parity": "Full Parity",
+      "primaryComponent": "NCM Self-Service / Calm",
+      "evidenceKey": "ncm",
+      "notes": "Blueprints/templates with parameters are core Calm/Self-Service capability."
+    },
+    "VCF-08-F03": {
+      "parity": "Partial Parity",
+      "primaryComponent": "NCM Self-Service",
+      "evidenceKey": "ncm",
+      "workaround": "Configure approval policies in Self-Service / projects.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Approval depth/ITSM-native flows may need integration work.",
+      "notes": "Approvals supported; governance maturity depends on design."
+    },
+    "VCF-08-F04": {
+      "parity": "Full Parity",
+      "primaryComponent": "NCM Self-Service / Calm",
+      "evidenceKey": "ncm",
+      "notes": "Day-2 actions and runbooks supported in blueprints."
+    },
+    "VCF-08-F05": {
+      "parity": "Full Parity",
+      "primaryComponent": "NCM Projects",
+      "evidenceKey": "ncm",
+      "notes": "Projects/tenancy and entitlements are standard NCM constructs."
+    },
+    "VCF-08-F06": {
+      "parity": "Partial Parity",
+      "primaryComponent": "NCM / APIs",
+      "evidenceKey": "ncm",
+      "workaround": "Integrate via REST APIs/webhooks to ServiceNow/pipelines.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Out-of-box ITSM connectors less turnkey than some Aria packs.",
+      "notes": "Integrations feasible via APIs."
+    },
+    "VCF-08-F07": {
+      "parity": "Full Parity",
+      "primaryComponent": "NCM / v4 APIs",
+      "evidenceKey": "ncm",
+      "notes": "Extensibility via APIs, custom actions, credential management supported."
+    },
+
+    "VCF-09-F01": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Nutanix Kubernetes Platform (NKP)",
+      "evidenceKey": "nkp",
+      "workaround": "Use NKP for Kubernetes cluster lifecycle on NCI.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Not vSphere Supervisor / VKS identical model.",
+      "notes": "K8s lifecycle via NKP, not VKS Supervisor."
+    },
+    "VCF-09-F02": {
+      "parity": "Full Parity",
+      "primaryComponent": "NKP",
+      "evidenceKey": "nkp",
+      "notes": "Namespaces, quotas, and tenancy controls available in Kubernetes platforms."
+    },
+    "VCF-09-F03": {
+      "parity": "Partial Parity",
+      "primaryComponent": "NKP / Flow",
+      "evidenceKey": "nkp",
+      "workaround": "Use CNI + Flow/VPC integration patterns for cluster networking.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Integration model differs from NSX-VKS.",
+      "notes": "Pod/service networking supported; SDN integration differs."
+    },
+    "VCF-09-F04": {
+      "parity": "Full Parity",
+      "primaryComponent": "NKP / Nutanix CSI / NDK",
+      "evidenceKey": "nkp",
+      "notes": "Persistent volumes via Nutanix CSI/data services for Kubernetes."
+    },
+    "VCF-09-F05": {
+      "parity": "Partial Parity",
+      "primaryComponent": "NKP / Harbor or external registry",
+      "evidenceKey": "nkp",
+      "workaround": "Integrate Harbor/Quay or managed registry with NKP.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Registry may be external add-on vs integrated VCF package.",
+      "notes": "Registry typically integrated, not always bundled identically."
+    },
+    "VCF-09-F06": {
+      "parity": "Partial Parity",
+      "primaryComponent": "NKP",
+      "evidenceKey": "nkp",
+      "workaround": "Apply PSS/PodSecurity, secrets managers, and admission policies in NKP.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Security pack composition differs from VKS.",
+      "notes": "Platform security controls available with configuration effort."
+    },
+    "VCF-09-F07": {
+      "parity": "Partial Parity",
+      "primaryComponent": "NKP",
+      "evidenceKey": "nkp",
+      "workaround": "Provide developer self-service via NKP UI/CLI/API and GitOps.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Developer UX differs from VKS/Tanzu experience.",
+      "notes": "Self-service possible; experience differs."
+    },
+
+    "VCF-10-F01": {
+      "parity": "Full Parity",
+      "primaryComponent": "Nutanix Move",
+      "evidenceKey": "move",
+      "notes": "Move supports cold/seeded migrations into AHV."
+    },
+    "VCF-10-F02": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Move / CCLM",
+      "evidenceKey": "move",
+      "workaround": "Use Move cutover and Cross-Cluster Live Migration where supported for running workloads.",
+      "workaroundComplexity": "High",
+      "technicalImpact": "Not identical to HCX vMotion fabric; network continuity constraints apply.",
+      "notes": "Live mobility options exist with constraints vs HCX."
+    },
+    "VCF-10-F03": {
+      "parity": "Full Parity",
+      "primaryComponent": "Move / DR replication",
+      "evidenceKey": "move",
+      "notes": "Replication-assisted migration/seed and cutover supported."
+    },
+    "VCF-10-F04": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Move / Flow",
+      "evidenceKey": "move",
+      "workaround": "Plan IP changes or use network extension patterns carefully; HCX-style L2 extension is not 1:1.",
+      "workaroundComplexity": "High",
+      "technicalImpact": "Network extension is a common HCX strength; expect redesign.",
+      "notes": "L2 extension parity limited vs HCX."
+    },
+    "VCF-10-F05": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Move / Foundation",
+      "evidenceKey": "move",
+      "workaround": "Import/migrate existing estates with Move; converge operationally under Prism Central.",
+      "workaroundComplexity": "High",
+      "technicalImpact": "No VCF Import/Converge product equivalent.",
+      "notes": "Import/converge is process+Move, not VCF workflow."
+    },
+    "VCF-10-F06": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Move",
+      "evidenceKey": "move",
+      "workaround": "Use Move migration plans/waves and project tracking.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Wave ops tooling less HCX-centric.",
+      "notes": "Wave planning supported with operational process."
+    },
+    "VCF-10-F07": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Move",
+      "evidenceKey": "move",
+      "workaround": "Keep source powered until validation; define rollback windows before cutover.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Rollback depends on cutover design.",
+      "notes": "Rollback posture is process-driven."
+    },
+
+    "VCF-11-F01": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Nutanix DR / partner backup",
+      "evidenceKey": "dr",
+      "workaround": "Use snapshots/replication plus partner backup (HYCU, Veeam, Commvault) for full backup estates.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Enterprise backup often partner-based vs built-in VCF backup product.",
+      "notes": "Protection available; backup ecosystem is hybrid."
+    },
+    "VCF-11-F02": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Nutanix DR / partner backup",
+      "evidenceKey": "dr",
+      "workaround": "Restore via DR recovery plans and/or partner backup restore workflows.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "File-level restore depends on partner tool.",
+      "notes": "Restore supported with tool-dependent depth."
+    },
+    "VCF-11-F03": {
+      "parity": "Full Parity",
+      "primaryComponent": "Nutanix Disaster Recovery",
+      "evidenceKey": "drBlog",
+      "notes": "Entity-centric DR with protection policies and recovery plans is a Nutanix product capability."
+    },
+    "VCF-11-F04": {
+      "parity": "Full Parity",
+      "primaryComponent": "Nutanix DR",
+      "evidenceKey": "dr",
+      "notes": "RPO policy configuration and monitoring supported in protection policies."
+    },
+    "VCF-11-F05": {
+      "parity": "Partial Parity",
+      "primaryComponent": "DR / partner cyber recovery",
+      "evidenceKey": "dr",
+      "workaround": "Design immutable/partner cyber-recovery patterns; validate license/features.",
+      "workaroundComplexity": "High",
+      "technicalImpact": "Cyber recovery maturity depends on partner + design.",
+      "notes": "Immutable/cyber patterns partial/partner-dependent."
+    },
+    "VCF-11-F06": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Partner backup agents",
+      "evidenceKey": "dr",
+      "workaround": "Use app-consistent partner agents for databases.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "App-consistent depth is partner-specific.",
+      "notes": "App-consistent protection typically via partners."
+    },
+    "VCF-11-F07": {
+      "parity": "Full Parity",
+      "primaryComponent": "Nutanix DR",
+      "evidenceKey": "dr",
+      "notes": "DR test/failover reporting and protection status available."
+    },
+
+    "VCF-12-F01": {
+      "parity": "Partial Parity",
+      "primaryComponent": "AHV GPU / GPT-in-a-Box",
+      "evidenceKey": "gpt",
+      "workaround": "Enable GPU passthrough/vGPU on AHV and/or GPT-in-a-Box offerings.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Not identical to VCF Private AI Services packaging.",
+      "notes": "GPU enablement available; packaging differs."
+    },
+    "VCF-12-F02": {
+      "parity": "Partial Parity",
+      "primaryComponent": "GPT-in-a-Box / NKP",
+      "evidenceKey": "gpt",
+      "workaround": "Deploy model serving on NKP/GPU nodes or GPT-in-a-Box stack.",
+      "workaroundComplexity": "High",
+      "technicalImpact": "Private AI productization differs from VCF Private AI Services.",
+      "notes": "Model hosting possible; not turnkey VCF Private AI parity."
+    },
+    "VCF-12-F03": {
+      "parity": "Partial Parity",
+      "primaryComponent": "GPT-in-a-Box / partner RAG",
+      "evidenceKey": "gpt",
+      "workaround": "Assemble RAG pipelines with platform storage + partner AI stack.",
+      "workaroundComplexity": "High",
+      "technicalImpact": "RAG foundations are solution-assembled.",
+      "notes": "Data pipeline/RAG not a single built-in VCF-equivalent product."
+    },
+    "VCF-12-F04": {
+      "parity": "No Parity",
+      "primaryComponent": "N/A",
+      "evidenceKey": "gpt",
+      "notes": "No first-class MLOps lifecycle equivalent to VCF Private AI Services MLOps claims in this baseline."
+    },
+    "VCF-12-F05": {
+      "parity": "Partial Parity",
+      "primaryComponent": "Prism RBAC / Projects",
+      "evidenceKey": "prism",
+      "workaround": "Use projects/RBAC and platform policy to govern AI resource access.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "AI-specific governance features limited.",
+      "notes": "General platform governance only."
+    },
+    "VCF-12-F06": {
+      "parity": "Partial Parity",
+      "primaryComponent": "NCI platform services",
+      "evidenceKey": "aos",
+      "workaround": "Run AI workloads on AHV using platform identity/network/storage/ops.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Integration is DIY vs packaged VCF Private AI.",
+      "notes": "Platform integration possible at infrastructure layer."
+    },
+    "VCF-12-F07": {
+      "parity": "Partial Parity",
+      "primaryComponent": "On-prem NCI / GPT-in-a-Box",
+      "evidenceKey": "gpt",
+      "workaround": "Keep inference on-prem; control egress via network policy.",
+      "workaroundComplexity": "Medium",
+      "technicalImpact": "Sovereign controls are design-dependent.",
+      "notes": "Private on-prem posture achievable with controls."
+    }
+  }
+}
